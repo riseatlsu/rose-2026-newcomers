@@ -25,3 +25,4 @@ If you have any questions or are interested in contributing to this project, ple
 * Juliana Freitas (jfreit4@lsu.edu)
 * Elijah Phifer (ephife3@lsu.edu)
 * Author Name (email@institution.edu)
+* Felipe Fronchetti (ffronchetti@lsu.edu)

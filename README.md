@@ -23,5 +23,5 @@ The pipeline analyzes ROS packages across three distributions (ROS 2 Humble, Jaz
 If you have any questions or are interested in contributing to this project, please don't hesitate to contact us:
 
 * Juliana Freitas (jfreit4@lsu.edu)
-* Author Name (email@institution.edu)
+* Elijah Phifer (ephife3@lsu.edu)
 * Author Name (email@institution.edu)

@@ -17,7 +17,7 @@ echo "GITHUB_TOKEN=your_github_token_here" > .env
 python scripts/run_all.py
 ```
 
-The pipeline analyzes ROS packages across three distributions (ROS 2 Humble, Jazzy, and Kilted) and generates the final repository dataset at `out/final_repo_dataset.csv`. Individual scripts can also be run independently if you want to execute specific steps of the pipeline.
+The pipeline analyzes ROS packages across three distributions (ROS 2 Humble, Jazzy, and Kilted) and generates the final repository dataset at `out/filtered_repo_dataset.csv`. Individual scripts can also be run independently if you want to execute specific steps of the pipeline.
 
 # Contact
 If you have any questions or are interested in contributing to this project, please don't hesitate to contact us:

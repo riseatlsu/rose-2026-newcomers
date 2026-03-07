@@ -23,10 +23,10 @@ SCRIPTS = [
     "11_apply_exclusion_criteria.py",
 ]
 
-# Post-processing scripts (in project root)
+# Post-processing scripts (in scripts/ directory)
 POST_SCRIPTS = [
+    "generate_ros_packages_statistics.py",
     "generate_all_commits_spreadsheet.py",
-    "compare_classifiers.py",
 ]
 
 def main():
@@ -80,7 +80,7 @@ def main():
         try:
             result = subprocess.run(
                 [sys.executable, str(script_path)],
-                cwd=SCRIPT_DIR
+                cwd=PROJECT_ROOT
             )
             
             if result.returncode == 0:

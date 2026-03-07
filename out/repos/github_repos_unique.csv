@@ -1,5 +1,5 @@
 full_name,repo_url,distros,n_distros,n_packages_total,resolved_via_breakdown
-autowarefoundation/autoware_core,https://github.com/autowarefoundation/autoware_core.git,humble,1,65,rosdistro_release_packages:65
+autowarefoundation/autoware_core,https://github.com/autowarefoundation/autoware_core.git,humble,1,69,rosdistro_release_packages:69
 ros-planning/navigation2,https://github.com/ros-planning/navigation2.git,humble|jazzy|kilted,3,44,rosdistro_release_packages:128
 ros-planning/moveit2,https://github.com/ros-planning/moveit2.git,humble|jazzy|kilted,3,41,rosdistro_release_packages:119
 ika-rwth-aachen/etsi_its_messages,https://github.com/ika-rwth-aachen/etsi_its_messages.git,humble|jazzy|kilted,3,35,rosdistro_release_packages:105
@@ -16,11 +16,11 @@ ros-drivers/phidgets_drivers,https://github.com/ros-drivers/phidgets_drivers.git
 ROBOTIS-GIT/open_manipulator,https://github.com/ROBOTIS-GIT/open_manipulator.git,humble|jazzy|kilted,3,17,rosdistro_release_packages:29
 carologistics/clips_executive,https://github.com/carologistics/clips_executive.git,jazzy|kilted,2,17,rosdistro_release_packages:34
 PlanSys2/ros2_planning_system,https://github.com/PlanSys2/ros2_planning_system.git,jazzy|kilted,2,16,rosdistro_release_packages:31
-kroshu/kuka_drivers,https://github.com/kroshu/kuka_drivers.git,humble,1,15,rosdistro_release_packages:15
 ANYbotics/grid_map,https://github.com/ANYbotics/grid_map.git,humble|jazzy|kilted,3,15,rosdistro_release_packages:45
 bosch-engineering/off_highway_sensor_drivers,https://github.com/bosch-engineering/off_highway_sensor_drivers.git,humble|jazzy,2,15,rosdistro_release_packages:30
 ros2/ros2cli,https://github.com/ros2/ros2cli.git,humble|jazzy|kilted,3,15,rosdistro_release_packages:45
 ros2/geometry2,https://github.com/ros2/geometry2.git,humble|jazzy|kilted,3,14,rosdistro_release_packages:42
+kroshu/kuka_drivers,https://github.com/kroshu/kuka_drivers.git,humble,1,14,rosdistro_release_packages:14
 kroshu/kuka_robot_descriptions,https://github.com/kroshu/kuka_robot_descriptions.git,humble,1,14,rosdistro_release_packages:14
 cyberbotics/webots_ros2,https://github.com/cyberbotics/webots_ros2.git,humble|jazzy|kilted,3,14,rosdistro_release_packages:42
 ros2/common_interfaces,https://github.com/ros2/common_interfaces.git,humble|jazzy|kilted,3,13,rosdistro_release_packages:39
@@ -45,11 +45,13 @@ ROBOTIS-GIT/ai_worker,https://github.com/ROBOTIS-GIT/ai_worker.git,jazzy,1,11,ro
 ros2/rcl_interfaces,https://github.com/ros2/rcl_interfaces.git,humble|jazzy|kilted,3,10,rosdistro_release_packages:28
 Ekumen-OS/andino,https://github.com/Ekumen-OS/andino.git,humble,1,10,rosdistro_release_packages:10
 tuw-robotics/tuw_msgs,https://github.com/tuw-robotics/tuw_msgs.git,humble|jazzy|kilted,3,10,rosdistro_release_packages:30
+husarion/rosbot_ros,https://github.com/husarion/rosbot_ros.git,jazzy,1,10,rosdistro_release_packages:10
 ros-perception/image_pipeline,https://github.com/ros-perception/image_pipeline.git,humble|jazzy|kilted,3,9,rosdistro_release_packages:27
 flexbe/flexbe_behavior_engine,https://github.com/flexbe/flexbe_behavior_engine.git,humble|jazzy|kilted,3,9,rosdistro_release_packages:27
 ros-sports/game_controller_spl,https://github.com/ros-sports/game_controller_spl.git,humble|jazzy|kilted,3,9,rosdistro_release_packages:13
 iRobotEducation/create3_sim,https://github.com/iRobotEducation/create3_sim.git,humble|jazzy,2,9,rosdistro_release_packages:14
 swri-robotics/marti_messages,https://github.com/swri-robotics/marti_messages.git,humble|jazzy|kilted,3,9,rosdistro_release_packages:27
+naturerobots/move_base_flex,https://github.com/naturerobots/move_base_flex.git,humble|jazzy,2,9,rosdistro_release_packages:18
 MOCAP4ROS2-Project/mocap4r2,https://github.com/MOCAP4ROS2-Project/mocap4r2.git,humble,1,9,rosdistro_release_packages:9
 mrpt-ros-pkg/mrpt_navigation,https://github.com/mrpt-ros-pkg/mrpt_navigation.git,humble|jazzy|kilted,3,9,rosdistro_release_packages:27
 ros2/rviz,https://github.com/ros2/rviz.git,humble|jazzy|kilted,3,9,rosdistro_release_packages:25
@@ -72,8 +74,9 @@ turtlebot/turtlebot4_simulator,https://github.com/turtlebot/turtlebot4_simulator
 UniversalRobots/Universal_Robots_ROS2_Driver,https://github.com/UniversalRobots/Universal_Robots_ROS2_Driver.git,humble|jazzy|kilted,3,7,rosdistro_release_packages:19
 uleroboticsgroup/yasmin,https://github.com/uleroboticsgroup/yasmin.git,humble|jazzy|kilted,3,7,rosdistro_release_packages:21
 AutoAPMS/auto-apms,https://github.com/AutoAPMS/auto-apms.git,jazzy|kilted,2,7,rosdistro_release_packages:14
-tier4/agnocast,https://github.com/tier4/agnocast.git,humble,1,6,rosdistro_release_packages:6
+autowarefoundation/agnocast,https://github.com/autowarefoundation/agnocast.git,humble,1,6,rosdistro_release_packages:6
 autowarefoundation/autoware_internal_msgs,https://github.com/autowarefoundation/autoware_internal_msgs.git,humble|jazzy|kilted,3,6,rosdistro_release_packages:17
+autowarefoundation/autoware_rviz_plugins,https://github.com/autowarefoundation/autoware_rviz_plugins.git,humble,1,6,rosdistro_release_packages:6
 ros-perception/image_common,https://github.com/ros-perception/image_common.git,humble|jazzy|kilted,3,6,rosdistro_release_packages:16
 rt-net/crane_plus,https://github.com/rt-net/crane_plus.git,humble|jazzy,2,6,rosdistro_release_packages:12
 iRobotEducation/create3_examples,https://github.com/iRobotEducation/create3_examples.git,humble|jazzy,2,6,rosdistro_release_packages:12
@@ -174,6 +177,7 @@ ignitionrobotics/ign-rviz,https://github.com/ignitionrobotics/ign-rviz.git,humbl
 ros-perception/imu_pipeline,https://github.com/ros-perception/imu_pipeline.git,humble|jazzy|kilted,3,3,rosdistro_release_packages:9
 ros-controls/kinematics_interface,https://github.com/ros-controls/kinematics_interface.git,humble|jazzy|kilted,3,3,rosdistro_release_packages:8
 ros2/launch_ros,https://github.com/ros2/launch_ros.git,humble|jazzy|kilted,3,3,rosdistro_release_packages:9
+ros-controls/mujoco_ros2_control,https://github.com/ros-controls/mujoco_ros2_control.git,humble|jazzy|kilted,3,3,rosdistro_release_packages:9
 orbbec/OrbbecSDK_ROS2,https://github.com/orbbec/OrbbecSDK_ROS2.git,humble|jazzy,2,3,rosdistro_release_packages:6
 pal-robotics/pal_hey5,https://github.com/pal-robotics/pal_hey5.git,humble,1,3,rosdistro_release_packages:3
 pal-robotics/pal_navigation_cfg_public,https://github.com/pal-robotics/pal_navigation_cfg_public.git,humble,1,3,rosdistro_release_packages:3
@@ -211,7 +215,7 @@ ros-tooling/rosbag2_broll,https://github.com/ros-tooling/rosbag2_broll.git,humbl
 FraunhoferIOSB/camera_aravis2,https://github.com/FraunhoferIOSB/camera_aravis2.git,humble|jazzy,2,2,rosdistro_release_packages:4
 tier4/caret_trace,https://github.com/tier4/caret_trace.git,humble,1,2,rosdistro_release_packages:1;rosdistro_repo_key_name_match:1
 clearpathrobotics/clearpath_msgs,https://github.com/clearpathrobotics/clearpath_msgs.git,humble|jazzy,2,2,rosdistro_release_packages:4
-facontidavide/cloudini,https://github.com/facontidavide/cloudini.git,humble,1,2,rosdistro_release_packages:2
+facontidavide/cloudini,https://github.com/facontidavide/cloudini.git,humble|jazzy|kilted,3,2,rosdistro_release_packages:6
 PickNikRobotics/data_tamer,https://github.com/PickNikRobotics/data_tamer.git,humble|jazzy|kilted,3,2,rosdistro_release_packages:6
 ROBOTIS-GIT/dynamixel-workbench,https://github.com/ROBOTIS-GIT/dynamixel-workbench.git,humble|jazzy|kilted,3,2,rosdistro_release_packages:6
 eurogroep/fadecandy_ros,https://github.com/eurogroep/fadecandy_ros.git,humble|jazzy,2,2,rosdistro_release_packages:4
@@ -222,7 +226,7 @@ foxglove/foxglove-sdk,https://github.com/foxglove/foxglove-sdk.git,humble|jazzy|
 ros-simulation/gazebo_ros2_control,https://github.com/ros-simulation/gazebo_ros2_control.git,humble,1,2,rosdistro_release_packages:2
 ament/googletest,https://github.com/ament/googletest.git,humble|jazzy|kilted,3,2,rosdistro_release_packages:6
 ros2/rmw_gurumdds,https://github.com/ros2/rmw_gurumdds.git,humble|jazzy|kilted,3,2,rosdistro_release_packages:6
-ros4hri/libhri,https://github.com/ros4hri/libhri.git,humble,1,2,rosdistro_release_packages:2
+ros4hri/libhri,https://github.com/ros4hri/libhri.git,humble|jazzy,2,2,rosdistro_release_packages:4
 husarion/husarion_ugv_ros,https://github.com/husarion/husarion_ugv_ros.git,humble|jazzy,2,2,rosdistro_release_packages:4
 ros/joint_state_publisher,https://github.com/ros/joint_state_publisher.git,humble|jazzy|kilted,3,2,rosdistro_release_packages:6
 automatika-robotics/kompass,https://github.com/automatika-robotics/kompass.git,humble|jazzy|kilted,3,2,rosdistro_release_packages:6
@@ -368,7 +372,7 @@ ros2/console_bridge_vendor,https://github.com/ros2/console_bridge_vendor.git,hum
 rst-tu-dortmund/control_box_rst,https://github.com/rst-tu-dortmund/control_box_rst.git,humble|jazzy|kilted,3,1,rosdistro_release_packages:3
 ros-controls/control_msgs,https://github.com/ros-controls/control_msgs.git,humble|jazzy|kilted,3,1,rosdistro_release_packages:3
 ros-controls/control_toolbox,https://github.com/ros-controls/control_toolbox.git,humble|jazzy|kilted,3,1,rosdistro_release_packages:3
-danielcranston/crx_kinematics,https://github.com/danielcranston/crx_kinematics.git,humble|jazzy|kilted,3,1,rosdistro_repo_key_name_match:3
+danielcranston/crx_kinematics,https://github.com/danielcranston/crx_kinematics.git,humble|jazzy|kilted,3,1,rosdistro_release_packages:3
 tier4/cudnn_cmake_module,https://github.com/tier4/cudnn_cmake_module.git,humble|jazzy|kilted,3,1,rosdistro_release_packages:3
 eclipse-cyclonedds/cyclonedds,https://github.com/eclipse-cyclonedds/cyclonedds.git,humble|jazzy|kilted,3,1,rosdistro_release_packages:3
 luxonis/depthai-core,https://github.com/luxonis/depthai-core.git,humble|jazzy|kilted,3,1,rosdistro_release_packages:3
@@ -430,6 +434,7 @@ NVIDIA-ISAAC-ROS/greenwave_monitor,https://github.com/NVIDIA-ISAAC-ROS/greenwave
 ethz-asl/grid_map_geo,https://github.com/ethz-asl/grid_map_geo.git,humble,1,1,rosdistro_repo_key_name_match:1
 ros-drivers/gscam,https://github.com/ros-drivers/gscam.git,humble|jazzy|kilted,3,1,rosdistro_release_packages:3
 borglab/gtsam,https://github.com/borglab/gtsam.git,humble|jazzy|kilted,3,1,rosdistro_release_packages:3
+MRPT/gtsam2mrpt_serial,https://github.com/MRPT/gtsam2mrpt_serial.git,humble|jazzy|kilted,3,1,rosdistro_release_packages:3
 tier4/hash_library_vendor,https://github.com/tier4/hash_library_vendor.git,humble|jazzy|kilted,3,1,rosdistro_release_packages:3
 hatchbed/hatchbed_common,https://github.com/hatchbed/hatchbed_common.git,humble|jazzy|kilted,3,1,rosdistro_release_packages:3
 tier4/heaphook,https://github.com/tier4/heaphook.git,humble|jazzy|kilted,3,1,rosdistro_release_packages:3
@@ -441,10 +446,10 @@ li9i/hitch-estimation-apriltag-array,https://github.com/li9i/hitch-estimation-ap
 ROBOTIS-GIT/hls_lfcd_lds_driver,https://github.com/ROBOTIS-GIT/hls_lfcd_lds_driver.git,humble|jazzy|kilted,3,1,rosdistro_release_packages:3
 marcosvcr/hokuyo_node2,https://github.com/marcosvcr/hokuyo_node2.git,humble,1,1,rosdistro_repo_key_name_match:1
 zengxiaolei/homing_local_planner,https://github.com/zengxiaolei/homing_local_planner.git,humble,1,1,rosdistro_repo_key_name_match:1
-ros4hri/hri_actions_msgs,https://github.com/ros4hri/hri_actions_msgs.git,humble,1,1,rosdistro_release_packages:1
+ros4hri/hri_actions_msgs,https://github.com/ros4hri/hri_actions_msgs.git,humble|jazzy,2,1,rosdistro_release_packages:2
 ros4hri/hri_face_body_matcher,https://github.com/ros4hri/hri_face_body_matcher.git,humble,1,1,rosdistro_release_packages:1
 ros4hri/hri_face_detect,https://github.com/ros4hri/hri_face_detect.git,humble,1,1,rosdistro_repo_key_name_match:1
-ros4hri/hri_msgs,https://github.com/ros4hri/hri_msgs.git,humble,1,1,rosdistro_release_packages:1
+ros4hri/hri_msgs,https://github.com/ros4hri/hri_msgs.git,humble|jazzy,2,1,rosdistro_release_packages:2
 ros4hri/hri_privacy_msgs,https://github.com/ros4hri/hri_privacy_msgs.git,humble,1,1,rosdistro_release_packages:1
 ros4hri/hri_rviz,https://github.com/ros4hri/hri_rviz.git,humble,1,1,rosdistro_release_packages:1
 ros4hri/human_description,https://github.com/ros4hri/human_description.git,humble,1,1,rosdistro_release_packages:1
@@ -460,6 +465,7 @@ joshnewans/joy_tester,https://github.com/joshnewans/joy_tester.git,humble|jazzy|
 jrl-umi3218/jrl-cmakemodules,https://github.com/jrl-umi3218/jrl-cmakemodules.git,humble|jazzy|kilted,3,1,rosdistro_release_packages:3
 ros/kdl_parser,https://github.com/ros/kdl_parser.git,humble|jazzy|kilted,3,1,rosdistro_release_packages:3
 ros-tooling/keyboard_handler,https://github.com/ros-tooling/keyboard_handler.git,humble|jazzy|kilted,3,1,rosdistro_release_packages:3
+qleonardolp/kinematic_pose_msgs,https://github.com/qleonardolp/kinematic_pose_msgs.git,humble|jazzy|kilted,3,1,rosdistro_repo_key_name_match:3
 justagist/kinematics_interface_pinocchio,https://github.com/justagist/kinematics_interface_pinocchio.git,humble,1,1,rosdistro_release_packages:1
 kobuki-base/kobuki_core,https://github.com/kobuki-base/kobuki_core.git,humble|jazzy|kilted,3,1,rosdistro_release_packages:3
 kobuki-base/kobuki_ros,https://github.com/kobuki-base/kobuki_ros.git,humble,1,1,rosdistro_repo_key_name_match:1
@@ -470,7 +476,7 @@ ros-perception/laser_geometry,https://github.com/ros-perception/laser_geometry.g
 ros-perception/laser_proc,https://github.com/ros-perception/laser_proc.git,humble|jazzy|kilted,3,1,rosdistro_release_packages:3
 ajtudela/laser_segmentation,https://github.com/ajtudela/laser_segmentation.git,humble|jazzy|kilted,3,1,rosdistro_release_packages:3
 ros-tooling/launch_frontend_py,https://github.com/ros-tooling/launch_frontend_py.git,humble|jazzy|kilted,3,1,rosdistro_release_packages:3
-pal-robotics/launch_pal,https://github.com/pal-robotics/launch_pal.git,humble,1,1,rosdistro_release_packages:1
+pal-robotics/launch_pal,https://github.com/pal-robotics/launch_pal.git,humble|jazzy,2,1,rosdistro_release_packages:2
 PickNikRobotics/launch_param_builder,https://github.com/PickNikRobotics/launch_param_builder.git,humble|jazzy|kilted,3,1,rosdistro_release_packages:3
 ROBOTIS-GIT/ld08_driver,https://github.com/ROBOTIS-GIT/ld08_driver.git,humble|jazzy|kilted,3,1,rosdistro_release_packages:3
 lgsvl/lgsvl_msgs,https://github.com/lgsvl/lgsvl_msgs.git,humble|jazzy|kilted,3,1,rosdistro_release_packages:3
@@ -488,7 +494,7 @@ snt-arg/lidar_situational_graphs,https://github.com/snt-arg/lidar_situational_gr
 clearpathrobotics/LMS1xx,https://github.com/clearpathrobotics/LMS1xx.git,humble|jazzy,2,1,rosdistro_release_packages:2
 hatchbed/log_view,https://github.com/hatchbed/log_view.git,humble|jazzy|kilted,3,1,rosdistro_release_packages:3
 AutonicsLiDAR/lsc_ros2_driver,https://github.com/AutonicsLiDAR/lsc_ros2_driver.git,humble,1,1,rosdistro_release_packages:1
-uos/lvr2,https://github.com/uos/lvr2.git,humble|jazzy,2,1,rosdistro_repo_key_name_match:2
+uos/lvr2,https://github.com/uos/lvr2.git,humble|jazzy,2,1,rosdistro_release_packages:2
 Neargye/magic_enum,https://github.com/Neargye/magic_enum.git,humble|jazzy|kilted,3,1,rosdistro_release_packages:3
 ros-planning/navigation_msgs,https://github.com/ros-planning/navigation_msgs.git,humble|jazzy|kilted,3,1,rosdistro_release_packages:3
 tuw-robotics/marker_msgs,https://github.com/tuw-robotics/marker_msgs.git,humble|jazzy|kilted,3,1,rosdistro_release_packages:3
@@ -512,7 +518,6 @@ MOLAorg/mola_lidar_odometry,https://github.com/MOLAorg/mola_lidar_odometry.git,h
 MOLAorg/mola_mapper_2d,https://github.com/MOLAorg/mola_mapper_2d.git,humble,1,1,rosdistro_repo_key_name_match:1
 MOLAorg/mola_sm_loop_closure,https://github.com/MOLAorg/mola_sm_loop_closure.git,humble,1,1,rosdistro_repo_key_name_match:1
 MOLAorg/mola_test_datasets,https://github.com/MOLAorg/mola_test_datasets.git,humble|jazzy|kilted,3,1,rosdistro_release_packages:3
-naturerobots/move_base_flex,https://github.com/naturerobots/move_base_flex.git,humble|jazzy,2,1,rosdistro_repo_key_name_match:2
 ros-planning/moveit_msgs,https://github.com/ros-planning/moveit_msgs.git,humble|jazzy|kilted,3,1,rosdistro_release_packages:3
 ros-planning/moveit_visual_tools,https://github.com/ros-planning/moveit_visual_tools.git,humble|jazzy|kilted,3,1,rosdistro_release_packages:3
 MOLAorg/mp2p_icp,https://github.com/MOLAorg/mp2p_icp.git,humble|jazzy|kilted,3,1,rosdistro_release_packages:3
@@ -805,10 +810,8 @@ b-robotized/ads_vendor,https://github.com/b-robotized/ads_vendor.git,jazzy|kilte
 hatchbed/asyncapi_gencpp,https://github.com/hatchbed/asyncapi_gencpp.git,jazzy|kilted,2,1,rosdistro_repo_key_name_match:2
 nobleo/boost_sml_vendor,https://github.com/nobleo/boost_sml_vendor.git,jazzy|kilted,2,1,rosdistro_release_packages:2
 clearpathrobotics/clearpath_tests,https://github.com/clearpathrobotics/clearpath_tests.git,jazzy,1,1,rosdistro_release_packages:1
-cellumation/cm_executors,https://github.com/cellumation/cm_executors.git,jazzy,1,1,rosdistro_release_packages:1
 ctu-vras/cras_msgs,https://github.com/ctu-vras/cras_msgs.git,jazzy|kilted,2,1,rosdistro_release_packages:2
 vdovetzi/daheng4ros,https://github.com/vdovetzi/daheng4ros.git,jazzy,1,1,rosdistro_repo_key_name_match:1
-jlack1987/data_tamer_tools-release,https://github.com/jlack1987/data_tamer_tools-release.git,jazzy,1,1,rosdistro_release_packages:1
 eProsima/Fast-CDR,https://github.com/eProsima/Fast-CDR.git,jazzy|kilted,2,1,rosdistro_release_packages:2
 ipa320/rqt_frame_editor_plugin,https://github.com/ipa320/rqt_frame_editor_plugin.git,jazzy,1,1,rosdistro_release_packages:1
 gazebo-release/gz_cmake_vendor,https://github.com/gazebo-release/gz_cmake_vendor.git,jazzy|kilted,2,1,rosdistro_release_packages:2
@@ -833,13 +836,12 @@ p2p-industries/hyveos_ros,https://github.com/p2p-industries/hyveos_ros.git,jazzy
 p2p-industries/hyveos_ros_msgs,https://github.com/p2p-industries/hyveos_ros_msgs.git,jazzy|kilted,2,1,rosdistro_repo_key_name_match:2
 julianmueller/insight_gui,https://github.com/julianmueller/insight_gui.git,jazzy,1,1,rosdistro_release_packages:1
 BruceChanJianLe/laser_scan_merger,https://github.com/BruceChanJianLe/laser_scan_merger.git,jazzy,1,1,rosdistro_repo_key_name_match:1
-david-dorf/lightning_rrt,https://github.com/david-dorf/lightning_rrt.git,jazzy,1,1,rosdistro_repo_key_name_match:1
-david-dorf/lightning_rrt_interfaces,https://github.com/david-dorf/lightning_rrt_interfaces.git,jazzy,1,1,rosdistro_repo_key_name_match:1
+david-dorf/lightning_rrt,https://github.com/david-dorf/lightning_rrt.git,jazzy,1,1,rosdistro_release_packages:1
+david-dorf/lightning_rrt_interfaces,https://github.com/david-dorf/lightning_rrt_interfaces.git,jazzy,1,1,rosdistro_release_packages:1
 adityapande-1995/linux_isolate_process,https://github.com/adityapande-1995/linux_isolate_process.git,jazzy|kilted,2,1,rosdistro_release_packages:2
 fkie/live555_vendor,https://github.com/fkie/live555_vendor.git,jazzy,1,1,rosdistro_release_packages:1
 mavlink/mavlink-gbp-release,https://github.com/mavlink/mavlink-gbp-release.git,jazzy|kilted,2,1,rosdistro_release_packages:2
 nobleo/mp_units_vendor,https://github.com/nobleo/mp_units_vendor.git,jazzy|kilted,2,1,rosdistro_release_packages:2
-ros-controls/mujoco_ros2_control,https://github.com/ros-controls/mujoco_ros2_control.git,jazzy|kilted,2,1,rosdistro_repo_key_name_match:2
 stack-of-tasks/odri_master_board_sdk_release,https://github.com/stack-of-tasks/odri_master_board_sdk_release.git,jazzy|kilted,2,1,rosdistro_release_packages:2
 ompl/ompl,https://github.com/ompl/ompl.git,jazzy|kilted,2,1,rosdistro_release_packages:2
 hatchbed/opensw,https://github.com/hatchbed/opensw.git,jazzy|kilted,2,1,rosdistro_repo_key_name_match:2
@@ -867,7 +869,7 @@ uwgraphics/mini_tof,https://github.com/uwgraphics/mini_tof.git,kilted,1,1,rosdis
 uwgraphics/mini_tof_interfaces,https://github.com/uwgraphics/mini_tof_interfaces.git,kilted,1,1,rosdistro_repo_key_name_match:1
 SteveMacenski/nonpersistent_voxel_layer,https://github.com/SteveMacenski/nonpersistent_voxel_layer.git,kilted,1,1,rosdistro_release_packages:1
 felixdivo/ros2-easy-test,https://github.com/felixdivo/ros2-easy-test.git,kilted,1,1,rosdistro_repo_key_name_match:1
-cnurobotics/ros2_snapshot,https://github.com/cnurobotics/ros2_snapshot.git,kilted,1,1,rosdistro_repo_key_name_match:1
+cnurobotics/ros2_snapshot,https://github.com/cnurobotics/ros2_snapshot.git,kilted,1,1,rosdistro_release_packages:1
 allenh1/rplidar_ros,https://github.com/allenh1/rplidar_ros.git,kilted,1,1,rosdistro_release_packages:1
 Barry-Xu-2018/ros2_service_load_balancing,https://github.com/Barry-Xu-2018/ros2_service_load_balancing.git,kilted,1,1,rosdistro_release_packages:1
 fmrico/yaets,https://github.com/fmrico/yaets.git,kilted,1,1,rosdistro_release_packages:1

@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "fetched_at": "2026-02-25T20:38:11Z",
+    "fetched_at": "2026-03-05T05:39:22Z",
     "source": "derived+rest",
     "derivation": "earliest commit per author_login from commits.json; enrich via /commits/{sha} for files/stats",
     "owner": "MarvelmindRobotics",
@@ -15,7 +15,21 @@
       "files_changed": 1,
       "additions": 2,
       "deletions": 0,
-      "commit_type": "docs"
+      "commit_type": "docs",
+      "files": [
+        {
+          "sha": "56400d3f1326d397cc5fca9e5cccdc9227de4eb3",
+          "filename": "README.md",
+          "status": "added",
+          "additions": 2,
+          "deletions": 0,
+          "changes": 2,
+          "blob_url": "https://github.com/MarvelmindRobotics/marvelmind_ros2_msgs_release/blob/5cc2c6155d3a84ca36616ebab1c5b33c8713ff65/README.md",
+          "raw_url": "https://github.com/MarvelmindRobotics/marvelmind_ros2_msgs_release/raw/5cc2c6155d3a84ca36616ebab1c5b33c8713ff65/README.md",
+          "contents_url": "https://api.github.com/repos/MarvelmindRobotics/marvelmind_ros2_msgs_release/contents/README.md?ref=5cc2c6155d3a84ca36616ebab1c5b33c8713ff65",
+          "patch": "@@ -0,0 +1,2 @@\n+# marvelmind_ros2_msgs_release\n+Marvelmind ROS2 messages"
+        }
+      ]
     }
   ]
 }

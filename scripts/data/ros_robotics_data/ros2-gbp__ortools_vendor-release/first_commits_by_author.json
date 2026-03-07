@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "fetched_at": "2026-02-26T00:57:03Z",
+    "fetched_at": "2026-03-05T05:53:18Z",
     "source": "derived+rest",
     "derivation": "earliest commit per author_login from commits.json; enrich via /commits/{sha} for files/stats",
     "owner": "ros2-gbp",
@@ -15,7 +15,21 @@
       "files_changed": 1,
       "additions": 2,
       "deletions": 1,
-      "commit_type": "config"
+      "commit_type": "config",
+      "files": [
+        {
+          "sha": "5f931f5328905ef34d358c189f0bca5a1a16dd39",
+          "filename": "tracks.yaml",
+          "status": "modified",
+          "additions": 2,
+          "deletions": 1,
+          "changes": 3,
+          "blob_url": "https://github.com/ros2-gbp/ortools_vendor-release/blob/d2e97d502efd8b58aaae4787452460cc7a2e5eb4/tracks.yaml",
+          "raw_url": "https://github.com/ros2-gbp/ortools_vendor-release/raw/d2e97d502efd8b58aaae4787452460cc7a2e5eb4/tracks.yaml",
+          "contents_url": "https://api.github.com/repos/ros2-gbp/ortools_vendor-release/contents/tracks.yaml?ref=d2e97d502efd8b58aaae4787452460cc7a2e5eb4",
+          "patch": "@@ -102,7 +102,8 @@ tracks:\n     ros_distro: kilted\n     vcs_type: git\n     vcs_uri: https://github.com/Fields2Cover/ortools_vendor\n-    version: :{auto}\n+    version: 9.9.0\n+    version_saved: :{auto}\n   noetic:\n     actions:\n     - bloom-export-upstream :{vcs_local_uri} :{vcs_type} --tag :{release_tag} --display-uri"
+        }
+      ]
     },
     {
       "author": "Gonzalo-Mier",
@@ -25,7 +39,8 @@
       "files_changed": 0,
       "additions": 0,
       "deletions": 0,
-      "commit_type": "code"
+      "commit_type": "other",
+      "files": []
     },
     {
       "author": "marcoag",
@@ -35,7 +50,21 @@
       "files_changed": 1,
       "additions": 2,
       "deletions": 1,
-      "commit_type": "config"
+      "commit_type": "config",
+      "files": [
+        {
+          "sha": "0e7321c147026ff6ee6098e6893605ca0465ac5d",
+          "filename": "tracks.yaml",
+          "status": "modified",
+          "additions": 2,
+          "deletions": 1,
+          "changes": 3,
+          "blob_url": "https://github.com/ros2-gbp/ortools_vendor-release/blob/e4bbbc9278b80c708d7c7a6d8df2cff03bafc662/tracks.yaml",
+          "raw_url": "https://github.com/ros2-gbp/ortools_vendor-release/raw/e4bbbc9278b80c708d7c7a6d8df2cff03bafc662/tracks.yaml",
+          "contents_url": "https://api.github.com/repos/ros2-gbp/ortools_vendor-release/contents/tracks.yaml?ref=e4bbbc9278b80c708d7c7a6d8df2cff03bafc662",
+          "patch": "@@ -76,7 +76,8 @@ tracks:\n     ros_distro: jazzy\n     vcs_type: git\n     vcs_uri: https://github.com/Fields2Cover/ortools_vendor\n-    version: :{auto}\n+    version: 9.9.0\n+    version_saved: :{auto}\n   noetic:\n     actions:\n     - bloom-export-upstream :{vcs_local_uri} :{vcs_type} --tag :{release_tag} --display-uri"
+        }
+      ]
     }
   ]
 }

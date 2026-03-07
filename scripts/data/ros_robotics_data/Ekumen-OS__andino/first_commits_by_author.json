@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "fetched_at": "2026-02-25T02:39:59Z",
+    "fetched_at": "2026-03-05T02:30:55Z",
     "source": "derived+rest",
     "derivation": "earliest commit per author_login from commits.json; enrich via /commits/{sha} for files/stats",
     "owner": "Ekumen-OS",
@@ -15,7 +15,66 @@
       "files_changed": 5,
       "additions": 31,
       "deletions": 0,
-      "commit_type": "docs"
+      "commit_type": "docs",
+      "files": [
+        {
+          "sha": "a732466daf7909c6e2e222791eac513bcaed02ef",
+          "filename": "LICENSE",
+          "status": "added",
+          "additions": 29,
+          "deletions": 0,
+          "changes": 29,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/5aec6b4b9aee29675224028f9c6c3e1872b22d9d/LICENSE",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/5aec6b4b9aee29675224028f9c6c3e1872b22d9d/LICENSE",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/LICENSE?ref=5aec6b4b9aee29675224028f9c6c3e1872b22d9d",
+          "patch": "@@ -0,0 +1,29 @@\n+BSD 3-Clause License\n+\n+Copyright (c) 2022, Ekumen Inc.\n+All rights reserved.\n+\n+Redistribution and use in source and binary forms, with or without\n+modification, are permitted provided that the following conditions are met:\n+\n+1. Redistributions of source code must retain the above copyright notice, this\n+   list of conditions and the following disclaimer.\n+\n+2. Redistributions in binary form must reproduce the above copyright notice,\n+   this list of conditions and the following disclaimer in the documentation\n+   and/or other materials provided with the distribution.\n+\n+3. Neither the name of the copyright holder nor the names of its\n+   contributors may be used to endorse or promote products derived from\n+   this software without specific prior written permission.\n+\n+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\"\n+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\n+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\n+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE\n+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL\n+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR\n+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER\n+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,\n+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE\n+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE."
+        },
+        {
+          "sha": "31791d557052c9b7ba28775fda84da45c9404da3",
+          "filename": "README.md",
+          "status": "added",
+          "additions": 2,
+          "deletions": 0,
+          "changes": 2,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/5aec6b4b9aee29675224028f9c6c3e1872b22d9d/README.md",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/5aec6b4b9aee29675224028f9c6c3e1872b22d9d/README.md",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/README.md?ref=5aec6b4b9aee29675224028f9c6c3e1872b22d9d",
+          "patch": "@@ -0,0 +1,2 @@\n+# Carpincho Bot\n+"
+        },
+        {
+          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "filename": "carpincho_base/.gitkeep",
+          "status": "added",
+          "additions": 0,
+          "deletions": 0,
+          "changes": 0,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/5aec6b4b9aee29675224028f9c6c3e1872b22d9d/carpincho_base%2F.gitkeep",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/5aec6b4b9aee29675224028f9c6c3e1872b22d9d/carpincho_base%2F.gitkeep",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/carpincho_base%2F.gitkeep?ref=5aec6b4b9aee29675224028f9c6c3e1872b22d9d"
+        },
+        {
+          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "filename": "carpincho_control/.gitkeep",
+          "status": "added",
+          "additions": 0,
+          "deletions": 0,
+          "changes": 0,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/5aec6b4b9aee29675224028f9c6c3e1872b22d9d/carpincho_control%2F.gitkeep",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/5aec6b4b9aee29675224028f9c6c3e1872b22d9d/carpincho_control%2F.gitkeep",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/carpincho_control%2F.gitkeep?ref=5aec6b4b9aee29675224028f9c6c3e1872b22d9d"
+        },
+        {
+          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "filename": "carpincho_description/.gitkeep",
+          "status": "added",
+          "additions": 0,
+          "deletions": 0,
+          "changes": 0,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/5aec6b4b9aee29675224028f9c6c3e1872b22d9d/carpincho_description%2F.gitkeep",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/5aec6b4b9aee29675224028f9c6c3e1872b22d9d/carpincho_description%2F.gitkeep",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/carpincho_description%2F.gitkeep?ref=5aec6b4b9aee29675224028f9c6c3e1872b22d9d"
+        }
+      ]
     },
     {
       "author": "gleniosp",
@@ -25,7 +84,33 @@
       "files_changed": 2,
       "additions": 9,
       "deletions": 6,
-      "commit_type": "ci"
+      "commit_type": "code",
+      "files": [
+        {
+          "sha": "de8e1a94f4db418917c2f105cc0a1c3792588435",
+          "filename": "andino_base/applications/motor_driver_demo.cpp",
+          "status": "modified",
+          "additions": 1,
+          "deletions": 6,
+          "changes": 7,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/74bfd06a66dfcf2e9b6535ae80231235638954e2/andino_base%2Fapplications%2Fmotor_driver_demo.cpp",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/74bfd06a66dfcf2e9b6535ae80231235638954e2/andino_base%2Fapplications%2Fmotor_driver_demo.cpp",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/andino_base%2Fapplications%2Fmotor_driver_demo.cpp?ref=74bfd06a66dfcf2e9b6535ae80231235638954e2",
+          "patch": "@@ -27,10 +27,8 @@\n // CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,\n // OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE\n // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n-#include <chrono>\n #include <iostream>\n #include <sstream>\n-#include <thread>\n \n #include <gflags/gflags.h>\n \n@@ -62,10 +60,7 @@ int Main(int argc, char* argv[]) {\n   motor_driver.Setup(FLAGS_serial_port, FLAGS_baud_rate, FLAGS_timeout_ms);\n \n   std::cout << \"Motor driver is connected: \" << (motor_driver.is_connected() ? \"True\" : \"False\") << std::endl;\n-  std::cout << \"Waiting 2 seconds for the Microcontroller to be ready...\" << std::endl;\n-  // When the Microcontroller is reset, it takes a few seconds to be ready.\n-  // And tipically when the serial port is opened, the Microcontroller is reset.\n-  std::this_thread::sleep_for(std::chrono::seconds(2));\n+\n   // Send message\n   std::cout << \"Sending message: \" << FLAGS_msg << std::endl;\n   const std::string response = motor_driver.SendMsg(FLAGS_msg);"
+        },
+        {
+          "sha": "0e640d37c1ab6ef6c470819744f65c608b43a74c",
+          "filename": "andino_base/src/motor_driver.cpp",
+          "status": "modified",
+          "additions": 8,
+          "deletions": 0,
+          "changes": 8,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/74bfd06a66dfcf2e9b6535ae80231235638954e2/andino_base%2Fsrc%2Fmotor_driver.cpp",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/74bfd06a66dfcf2e9b6535ae80231235638954e2/andino_base%2Fsrc%2Fmotor_driver.cpp",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/andino_base%2Fsrc%2Fmotor_driver.cpp?ref=74bfd06a66dfcf2e9b6535ae80231235638954e2",
+          "patch": "@@ -29,9 +29,11 @@\n // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n #include \"andino_base/motor_driver.h\"\n \n+#include <chrono>\n #include <cstdlib>\n #include <iostream>\n #include <sstream>\n+#include <thread>\n \n namespace andino_base {\n \n@@ -42,6 +44,12 @@ void MotorDriver::Setup(const std::string& serial_device, int32_t baud_rate, int\n   } catch (std::exception& e) {\n     std::cout << e.what() << std::endl;\n   }\n+\n+  std::cout << \"Waiting 2 seconds for the Microcontroller to be ready...\" << std::endl;\n+  // When the Microcontroller is reset, it takes a few seconds to be ready.\n+  // And tipically when the serial port is opened, the Microcontroller is reset.\n+  std::this_thread::sleep_for(std::chrono::seconds(2));\n+\n   // TODO: Use baud_rate from parameter.\n   if (baud_rate != 57600) {\n     std::cerr << \"A baudrate different than 57600 is not supported yet.\" << std::endl;"
+        }
+      ]
     },
     {
       "author": "A7med205",
@@ -35,7 +120,21 @@
       "files_changed": 1,
       "additions": 1,
       "deletions": 0,
-      "commit_type": "docs"
+      "commit_type": "docs",
+      "files": [
+        {
+          "sha": "bbea94ccfb7a32660a210c467279ea41b5e67343",
+          "filename": "README.md",
+          "status": "modified",
+          "additions": 1,
+          "deletions": 0,
+          "changes": 1,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/0b21a68208b9494fd60ebf21755ca5c384a380e7/README.md",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/0b21a68208b9494fd60ebf21755ca5c384a380e7/README.md",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/README.md?ref=0b21a68208b9494fd60ebf21755ca5c384a380e7",
+          "patch": "@@ -45,6 +45,7 @@ Other projects built upon Andino! :rocket:\n - :m: [`andino_mujoco`](https://github.com/Ekumen-OS/andino_mujoco): [MuJoCo](https://mujoco.org/)-based simulation of the Andino robot.\n - :robot: [`andino_rmf`](https://github.com/Ekumen-OS/andino_rmf): [OpenRMF](https://www.open-rmf.org/) integration of Andino simulation.\n - :test_tube: [`andino_integration_tests`](https://github.com/Ekumen-OS/andino_integration_tests): Extension to the Andino robot showing how to build integration tests.\n+- :framed_picture: [`andino_lichtblick`](https://github.com/Ekumen-OS/andino_lichtblick): [Lichtblick](https://github.com/lichtblick-suite/lichtblick/) integration with Andino for web-based visualization.\n \n ## :busts_in_silhouette: Community\n "
+        }
+      ]
     },
     {
       "author": "shevisj",
@@ -45,7 +144,20 @@
       "files_changed": 1,
       "additions": 0,
       "deletions": 0,
-      "commit_type": "code"
+      "commit_type": "other",
+      "files": [
+        {
+          "sha": "5699911e8d1b15ce409dc507f5dd3624261e40e2",
+          "filename": "andino_hardware/printing_model/raspi_cam_mount/raspi_camera_mount_hinge.stl",
+          "status": "modified",
+          "additions": 0,
+          "deletions": 0,
+          "changes": 0,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/5f83a30af63f398f4f924e3612969573b1d3c32b/andino_hardware%2Fprinting_model%2Fraspi_cam_mount%2Fraspi_camera_mount_hinge.stl",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/5f83a30af63f398f4f924e3612969573b1d3c32b/andino_hardware%2Fprinting_model%2Fraspi_cam_mount%2Fraspi_camera_mount_hinge.stl",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/andino_hardware%2Fprinting_model%2Fraspi_cam_mount%2Fraspi_camera_mount_hinge.stl?ref=5f83a30af63f398f4f924e3612969573b1d3c32b"
+        }
+      ]
     },
     {
       "author": "JesusSilvaUtrera",
@@ -55,7 +167,21 @@
       "files_changed": 1,
       "additions": 1,
       "deletions": 1,
-      "commit_type": "code"
+      "commit_type": "other",
+      "files": [
+        {
+          "sha": "80598a2367264257eea9235f05ed054bccfa7d68",
+          "filename": "andino_gz_classic/urdf/andino_gz_classic.xacro",
+          "status": "modified",
+          "additions": 1,
+          "deletions": 1,
+          "changes": 2,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/dfa13782c8b0b304c76708040fd31b5904989549/andino_gz_classic%2Furdf%2Fandino_gz_classic.xacro",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/dfa13782c8b0b304c76708040fd31b5904989549/andino_gz_classic%2Furdf%2Fandino_gz_classic.xacro",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/andino_gz_classic%2Furdf%2Fandino_gz_classic.xacro?ref=dfa13782c8b0b304c76708040fd31b5904989549",
+          "patch": "@@ -67,7 +67,7 @@\n \n       <!-- kinematics -->\n       <wheel_separation>0.137</wheel_separation>\n-      <wheel_diameter>0.035</wheel_diameter>\n+      <wheel_diameter>0.0662</wheel_diameter>\n \n       <!-- limits -->\n       <max_wheel_torque>20</max_wheel_torque>"
+        }
+      ]
     },
     {
       "author": "Sakura286",
@@ -65,7 +191,21 @@
       "files_changed": 1,
       "additions": 1,
       "deletions": 0,
-      "commit_type": "code"
+      "commit_type": "code",
+      "files": [
+        {
+          "sha": "12019d2d0864ccf543d28985e6c7ba7f2a1b7c5b",
+          "filename": "andino_base/include/andino_base/motor_driver.h",
+          "status": "modified",
+          "additions": 1,
+          "deletions": 0,
+          "changes": 1,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/87115268d0968590da6838f15dc1f820a9889363/andino_base%2Finclude%2Fandino_base%2Fmotor_driver.h",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/87115268d0968590da6838f15dc1f820a9889363/andino_base%2Finclude%2Fandino_base%2Fmotor_driver.h",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/andino_base%2Finclude%2Fandino_base%2Fmotor_driver.h?ref=87115268d0968590da6838f15dc1f820a9889363",
+          "patch": "@@ -30,6 +30,7 @@\n #pragma once\n \n #include <array>\n+#include <cstdint>\n \n #include <libserial/SerialPort.h>\n "
+        }
+      ]
     },
     {
       "author": "jballoffet",
@@ -75,7 +215,93 @@
       "files_changed": 7,
       "additions": 454,
       "deletions": 0,
-      "commit_type": "code"
+      "commit_type": "code",
+      "files": [
+        {
+          "sha": "e587099072be8454e449abceee03364a02559f1f",
+          "filename": "andino_firmware/andino_firmware/andino_firmware.ino",
+          "status": "modified",
+          "additions": 65,
+          "deletions": 0,
+          "changes": 65,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/d3d42c9cb7133ac44760ab0852d92050be6696e5/andino_firmware%2Fandino_firmware%2Fandino_firmware.ino",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/d3d42c9cb7133ac44760ab0852d92050be6696e5/andino_firmware%2Fandino_firmware%2Fandino_firmware.ino",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/andino_firmware%2Fandino_firmware%2Fandino_firmware.ino?ref=d3d42c9cb7133ac44760ab0852d92050be6696e5",
+          "patch": "@@ -1,3 +1,68 @@\n+// Code in this file is inspired by:\n+// https://github.com/hbrobotics/ros_arduino_bridge/blob/indigo-devel/ros_arduino_firmware/src/libraries/ROSArduinoBridge/ROSArduinoBridge.ino\n+//\n+// ----------------------------------------------------------------------------\n+// ros_arduino_bridge's license follows:\n+//\n+// Software License Agreement (BSD License)\n+//\n+// Copyright (c) 2012, Patrick Goebel.\n+// All rights reserved.\n+//\n+// Redistribution and use in source and binary forms, with or without\n+// modification, are permitted provided that the following conditions\n+// are met:\n+//\n+//   * Redistributions of source code must retain the above copyright\n+//     notice, this list of conditions and the following disclaimer.\n+//   * Redistributions in binary form must reproduce the above\n+//     copyright notice, this list of conditions and the following\n+//     disclaimer in the documentation and/or other materials provided\n+//     with the distribution.\n+//\n+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS\n+// \"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT\n+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS\n+// FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE\n+// COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,\n+// INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,\n+// BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;\n+// LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER\n+// CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT\n+// LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN\n+// ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE\n+// POSSIBILITY OF SUCH DAMAGE.\n+\n+// BSD 3-Clause License\n+//\n+// Copyright (c) 2023, Ekumen Inc.\n+// All rights reserved.\n+//\n+// Redistribution and use in source and binary forms, with or without\n+// modification, are permitted provided that the following conditions are met:\n+//\n+// 1. Redistributions of source code must retain the above copyright notice, this\n+//    list of conditions and the following disclaimer.\n+//\n+// 2. Redistributions in binary form must reproduce the above copyright notice,\n+//    this list of conditions and the following disclaimer in the documentation\n+//    and/or other materials provided with the distribution.\n+//\n+// 3. Neither the name of the copyright holder nor the names of its\n+//    contributors may be used to endorse or promote products derived from\n+//    this software without specific prior written permission.\n+//\n+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\"\n+// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\n+// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\n+// DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE\n+// FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL\n+// DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR\n+// SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER\n+// CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,\n+// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE\n+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n+\n // Requirements:\n // - Arduino Uno/Nano\n // - L298 Motor driver"
+        },
+        {
+          "sha": "1a446701f15da2b06525736c6db0a6c95dd34978",
+          "filename": "andino_firmware/andino_firmware/commands.h",
+          "status": "modified",
+          "additions": 65,
+          "deletions": 0,
+          "changes": 65,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/d3d42c9cb7133ac44760ab0852d92050be6696e5/andino_firmware%2Fandino_firmware%2Fcommands.h",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/d3d42c9cb7133ac44760ab0852d92050be6696e5/andino_firmware%2Fandino_firmware%2Fcommands.h",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/andino_firmware%2Fandino_firmware%2Fcommands.h?ref=d3d42c9cb7133ac44760ab0852d92050be6696e5",
+          "patch": "@@ -1,3 +1,68 @@\n+// Code in this file is inspired by:\n+// https://github.com/hbrobotics/ros_arduino_bridge/blob/indigo-devel/ros_arduino_firmware/src/libraries/ROSArduinoBridge/commands.h\n+//\n+// ----------------------------------------------------------------------------\n+// ros_arduino_bridge's license follows:\n+//\n+// Software License Agreement (BSD License)\n+//\n+// Copyright (c) 2012, Patrick Goebel.\n+// All rights reserved.\n+//\n+// Redistribution and use in source and binary forms, with or without\n+// modification, are permitted provided that the following conditions\n+// are met:\n+//\n+//   * Redistributions of source code must retain the above copyright\n+//     notice, this list of conditions and the following disclaimer.\n+//   * Redistributions in binary form must reproduce the above\n+//     copyright notice, this list of conditions and the following\n+//     disclaimer in the documentation and/or other materials provided\n+//     with the distribution.\n+//\n+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS\n+// \"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT\n+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS\n+// FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE\n+// COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,\n+// INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,\n+// BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;\n+// LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER\n+// CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT\n+// LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN\n+// ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE\n+// POSSIBILITY OF SUCH DAMAGE.\n+\n+// BSD 3-Clause License\n+//\n+// Copyright (c) 2023, Ekumen Inc.\n+// All rights reserved.\n+//\n+// Redistribution and use in source and binary forms, with or without\n+// modification, are permitted provided that the following conditions are met:\n+//\n+// 1. Redistributions of source code must retain the above copyright notice, this\n+//    list of conditions and the following disclaimer.\n+//\n+// 2. Redistributions in binary form must reproduce the above copyright notice,\n+//    this list of conditions and the following disclaimer in the documentation\n+//    and/or other materials provided with the distribution.\n+//\n+// 3. Neither the name of the copyright holder nor the names of its\n+//    contributors may be used to endorse or promote products derived from\n+//    this software without specific prior written permission.\n+//\n+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\"\n+// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\n+// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\n+// DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE\n+// FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL\n+// DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR\n+// SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER\n+// CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,\n+// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE\n+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n+\n /* Define single-letter commands that will be sent by the PC over the\n    serial link.\n */"
+        },
+        {
+          "sha": "3fd1c7dca512e87bdf0e31ca7c9e63cdae85b2c4",
+          "filename": "andino_firmware/andino_firmware/diff_controller.h",
+          "status": "modified",
+          "additions": 65,
+          "deletions": 0,
+          "changes": 65,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/d3d42c9cb7133ac44760ab0852d92050be6696e5/andino_firmware%2Fandino_firmware%2Fdiff_controller.h",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/d3d42c9cb7133ac44760ab0852d92050be6696e5/andino_firmware%2Fandino_firmware%2Fdiff_controller.h",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/andino_firmware%2Fandino_firmware%2Fdiff_controller.h?ref=d3d42c9cb7133ac44760ab0852d92050be6696e5",
+          "patch": "@@ -1,3 +1,68 @@\n+// Code in this file is inspired by:\n+// https://github.com/hbrobotics/ros_arduino_bridge/blob/indigo-devel/ros_arduino_firmware/src/libraries/ROSArduinoBridge/diff_controller.h\n+//\n+// ----------------------------------------------------------------------------\n+// ros_arduino_bridge's license follows:\n+//\n+// Software License Agreement (BSD License)\n+//\n+// Copyright (c) 2012, Patrick Goebel.\n+// All rights reserved.\n+//\n+// Redistribution and use in source and binary forms, with or without\n+// modification, are permitted provided that the following conditions\n+// are met:\n+//\n+//   * Redistributions of source code must retain the above copyright\n+//     notice, this list of conditions and the following disclaimer.\n+//   * Redistributions in binary form must reproduce the above\n+//     copyright notice, this list of conditions and the following\n+//     disclaimer in the documentation and/or other materials provided\n+//     with the distribution.\n+//\n+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS\n+// \"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT\n+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS\n+// FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE\n+// COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,\n+// INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,\n+// BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;\n+// LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER\n+// CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT\n+// LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN\n+// ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE\n+// POSSIBILITY OF SUCH DAMAGE.\n+\n+// BSD 3-Clause License\n+//\n+// Copyright (c) 2023, Ekumen Inc.\n+// All rights reserved.\n+//\n+// Redistribution and use in source and binary forms, with or without\n+// modification, are permitted provided that the following conditions are met:\n+//\n+// 1. Redistributions of source code must retain the above copyright notice, this\n+//    list of conditions and the following disclaimer.\n+//\n+// 2. Redistributions in binary form must reproduce the above copyright notice,\n+//    this list of conditions and the following disclaimer in the documentation\n+//    and/or other materials provided with the distribution.\n+//\n+// 3. Neither the name of the copyright holder nor the names of its\n+//    contributors may be used to endorse or promote products derived from\n+//    this software without specific prior written permission.\n+//\n+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\"\n+// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\n+// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\n+// DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE\n+// FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL\n+// DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR\n+// SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER\n+// CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,\n+// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE\n+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n+\n /* Functions and type-defs for PID control.\n \n    Taken mostly from Mike Ferguson's ArbotiX code which lives at:"
+        },
+        {
+          "sha": "4c7be55eb7a45b1eaf4dead04b52b698481c0916",
+          "filename": "andino_firmware/andino_firmware/encoder_driver.h",
+          "status": "modified",
+          "additions": 65,
+          "deletions": 0,
+          "changes": 65,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/d3d42c9cb7133ac44760ab0852d92050be6696e5/andino_firmware%2Fandino_firmware%2Fencoder_driver.h",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/d3d42c9cb7133ac44760ab0852d92050be6696e5/andino_firmware%2Fandino_firmware%2Fencoder_driver.h",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/andino_firmware%2Fandino_firmware%2Fencoder_driver.h?ref=d3d42c9cb7133ac44760ab0852d92050be6696e5",
+          "patch": "@@ -1,3 +1,68 @@\n+// Code in this file is inspired by:\n+// https://github.com/hbrobotics/ros_arduino_bridge/blob/indigo-devel/ros_arduino_firmware/src/libraries/ROSArduinoBridge/encoder_driver.h\n+//\n+// ----------------------------------------------------------------------------\n+// ros_arduino_bridge's license follows:\n+//\n+// Software License Agreement (BSD License)\n+//\n+// Copyright (c) 2012, Patrick Goebel.\n+// All rights reserved.\n+//\n+// Redistribution and use in source and binary forms, with or without\n+// modification, are permitted provided that the following conditions\n+// are met:\n+//\n+//   * Redistributions of source code must retain the above copyright\n+//     notice, this list of conditions and the following disclaimer.\n+//   * Redistributions in binary form must reproduce the above\n+//     copyright notice, this list of conditions and the following\n+//     disclaimer in the documentation and/or other materials provided\n+//     with the distribution.\n+//\n+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS\n+// \"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT\n+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS\n+// FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE\n+// COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,\n+// INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,\n+// BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;\n+// LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER\n+// CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT\n+// LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN\n+// ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE\n+// POSSIBILITY OF SUCH DAMAGE.\n+\n+// BSD 3-Clause License\n+//\n+// Copyright (c) 2023, Ekumen Inc.\n+// All rights reserved.\n+//\n+// Redistribution and use in source and binary forms, with or without\n+// modification, are permitted provided that the following conditions are met:\n+//\n+// 1. Redistributions of source code must retain the above copyright notice, this\n+//    list of conditions and the following disclaimer.\n+//\n+// 2. Redistributions in binary form must reproduce the above copyright notice,\n+//    this list of conditions and the following disclaimer in the documentation\n+//    and/or other materials provided with the distribution.\n+//\n+// 3. Neither the name of the copyright holder nor the names of its\n+//    contributors may be used to endorse or promote products derived from\n+//    this software without specific prior written permission.\n+//\n+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\"\n+// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\n+// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\n+// DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE\n+// FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL\n+// DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR\n+// SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER\n+// CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,\n+// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE\n+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n+\n // below can be changed, but should be PORTD pins;\n // otherwise additional changes in the code are required\n #define LEFT_ENC_PIN_A PD2  //pin 2"
+        },
+        {
+          "sha": "3c6c7b8de4a06f36c40c14426b6dc5ec11e34e0c",
+          "filename": "andino_firmware/andino_firmware/encoder_driver.ino",
+          "status": "modified",
+          "additions": 64,
+          "deletions": 0,
+          "changes": 64,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/d3d42c9cb7133ac44760ab0852d92050be6696e5/andino_firmware%2Fandino_firmware%2Fencoder_driver.ino",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/d3d42c9cb7133ac44760ab0852d92050be6696e5/andino_firmware%2Fandino_firmware%2Fencoder_driver.ino",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/andino_firmware%2Fandino_firmware%2Fencoder_driver.ino?ref=d3d42c9cb7133ac44760ab0852d92050be6696e5",
+          "patch": "@@ -1,3 +1,67 @@\n+// Code in this file is inspired by:\n+// https://github.com/hbrobotics/ros_arduino_bridge/blob/indigo-devel/ros_arduino_firmware/src/libraries/ROSArduinoBridge/encoder_driver.ino\n+//\n+// ----------------------------------------------------------------------------\n+// ros_arduino_bridge's license follows:\n+//\n+// Software License Agreement (BSD License)\n+//\n+// Copyright (c) 2012, Patrick Goebel.\n+// All rights reserved.\n+//\n+// Redistribution and use in source and binary forms, with or without\n+// modification, are permitted provided that the following conditions\n+// are met:\n+//\n+//   * Redistributions of source code must retain the above copyright\n+//     notice, this list of conditions and the following disclaimer.\n+//   * Redistributions in binary form must reproduce the above\n+//     copyright notice, this list of conditions and the following\n+//     disclaimer in the documentation and/or other materials provided\n+//     with the distribution.\n+//\n+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS\n+// \"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT\n+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS\n+// FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE\n+// COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,\n+// INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,\n+// BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;\n+// LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER\n+// CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT\n+// LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN\n+// ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE\n+// POSSIBILITY OF SUCH DAMAGE.\n+\n+// BSD 3-Clause License\n+//\n+// Copyright (c) 2023, Ekumen Inc.\n+// All rights reserved.\n+//\n+// Redistribution and use in source and binary forms, with or without\n+// modification, are permitted provided that the following conditions are met:\n+//\n+// 1. Redistributions of source code must retain the above copyright notice, this\n+//    list of conditions and the following disclaimer.\n+//\n+// 2. Redistributions in binary form must reproduce the above copyright notice,\n+//    this list of conditions and the following disclaimer in the documentation\n+//    and/or other materials provided with the distribution.\n+//\n+// 3. Neither the name of the copyright holder nor the names of its\n+//    contributors may be used to endorse or promote products derived from\n+//    this software without specific prior written permission.\n+//\n+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\"\n+// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\n+// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\n+// DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE\n+// FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL\n+// DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR\n+// SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER\n+// CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,\n+// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE\n+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n \n volatile long left_enc_pos = 0L;\n volatile long right_enc_pos = 0L;"
+        },
+        {
+          "sha": "a06736c1d005abd0945358ad832531c9f28c9fca",
+          "filename": "andino_firmware/andino_firmware/motor_driver.h",
+          "status": "modified",
+          "additions": 65,
+          "deletions": 0,
+          "changes": 65,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/d3d42c9cb7133ac44760ab0852d92050be6696e5/andino_firmware%2Fandino_firmware%2Fmotor_driver.h",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/d3d42c9cb7133ac44760ab0852d92050be6696e5/andino_firmware%2Fandino_firmware%2Fmotor_driver.h",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/andino_firmware%2Fandino_firmware%2Fmotor_driver.h?ref=d3d42c9cb7133ac44760ab0852d92050be6696e5",
+          "patch": "@@ -1,3 +1,68 @@\n+// Code in this file is inspired by:\n+// https://github.com/hbrobotics/ros_arduino_bridge/blob/indigo-devel/ros_arduino_firmware/src/libraries/ROSArduinoBridge/motor_driver.h\n+//\n+// ----------------------------------------------------------------------------\n+// ros_arduino_bridge's license follows:\n+//\n+// Software License Agreement (BSD License)\n+//\n+// Copyright (c) 2012, Patrick Goebel.\n+// All rights reserved.\n+//\n+// Redistribution and use in source and binary forms, with or without\n+// modification, are permitted provided that the following conditions\n+// are met:\n+//\n+//   * Redistributions of source code must retain the above copyright\n+//     notice, this list of conditions and the following disclaimer.\n+//   * Redistributions in binary form must reproduce the above\n+//     copyright notice, this list of conditions and the following\n+//     disclaimer in the documentation and/or other materials provided\n+//     with the distribution.\n+//\n+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS\n+// \"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT\n+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS\n+// FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE\n+// COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,\n+// INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,\n+// BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;\n+// LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER\n+// CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT\n+// LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN\n+// ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE\n+// POSSIBILITY OF SUCH DAMAGE.\n+\n+// BSD 3-Clause License\n+//\n+// Copyright (c) 2023, Ekumen Inc.\n+// All rights reserved.\n+//\n+// Redistribution and use in source and binary forms, with or without\n+// modification, are permitted provided that the following conditions are met:\n+//\n+// 1. Redistributions of source code must retain the above copyright notice, this\n+//    list of conditions and the following disclaimer.\n+//\n+// 2. Redistributions in binary form must reproduce the above copyright notice,\n+//    this list of conditions and the following disclaimer in the documentation\n+//    and/or other materials provided with the distribution.\n+//\n+// 3. Neither the name of the copyright holder nor the names of its\n+//    contributors may be used to endorse or promote products derived from\n+//    this software without specific prior written permission.\n+//\n+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\"\n+// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\n+// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\n+// DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE\n+// FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL\n+// DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR\n+// SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER\n+// CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,\n+// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE\n+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n+\n #define RIGHT_MOTOR_BACKWARD 5\n #define LEFT_MOTOR_BACKWARD  6\n #define RIGHT_MOTOR_FORWARD  9"
+        },
+        {
+          "sha": "769a0d684cabfb655b72bcee3fc60826c2b41262",
+          "filename": "andino_firmware/andino_firmware/motor_driver.ino",
+          "status": "modified",
+          "additions": 65,
+          "deletions": 0,
+          "changes": 65,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/d3d42c9cb7133ac44760ab0852d92050be6696e5/andino_firmware%2Fandino_firmware%2Fmotor_driver.ino",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/d3d42c9cb7133ac44760ab0852d92050be6696e5/andino_firmware%2Fandino_firmware%2Fmotor_driver.ino",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/andino_firmware%2Fandino_firmware%2Fmotor_driver.ino?ref=d3d42c9cb7133ac44760ab0852d92050be6696e5",
+          "patch": "@@ -1,3 +1,68 @@\n+// Code in this file is inspired by:\n+// https://github.com/hbrobotics/ros_arduino_bridge/blob/indigo-devel/ros_arduino_firmware/src/libraries/ROSArduinoBridge/motor_driver.ino\n+//\n+// ----------------------------------------------------------------------------\n+// ros_arduino_bridge's license follows:\n+//\n+// Software License Agreement (BSD License)\n+//\n+// Copyright (c) 2012, Patrick Goebel.\n+// All rights reserved.\n+//\n+// Redistribution and use in source and binary forms, with or without\n+// modification, are permitted provided that the following conditions\n+// are met:\n+//\n+//   * Redistributions of source code must retain the above copyright\n+//     notice, this list of conditions and the following disclaimer.\n+//   * Redistributions in binary form must reproduce the above\n+//     copyright notice, this list of conditions and the following\n+//     disclaimer in the documentation and/or other materials provided\n+//     with the distribution.\n+//\n+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS\n+// \"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT\n+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS\n+// FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE\n+// COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,\n+// INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,\n+// BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;\n+// LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER\n+// CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT\n+// LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN\n+// ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE\n+// POSSIBILITY OF SUCH DAMAGE.\n+\n+// BSD 3-Clause License\n+//\n+// Copyright (c) 2023, Ekumen Inc.\n+// All rights reserved.\n+//\n+// Redistribution and use in source and binary forms, with or without\n+// modification, are permitted provided that the following conditions are met:\n+//\n+// 1. Redistributions of source code must retain the above copyright notice, this\n+//    list of conditions and the following disclaimer.\n+//\n+// 2. Redistributions in binary form must reproduce the above copyright notice,\n+//    this list of conditions and the following disclaimer in the documentation\n+//    and/or other materials provided with the distribution.\n+//\n+// 3. Neither the name of the copyright holder nor the names of its\n+//    contributors may be used to endorse or promote products derived from\n+//    this software without specific prior written permission.\n+//\n+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\"\n+// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\n+// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\n+// DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE\n+// FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL\n+// DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR\n+// SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER\n+// CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,\n+// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE\n+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n+\n void initMotorController() {\n   digitalWrite(RIGHT_MOTOR_ENABLE, HIGH);\n   digitalWrite(LEFT_MOTOR_ENABLE, HIGH);"
+        }
+      ]
     },
     {
       "author": "gonzodepedro",
@@ -85,7 +311,81 @@
       "files_changed": 6,
       "additions": 97,
       "deletions": 6,
-      "commit_type": "docs"
+      "commit_type": "code",
+      "files": [
+        {
+          "sha": "cb1e2d8ef43cfe437d5824bb68ed3107e6456823",
+          "filename": "andino_firmware/README.md",
+          "status": "modified",
+          "additions": 3,
+          "deletions": 0,
+          "changes": 3,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/efb75b038d058d750669da5cb3b03882c3209caf/andino_firmware%2FREADME.md",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/efb75b038d058d750669da5cb3b03882c3209caf/andino_firmware%2FREADME.md",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/andino_firmware%2FREADME.md?ref=efb75b038d058d750669da5cb3b03882c3209caf",
+          "patch": "@@ -9,6 +9,9 @@ Check `encoder_driver.h` and `motor_driver.h` files to check the expected pins f\n ## Installation\n \n ### Arduino\n+In Arduino IDE, go to `tools->Manage Libraries ...` and install:\n+- \"Adafruit BNO055\"\n+\n Verify and Upload `andino_firmware.ino` to your arduino board.\n \n ### PlatformIO"
+        },
+        {
+          "sha": "6283cef5d66b482bfa794c93c6b082524bb77126",
+          "filename": "andino_firmware/platformio.ini",
+          "status": "modified",
+          "additions": 6,
+          "deletions": 0,
+          "changes": 6,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/efb75b038d058d750669da5cb3b03882c3209caf/andino_firmware%2Fplatformio.ini",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/efb75b038d058d750669da5cb3b03882c3209caf/andino_firmware%2Fplatformio.ini",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/andino_firmware%2Fplatformio.ini?ref=efb75b038d058d750669da5cb3b03882c3209caf",
+          "patch": "@@ -22,6 +22,12 @@ platform = atmelavr\n framework = arduino\n monitor_speed = 57600\n test_ignore = desktop/*\n+lib_deps =\n+  Wire\n+  SPI\n+  adafruit/Adafruit BNO055\n+  adafruit/Adafruit BusIO\n+  adafruit/Adafruit Unified Sensor\n \n ; Base configuration for desktop platforms (for unit testing).\n [base_desktop]"
+        },
+        {
+          "sha": "c66632f6f10868e1376b67d79ef7954e3d7d8562",
+          "filename": "andino_firmware/src/app.cpp",
+          "status": "modified",
+          "additions": 61,
+          "deletions": 2,
+          "changes": 63,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/efb75b038d058d750669da5cb3b03882c3209caf/andino_firmware%2Fsrc%2Fapp.cpp",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/efb75b038d058d750669da5cb3b03882c3209caf/andino_firmware%2Fsrc%2Fapp.cpp",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/andino_firmware%2Fsrc%2Fapp.cpp?ref=efb75b038d058d750669da5cb3b03882c3209caf",
+          "patch": "@@ -64,7 +64,11 @@\n // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n #include \"app.h\"\n \n+#include <Adafruit_BNO055.h>\n+#include <Adafruit_Sensor.h>\n #include <Arduino.h>\n+#include <Wire.h>\n+#include <utility/imumaths.h>\n \n #include \"commands.h\"\n #include \"constants.h\"\n@@ -115,6 +119,10 @@ unsigned long App::last_pid_computation_{0};\n \n unsigned long App::last_set_motors_speed_cmd_{0};\n \n+bool App::is_imu_connected{false};\n+\n+Adafruit_BNO055 App::bno055_imu_{/*sensorID=*/55, BNO055_ADDRESS_A, &Wire};\n+\n void App::setup() {\n   // Required by Arduino libraries to work.\n   init();\n@@ -142,6 +150,14 @@ void App::setup() {\n   shell_.register_command(Commands::kSetMotorsSpeed, cmd_set_motors_speed_cb);\n   shell_.register_command(Commands::kSetMotorsPwm, cmd_set_motors_pwm_cb);\n   shell_.register_command(Commands::kSetPidsTuningGains, cmd_set_pid_tuning_gains_cb);\n+  shell_.register_command(Commands::kGetIsImuConnected, cmd_get_is_imu_connected_cb);\n+  shell_.register_command(Commands::kReadEncodersAndImu, cmd_read_encoders_and_imu_cb);\n+\n+  // Initialize IMU sensor.\n+  if (bno055_imu_.begin()) {\n+    bno055_imu_.setExtCrystalUse(true);\n+    is_imu_connected = true;\n+  }\n }\n \n void App::loop() {\n@@ -171,10 +187,10 @@ void App::adjust_motors_speed() {\n   int right_motor_speed = 0;\n   left_pid_controller_.compute(left_encoder_.read(), left_motor_speed);\n   right_pid_controller_.compute(right_encoder_.read(), right_motor_speed);\n-  if (left_pid_controller_.enabled()){\n+  if (left_pid_controller_.enabled()) {\n     left_motor_.set_speed(left_motor_speed);\n   }\n-  if (right_pid_controller_.enabled()){\n+  if (right_pid_controller_.enabled()) {\n     right_motor_.set_speed(right_motor_speed);\n   }\n }\n@@ -299,4 +315,47 @@ void App::cmd_set_pid_tuning_gains_cb(int argc, char** argv) {\n   Serial.println(\"OK\");\n }\n \n+void App::cmd_get_is_imu_connected_cb(int, char**) { Serial.println(is_imu_connected); }\n+\n+void App::cmd_read_encoders_and_imu_cb(int, char**) {\n+  Serial.print(left_encoder_.read());\n+  Serial.print(\" \");\n+  Serial.print(right_encoder_.read());\n+  Serial.print(\" \");\n+\n+  // Retrieve absolute orientation (quaternion). See\n+  // https://learn.adafruit.com/adafruit-bno055-absolute-orientation-sensor/overview for further\n+  // information.\n+  imu::Quaternion orientation = bno055_imu_.getQuat();\n+  Serial.print(orientation.x(), 4);\n+  Serial.print(\" \");\n+  Serial.print(orientation.y(), 4);\n+  Serial.print(\" \");\n+  Serial.print(orientation.z(), 4);\n+  Serial.print(\" \");\n+  Serial.print(orientation.w(), 4);\n+  Serial.print(\" \");\n+\n+  // Retrive angular velocity (rad/s). See\n+  // https://learn.adafruit.com/adafruit-bno055-absolute-orientation-sensor/overview for further\n+  // information.\n+  imu::Vector<3> angular_velocity = bno055_imu_.getVector(Adafruit_BNO055::VECTOR_GYROSCOPE);\n+  Serial.print(angular_velocity.x());\n+  Serial.print(\" \");\n+  Serial.print(angular_velocity.y());\n+  Serial.print(\" \");\n+  Serial.print(angular_velocity.z());\n+  Serial.print(\" \");\n+\n+  // Retrive linear acceleration (m/s^2). See\n+  // https://learn.adafruit.com/adafruit-bno055-absolute-orientation-sensor/overview for further\n+  // information.\n+  imu::Vector<3> linear_acceleration = bno055_imu_.getVector(Adafruit_BNO055::VECTOR_LINEARACCEL);\n+  Serial.print(linear_acceleration.x());\n+  Serial.print(\" \");\n+  Serial.print(linear_acceleration.y());\n+  Serial.print(\" \");\n+  Serial.print(linear_acceleration.z());\n+}\n+\n }  // namespace andino"
+        },
+        {
+          "sha": "0bcbef8f2f1ec92259e4ad694ff5356be90d3589",
+          "filename": "andino_firmware/src/app.h",
+          "status": "modified",
+          "additions": 14,
+          "deletions": 0,
+          "changes": 14,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/efb75b038d058d750669da5cb3b03882c3209caf/andino_firmware%2Fsrc%2Fapp.h",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/efb75b038d058d750669da5cb3b03882c3209caf/andino_firmware%2Fsrc%2Fapp.h",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/andino_firmware%2Fsrc%2Fapp.h?ref=efb75b038d058d750669da5cb3b03882c3209caf",
+          "patch": "@@ -29,6 +29,8 @@\n // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n #pragma once\n \n+#include <Adafruit_BNO055.h>\n+\n #include \"digital_out_arduino.h\"\n #include \"encoder.h\"\n #include \"interrupt_in_arduino.h\"\n@@ -83,6 +85,12 @@ class App {\n   /// Callback method for the `Commands::kSetPidsTuningGains` command.\n   static void cmd_set_pid_tuning_gains_cb(int argc, char** argv);\n \n+  /// Callback method for the `Commands::kGetIsImuConnected` command.\n+  static void cmd_get_is_imu_connected_cb(int argc, char** argv);\n+\n+  /// Callback method for the `Commands::kReadEncodersAndImu` command.\n+  static void cmd_read_encoders_and_imu_cb(int argc, char** argv);\n+\n   /// Serial stream.\n   static SerialStreamArduino serial_stream_;\n \n@@ -115,11 +123,17 @@ class App {\n   static Pid left_pid_controller_;\n   static Pid right_pid_controller_;\n \n+  /// Adafruit BNO055 IMU sensor.\n+  static Adafruit_BNO055 bno055_imu_;\n+\n   /// Tracks the last time the PID computation was made.\n   static unsigned long last_pid_computation_;\n \n   /// Tracks the last time a `Commands::kSetMotorsSpeed` command was received.\n   static unsigned long last_set_motors_speed_cmd_;\n+\n+  /// Tracks whether there is an IMU sensor connected.\n+  static bool is_imu_connected;\n };\n \n }  // namespace andino"
+        },
+        {
+          "sha": "8136f2e35eea5f50869667e882ddfc381305cb6f",
+          "filename": "andino_firmware/src/commands.h",
+          "status": "modified",
+          "additions": 4,
+          "deletions": 0,
+          "changes": 4,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/efb75b038d058d750669da5cb3b03882c3209caf/andino_firmware%2Fsrc%2Fcommands.h",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/efb75b038d058d750669da5cb3b03882c3209caf/andino_firmware%2Fsrc%2Fcommands.h",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/andino_firmware%2Fsrc%2Fcommands.h?ref=efb75b038d058d750669da5cb3b03882c3209caf",
+          "patch": "@@ -82,6 +82,10 @@ struct Commands {\n   static constexpr const char* kSetMotorsPwm{\"o\"};\n   /// @brief Sets the PIDs tuning gains [format: \"kp:kd:ki:ko\"].\n   static constexpr const char* kSetPidsTuningGains{\"u\"};\n+  /// @brief Gets whether there is an IMU sensor connected.\n+  static constexpr const char* kGetIsImuConnected{\"h\"};\n+  /// @brief Reads the encoders tick count values and IMU sensor data.\n+  static constexpr const char* kReadEncodersAndImu{\"i\"};\n };\n \n }  // namespace andino"
+        },
+        {
+          "sha": "850525ac4339636f6c27d25f0f2737f9044ca70b",
+          "filename": "andino_firmware/src/hw.h",
+          "status": "modified",
+          "additions": 9,
+          "deletions": 4,
+          "changes": 13,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/efb75b038d058d750669da5cb3b03882c3209caf/andino_firmware%2Fsrc%2Fhw.h",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/efb75b038d058d750669da5cb3b03882c3209caf/andino_firmware%2Fsrc%2Fhw.h",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/andino_firmware%2Fsrc%2Fhw.h?ref=efb75b038d058d750669da5cb3b03882c3209caf",
+          "patch": "@@ -38,10 +38,10 @@ struct Hw {\n   /// @brief Left encoder channel B pin. Connected to PD3 (digital pin 3).\n   static constexpr int kLeftEncoderChannelBGpioPin{3};\n \n-  /// @brief Right encoder channel A pin. Connected to PC4 (digital pin 18, analog pin A4).\n-  static constexpr int kRightEncoderChannelAGpioPin{18};\n-  /// @brief Right encoder channel B pin. Connected to PC5 (digital pin 19, analog pin A5).\n-  static constexpr int kRightEncoderChannelBGpioPin{19};\n+  /// @brief Right encoder channel A pin. Connected to PC2 (digital pin 16, analog pin A2).\n+  static constexpr int kRightEncoderChannelAGpioPin{16};\n+  /// @brief Right encoder channel B pin. Connected to PC3 (digital pin 17, analog pin A3).\n+  static constexpr int kRightEncoderChannelBGpioPin{17};\n \n   /// @brief Left motor driver backward pin. Connected to PD6 (digital pin 6).\n   static constexpr int kLeftMotorBackwardGpioPin{6};\n@@ -60,6 +60,11 @@ struct Hw {\n   /// @note The enable input of the L298N motor driver may be directly jumped to 5V if the board has\n   /// a jumper to do so.\n   static constexpr int kRightMotorEnableGpioPin{12};\n+\n+  /// @brief IMU sensor I2C SCL pin. Connected to PC5 (digital pin 19, analog pin A5).\n+  static constexpr int kImuI2cSclPin{19};\n+  /// @brief IMU sensor I2C SDA pin. Connected to PC4 (digital pin 18, analog pin A4).\n+  static constexpr int kImuI2cSdaPin{18};\n };\n \n }  // namespace andino"
+        }
+      ]
     },
     {
       "author": "garyservin",
@@ -95,7 +395,21 @@
       "files_changed": 1,
       "additions": 2,
       "deletions": 1,
-      "commit_type": "code"
+      "commit_type": "code",
+      "files": [
+        {
+          "sha": "71890e084e9d57a05863d9b3a66ec8250beb5e3e",
+          "filename": "andino_firmware/src/main.cpp",
+          "status": "modified",
+          "additions": 2,
+          "deletions": 1,
+          "changes": 3,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/0cb2c69d719f614f1c89bda97db97f3442cb2949/andino_firmware%2Fsrc%2Fmain.cpp",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/0cb2c69d719f614f1c89bda97db97f3442cb2949/andino_firmware%2Fsrc%2Fmain.cpp",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/andino_firmware%2Fsrc%2Fmain.cpp?ref=0cb2c69d719f614f1c89bda97db97f3442cb2949",
+          "patch": "@@ -302,7 +302,8 @@ void loop() {\n \n   // Run a PID calculation at the appropriate intervals\n   if (millis() > nextPID) {\n-    int left_motor_speed, right_motor_speed;\n+    int left_motor_speed = 0;\n+    int right_motor_speed = 0;\n     left_pid_controller.compute(readEncoder(LEFT), left_motor_speed);\n     right_pid_controller.compute(readEncoder(RIGHT), right_motor_speed);\n     left_motor.set_speed(left_motor_speed);"
+        }
+      ]
     },
     {
       "author": "agalbachicar",
@@ -105,7 +419,57 @@
       "files_changed": 4,
       "additions": 19,
       "deletions": 17,
-      "commit_type": "code"
+      "commit_type": "code",
+      "files": [
+        {
+          "sha": "faf41ef7a381cf9df4c8c4710b82b5c76ada2471",
+          "filename": "andino_firmware/src/app.cpp",
+          "status": "modified",
+          "additions": 3,
+          "deletions": 2,
+          "changes": 5,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/2e552b51e3333d6e2c6186defe8b8a15ad370f9d/andino_firmware%2Fsrc%2Fapp.cpp",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/2e552b51e3333d6e2c6186defe8b8a15ad370f9d/andino_firmware%2Fsrc%2Fapp.cpp",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/andino_firmware%2Fsrc%2Fapp.cpp?ref=2e552b51e3333d6e2c6186defe8b8a15ad370f9d",
+          "patch": "@@ -296,15 +296,16 @@ void App::cmd_set_motors_pwm(const char* arg1, const char* arg2) {\n }\n \n void App::cmd_set_pid_tuning_gains(const char* arg1, const char*) {\n+  static constexpr int kSizePidArgs{4};\n   int i = 0;\n   char arg[20];\n   char* str;\n-  int pid_args[4];\n+  int pid_args[kSizePidArgs]{0, 0, 0, 0};\n \n   // Example: \"u 30:20:10:50\".\n   strcpy(arg, arg1);\n   char* p = arg;\n-  while ((str = strtok_r(p, \":\", &p)) != NULL) {\n+  while ((str = strtok_r(p, \":\", &p)) != NULL && i < kSizePidArgs) {\n     pid_args[i] = atoi(str);\n     i++;\n   }"
+        },
+        {
+          "sha": "ebc17b03931e7e91e9d0f7605a96664cb37b7d0c",
+          "filename": "andino_firmware/src/pcint.cpp",
+          "status": "modified",
+          "additions": 1,
+          "deletions": 1,
+          "changes": 2,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/2e552b51e3333d6e2c6186defe8b8a15ad370f9d/andino_firmware%2Fsrc%2Fpcint.cpp",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/2e552b51e3333d6e2c6186defe8b8a15ad370f9d/andino_firmware%2Fsrc%2Fpcint.cpp",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/andino_firmware%2Fsrc%2Fpcint.cpp?ref=2e552b51e3333d6e2c6186defe8b8a15ad370f9d",
+          "patch": "@@ -70,7 +70,7 @@ void PCInt::attach_interrupt(uint8_t pin, InterruptCallback callback) {\n   *(kPortToPCMask[port]) |= bit_mask;\n \n   // Set corresponding bit in the Pin Change Interrupt Control register.\n-  PCICR |= 0x01 << port;\n+  PCICR |= static_cast<uint8_t>(0x01 << port);\n \n   // Set callback function.\n   g_callbacks[port] = callback;"
+        },
+        {
+          "sha": "27e4f8913008d220603b5d4f7c1518bfd00d5c3a",
+          "filename": "andino_firmware/src/pcint.h",
+          "status": "modified",
+          "additions": 2,
+          "deletions": 0,
+          "changes": 2,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/2e552b51e3333d6e2c6186defe8b8a15ad370f9d/andino_firmware%2Fsrc%2Fpcint.h",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/2e552b51e3333d6e2c6186defe8b8a15ad370f9d/andino_firmware%2Fsrc%2Fpcint.h",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/andino_firmware%2Fsrc%2Fpcint.h?ref=2e552b51e3333d6e2c6186defe8b8a15ad370f9d",
+          "patch": "@@ -49,6 +49,8 @@ class PCInt {\n   static void attach_interrupt(uint8_t pin, InterruptCallback callback);\n \n  private:\n+  PCInt() = delete;\n+\n   /// Map between ports and Pin Change Mask registers.\n   static constexpr volatile uint8_t* kPortToPCMask[]{&PCMSK0, &PCMSK1, &PCMSK2};\n };"
+        },
+        {
+          "sha": "768f8cb769a774cda373c850e71408416da20522",
+          "filename": "andino_firmware/src/pid.h",
+          "status": "modified",
+          "additions": 13,
+          "deletions": 14,
+          "changes": 27,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/2e552b51e3333d6e2c6186defe8b8a15ad370f9d/andino_firmware%2Fsrc%2Fpid.h",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/2e552b51e3333d6e2c6186defe8b8a15ad370f9d/andino_firmware%2Fsrc%2Fpid.h",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/andino_firmware%2Fsrc%2Fpid.h?ref=2e552b51e3333d6e2c6186defe8b8a15ad370f9d",
+          "patch": "@@ -48,8 +48,7 @@ class PID {\n         ki_(ki),\n         ko_(ko),\n         output_min_(output_min),\n-        output_max_(output_max),\n-        enabled_(false) {}\n+        output_max_(output_max) {}\n \n   /// @brief Resets the PID controller.\n   ///\n@@ -82,32 +81,32 @@ class PID {\n \n  private:\n   /// Tuning proportional gain.\n-  int kp_;\n+  int kp_{0};\n   /// Tuning derivative gain.\n-  int kd_;\n+  int kd_{0};\n   /// Tuning integral gain.\n-  int ki_;\n+  int ki_{0};\n   /// Tuning output gain.\n-  int ko_;\n+  int ko_{0};\n \n   /// Output minimum limit.\n-  int output_min_;\n+  int output_min_{0};\n   /// Output maximum limit.\n-  int output_max_;\n+  int output_max_{0};\n \n   /// True if the PID is enabled, false otherwise.\n-  bool enabled_;\n+  bool enabled_{false};\n \n   /// Setpoint value.\n-  int setpoint_;\n+  int setpoint_{0};\n   /// Accumulated integral term.\n-  int integral_term_;\n+  int integral_term_{0};\n   /// Last received encoder value.\n-  long last_encoder_count_;\n+  long last_encoder_count_{0};\n   /// Last computed input value.\n-  int last_input_;\n+  int last_input_{0};\n   /// Last computed output value.\n-  long last_output_;\n+  long last_output_{0};\n };\n \n }  // namespace andino"
+        }
+      ]
     },
     {
       "author": "lneumarkt",
@@ -115,7 +479,42 @@
       "files_changed": 3,
       "additions": 0,
       "deletions": 0,
-      "commit_type": "code"
+      "commit_type": "other",
+      "files": [
+        {
+          "sha": "290df985e25f1a1f4aec9c7468bf7653009c31d9",
+          "filename": "andino_hardware/printing_model/raspi_cam_mount/raspi_camera_mount_back.stl",
+          "status": "added",
+          "additions": 0,
+          "deletions": 0,
+          "changes": 0,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/a14e57e636cbe50adbdca4d6aea4d11cdec100db/andino_hardware%2Fprinting_model%2Fraspi_cam_mount%2Fraspi_camera_mount_back.stl",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/a14e57e636cbe50adbdca4d6aea4d11cdec100db/andino_hardware%2Fprinting_model%2Fraspi_cam_mount%2Fraspi_camera_mount_back.stl",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/andino_hardware%2Fprinting_model%2Fraspi_cam_mount%2Fraspi_camera_mount_back.stl?ref=a14e57e636cbe50adbdca4d6aea4d11cdec100db"
+        },
+        {
+          "sha": "4f8d434260365e71f8e0c1bb1e62ff4258eccc49",
+          "filename": "andino_hardware/printing_model/raspi_cam_mount/raspi_camera_mount_front.stl",
+          "status": "added",
+          "additions": 0,
+          "deletions": 0,
+          "changes": 0,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/a14e57e636cbe50adbdca4d6aea4d11cdec100db/andino_hardware%2Fprinting_model%2Fraspi_cam_mount%2Fraspi_camera_mount_front.stl",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/a14e57e636cbe50adbdca4d6aea4d11cdec100db/andino_hardware%2Fprinting_model%2Fraspi_cam_mount%2Fraspi_camera_mount_front.stl",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/andino_hardware%2Fprinting_model%2Fraspi_cam_mount%2Fraspi_camera_mount_front.stl?ref=a14e57e636cbe50adbdca4d6aea4d11cdec100db"
+        },
+        {
+          "sha": "1d08cb99c8dbc5caa78567c38cee64f5ce0d24c8",
+          "filename": "andino_hardware/printing_model/raspi_cam_mount/raspi_camera_mount_hinge.stl",
+          "status": "added",
+          "additions": 0,
+          "deletions": 0,
+          "changes": 0,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/a14e57e636cbe50adbdca4d6aea4d11cdec100db/andino_hardware%2Fprinting_model%2Fraspi_cam_mount%2Fraspi_camera_mount_hinge.stl",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/a14e57e636cbe50adbdca4d6aea4d11cdec100db/andino_hardware%2Fprinting_model%2Fraspi_cam_mount%2Fraspi_camera_mount_hinge.stl",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/andino_hardware%2Fprinting_model%2Fraspi_cam_mount%2Fraspi_camera_mount_hinge.stl?ref=a14e57e636cbe50adbdca4d6aea4d11cdec100db"
+        }
+      ]
     },
     {
       "author": "IDavGal",
@@ -125,7 +524,20 @@
       "files_changed": 1,
       "additions": 0,
       "deletions": 0,
-      "commit_type": "code"
+      "commit_type": "other",
+      "files": [
+        {
+          "sha": "da850c18ab1060ca41c03043cd18f10e9569eb47",
+          "filename": "andino_description/meshes/sensors/rplidar-a1.stl",
+          "status": "modified",
+          "additions": 0,
+          "deletions": 0,
+          "changes": 0,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/798cdcf9c1e2639e06a30e5dc8cf11893fb696df/andino_description%2Fmeshes%2Fsensors%2Frplidar-a1.stl",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/798cdcf9c1e2639e06a30e5dc8cf11893fb696df/andino_description%2Fmeshes%2Fsensors%2Frplidar-a1.stl",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/andino_description%2Fmeshes%2Fsensors%2Frplidar-a1.stl?ref=798cdcf9c1e2639e06a30e5dc8cf11893fb696df"
+        }
+      ]
     },
     {
       "author": "stevendes",
@@ -135,7 +547,21 @@
       "files_changed": 1,
       "additions": 2,
       "deletions": 2,
-      "commit_type": "code"
+      "commit_type": "other",
+      "files": [
+        {
+          "sha": "d74620ce313ad702777015eb3557ceb3e90b2aa9",
+          "filename": "andino_gazebo/urdf/andino.gazebo.xacro",
+          "status": "modified",
+          "additions": 2,
+          "deletions": 2,
+          "changes": 4,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/db1683c8732d10375f3c23cd699119257a26dd92/andino_gazebo%2Furdf%2Fandino.gazebo.xacro",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/db1683c8732d10375f3c23cd699119257a26dd92/andino_gazebo%2Furdf%2Fandino.gazebo.xacro",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/andino_gazebo%2Furdf%2Fandino.gazebo.xacro?ref=db1683c8732d10375f3c23cd699119257a26dd92",
+          "patch": "@@ -14,8 +14,8 @@\n     </gazebo>\n   </xacro:macro>\n \n-  <xacro:friction reference=\"front_right_wheel\" mu=\"100.0\"/>\n-  <xacro:friction reference=\"front_left_wheel\" mu=\"100.0\"/>\n+  <xacro:friction reference=\"right_wheel\" mu=\"100.0\"/>\n+  <xacro:friction reference=\"left_wheel\" mu=\"100.0\"/>\n   <xacro:friction reference=\"caster_wheel_link\" mu=\"0.05\"/>\n   <!--TODO(olmerg) initial solution problem with ros control  -->\n   <!-- <xacro:friction reference=\"caster_rotation_link\" mu=\"0.0\"/> -->"
+        }
+      ]
     },
     {
       "author": "elector102",
@@ -145,7 +571,21 @@
       "files_changed": 1,
       "additions": 7,
       "deletions": 7,
-      "commit_type": "code"
+      "commit_type": "other",
+      "files": [
+        {
+          "sha": "f55c5d495534f78c6cb0c1bf2c402f376fcac35a",
+          "filename": "andino_gazebo/urdf/andino.gazebo.xacro",
+          "status": "modified",
+          "additions": 7,
+          "deletions": 7,
+          "changes": 14,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/83f131c0eacc0063ca92ced2efcff00a32d00a05/andino_gazebo%2Furdf%2Fandino.gazebo.xacro",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/83f131c0eacc0063ca92ced2efcff00a32d00a05/andino_gazebo%2Furdf%2Fandino.gazebo.xacro",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/andino_gazebo%2Furdf%2Fandino.gazebo.xacro?ref=83f131c0eacc0063ca92ced2efcff00a32d00a05",
+          "patch": "@@ -15,8 +15,8 @@\n   </xacro:macro>\n \n   <xacro:friction reference=\"front_right_wheel\" mu=\"10\"/>\n-  <xacro:friction reference=\"front_left_wheel\" mu=\"10\"/> \n-  <xacro:friction reference=\"rear_caster_wheel_link\" mu=\"0.000\"/>\n+  <xacro:friction reference=\"front_left_wheel\" mu=\"10\"/>\n+  <xacro:friction reference=\"caster_wheel_link\" mu=\"0.0\"/>\n \n    <xacro:if value=\"$(arg use_gazebo_ros_control)\">\n     <ros2_control name=\"diff_controller\" type=\"system\">\n@@ -55,9 +55,9 @@\n         <remapping>/tf:=tf</remapping>\n       </ros>\n       <update_rate>10</update_rate>\n-      <joint_name>right_wheel_joint</joint_name> \n-      <joint_name>left_wheel_joint</joint_name> \n-      \n+      <joint_name>right_wheel_joint</joint_name>\n+      <joint_name>left_wheel_joint</joint_name>\n+\n     </plugin>\n \n     <plugin name='andino_diff_drive' filename='libgazebo_ros_diff_drive.so'>\n@@ -71,8 +71,8 @@\n       <right_joint>left_wheel_joint</right_joint>\n \n       <!-- kinematics -->\n-      <wheel_separation>0.137</wheel_separation> \n-      <wheel_diameter>0.035</wheel_diameter> \n+      <wheel_separation>0.137</wheel_separation>\n+      <wheel_diameter>0.035</wheel_diameter>\n \n       <!-- limits -->\n       <max_wheel_torque>20</max_wheel_torque>"
+        }
+      ]
     },
     {
       "author": "olmerg",
@@ -155,7 +595,141 @@
       "files_changed": 11,
       "additions": 915,
       "deletions": 2,
-      "commit_type": "config"
+      "commit_type": "code",
+      "files": [
+        {
+          "sha": "41f35396822ff7b8877d71d5f24ccd62a04dd6b6",
+          "filename": ".github/workflows/ci.yml",
+          "status": "modified",
+          "additions": 1,
+          "deletions": 1,
+          "changes": 2,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/43017a8b8c81cec27119ee44e1f486ef25a3a988/.github%2Fworkflows%2Fci.yml",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/43017a8b8c81cec27119ee44e1f486ef25a3a988/.github%2Fworkflows%2Fci.yml",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/.github%2Fworkflows%2Fci.yml?ref=43017a8b8c81cec27119ee44e1f486ef25a3a988",
+          "patch": "@@ -22,6 +22,6 @@ jobs:\n     - uses: ros-tooling/action-ros-ci@v0.3\n       id: action_ros_ci_step\n       with:\n-        package-name: andino_base andino_control andino_description andino_slam\n+        package-name: andino_base andino_control andino_description andino_slam andino_gazebo\n         target-ros2-distro: ${{ env.ROS_DISTRO }}\n         import-token: ${{ secrets.GITHUB_TOKEN }}"
+        },
+        {
+          "sha": "89701cc9d860de4b07caaecd1ea525b8fdaf6e5c",
+          "filename": "andino_description/urdf/include/common_sensors.urdf.xacro",
+          "status": "modified",
+          "additions": 1,
+          "deletions": 1,
+          "changes": 2,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/43017a8b8c81cec27119ee44e1f486ef25a3a988/andino_description%2Furdf%2Finclude%2Fcommon_sensors.urdf.xacro",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/43017a8b8c81cec27119ee44e1f486ef25a3a988/andino_description%2Furdf%2Finclude%2Fcommon_sensors.urdf.xacro",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/andino_description%2Furdf%2Finclude%2Fcommon_sensors.urdf.xacro?ref=43017a8b8c81cec27119ee44e1f486ef25a3a988",
+          "patch": "@@ -57,7 +57,7 @@\n       <visual>\n         <origin xyz=\"0 0 0\" rpy=\"0 0 0\"/>\n         <geometry>\n-          <mesh filename=\"package://${package_name}/meshes/sensors/${mesh}\" />\n+          <mesh filename=\"package://andino_description/meshes/sensors/${mesh}\" />\n         </geometry>\n         <material name=\"blue\"/>\n       </visual>"
+        },
+        {
+          "sha": "7e7e4e58b3b113005913441c5bf7659bd3a0ff20",
+          "filename": "andino_gazebo/CHANGELOG.rst",
+          "status": "added",
+          "additions": 9,
+          "deletions": 0,
+          "changes": 9,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/43017a8b8c81cec27119ee44e1f486ef25a3a988/andino_gazebo%2FCHANGELOG.rst",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/43017a8b8c81cec27119ee44e1f486ef25a3a988/andino_gazebo%2FCHANGELOG.rst",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/andino_gazebo%2FCHANGELOG.rst?ref=43017a8b8c81cec27119ee44e1f486ef25a3a988",
+          "patch": "@@ -0,0 +1,9 @@\n+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n+Changelog for package andino_gazebo\n+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n+\n+\n+0.0.1 (2023-06-29)\n+------------------\n+* First andino release\n+* Contributors: olmerg"
+        },
+        {
+          "sha": "24aafbd9d0c9c0aa3fe75c087257d0193cba9545",
+          "filename": "andino_gazebo/CMakeLists.txt",
+          "status": "added",
+          "additions": 32,
+          "deletions": 0,
+          "changes": 32,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/43017a8b8c81cec27119ee44e1f486ef25a3a988/andino_gazebo%2FCMakeLists.txt",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/43017a8b8c81cec27119ee44e1f486ef25a3a988/andino_gazebo%2FCMakeLists.txt",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/andino_gazebo%2FCMakeLists.txt?ref=43017a8b8c81cec27119ee44e1f486ef25a3a988",
+          "patch": "@@ -0,0 +1,32 @@\n+cmake_minimum_required(VERSION 3.8)\n+\n+project(andino_gazebo)\n+\n+# Skip if Gazebo not present\n+find_package(gazebo QUIET)\n+if(NOT gazebo_FOUND)\n+  message(WARNING \"Gazebo not found, proceeding without that simulator.\")\n+  return()\n+endif()\n+\n+find_package(ament_cmake REQUIRED)\n+\n+if(BUILD_TESTING)\n+  find_package(ament_lint_auto REQUIRED)\n+  # the following line skips the linter which checks for copyrights\n+  set(ament_cmake_copyright_FOUND TRUE)\n+  set(ament_cmake_cpplint_FOUND TRUE)\n+  ament_lint_auto_find_test_dependencies()\n+endif()\n+\n+install(\n+  DIRECTORY\n+    launch\n+    rviz\n+    urdf\n+  DESTINATION\n+    share/${PROJECT_NAME}/\n+)\n+\n+\n+ament_package()"
+        },
+        {
+          "sha": "e7de6ce25ba16e5ade69c796cb771e5ddf796a6c",
+          "filename": "andino_gazebo/LICENSE",
+          "status": "added",
+          "additions": 29,
+          "deletions": 0,
+          "changes": 29,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/43017a8b8c81cec27119ee44e1f486ef25a3a988/andino_gazebo%2FLICENSE",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/43017a8b8c81cec27119ee44e1f486ef25a3a988/andino_gazebo%2FLICENSE",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/andino_gazebo%2FLICENSE?ref=43017a8b8c81cec27119ee44e1f486ef25a3a988",
+          "patch": "@@ -0,0 +1,29 @@\n+BSD 3-Clause License\n+\n+Copyright (c) 2023, Ekumen Inc.\n+All rights reserved.\n+\n+Redistribution and use in source and binary forms, with or without\n+modification, are permitted provided that the following conditions are met:\n+\n+1. Redistributions of source code must retain the above copyright notice, this\n+   list of conditions and the following disclaimer.\n+\n+2. Redistributions in binary form must reproduce the above copyright notice,\n+   this list of conditions and the following disclaimer in the documentation\n+   and/or other materials provided with the distribution.\n+\n+3. Neither the name of the copyright holder nor the names of its\n+   contributors may be used to endorse or promote products derived from\n+   this software without specific prior written permission.\n+\n+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\"\n+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\n+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\n+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE\n+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL\n+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR\n+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER\n+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,\n+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE\n+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE."
+        },
+        {
+          "sha": "593d6186524005daeb90c0f1fbaf7dcec1d895ff",
+          "filename": "andino_gazebo/README.MD",
+          "status": "added",
+          "additions": 80,
+          "deletions": 0,
+          "changes": 80,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/43017a8b8c81cec27119ee44e1f486ef25a3a988/andino_gazebo%2FREADME.MD",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/43017a8b8c81cec27119ee44e1f486ef25a3a988/andino_gazebo%2FREADME.MD",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/andino_gazebo%2FREADME.MD?ref=43017a8b8c81cec27119ee44e1f486ef25a3a988",
+          "patch": "@@ -0,0 +1,80 @@\n+\n+# Gazebo Classic simulation for the Andino robot \n+\n+## Build\n+\n+Install package dependencies:\n+\n+```\n+rosdep install --from-paths src -i -y\n+```\n+\n+Build the package:\n+\n+```\n+colcon build\n+```\n+\n+Note: `--symlink-install` can be added if needed.\n+\n+Finally, source the install folder\n+```\n+. install/setup.bash\n+```\n+\n+Note: `gazebo` might be needed to be sourced as well\n+\n+```\n+. /usr/share/gazebo/setup.bash\n+```\n+\n+# Usage \n+\n+This package has the next option to be executed.\n+\n+## Andino simulation with Gazebo diff drive plugin\n+\n+\n+```\n+ros2 launch andino_gazebo andino_one_robot.launch.py initial_pose_x:=3.0\n+```\n+\n+This launch file supports the following launch arguments:\n+\n+- `use_sim_time` . This parameter indicate to the rviz that it should work with simulation time. (default: 'true')\n+- `rviz` . This parameter let to decide if you want to run rviz with this launch. False can be useful if you want to view the rviz in another computer. (default: 'true')\n+- `world` . SDF file of the world where andino will run. Note that the world should be available in gazebo paths.(default: 'empty_world.world')\n+\n+Finally, all the parameters of spawn an andino robot to put the robot in specific position are available. for more information of all the parameters of the child launch files you can write:\n+\n+```\n+ros2 launch andino_gazebo andino_one_robot.launch.py -s\n+```\n+\n+## Spawn an Andino robot\n+\n+```\n+ros2 launch andino_gazebo spawn_robot.launch.py initial_pose_x:=3.0 entity:=andino robot_description_topic:=/andino/robot_description\n+```\n+\n+The parameters of this launch let to put the robot in any place of the simulation.\n+\n+- `use_sim_time`: Use simulation (Gazebo) clock if true. (default: 'true')\n+\n+- `initial_pose_x`: Initial x pose of andino in the simulation. (default: '0.0')\n+\n+- `initial_pose_y`: Initial y pose of andino in the simulation. (default: '0.0')\n+\n+- `initial_pose_z`: Initial z pose of andino in the simulation. (default: '0.0')\n+\n+- `robot_description_topic`: robot description topic. (default: '/robot_description')\n+\n+- `initial_pose_yaw`: Initial yaw pose of andino in the simulation. (default: '0.0')\n+\n+- `use_gazebo_ros_control`: True to use the gazebo_ros_control plugin.  (default: 'false')\n+\n+- `entity`: Name of the robot. (default: 'andino')\n+\n+- `rsp_frequency`: robot state publisher frequency. (default: '30.0')\n+\n+Spawn multiple andino robots has some issues, so no namespace is created."
+        },
+        {
+          "sha": "131878b16d40928bd3c09dfa00c8b4a09d5c91dc",
+          "filename": "andino_gazebo/launch/andino_one_robot.launch.py",
+          "status": "added",
+          "additions": 99,
+          "deletions": 0,
+          "changes": 99,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/43017a8b8c81cec27119ee44e1f486ef25a3a988/andino_gazebo%2Flaunch%2Fandino_one_robot.launch.py",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/43017a8b8c81cec27119ee44e1f486ef25a3a988/andino_gazebo%2Flaunch%2Fandino_one_robot.launch.py",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/andino_gazebo%2Flaunch%2Fandino_one_robot.launch.py?ref=43017a8b8c81cec27119ee44e1f486ef25a3a988",
+          "patch": "@@ -0,0 +1,99 @@\n+# Licensed under the 3-Clause BSD License\n+#\n+# Copyright (c) 2023, Ekumen Inc.\n+# All rights reserved.\n+#\n+# Redistribution and use in source and binary forms, with or without\n+# modification, are permitted provided that the following conditions are met:\n+#\n+# 1. Redistributions of source code must retain the above copyright notice, this\n+#    list of conditions and the following disclaimer.\n+#\n+# 2. Redistributions in binary form must reproduce the above copyright notice,\n+#    this list of conditions and the following disclaimer in the documentation\n+#    and/or other materials provided with the distribution.\n+#\n+# 3. Neither the name of the copyright holder nor the names of its\n+#    contributors may be used to endorse or promote products derived from\n+#    this software without specific prior written permission.\n+#\n+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\"\n+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\n+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\n+# DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE\n+# FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL\n+# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR\n+# SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER\n+# CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,\n+# OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE\n+# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n+\n+\"\"\"Launch Gazebo with a world that has Andino.\"\"\"\n+\n+import os\n+\n+from ament_index_python.packages import get_package_share_directory\n+from launch import LaunchDescription\n+from launch.actions import DeclareLaunchArgument\n+from launch.actions import IncludeLaunchDescription, TimerAction\n+from launch.conditions import IfCondition\n+from launch.launch_description_sources import PythonLaunchDescriptionSource\n+from launch.substitutions import LaunchConfiguration\n+from launch_ros.actions import Node\n+\n+\n+def generate_launch_description():\n+    # Arguments\n+    use_sim_time = LaunchConfiguration('use_sim_time')\n+    use_rviz = LaunchConfiguration('rviz')\n+\n+    pkg_gazebo_ros = get_package_share_directory('gazebo_ros')\n+    pkg_andino_gazebo = get_package_share_directory('andino_gazebo')\n+\n+    use_sim_time_argument = DeclareLaunchArgument(\n+        'use_sim_time',\n+        default_value='true',\n+        description='Use simulation (Gazebo) clock if true',\n+    )\n+    world_argument = DeclareLaunchArgument(\n+        'world', default_value=['empty_world.world'], description='SDF world file'\n+    )\n+    use_rviz_argument = DeclareLaunchArgument(\n+        'rviz', default_value='true', description='Open RViz.'\n+    )\n+\n+    # Include andino\n+    include_andino = IncludeLaunchDescription(\n+        PythonLaunchDescriptionSource(\n+            os.path.join(pkg_andino_gazebo, 'launch', 'spawn_robot.launch.py')\n+        ),\n+        launch_arguments={'use_gazebo_ros_control': 'false'}.items(),\n+    )\n+    # Gazebo launch\n+    gazebo = IncludeLaunchDescription(\n+        PythonLaunchDescriptionSource(\n+            os.path.join(pkg_gazebo_ros, 'launch', 'gazebo.launch.py')\n+        )\n+    )\n+\n+    # RViz\n+    rviz = Node(\n+        package='rviz2',\n+        executable='rviz2',\n+        parameters=[{'use_sim_time': use_sim_time}],\n+        arguments=['-d', os.path.join(pkg_andino_gazebo, 'rviz', 'andino_gazebo.rviz')],\n+    )\n+\n+    andino_visualization_timer = TimerAction(\n+        period=5.0, actions=[rviz], condition=IfCondition(use_rviz)\n+    )\n+    return LaunchDescription(\n+        [\n+            use_sim_time_argument,\n+            world_argument,\n+            use_rviz_argument,\n+            gazebo,\n+            include_andino,\n+            andino_visualization_timer,\n+        ]\n+    )"
+        },
+        {
+          "sha": "4222f48ad5988cf206ec8c08f726feda434ab0e3",
+          "filename": "andino_gazebo/launch/spawn_robot.launch.py",
+          "status": "added",
+          "additions": 200,
+          "deletions": 0,
+          "changes": 200,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/43017a8b8c81cec27119ee44e1f486ef25a3a988/andino_gazebo%2Flaunch%2Fspawn_robot.launch.py",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/43017a8b8c81cec27119ee44e1f486ef25a3a988/andino_gazebo%2Flaunch%2Fspawn_robot.launch.py",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/andino_gazebo%2Flaunch%2Fspawn_robot.launch.py?ref=43017a8b8c81cec27119ee44e1f486ef25a3a988",
+          "patch": "@@ -0,0 +1,200 @@\n+# Copyright 2023, Ekumen Inc.\n+# All rights reserved.\n+#\n+# Redistribution and use in source and binary forms, with or without\n+# modification, are permitted provided that the following conditions are met:\n+#\n+# 1. Redistributions of source code must retain the above copyright notice, this\n+#    list of conditions and the following disclaimer.\n+#\n+# 2. Redistributions in binary form must reproduce the above copyright notice,\n+#    this list of conditions and the following disclaimer in the documentation\n+#    and/or other materials provided with the distribution.\n+#\n+# 3. Neither the name of the copyright holder nor the names of its\n+#    contributors may be used to endorse or promote products derived from\n+#    this software without specific prior written permission.\n+#\n+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\"\n+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\n+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\n+# DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE\n+# FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL\n+# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR\n+# SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER\n+# CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,\n+# OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE\n+# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n+\n+\"\"\"Spawn an Andino robot in Gazebo, also launch the robot_state_publisher.\"\"\"\n+\n+import os\n+\n+from ament_index_python.packages import get_package_share_directory\n+from launch import LaunchDescription\n+from launch.actions import DeclareLaunchArgument\n+from launch.conditions import IfCondition\n+from launch.substitutions import LaunchConfiguration\n+from launch.substitutions import PythonExpression\n+from launch_ros.actions import Node\n+from xacro import process_file\n+\n+\n+def get_robot_description(use_ros_control: str) -> str:\n+    \"\"\"\n+    Obtain the urdf from the xacro file.\n+\n+    This replace package tag by file tag to works with gazebo\n+    # See  https://github.com/ros-simulation/gazebo_ros_pkgs/pull/1284\n+\n+    Arguments:\n+        use_ros_control -- false to use diff drive gazebo plugin\n+\n+    Returns\n+    -------\n+        urdf of the robot with gazebo data\n+\n+    \"\"\"\n+    doc = process_file(\n+        os.path.join(\n+            get_package_share_directory('andino_gazebo'), 'urdf', 'andino.gazebo.xacro'\n+        ),\n+        mappings={'use_gazebo_ros_control': use_ros_control},\n+    )\n+    robot_desc = doc.toprettyxml(indent='  ')\n+    folder = get_package_share_directory('andino_description')\n+    robot_desc = robot_desc.replace(\n+        'package://andino_description/', f'file://{folder}/'\n+    )\n+    return robot_desc\n+\n+\n+def generate_launch_description():\n+    # Arguments\n+    use_sim_time = LaunchConfiguration('use_sim_time')\n+    initial_pose_x = LaunchConfiguration('initial_pose_x')\n+    initial_pose_y = LaunchConfiguration('initial_pose_y')\n+    initial_pose_z = LaunchConfiguration('initial_pose_z')\n+    initial_pose_yaw = LaunchConfiguration('initial_pose_yaw')\n+    use_ros_control = LaunchConfiguration('use_gazebo_ros_control')\n+    entity = LaunchConfiguration('entity')\n+    robot_description_topic = LaunchConfiguration('robot_description_topic')\n+    rsp_frequency = LaunchConfiguration('rsp_frequency')\n+\n+    x_argument = DeclareLaunchArgument(\n+        'initial_pose_x',\n+        default_value='0.0',\n+        description='Initial x pose of andino in the simulation',\n+    )\n+    y_argument = DeclareLaunchArgument(\n+        'initial_pose_y',\n+        default_value='0.0',\n+        description='Initial y pose of andino in the simulation',\n+    )\n+    z_argument = DeclareLaunchArgument(\n+        'initial_pose_z',\n+        default_value='0.0',\n+        description='Initial z pose of andino in the simulation',\n+    )\n+    yaw_argument = DeclareLaunchArgument(\n+        'initial_pose_yaw',\n+        default_value='0.0',\n+        description='Initial yaw pose of andino in the simulation',\n+    )\n+    gazebo_ros_control_argument = DeclareLaunchArgument(\n+        'use_gazebo_ros_control',\n+        default_value='false',\n+        description='True to use the gazebo_ros_control plugin',\n+    )\n+    entity_argument = DeclareLaunchArgument(\n+        'entity', default_value='andino', description='Name of the robot'\n+    )\n+    robot_desc_argument = DeclareLaunchArgument(\n+        'robot_description_topic',\n+        default_value='/robot_description',\n+        description='robot description topic ',\n+    )\n+    rsp_frequency_argument = DeclareLaunchArgument(\n+        'rsp_frequency',\n+        default_value='30.0',\n+        description='robot state publisher frequency',\n+    )\n+    use_sim_time_argument = DeclareLaunchArgument(\n+        'use_sim_time',\n+        default_value='true',\n+        description='Use simulation (Gazebo) clock if true',\n+    )\n+\n+    # TODO (olmerg) Multirobot. How to change the name of topic with entity parameter\n+    remappings = [('/tf', 'tf'), ('/tf_static', 'tf_static')]\n+\n+    rsp = Node(\n+        package='robot_state_publisher',\n+        executable='robot_state_publisher',\n+        name='robot_state_publisher',\n+        output='screen',\n+        parameters=[\n+            {\n+                'use_sim_time': use_sim_time,\n+                'publish_frequency': rsp_frequency,\n+                'robot_description': get_robot_description('false'),\n+            }\n+        ],\n+        remappings=remappings,\n+        condition=IfCondition(PythonExpression([\"'\", use_ros_control, \"' == 'false'\"])),\n+    )\n+\n+    rsp_control = Node(\n+        package='robot_state_publisher',\n+        executable='robot_state_publisher',\n+        name='robot_state_publisher',\n+        output='screen',\n+        parameters=[\n+            {\n+                'use_sim_time': use_sim_time,\n+                'publish_frequency': rsp_frequency,\n+                'robot_description': get_robot_description('true'),\n+            }\n+        ],\n+        remappings=remappings,\n+        condition=IfCondition(use_ros_control),\n+    )\n+    robot_spawn = Node(\n+        package='gazebo_ros',\n+        executable='spawn_entity.py',\n+        arguments=[\n+            '-topic',\n+            robot_description_topic,\n+            '-entity',\n+            entity,\n+            '-x',\n+            initial_pose_x,\n+            '-y',\n+            initial_pose_y,\n+            '-z',\n+            initial_pose_z,\n+            '-R',\n+            '0.0',\n+            '-P',\n+            '0.0',\n+            '-Y',\n+            initial_pose_yaw,\n+        ],\n+    )\n+\n+    return LaunchDescription(\n+        [\n+            use_sim_time_argument,\n+            x_argument,\n+            y_argument,\n+            z_argument,\n+            robot_desc_argument,\n+            rsp_frequency_argument,\n+            yaw_argument,\n+            gazebo_ros_control_argument,\n+            entity_argument,\n+            rsp,\n+            rsp_control,\n+            robot_spawn,\n+        ]\n+    )"
+        },
+        {
+          "sha": "c57d5722135c340045f9726a28c62bbf8effb029",
+          "filename": "andino_gazebo/package.xml",
+          "status": "added",
+          "additions": 39,
+          "deletions": 0,
+          "changes": 39,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/43017a8b8c81cec27119ee44e1f486ef25a3a988/andino_gazebo%2Fpackage.xml",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/43017a8b8c81cec27119ee44e1f486ef25a3a988/andino_gazebo%2Fpackage.xml",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/andino_gazebo%2Fpackage.xml?ref=43017a8b8c81cec27119ee44e1f486ef25a3a988",
+          "patch": "@@ -0,0 +1,39 @@\n+<?xml version=\"1.0\"?>\n+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\" schematypens=\"http://www.w3.org/2001/XMLSchema\"?>\n+<package format=\"3\">\n+  <name>andino_gazebo</name>\n+  <version>0.0.1</version>\n+  <description>\n+    Launch Gazebo simulation with Andino\n+  </description>\n+  <maintainer email=\"olmerg@ekumenlabs.com\">Olmer Garcia</maintainer>\n+  <maintainer email=\"franco.c@ekumenlabs.com\">Franco Cipollone</maintainer>\n+  <license file=\"LICENSE\">BSD Clause 3</license>\n+\n+  <buildtool_depend>ament_cmake</buildtool_depend>\n+\n+  <exec_depend>andino_description</exec_depend>\n+  <exec_depend>gazebo_ros_pkgs</exec_depend>\n+  <exec_depend>gazebo_ros</exec_depend>\n+  <exec_depend>robot_state_publisher</exec_depend>\n+  <exec_depend>xacro</exec_depend>\n+  \n+  <exec_depend>control_msgs</exec_depend>\n+  <exec_depend>gazebo_ros2_control</exec_depend>\n+  <exec_depend>hardware_interface</exec_depend>\n+  <exec_depend>joint_trajectory_controller</exec_depend>\n+  <exec_depend>ros2_control</exec_depend>\n+  <exec_depend>ros2_controllers</exec_depend>\n+\n+  <exec_depend>joint_state_broadcaster</exec_depend>\n+  <exec_depend>ros2launch</exec_depend>\n+  <exec_depend>rviz2</exec_depend>\n+\n+  <test_depend>ament_lint_auto</test_depend>\n+  <test_depend>ament_lint_common</test_depend>\n+\n+  <export>\n+    <build_type>ament_cmake</build_type>\n+  </export>\n+</package>\n+"
+        },
+        {
+          "sha": "6de53cef2b1a023152771f8387412f251f629840",
+          "filename": "andino_gazebo/rviz/andino_gazebo.rviz",
+          "status": "added",
+          "additions": 270,
+          "deletions": 0,
+          "changes": 270,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/43017a8b8c81cec27119ee44e1f486ef25a3a988/andino_gazebo%2Frviz%2Fandino_gazebo.rviz",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/43017a8b8c81cec27119ee44e1f486ef25a3a988/andino_gazebo%2Frviz%2Fandino_gazebo.rviz",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/andino_gazebo%2Frviz%2Fandino_gazebo.rviz?ref=43017a8b8c81cec27119ee44e1f486ef25a3a988",
+          "patch": "@@ -0,0 +1,270 @@\n+Panels:\n+  - Class: rviz_common/Displays\n+    Help Height: 78\n+    Name: Displays\n+    Property Tree Widget:\n+      Expanded:\n+        - /Global Options1\n+        - /Status1\n+        - /TF1\n+        - /TF1/Tree1\n+        - /RobotModel1\n+        - /LaserScan1\n+      Splitter Ratio: 0.5\n+    Tree Height: 461\n+  - Class: rviz_common/Selection\n+    Name: Selection\n+  - Class: rviz_common/Tool Properties\n+    Expanded:\n+      - /2D Goal Pose1\n+      - /Publish Point1\n+    Name: Tool Properties\n+    Splitter Ratio: 0.5886790156364441\n+  - Class: rviz_common/Views\n+    Expanded:\n+      - /Current View1\n+    Name: Views\n+    Splitter Ratio: 0.5\n+  - Class: rviz_common/Time\n+    Experimental: false\n+    Name: Time\n+    SyncMode: 0\n+    SyncSource: LaserScan\n+Visualization Manager:\n+  Class: \"\"\n+  Displays:\n+    - Alpha: 0.5\n+      Cell Size: 1\n+      Class: rviz_default_plugins/Grid\n+      Color: 160; 160; 164\n+      Enabled: true\n+      Line Style:\n+        Line Width: 0.029999999329447746\n+        Value: Lines\n+      Name: Grid\n+      Normal Cell Count: 0\n+      Offset:\n+        X: 0\n+        Y: 0\n+        Z: 0\n+      Plane: XY\n+      Plane Cell Count: 10\n+      Reference Frame: <Fixed Frame>\n+      Value: true\n+    - Class: rviz_default_plugins/TF\n+      Enabled: false\n+      Frame Timeout: 15\n+      Frames:\n+        All Enabled: true\n+      Marker Scale: 1\n+      Name: TF\n+      Show Arrows: true\n+      Show Axes: true\n+      Show Names: false\n+      Tree:\n+        {}\n+      Update Interval: 0\n+      Value: false\n+    - Alpha: 1\n+      Class: rviz_default_plugins/RobotModel\n+      Collision Enabled: false\n+      Description File: \"\"\n+      Description Source: Topic\n+      Description Topic:\n+        Depth: 5\n+        Durability Policy: Volatile\n+        History Policy: Keep Last\n+        Reliability Policy: Reliable\n+        Value: /robot_description\n+      Enabled: true\n+      Links:\n+        All Links Enabled: true\n+        Expand Joint Details: false\n+        Expand Link Details: false\n+        Expand Tree: false\n+        Link Tree Style: Links in Alphabetic Order\n+        base_footprint:\n+          Alpha: 1\n+          Show Axes: false\n+          Show Trail: false\n+        base_link:\n+          Alpha: 1\n+          Show Axes: false\n+          Show Trail: false\n+          Value: true\n+        camera_link:\n+          Alpha: 1\n+          Show Axes: false\n+          Show Trail: false\n+          Value: true\n+        caster_base_link:\n+          Alpha: 1\n+          Show Axes: false\n+          Show Trail: false\n+          Value: true\n+        caster_rotation_link:\n+          Alpha: 1\n+          Show Axes: false\n+          Show Trail: false\n+          Value: true\n+        caster_wheel_link:\n+          Alpha: 1\n+          Show Axes: false\n+          Show Trail: false\n+          Value: true\n+        left_motor:\n+          Alpha: 1\n+          Show Axes: false\n+          Show Trail: false\n+          Value: true\n+        left_wheel:\n+          Alpha: 1\n+          Show Axes: false\n+          Show Trail: false\n+          Value: true\n+        right_motor:\n+          Alpha: 1\n+          Show Axes: false\n+          Show Trail: false\n+          Value: true\n+        right_wheel:\n+          Alpha: 1\n+          Show Axes: false\n+          Show Trail: false\n+          Value: true\n+        rplidar_laser_link:\n+          Alpha: 1\n+          Show Axes: false\n+          Show Trail: false\n+          Value: true\n+        second_base_link:\n+          Alpha: 1\n+          Show Axes: false\n+          Show Trail: false\n+          Value: true\n+      Mass Properties:\n+        Inertia: false\n+        Mass: false\n+      Name: RobotModel\n+      TF Prefix: \"\"\n+      Update Interval: 0\n+      Value: true\n+      Visual Enabled: true\n+    - Alpha: 1\n+      Autocompute Intensity Bounds: true\n+      Autocompute Value Bounds:\n+        Max Value: 10\n+        Min Value: -10\n+        Value: true\n+      Axis: Z\n+      Channel Name: intensity\n+      Class: rviz_default_plugins/LaserScan\n+      Color: 255; 255; 255\n+      Color Transformer: Intensity\n+      Decay Time: 0\n+      Enabled: true\n+      Invert Rainbow: false\n+      Max Color: 255; 255; 255\n+      Max Intensity: -999999\n+      Min Color: 0; 0; 0\n+      Min Intensity: 999999\n+      Name: LaserScan\n+      Position Transformer: XYZ\n+      Selectable: true\n+      Size (Pixels): 3\n+      Size (m): 0.009999999776482582\n+      Style: Flat Squares\n+      Topic:\n+        Depth: 5\n+        Durability Policy: Volatile\n+        Filter size: 10\n+        History Policy: Keep Last\n+        Reliability Policy: Reliable\n+        Value: /scan\n+      Use Fixed Frame: true\n+      Use rainbow: true\n+      Value: true\n+  Enabled: true\n+  Global Options:\n+    Background Color: 48; 48; 48\n+    Fixed Frame: odom\n+    Frame Rate: 30\n+  Name: root\n+  Tools:\n+    - Class: rviz_default_plugins/Interact\n+      Hide Inactive Objects: true\n+    - Class: rviz_default_plugins/MoveCamera\n+    - Class: rviz_default_plugins/Select\n+    - Class: rviz_default_plugins/FocusCamera\n+    - Class: rviz_default_plugins/Measure\n+      Line color: 128; 128; 0\n+    - Class: rviz_default_plugins/SetInitialPose\n+      Covariance x: 0.25\n+      Covariance y: 0.25\n+      Covariance yaw: 0.06853891909122467\n+      Topic:\n+        Depth: 5\n+        Durability Policy: Volatile\n+        History Policy: Keep Last\n+        Reliability Policy: Reliable\n+        Value: /initialpose\n+    - Class: rviz_default_plugins/SetGoal\n+      Topic:\n+        Depth: 5\n+        Durability Policy: Volatile\n+        History Policy: Keep Last\n+        Reliability Policy: Reliable\n+        Value: /goal_pose\n+    - Class: rviz_default_plugins/PublishPoint\n+      Single click: true\n+      Topic:\n+        Depth: 5\n+        Durability Policy: Volatile\n+        History Policy: Keep Last\n+        Reliability Policy: Reliable\n+        Value: /clicked_point\n+  Transformation:\n+    Current:\n+      Class: rviz_default_plugins/TF\n+  Value: true\n+  Views:\n+    Current:\n+      Class: rviz_default_plugins/Orbit\n+      Distance: 19.3544979095459\n+      Enable Stereo Rendering:\n+        Stereo Eye Separation: 0.05999999865889549\n+        Stereo Focal Distance: 1\n+        Swap Stereo Eyes: false\n+        Value: false\n+      Focal Point:\n+        X: 2.239006757736206\n+        Y: -1.2532598972320557\n+        Z: 0.923984944820404\n+      Focal Shape Fixed Size: true\n+      Focal Shape Size: 0.05000000074505806\n+      Invert Z Axis: false\n+      Name: Current View\n+      Near Clip Distance: 0.009999999776482582\n+      Pitch: 0.08039851486682892\n+      Target Frame: <Fixed Frame>\n+      Value: Orbit (rviz)\n+      Yaw: 2.455392360687256\n+    Saved: ~\n+Window Geometry:\n+  Displays:\n+    collapsed: false\n+  Height: 752\n+  Hide Left Dock: false\n+  Hide Right Dock: false\n+  QMainWindow State: 000000ff00000000fd00000004000000000000015600000256fc0200000008fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003b00000256000000c700fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261000000010000010f00000256fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073010000003b00000256000000a000fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e100000197000000030000056a0000003efc0100000002fb0000000800540069006d006501000000000000056a0000025300fffffffb0000000800540069006d00650100000000000004500000000000000000000002f90000025600000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000\n+  Selection:\n+    collapsed: false\n+  Time:\n+    collapsed: false\n+  Tool Properties:\n+    collapsed: false\n+  Views:\n+    collapsed: false\n+  Width: 1386\n+  X: 72\n+  Y: 55"
+        },
+        {
+          "sha": "dea0a31531a895d354c0d6a35ad21d5a33fd9d7a",
+          "filename": "andino_gazebo/urdf/andino.gazebo.xacro",
+          "status": "added",
+          "additions": 155,
+          "deletions": 0,
+          "changes": 155,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/43017a8b8c81cec27119ee44e1f486ef25a3a988/andino_gazebo%2Furdf%2Fandino.gazebo.xacro",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/43017a8b8c81cec27119ee44e1f486ef25a3a988/andino_gazebo%2Furdf%2Fandino.gazebo.xacro",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/andino_gazebo%2Furdf%2Fandino.gazebo.xacro?ref=43017a8b8c81cec27119ee44e1f486ef25a3a988",
+          "patch": "@@ -0,0 +1,155 @@\n+<?xml version=\"1.0\"?>\n+<robot xmlns:xacro=\"http://www.ros.org/wiki/xacro\" name=\"andino\">\n+\n+  <xacro:include filename=\"$(find andino_description)/urdf/andino.urdf.xacro\"/>\n+\n+  <xacro:macro name=\"friction\" params=\"reference mu\">\n+    <gazebo reference=\"${reference}\">\n+      <mu1>${mu}</mu1>\n+      <mu2>${mu}</mu2>\n+      <kp>1000000.0</kp>\n+      <kd>1.0</kd>\n+      <minDepth>0.0001</minDepth>\n+      <maxVel>1.0</maxVel>\n+    </gazebo>\n+  </xacro:macro>\n+\n+  <xacro:friction reference=\"front_right_wheel\" mu=\"10\"/>\n+  <xacro:friction reference=\"front_left_wheel\" mu=\"10\"/> \n+  <xacro:friction reference=\"rear_caster_wheel_link\" mu=\"0.000\"/>\n+\n+   <xacro:if value=\"$(arg use_gazebo_ros_control)\">\n+    <ros2_control name=\"diff_controller\" type=\"system\">\n+    <hardware>\n+      <plugin>gazebo_ros2_control/GazeboSystem</plugin>\n+    </hardware>\n+    <joint name=\"left_wheel_joint\">\n+      <command_interface name=\"velocity\">\n+        <param name=\"min\">-5</param>\n+        <param name=\"max\">5</param>\n+      </command_interface>\n+      <state_interface name=\"velocity\"/>\n+      <state_interface name=\"position\"/>\n+    </joint>\n+    <joint name=\"right_wheel_joint\">\n+      <command_interface name=\"velocity\">\n+        <param name=\"min\">-5</param>\n+        <param name=\"max\">5</param>\n+      </command_interface>\n+      <state_interface name=\"velocity\"/>\n+      <state_interface name=\"position\"/>\n+    </joint>\n+  </ros2_control>\n+    <gazebo>\n+      <plugin filename=\"libgazebo_ros2_control.so\" name=\"gazebo_ros2_control\">\n+          <parameters>$(find andino_control)/config/andino_controllers.yaml</parameters>\n+      </plugin>\n+    </gazebo>\n+  </xacro:if>\n+\n+  <xacro:unless value=\"$(arg use_gazebo_ros_control)\">\n+\t  <gazebo>\n+    <plugin name=\"andino_joint_state\" filename=\"libgazebo_ros_joint_state_publisher.so\">\n+      <ros>\n+        <remapping>~/out:=joint_states</remapping>\n+        <remapping>/tf:=tf</remapping>\n+      </ros>\n+      <update_rate>10</update_rate>\n+      <joint_name>right_wheel_joint</joint_name> \n+      <joint_name>left_wheel_joint</joint_name> \n+      \n+    </plugin>\n+\n+    <plugin name='andino_diff_drive' filename='libgazebo_ros_diff_drive.so'>\n+      <ros>\n+        <remapping>odom:=odom</remapping>\n+        <remapping>/tf:=tf</remapping>\n+      </ros>\n+\n+      <!-- wheels -->\n+      <left_joint>right_wheel_joint</left_joint>\n+      <right_joint>left_wheel_joint</right_joint>\n+\n+      <!-- kinematics -->\n+      <wheel_separation>0.137</wheel_separation> \n+      <wheel_diameter>0.035</wheel_diameter> \n+\n+      <!-- limits -->\n+      <max_wheel_torque>20</max_wheel_torque>\n+      <max_wheel_acceleration>1</max_wheel_acceleration>\n+\n+      <!-- output -->\n+      <publish_odom>true</publish_odom>\n+      <publish_odom_tf>true</publish_odom_tf>\n+      <odometry_frame>odom</odometry_frame>\n+      <robot_base_frame>base_link</robot_base_frame>\n+    </plugin>\n+\t  </gazebo>\n+  </xacro:unless>\n+\n+    <gazebo reference=\"rplidar_laser_link\">\n+      <sensor name=\"sensor_ray_front\" type=\"ray\">\n+        <ray>\n+          <scan>\n+            <horizontal>\n+            <samples>720</samples>\n+            <resolution>1</resolution>\n+            <min_angle>-3.14159265</min_angle>\n+            <max_angle>3.14159265</max_angle>\n+            </horizontal>\n+          </scan>\n+          <range>\n+            <min>0.10</min>\n+            <max>12.0</max>\n+            <resolution>0.01</resolution>\n+          </range>\n+          <noise>\n+          <type>gaussian</type>\n+          <mean>0.0</mean>\n+          <stddev>0.01</stddev>\n+        </noise>\n+        </ray>\n+        <always_on>true</always_on>\n+        <visualize>true</visualize>\n+        <update_rate>20.0</update_rate>\n+        <plugin name=\"sensor_laser_front\" filename=\"libgazebo_ros_ray_sensor.so\">\n+          <ros>\n+            <remapping>~/out:=scan</remapping>\n+          </ros>\n+          <frame_name>rplidar_laser_link</frame_name>\n+          <output_type>sensor_msgs/LaserScan</output_type>\n+        </plugin>\n+      </sensor>\n+    </gazebo>\n+\n+    <gazebo reference=\"camera_link\">\n+        <sensor name='camera' type='camera'>\n+          <camera>\n+            <horizontal_fov>1.047</horizontal_fov>\n+            <image>\n+              <width>640</width>\n+              <height>480</height>\n+            </image>\n+            <clip>\n+              <near>0.1</near>\n+              <far>100</far>\n+            </clip>\n+          </camera>\n+          <always_on>1</always_on>\n+          <update_rate>30</update_rate>\n+          <plugin name='camera_controller' filename='libgazebo_ros_camera.so'>\n+            <alwaysOn>1</alwaysOn>\n+            <cameraName>camera</cameraName>\n+            <imageTopicName>image_raw</imageTopicName>\n+            <cameraInfoTopicName>camera_info</cameraInfoTopicName>\n+            <frameName>camera_link</frameName>\n+            <hackBaseline>0.07</hackBaseline>\n+            <distortionK1>0.0</distortionK1>\n+            <distortionK2>0.0</distortionK2>\n+            <distortionK3>0.0</distortionK3>\n+            <distortionT1>0.0</distortionT1>\n+            <distortionT2>0.0</distortionT2>\n+          </plugin>\n+        </sensor>\n+  </gazebo>\n+</robot>"
+        }
+      ]
     },
     {
       "author": "manzato",
@@ -165,7 +739,21 @@
       "files_changed": 1,
       "additions": 1,
       "deletions": 1,
-      "commit_type": "docs"
+      "commit_type": "docs",
+      "files": [
+        {
+          "sha": "c48e21e8475ecd78a70da1982f16f8a67e70229b",
+          "filename": "docker/README.md",
+          "status": "modified",
+          "additions": 1,
+          "deletions": 1,
+          "changes": 2,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/5236b1132343539e19c2eb63c61e5f5f7814555b/docker%2FREADME.md",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/5236b1132343539e19c2eb63c61e5f5f7814555b/docker%2FREADME.md",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/docker%2FREADME.md?ref=5236b1132343539e19c2eb63c61e5f5f7814555b",
+          "patch": "@@ -50,7 +50,7 @@ You can also try to set specific image and container names:\n - Inside the container, install dependencies via `rosdep`:\n \n   ```sh\n-  rosdep install -i -y --rosdistro foxy --from-paths src\n+  rosdep install -i -y --rosdistro humble --from-paths src\n   ```\n \n Note that the repository is mounted into a workspace. That is convenient if you"
+        }
+      ]
     },
     {
       "author": "BarceloChristian",
@@ -175,7 +763,21 @@
       "files_changed": 1,
       "additions": 2,
       "deletions": 2,
-      "commit_type": "code"
+      "commit_type": "other",
+      "files": [
+        {
+          "sha": "09b30e8071445d8d806f90180531ef71e0f7ee0b",
+          "filename": "andino_description/urdf/include/common_macros.urdf.xacro",
+          "status": "modified",
+          "additions": 2,
+          "deletions": 2,
+          "changes": 4,
+          "blob_url": "https://github.com/Ekumen-OS/andino/blob/96f28aa156046c4e98270081d1829dbaa489c599/andino_description%2Furdf%2Finclude%2Fcommon_macros.urdf.xacro",
+          "raw_url": "https://github.com/Ekumen-OS/andino/raw/96f28aa156046c4e98270081d1829dbaa489c599/andino_description%2Furdf%2Finclude%2Fcommon_macros.urdf.xacro",
+          "contents_url": "https://api.github.com/repos/Ekumen-OS/andino/contents/andino_description%2Furdf%2Finclude%2Fcommon_macros.urdf.xacro?ref=96f28aa156046c4e98270081d1829dbaa489c599",
+          "patch": "@@ -29,9 +29,9 @@\n           <xacro:if value=\"${wheel_props['scale'] == '' }\" >\n             <mesh filename=\"package://andino_description/meshes/${robot_name}/${wheel_props['mesh']}\" />\n           </xacro:if>\n-          <xacro:if value=\"${wheel_props['scale'] == '' }\" >\n+          <xacro:unless value=\"${wheel_props['scale'] == '' }\" >\n             <mesh filename=\"package://andino_description/meshes/${robot_name}/${wheel_props['mesh']}\" scale=\"${wheel_props['scale']}\" />\n-          </xacro:if>\n+          </xacro:unless>\n         </geometry>\n         <material name=\"dark_grey\"/>\n       </visual>"
+        }
+      ]
     }
   ]
 }

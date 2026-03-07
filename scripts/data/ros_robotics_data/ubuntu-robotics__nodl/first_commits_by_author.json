@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "fetched_at": "2026-02-25T09:40:29Z",
+    "fetched_at": "2026-03-05T04:16:49Z",
     "source": "derived+rest",
     "derivation": "earliest commit per author_login from commits.json; enrich via /commits/{sha} for files/stats",
     "owner": "ubuntu-robotics",
@@ -15,7 +15,21 @@
       "files_changed": 1,
       "additions": 20,
       "deletions": 4,
-      "commit_type": "config"
+      "commit_type": "config",
+      "files": [
+        {
+          "sha": "613633b2dd544682a0d334cfc7028cda6be3e837",
+          "filename": ".github/workflows/test.yml",
+          "status": "modified",
+          "additions": 20,
+          "deletions": 4,
+          "changes": 24,
+          "blob_url": "https://github.com/ubuntu-robotics/nodl/blob/41560719abad67bbc8c3045fa7968bc2d9d8f254/.github%2Fworkflows%2Ftest.yml",
+          "raw_url": "https://github.com/ubuntu-robotics/nodl/raw/41560719abad67bbc8c3045fa7968bc2d9d8f254/.github%2Fworkflows%2Ftest.yml",
+          "contents_url": "https://api.github.com/repos/ubuntu-robotics/nodl/contents/.github%2Fworkflows%2Ftest.yml?ref=41560719abad67bbc8c3045fa7968bc2d9d8f254",
+          "patch": "@@ -7,6 +7,7 @@ on:\n       - master\n   schedule:\n     - cron: '0 0 * * *'\n+  workflow_dispatch:\n \n jobs:\n   build-mac-win:\n@@ -24,7 +25,7 @@ jobs:\n       - uses: actions/checkout@v2\n \n       - name: Setup ROS2\n-        uses: ros-tooling/setup-ros@0.0.26\n+        uses: ros-tooling/setup-ros@v0.4\n         with:\n           use-ros2-testing: true\n           required-ros-distributions: ${{ matrix.ros_distribution }}\n@@ -34,13 +35,25 @@ jobs:\n           pip3 install lxml\n \n       - name: Test nodl\n-        uses: ros-tooling/action-ros-ci@0.1.0\n+        uses: ros-tooling/action-ros-ci@v0.2\n         id: action_ros_ci_step\n         with:\n           package-name: nodl_python ros2nodl\n-          colcon-mixin-name: coverage-pytest\n+          colcon-defaults: |\n+            {\n+              \"build\": {\n+                \"mixin\": [\"coverage-pytest\"]\n+              },\n+              \"test\": {\n+                \"mixin\": [\"coverage-pytest\"]\n+              }\n+            }\n           colcon-mixin-repository: https://raw.githubusercontent.com/colcon/colcon-mixin-repository/5c45b95018788deff62202aaa831ad4c20ebe2c6/index.yaml\n           target-ros2-distro: ${{ matrix.ros_distribution }}\n+          vcs-repo-file-url: \"https://raw.githubusercontent.com/ros2/ros2/rolling/ros2.repos\"\n+          # Necessary because of cyclonedds fails to build otherwise\n+          # https://github.com/eclipse-cyclonedds/cyclonedds/issues/1270\n+          colcon-extra-args: \"--merge-install\"\n \n       - name: Upload Logs\n         uses: actions/upload-artifact@v1\n@@ -71,7 +84,9 @@ jobs:\n       - run: cp src/codecov.yml .\n \n       - name: Rosdep\n-        run: DEBIAN_FRONTEND=noninteractive rosdep update && rosdep install --from-paths src --ignore-src --rosdistro rolling -y\n+        run: |\n+          . /opt/ros/$ROS_DISTRO/setup.sh\n+          DEBIAN_FRONTEND=noninteractive rosdep update && rosdep install --from-paths src --ignore-src --rosdistro $ROS_DISTRO -y\n \n       - name: Build\n         run: . /opt/ros/$ROS_DISTRO/setup.sh && colcon build --event-handlers console_cohesion+ --mixin coverage-pytest --packages-select nodl_python ros2nodl --merge-install\n@@ -100,3 +115,4 @@ jobs:\n           name: colcon-logs-linux\n           path: log/\n         if: always()\n+"
+        }
+      ]
     },
     {
       "author": "florcabral",
@@ -25,7 +39,21 @@
       "files_changed": 1,
       "additions": 51,
       "deletions": 0,
-      "commit_type": "docs"
+      "commit_type": "docs",
+      "files": [
+        {
+          "sha": "32c4e9f6655cc007013628164b3336dbc33de84a",
+          "filename": "README.md",
+          "status": "modified",
+          "additions": 51,
+          "deletions": 0,
+          "changes": 51,
+          "blob_url": "https://github.com/ubuntu-robotics/nodl/blob/6beb84dc3198ecc20ebf18c04313ef6f81e29c00/README.md",
+          "raw_url": "https://github.com/ubuntu-robotics/nodl/raw/6beb84dc3198ecc20ebf18c04313ef6f81e29c00/README.md",
+          "contents_url": "https://api.github.com/repos/ubuntu-robotics/nodl/contents/README.md?ref=6beb84dc3198ecc20ebf18c04313ef6f81e29c00",
+          "patch": "@@ -5,3 +5,54 @@\n NoDL is the Node Definition Language - a common declarative representation of a Node's interfaces including Parameters, Topics, Services, and Actions. See the [design document (review in progress)](https://github.com/ubuntu-robotics/design/blob/node_idl/articles/ros2_nodl.md) for more context on the project.\n \n This repository contains the CLI and parsing utilities for NoDL.\n+\n+## Installation\n+\n+Run `python3 setup.py install`\n+\n+Install the 'ament_nodl' extension for exporting NoDL .xml files:\n+\n+`sudo apt-get install ros-<ros2_distro>-ament-nodl`\n+\n+## Configuration\n+\n+Add to `package.xml`:\n+\n+`<depend>ament_nodl</depend>`\n+\n+Add to `CMakeLists.txt`:\n+\n+`find_package(ament_nodl REQUIRED)`\n+\n+`nodl_export_node_description_file(<package_name>.nodl.xml)`\n+\n+## Usage\n+\n+Create a file called \"<package_name>.nodl.xml\" in the same folder as your project's CMakeLists.txt. \n+Include in this file the interface description for each node in the package.\n+Node attributes can be `parameter`, `topic`, `service` or `action`.\n+\n+Valid values for the topic `role` tag are: `publisher`, `subscription`, or `both`.\n+Valid values for the service `role` tag are: `server`, `client`, or `both`.\n+Valid values for the action `role` tag are: `server`, `client`, or `both`.\n+Types can have custom names.\n+\n+### Example\n+\n+```xml\n+<interface version=\"1\">\n+\t<node name=\"<node1_name>\" executable=\"<executable_name>\">\n+\t\t<parameter name=\"rate\" type=\"int\" />\n+\t\t<topic name=\"/foo/bar\" type=\"std_msgs/msg/String\" role=\"subscription\" />\n+\t\t<service name=\"/example_service\" type=\"std_srvs/srv/Empty\" role=\"client\" />\n+\t\t<action name=\"/example_action\" type=\"example_interfaces/action/Fibonacci\" role=\"both\" />\n+\t</node>\n+\t<node name=\"<node2_name>\" executable=\"<executable_name>\">\n+\t\t...\n+\t</node>\n+</interface>\n+```\n+\n+## CLI\n+\n+See available verbs on the [ROS 2 command line tools for NoDL repo](https://github.com/ubuntu-robotics/nodl/tree/master/ros2nodl)."
+        }
+      ]
     },
     {
       "author": "aprotyas",
@@ -35,7 +63,33 @@
       "files_changed": 2,
       "additions": 4,
       "deletions": 4,
-      "commit_type": "config"
+      "commit_type": "config",
+      "files": [
+        {
+          "sha": "4c9bdacd3b23007812c72936976455b0f2806392",
+          "filename": "nodl_python/setup.cfg",
+          "status": "modified",
+          "additions": 2,
+          "deletions": 2,
+          "changes": 4,
+          "blob_url": "https://github.com/ubuntu-robotics/nodl/blob/f5b010bbf8f7717b6715c3bf16955b8fff76fbf6/nodl_python%2Fsetup.cfg",
+          "raw_url": "https://github.com/ubuntu-robotics/nodl/raw/f5b010bbf8f7717b6715c3bf16955b8fff76fbf6/nodl_python%2Fsetup.cfg",
+          "contents_url": "https://api.github.com/repos/ubuntu-robotics/nodl/contents/nodl_python%2Fsetup.cfg?ref=f5b010bbf8f7717b6715c3bf16955b8fff76fbf6",
+          "patch": "@@ -1,4 +1,4 @@\n [develop]\n-script-dir=$base/lib/nodl_python\n+script_dir=$base/lib/nodl_python\n [install]\n-install-scripts=$base/lib/nodl_python\n+install_scripts=$base/lib/nodl_python"
+        },
+        {
+          "sha": "f133f95327360ce1991fb9c43cfdbbbe0ae01a4e",
+          "filename": "ros2nodl/setup.cfg",
+          "status": "modified",
+          "additions": 2,
+          "deletions": 2,
+          "changes": 4,
+          "blob_url": "https://github.com/ubuntu-robotics/nodl/blob/f5b010bbf8f7717b6715c3bf16955b8fff76fbf6/ros2nodl%2Fsetup.cfg",
+          "raw_url": "https://github.com/ubuntu-robotics/nodl/raw/f5b010bbf8f7717b6715c3bf16955b8fff76fbf6/ros2nodl%2Fsetup.cfg",
+          "contents_url": "https://api.github.com/repos/ubuntu-robotics/nodl/contents/ros2nodl%2Fsetup.cfg?ref=f5b010bbf8f7717b6715c3bf16955b8fff76fbf6",
+          "patch": "@@ -1,4 +1,4 @@\n [develop]\n-script-dir=$base/lib/ros2nodl\n+script_dir=$base/lib/ros2nodl\n [install]\n-install-scripts=$base/lib/ros2nodl\n+install_scripts=$base/lib/ros2nodl"
+        }
+      ]
     },
     {
       "author": "artivis",
@@ -45,7 +99,21 @@
       "files_changed": 1,
       "additions": 4,
       "deletions": 2,
-      "commit_type": "docs"
+      "commit_type": "docs",
+      "files": [
+        {
+          "sha": "93b3fa003e690199381bba95bfcd168b43ee31b2",
+          "filename": "README.md",
+          "status": "modified",
+          "additions": 4,
+          "deletions": 2,
+          "changes": 6,
+          "blob_url": "https://github.com/ubuntu-robotics/nodl/blob/6dbfdfda560a7edfc0028a454a731d87856d1d78/README.md",
+          "raw_url": "https://github.com/ubuntu-robotics/nodl/raw/6dbfdfda560a7edfc0028a454a731d87856d1d78/README.md",
+          "contents_url": "https://api.github.com/repos/ubuntu-robotics/nodl/contents/README.md?ref=6dbfdfda560a7edfc0028a454a731d87856d1d78",
+          "patch": "@@ -1,5 +1,7 @@\n-# NoDL\n+# NoDL - Node Definition Language\n \n ![Test NoDL](https://github.com/ubuntu-robotics/nodl/workflows/test%20nodl/badge.svg?event=push)\n \n-CLI and parsing utilities for the ROS 2 NoDL\n+NoDL is the Node Definition Language - a common declarative representation of a Node's interfaces including Parameters, Topics, Services, and Actions. See the [design document (review in progress)](https://github.com/ubuntu-robotics/design/blob/node_idl/articles/ros2_nodl.md) for more context on the project.\n+\n+This repository contains the CLI and parsing utilities for NoDL."
+        }
+      ]
     },
     {
       "author": "emersonknapp",
@@ -55,7 +123,21 @@
       "files_changed": 1,
       "additions": 4,
       "deletions": 2,
-      "commit_type": "docs"
+      "commit_type": "docs",
+      "files": [
+        {
+          "sha": "93b3fa003e690199381bba95bfcd168b43ee31b2",
+          "filename": "README.md",
+          "status": "modified",
+          "additions": 4,
+          "deletions": 2,
+          "changes": 6,
+          "blob_url": "https://github.com/ubuntu-robotics/nodl/blob/5fec320e0f4f6eb7f9df9cde554f09521d2918b1/README.md",
+          "raw_url": "https://github.com/ubuntu-robotics/nodl/raw/5fec320e0f4f6eb7f9df9cde554f09521d2918b1/README.md",
+          "contents_url": "https://api.github.com/repos/ubuntu-robotics/nodl/contents/README.md?ref=5fec320e0f4f6eb7f9df9cde554f09521d2918b1",
+          "patch": "@@ -1,5 +1,7 @@\n-# NoDL\n+# NoDL - Node Definition Language\n \n ![Test NoDL](https://github.com/ubuntu-robotics/nodl/workflows/test%20nodl/badge.svg?event=push)\n \n-CLI and parsing utilities for the ROS 2 NoDL\n+NoDL is the Node Definition Language - a common declarative representation of a Node's interfaces including Parameters, Topics, Services, and Actions. See the [design document (review in progress)](https://github.com/ubuntu-robotics/design/blob/node_idl/articles/ros2_nodl.md) for more context on the project.\n+\n+This repository contains the CLI and parsing utilities for NoDL."
+        }
+      ]
     },
     {
       "author": "Ted Kern",
@@ -65,7 +147,44 @@
       "files_changed": 3,
       "additions": 56,
       "deletions": 0,
-      "commit_type": "config"
+      "commit_type": "code",
+      "files": [
+        {
+          "sha": "586efbdd0d54d5415d0318af05a0f4af3bf8bd2c",
+          "filename": "nodl_python/package.xml",
+          "status": "added",
+          "additions": 18,
+          "deletions": 0,
+          "changes": 18,
+          "blob_url": "https://github.com/ubuntu-robotics/nodl/blob/6da930e00e8ce64d2615345bfcc7e2ba98658013/nodl_python%2Fpackage.xml",
+          "raw_url": "https://github.com/ubuntu-robotics/nodl/raw/6da930e00e8ce64d2615345bfcc7e2ba98658013/nodl_python%2Fpackage.xml",
+          "contents_url": "https://api.github.com/repos/ubuntu-robotics/nodl/contents/nodl_python%2Fpackage.xml?ref=6da930e00e8ce64d2615345bfcc7e2ba98658013",
+          "patch": "@@ -0,0 +1,18 @@\n+<?xml version=\"1.0\"?>\n+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\" schematypens=\"http://www.w3.org/2001/XMLSchema\"?>\n+<package format=\"3\">\n+  <name>nodl_python</name>\n+  <version>0.0.1</version>\n+  <description>CLI and parsing utilities for the ROS 2 NoDL</description>\n+  <maintainer email=\"ubuntu-robotics@lists.launchpad.net\">Ubuntu Robotics</maintainer>\n+  <license>LGPLv3</license>\n+\n+  <depend>ament_index_python</depend>\n+\n+  <test_depend>ament_lint_auto</test_depend>\n+  <test_depend>ament_lint_common</test_depend>\n+\n+  <export>\n+    <build_type>ament_python</build_type>\n+  </export>\n+</package>"
+        },
+        {
+          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "filename": "nodl_python/resource/nodl_python",
+          "status": "added",
+          "additions": 0,
+          "deletions": 0,
+          "changes": 0,
+          "blob_url": "https://github.com/ubuntu-robotics/nodl/blob/6da930e00e8ce64d2615345bfcc7e2ba98658013/nodl_python%2Fresource%2Fnodl_python",
+          "raw_url": "https://github.com/ubuntu-robotics/nodl/raw/6da930e00e8ce64d2615345bfcc7e2ba98658013/nodl_python%2Fresource%2Fnodl_python",
+          "contents_url": "https://api.github.com/repos/ubuntu-robotics/nodl/contents/nodl_python%2Fresource%2Fnodl_python?ref=6da930e00e8ce64d2615345bfcc7e2ba98658013"
+        },
+        {
+          "sha": "fbc661ed43d08c77b241df585e6297cb8103965a",
+          "filename": "nodl_python/setup.py",
+          "status": "added",
+          "additions": 38,
+          "deletions": 0,
+          "changes": 38,
+          "blob_url": "https://github.com/ubuntu-robotics/nodl/blob/6da930e00e8ce64d2615345bfcc7e2ba98658013/nodl_python%2Fsetup.py",
+          "raw_url": "https://github.com/ubuntu-robotics/nodl/raw/6da930e00e8ce64d2615345bfcc7e2ba98658013/nodl_python%2Fsetup.py",
+          "contents_url": "https://api.github.com/repos/ubuntu-robotics/nodl/contents/nodl_python%2Fsetup.py?ref=6da930e00e8ce64d2615345bfcc7e2ba98658013",
+          "patch": "@@ -0,0 +1,38 @@\n+from setuptools import find_packages\n+from setuptools import setup\n+\n+package_name = 'nodl_python'\n+\n+setup(\n+    name=package_name,\n+    version='0.1',\n+    packages=find_packages(exclude=['test']),\n+    data_files=[\n+        ('share/' + package_name, ['package.xml']),\n+        ('share/ament_index/resource_index/packages',\n+            ['resource/' + package_name]),\n+    ],\n+    install_requires=['setuptools'],\n+    zip_safe=True,\n+    author='Ted Kern',\n+    author_email='ted.kern@canonical.com',\n+    maintainer='Ubuntu Robotics',\n+    maintainer_email='ubuntu-robotics@lists.launchpad.net',\n+    url='https://github.com/ubuntu-robotics/nodl',\n+    download_url='https://github.com/ubuntu-robotics/nodl/releases',\n+    keywords=['ROS'],\n+    classifiers=[\n+        'Intended Audience :: Developers',\n+        'License :: OSI Approved :: GNU Limited General Public License v3',\n+        'Programming Language :: Python',\n+        'Topic :: Software Development',\n+    ],\n+    description='CLI and parsing utilities for the ROS 2 NoDL',\n+    license='GNU Limited General Public License v3',\n+    #tests_require=['pytest'],\n+    #entry_points={\n+    #    'console_scripts': [\n+    #        'ament_index = ament_index_python.cli:main',\n+    #    ],\n+    #},\n+)"
+        }
+      ]
     },
     {
       "author": "kyrofa",
@@ -75,7 +194,44 @@
       "files_changed": 3,
       "additions": 56,
       "deletions": 0,
-      "commit_type": "config"
+      "commit_type": "code",
+      "files": [
+        {
+          "sha": "586efbdd0d54d5415d0318af05a0f4af3bf8bd2c",
+          "filename": "nodl_python/package.xml",
+          "status": "added",
+          "additions": 18,
+          "deletions": 0,
+          "changes": 18,
+          "blob_url": "https://github.com/ubuntu-robotics/nodl/blob/ffd7ab843755be4df78b5ff847a8a4c3ce17ac73/nodl_python%2Fpackage.xml",
+          "raw_url": "https://github.com/ubuntu-robotics/nodl/raw/ffd7ab843755be4df78b5ff847a8a4c3ce17ac73/nodl_python%2Fpackage.xml",
+          "contents_url": "https://api.github.com/repos/ubuntu-robotics/nodl/contents/nodl_python%2Fpackage.xml?ref=ffd7ab843755be4df78b5ff847a8a4c3ce17ac73",
+          "patch": "@@ -0,0 +1,18 @@\n+<?xml version=\"1.0\"?>\n+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\" schematypens=\"http://www.w3.org/2001/XMLSchema\"?>\n+<package format=\"3\">\n+  <name>nodl_python</name>\n+  <version>0.0.1</version>\n+  <description>CLI and parsing utilities for the ROS 2 NoDL</description>\n+  <maintainer email=\"ubuntu-robotics@lists.launchpad.net\">Ubuntu Robotics</maintainer>\n+  <license>LGPLv3</license>\n+\n+  <depend>ament_index_python</depend>\n+\n+  <test_depend>ament_lint_auto</test_depend>\n+  <test_depend>ament_lint_common</test_depend>\n+\n+  <export>\n+    <build_type>ament_python</build_type>\n+  </export>\n+</package>"
+        },
+        {
+          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "filename": "nodl_python/resource/nodl_python",
+          "status": "added",
+          "additions": 0,
+          "deletions": 0,
+          "changes": 0,
+          "blob_url": "https://github.com/ubuntu-robotics/nodl/blob/ffd7ab843755be4df78b5ff847a8a4c3ce17ac73/nodl_python%2Fresource%2Fnodl_python",
+          "raw_url": "https://github.com/ubuntu-robotics/nodl/raw/ffd7ab843755be4df78b5ff847a8a4c3ce17ac73/nodl_python%2Fresource%2Fnodl_python",
+          "contents_url": "https://api.github.com/repos/ubuntu-robotics/nodl/contents/nodl_python%2Fresource%2Fnodl_python?ref=ffd7ab843755be4df78b5ff847a8a4c3ce17ac73"
+        },
+        {
+          "sha": "51122683dcd34e099955f20cfbb3dfd5a3022ee2",
+          "filename": "nodl_python/setup.py",
+          "status": "added",
+          "additions": 38,
+          "deletions": 0,
+          "changes": 38,
+          "blob_url": "https://github.com/ubuntu-robotics/nodl/blob/ffd7ab843755be4df78b5ff847a8a4c3ce17ac73/nodl_python%2Fsetup.py",
+          "raw_url": "https://github.com/ubuntu-robotics/nodl/raw/ffd7ab843755be4df78b5ff847a8a4c3ce17ac73/nodl_python%2Fsetup.py",
+          "contents_url": "https://api.github.com/repos/ubuntu-robotics/nodl/contents/nodl_python%2Fsetup.py?ref=ffd7ab843755be4df78b5ff847a8a4c3ce17ac73",
+          "patch": "@@ -0,0 +1,38 @@\n+from setuptools import find_packages\n+from setuptools import setup\n+\n+package_name = 'nodl_python'\n+\n+setup(\n+    name=package_name,\n+    version='0.0.1',\n+    packages=find_packages(exclude=['test']),\n+    data_files=[\n+        ('share/' + package_name, ['package.xml']),\n+        ('share/ament_index/resource_index/packages',\n+            ['resource/' + package_name]),\n+    ],\n+    install_requires=['setuptools'],\n+    zip_safe=True,\n+    author='Ted Kern',\n+    author_email='ted.kern@canonical.com',\n+    maintainer='Ubuntu Robotics',\n+    maintainer_email='ubuntu-robotics@lists.launchpad.net',\n+    url='https://github.com/ubuntu-robotics/nodl',\n+    download_url='https://github.com/ubuntu-robotics/nodl/releases',\n+    keywords=['ROS'],\n+    classifiers=[\n+        'Intended Audience :: Developers',\n+        'License :: OSI Approved :: GNU Limited General Public License v3',\n+        'Programming Language :: Python',\n+        'Topic :: Software Development',\n+    ],\n+    description='CLI and parsing utilities for the ROS 2 NoDL',\n+    license='GNU Limited General Public License v3',\n+    #tests_require=['pytest'],\n+    #entry_points={\n+    #    'console_scripts': [\n+    #        'ament_index = ament_index_python.cli:main',\n+    #    ],\n+    #},\n+)"
+        }
+      ]
     },
     {
       "author": "Arnatious",
@@ -85,7 +241,143 @@
       "files_changed": 11,
       "additions": 224,
       "deletions": 34,
-      "commit_type": "config"
+      "commit_type": "code",
+      "files": [
+        {
+          "sha": "0a3a419ff7c78819bef1c9be0d93ff4540ff2423",
+          "filename": ".gitignore",
+          "status": "added",
+          "additions": 21,
+          "deletions": 0,
+          "changes": 21,
+          "blob_url": "https://github.com/ubuntu-robotics/nodl/blob/04617c899e18cab7c060ccb1b4ce3d1ac7e43dbf/.gitignore",
+          "raw_url": "https://github.com/ubuntu-robotics/nodl/raw/04617c899e18cab7c060ccb1b4ce3d1ac7e43dbf/.gitignore",
+          "contents_url": "https://api.github.com/repos/ubuntu-robotics/nodl/contents/.gitignore?ref=04617c899e18cab7c060ccb1b4ce3d1ac7e43dbf",
+          "patch": "@@ -0,0 +1,21 @@\n+# Byte-compiled / optimized / DLL files\n+__pycache__/\n+*.py[cod]\n+*$py.class\n+\n+*.egg-info/\n+.pytest_cache/\n+\n+# Environments\n+.env\n+.venv\n+env/\n+venv/\n+ENV/\n+env.bak/\n+venv.bak/\n+\n+# mypy\n+.mypy_cache/\n+.dmypy.json\n+dmypy.json"
+        },
+        {
+          "sha": "9bde10481785d17d7f6647c5d63e76bdd6a6fec2",
+          "filename": "nodl_python/nodl/_parsing/_parsing.py",
+          "status": "modified",
+          "additions": 16,
+          "deletions": 2,
+          "changes": 18,
+          "blob_url": "https://github.com/ubuntu-robotics/nodl/blob/04617c899e18cab7c060ccb1b4ce3d1ac7e43dbf/nodl_python%2Fnodl%2F_parsing%2F_parsing.py",
+          "raw_url": "https://github.com/ubuntu-robotics/nodl/raw/04617c899e18cab7c060ccb1b4ce3d1ac7e43dbf/nodl_python%2Fnodl%2F_parsing%2F_parsing.py",
+          "contents_url": "https://api.github.com/repos/ubuntu-robotics/nodl/contents/nodl_python%2Fnodl%2F_parsing%2F_parsing.py?ref=04617c899e18cab7c060ccb1b4ce3d1ac7e43dbf",
+          "patch": "@@ -34,7 +34,14 @@ def _parse_interface(interface: etree._Element) -> List[Node]:\n \n \n def _parse_element_tree(element_tree: etree._ElementTree) -> List[Node]:\n-    \"\"\"Extract an interface element from an ElementTree if present.\"\"\"\n+    \"\"\"Extract an interface element from an ElementTree if present.\n+\n+    :param element_tree: parsed xml tree to operate on\n+    :type element_tree: etree._ElementTree\n+    :raises errors.InvalidNoDLDocumentError: raised if tree does not adhere to schema\n+    :return: List of NoDL nodes present in the xml tree.\n+    :rtype: List[Node]\n+    \"\"\"\n     try:\n         interface_schema().assertValid(element_tree)\n     except etree.DocumentInvalid as e:\n@@ -43,7 +50,14 @@ def _parse_element_tree(element_tree: etree._ElementTree) -> List[Node]:\n \n \n def parse(path: Union[str, Path, IO]) -> List[Node]:\n-    \"\"\"Parse the nodes out of a given NoDL file.\"\"\"\n+    \"\"\"Parse the nodes out of a given NoDL file.\n+\n+    :param path: location of file, or opened file object\n+    :type path: Union[str, Path, IO]\n+    :raises errors.InvalidNoDLDocumentError: raised if tree does not adhere to schema\n+    :return: List of NoDL nodes present in the file\n+    :rtype: List[Node]\n+    \"\"\"\n     if isinstance(path, str):\n         path = Path(path)\n     if isinstance(path, Path):"
+        },
+        {
+          "sha": "6bb1794bbf07fb92f7c55ded76eb65ffdf21f7bd",
+          "filename": "nodl_python/nodl/_util.py",
+          "status": "modified",
+          "additions": 16,
+          "deletions": 1,
+          "changes": 17,
+          "blob_url": "https://github.com/ubuntu-robotics/nodl/blob/04617c899e18cab7c060ccb1b4ce3d1ac7e43dbf/nodl_python%2Fnodl%2F_util.py",
+          "raw_url": "https://github.com/ubuntu-robotics/nodl/raw/04617c899e18cab7c060ccb1b4ce3d1ac7e43dbf/nodl_python%2Fnodl%2F_util.py",
+          "contents_url": "https://api.github.com/repos/ubuntu-robotics/nodl/contents/nodl_python%2Fnodl%2F_util.py?ref=04617c899e18cab7c060ccb1b4ce3d1ac7e43dbf",
+          "patch": "@@ -11,13 +11,28 @@\n # this program. If not, see <http://www.gnu.org/licenses/>.\n \n import distutils.util\n-from typing import TYPE_CHECKING\n+from typing import Dict, TYPE_CHECKING\n \n if TYPE_CHECKING:  # pragma: no cover\n     from lxml import etree\n+    from rclpy.qos import QoSProfile\n \n \n def get_bool_attribute(element: 'etree._Element', attribute: str) -> bool:\n     \"\"\"Access attribute and bool conversion.\"\"\"\n     boolean_string = element.get(attribute, 'False')\n     return bool(distutils.util.strtobool(boolean_string))\n+\n+\n+def qos_to_dict(qos: 'QoSProfile') -> Dict[str, str]:\n+    return {\n+            'history': qos.history.short_key,\n+            'depth': qos.depth,\n+            'reliability': qos.reliability.short_key,\n+            'durability': qos.durability.short_key,\n+            'lifespan': qos.lifespan.nanoseconds,\n+            'deadline': qos.deadline.nanoseconds,\n+            'liveliness': qos.liveliness.short_key,\n+            'liveliness_lease_duration': qos.liveliness_lease_duration.nanoseconds,\n+            'avoid_ros_namespace_conventions': qos.avoid_ros_namespace_conventions,\n+    }"
+        },
+        {
+          "sha": "7ac55892950f7d2eda01fd3d9ceb41c49863ffac",
+          "filename": "nodl_python/nodl/errors.py",
+          "status": "modified",
+          "additions": 2,
+          "deletions": 0,
+          "changes": 2,
+          "blob_url": "https://github.com/ubuntu-robotics/nodl/blob/04617c899e18cab7c060ccb1b4ce3d1ac7e43dbf/nodl_python%2Fnodl%2Ferrors.py",
+          "raw_url": "https://github.com/ubuntu-robotics/nodl/raw/04617c899e18cab7c060ccb1b4ce3d1ac7e43dbf/nodl_python%2Fnodl%2Ferrors.py",
+          "contents_url": "https://api.github.com/repos/ubuntu-robotics/nodl/contents/nodl_python%2Fnodl%2Ferrors.py?ref=04617c899e18cab7c060ccb1b4ce3d1ac7e43dbf",
+          "patch": "@@ -45,6 +45,7 @@ def __init__(self, message: str, element: etree._Element) -> None:\n             f'Error parsing {element.tag} from {element.base}, line {element.sourceline}: '\n             + message\n         )\n+        self.element = element\n \n \n class InvalidQoSError(InvalidElementError):\n@@ -67,6 +68,7 @@ def __init__(self, attribute: str, element: etree._Element) -> None:\n         super().__init__(\n             f'Value: {element.get(attribute)} is not valid for attribute {attribute}', element\n         )\n+        self.attribute = attribute\n \n \n class InvalidActionError(InvalidElementError):"
+        },
+        {
+          "sha": "346f1f5bc6697040fce28cc288e5bfac1434c15a",
+          "filename": "nodl_python/nodl/types.py",
+          "status": "modified",
+          "additions": 60,
+          "deletions": 22,
+          "changes": 82,
+          "blob_url": "https://github.com/ubuntu-robotics/nodl/blob/04617c899e18cab7c060ccb1b4ce3d1ac7e43dbf/nodl_python%2Fnodl%2Ftypes.py",
+          "raw_url": "https://github.com/ubuntu-robotics/nodl/raw/04617c899e18cab7c060ccb1b4ce3d1ac7e43dbf/nodl_python%2Fnodl%2Ftypes.py",
+          "contents_url": "https://api.github.com/repos/ubuntu-robotics/nodl/contents/nodl_python%2Fnodl%2Ftypes.py?ref=04617c899e18cab7c060ccb1b4ce3d1ac7e43dbf",
+          "patch": "@@ -10,13 +10,43 @@\n # You should have received a copy of the GNU Limited General Public License along with\n # this program. If not, see <http://www.gnu.org/licenses/>.\n \n+from typing import Any, Dict, List, Optional\n \n-from typing import List, Optional\n-\n+from nodl._util import qos_to_dict\n from rclpy.qos import QoSPresetProfiles, QoSProfile\n \n \n-class Action:\n+class NoDLData:\n+    \"\"\"Data structure base class for NoDL objects.\"\"\"\n+\n+    def __repr__(self) -> str:\n+        return str(self._as_dict)\n+\n+    def __str__(self) -> str:\n+        return str(self._as_dict)\n+\n+    @property\n+    def _as_dict(self) -> Dict:\n+        self_dict = self.__dict__.copy()\n+        if 'qos' in self_dict:\n+            self_dict['qos'] = qos_to_dict(self_dict['qos'])\n+        return self_dict\n+\n+\n+class NoDLInterface(NoDLData):\n+    \"\"\"Abstract base class for NoDL communication interfaces.\"\"\"\n+\n+    def __init__(self, *, name: str, value_type: str) -> None:\n+        self.name = name\n+        self.type = value_type\n+\n+    def __eq__(self, other: Any) -> bool:\n+        return (\n+            isinstance(other, type(self)) or isinstance(self, type(other))\n+        ) and self.__dict__ == other.__dict__\n+\n+\n+class Action(NoDLInterface):\n     \"\"\"Data structure for action entries in NoDL.\"\"\"\n \n     def __init__(\n@@ -26,25 +56,23 @@ def __init__(\n         action_type: str,\n         server: bool = False,\n         client: bool = False,\n-        qos: QoSProfile = QoSPresetProfiles.ACTION_STATUS_DEFAULT\n+        qos: QoSProfile = QoSPresetProfiles.ACTION_STATUS_DEFAULT.value\n     ) -> None:\n-        self.name = name\n-        self.action_type = action_type\n+        super().__init__(name=name, value_type=action_type)\n         self.server = server\n         self.client = client\n \n         self.qos = qos\n \n \n-class Parameter:\n+class Parameter(NoDLInterface):\n     \"\"\"Data structure for parameter entries in NoDL.\"\"\"\n \n     def __init__(self, *, name: str, parameter_type: str) -> None:\n-        self.name = name\n-        self.parameter_type = parameter_type\n+        super().__init__(name=name, value_type=parameter_type)\n \n \n-class Service:\n+class Service(NoDLInterface):\n     \"\"\"Data structure for service entries in NoDL.\"\"\"\n \n     def __init__(\n@@ -54,17 +82,16 @@ def __init__(\n         service_type: str,\n         server: bool = False,\n         client: bool = False,\n-        qos: QoSProfile = QoSPresetProfiles.SERVICES_DEFAULT\n+        qos: QoSProfile = QoSPresetProfiles.SERVICES_DEFAULT.value\n     ) -> None:\n-        self.name = name\n-        self.service_type = service_type\n+        super().__init__(name=name, value_type=service_type)\n         self.server = server\n         self.client = client\n \n         self.qos = qos\n \n \n-class Topic:\n+class Topic(NoDLInterface):\n     \"\"\"Data structure for topic entries in NoDL.\"\"\"\n \n     def __init__(\n@@ -74,17 +101,16 @@ def __init__(\n         message_type: str,\n         publisher: bool = False,\n         subscription: bool = False,\n-        qos: QoSProfile = QoSPresetProfiles.SYSTEM_DEFAULT\n+        qos: QoSProfile = QoSPresetProfiles.SYSTEM_DEFAULT.value\n     ) -> None:\n-        self.name = name\n-        self.message_type = message_type\n+        super().__init__(name=name, value_type=message_type)\n         self.publisher = publisher\n         self.subscription = subscription\n \n         self.qos = qos\n \n \n-class Node:\n+class Node(NoDLData):\n     \"\"\"Data structure containing all interfaces a node exposes.\"\"\"\n \n     def __init__(\n@@ -98,7 +124,19 @@ def __init__(\n     ) -> None:\n         self.name = name\n \n-        self.actions = actions if actions else []\n-        self.parameters = parameters if parameters else []\n-        self.services = services if services else []\n-        self.topics = topics if topics else []\n+        self.actions = {action.name: action for action in actions} if actions else {}\n+        self.parameters = (\n+            {parameter.name: parameter for parameter in parameters} if parameters else {}\n+        )\n+        self.services = {service.name: service for service in services} if services else {}\n+        self.topics = {topic.name: topic for topic in topics} if topics else {}\n+\n+    @property\n+    def _as_dict(self):\n+        return {\n+            'name': self.name,\n+            'actions': [action._as_dict for action in self.actions.values()],\n+            'parameters': [parameter._as_dict for parameter in self.parameters.values()],\n+            'services': [service._as_dict for service in self.services.values()],\n+            'topics': [topic._as_dict for topic in self.topics.values()],\n+        }"
+        },
+        {
+          "sha": "64ef032ba7ca275f546ec106294726a3789c7bd4",
+          "filename": "nodl_python/test/nodl/_parsing/test_nodl_parse.py",
+          "status": "renamed",
+          "additions": 4,
+          "deletions": 4,
+          "changes": 8,
+          "blob_url": "https://github.com/ubuntu-robotics/nodl/blob/04617c899e18cab7c060ccb1b4ce3d1ac7e43dbf/nodl_python%2Ftest%2Fnodl%2F_parsing%2Ftest_nodl_parse.py",
+          "raw_url": "https://github.com/ubuntu-robotics/nodl/raw/04617c899e18cab7c060ccb1b4ce3d1ac7e43dbf/nodl_python%2Ftest%2Fnodl%2F_parsing%2Ftest_nodl_parse.py",
+          "contents_url": "https://api.github.com/repos/ubuntu-robotics/nodl/contents/nodl_python%2Ftest%2Fnodl%2F_parsing%2Ftest_nodl_parse.py?ref=04617c899e18cab7c060ccb1b4ce3d1ac7e43dbf",
+          "patch": "@@ -41,14 +41,14 @@ def test_parse_nodl_file_valid(mocker):\n     mocker.patch('nodl._parsing._parsing._parse_element_tree')\n \n     # Test if accepts a valid xml file\n-    assert nodl._parsing._parsing.parse(Path('test/nodl.xml')) is not None\n+    assert nodl._parsing._parsing.parse(path=Path('test/nodl/test.nodl.xml')) is not None\n \n     # Test if accepts file name as string\n-    assert nodl._parsing._parsing.parse('test/nodl.xml') is not None\n+    assert nodl._parsing._parsing.parse(path='test/nodl/test.nodl.xml') is not None\n \n     # Test if accepts file object\n-    with open('test/nodl.xml', 'rb') as fd:\n-        assert nodl._parsing._parsing.parse(fd) is not None\n+    with open('test/nodl/test.nodl.xml', 'rb') as fd:\n+        assert nodl._parsing._parsing.parse(path=fd) is not None\n \n \n def test_parse_interface(mocker):",
+          "previous_filename": "nodl_python/test/test_parsing/test_nodl_parse.py"
+        },
+        {
+          "sha": "c552e508537c6399b4864265871d504c41a36c7a",
+          "filename": "nodl_python/test/nodl/_parsing/test_parse_qos.py",
+          "status": "renamed",
+          "additions": 0,
+          "deletions": 0,
+          "changes": 0,
+          "blob_url": "https://github.com/ubuntu-robotics/nodl/blob/04617c899e18cab7c060ccb1b4ce3d1ac7e43dbf/nodl_python%2Ftest%2Fnodl%2F_parsing%2Ftest_parse_qos.py",
+          "raw_url": "https://github.com/ubuntu-robotics/nodl/raw/04617c899e18cab7c060ccb1b4ce3d1ac7e43dbf/nodl_python%2Ftest%2Fnodl%2F_parsing%2Ftest_parse_qos.py",
+          "contents_url": "https://api.github.com/repos/ubuntu-robotics/nodl/contents/nodl_python%2Ftest%2Fnodl%2F_parsing%2Ftest_parse_qos.py?ref=04617c899e18cab7c060ccb1b4ce3d1ac7e43dbf",
+          "previous_filename": "nodl_python/test/test_parsing/test_parse_qos.py"
+        },
+        {
+          "sha": "4c7cf73f463dc68eb7fa3d0550b27d15c6dfb04e",
+          "filename": "nodl_python/test/nodl/_parsing/test_parsing_v1.py",
+          "status": "renamed",
+          "additions": 7,
+          "deletions": 5,
+          "changes": 12,
+          "blob_url": "https://github.com/ubuntu-robotics/nodl/blob/04617c899e18cab7c060ccb1b4ce3d1ac7e43dbf/nodl_python%2Ftest%2Fnodl%2F_parsing%2Ftest_parsing_v1.py",
+          "raw_url": "https://github.com/ubuntu-robotics/nodl/raw/04617c899e18cab7c060ccb1b4ce3d1ac7e43dbf/nodl_python%2Ftest%2Fnodl%2F_parsing%2Ftest_parsing_v1.py",
+          "contents_url": "https://api.github.com/repos/ubuntu-robotics/nodl/contents/nodl_python%2Ftest%2Fnodl%2F_parsing%2Ftest_parsing_v1.py?ref=04617c899e18cab7c060ccb1b4ce3d1ac7e43dbf",
+          "patch": "@@ -11,13 +11,15 @@\n \n @pytest.fixture()\n def valid_nodl() -> etree._ElementTree:\n-    return etree.parse(str(Path('test/nodl.xml')))\n+    return etree.parse(str(Path('test/nodl/test.nodl.xml')))\n \n \n def test_parse(valid_nodl):\n     # Assert a minimal example passes validation\n     element = E.interface(\n-        E.node(E.action(E.qos(depth='10'), name='bar', type='baz', server='true'), name='foo'),\n+        E.node(\n+            E.action(E.qos(depth='10'), name='bar', type='baz', server='true'), name='foo'\n+        ),\n         version='1',\n     )\n     assert nodl._parsing._v1.parse(element)\n@@ -32,7 +34,7 @@ def test_parse(valid_nodl):\n \n \n def test__parse_action():\n-    element = E.action(E.qos(depth='10'), name='foo', type='bar', server='true')\n+    element = E.action(E.qos(depth='10'), name='foo', value_type='bar', server='true')\n \n     # Test that actions get parsed\n     action = nodl._parsing._v1._parsing._parse_action(element)\n@@ -60,7 +62,7 @@ def test__parse_parameter():\n \n def test__parse_service():\n     # Test that parse fails when missing name/type\n-    element = E.service(E.qos(depth='10'), name='foo', type='bar', server='true')\n+    element = E.service(E.qos(depth='10'), name='foo', value_type='bar', server='true')\n \n     # Test that services get parsed\n     service = nodl._parsing._v1._parsing._parse_service(element)\n@@ -77,7 +79,7 @@ def test__parse_service():\n \n def test__parse_topic():\n     # Test that parse fails when missing name/type\n-    element = E.topic(E.qos(depth='10'), name='foo', type='bar', publisher='true')\n+    element = E.topic(E.qos(depth='10'), name='foo', value_type='bar', publisher='true')\n \n     topic = nodl._parsing._v1._parsing._parse_topic(element)\n     assert topic.publisher",
+          "previous_filename": "nodl_python/test/test_parsing/test_parsing_v1.py"
+        },
+        {
+          "sha": "fe50f568c44794ad10daa86a0f988436e5f53cfe",
+          "filename": "nodl_python/test/nodl/test.nodl.xml",
+          "status": "renamed",
+          "additions": 0,
+          "deletions": 0,
+          "changes": 0,
+          "blob_url": "https://github.com/ubuntu-robotics/nodl/blob/04617c899e18cab7c060ccb1b4ce3d1ac7e43dbf/nodl_python%2Ftest%2Fnodl%2Ftest.nodl.xml",
+          "raw_url": "https://github.com/ubuntu-robotics/nodl/raw/04617c899e18cab7c060ccb1b4ce3d1ac7e43dbf/nodl_python%2Ftest%2Fnodl%2Ftest.nodl.xml",
+          "contents_url": "https://api.github.com/repos/ubuntu-robotics/nodl/contents/nodl_python%2Ftest%2Fnodl%2Ftest.nodl.xml?ref=04617c899e18cab7c060ccb1b4ce3d1ac7e43dbf",
+          "previous_filename": "nodl_python/test/nodl.xml"
+        },
+        {
+          "sha": "e9afbed3f667166cec295d35adc1e3aa807ce49f",
+          "filename": "nodl_python/test/nodl/test_types.py",
+          "status": "added",
+          "additions": 98,
+          "deletions": 0,
+          "changes": 98,
+          "blob_url": "https://github.com/ubuntu-robotics/nodl/blob/04617c899e18cab7c060ccb1b4ce3d1ac7e43dbf/nodl_python%2Ftest%2Fnodl%2Ftest_types.py",
+          "raw_url": "https://github.com/ubuntu-robotics/nodl/raw/04617c899e18cab7c060ccb1b4ce3d1ac7e43dbf/nodl_python%2Ftest%2Fnodl%2Ftest_types.py",
+          "contents_url": "https://api.github.com/repos/ubuntu-robotics/nodl/contents/nodl_python%2Ftest%2Fnodl%2Ftest_types.py?ref=04617c899e18cab7c060ccb1b4ce3d1ac7e43dbf",
+          "patch": "@@ -0,0 +1,98 @@\n+# Copyright 2020 Canonical Ltd.\n+#\n+# This program is free software: you can redistribute it and/or modify it under the terms of the\n+# GNU Limited General Public License version 3, as published by the Free Software Foundation.\n+#\n+# This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;\n+# without even the implied warranties of MERCHANTABILITY, SATISFACTORY QUALITY, or\n+# FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Limited General Public License for more details.\n+#\n+# You should have received a copy of the GNU Limited General Public License along with\n+# this program. If not, see <http://www.gnu.org/licenses/>.\n+\n+\n+import nodl.types\n+import pytest\n+import rclpy.qos\n+\n+\n+@pytest.fixture\n+def topic_publisher():\n+    return nodl.types.Topic(name='foo', message_type='bar', publisher=True)\n+\n+\n+def test_action():\n+    action_server = nodl.types.Action(name='foo', action_type='bar', server=True)\n+    assert action_server.name == 'foo'\n+    assert action_server.type == 'bar'\n+    assert action_server.server\n+    assert action_server.qos is not None\n+\n+\n+def test_parameter():\n+    parameter = nodl.types.Parameter(name='foo', parameter_type='bar')\n+    assert parameter.name == 'foo'\n+    assert parameter.type == 'bar'\n+\n+\n+def test_service():\n+    service_client = nodl.types.Service(name='foo', service_type='bar', client=True)\n+    assert service_client.name == 'foo'\n+    assert service_client.type == 'bar'\n+    assert service_client.client\n+    assert service_client.qos is not None\n+\n+\n+def test_topic(topic_publisher):\n+    assert topic_publisher.name == 'foo'\n+    assert topic_publisher.type == 'bar'\n+    assert topic_publisher.publisher\n+\n+\n+def test_representations(topic_publisher):\n+    assert 'foo' in repr(topic_publisher) and 'bar' in repr(topic_publisher)\n+    assert 'foo' in str(topic_publisher) and 'bar' in str(topic_publisher)\n+\n+\n+def test__as_dict(topic_publisher):\n+    assert topic_publisher._as_dict['name'] == 'foo'\n+    assert topic_publisher._as_dict['type'] == 'bar'\n+    assert isinstance(topic_publisher._as_dict['qos'], dict)\n+\n+    parameter = nodl.types.Parameter(name='foo', parameter_type='bar')\n+    assert 'qos' not in parameter._as_dict\n+\n+\n+def test_equality(topic_publisher):\n+    also_topic_publisher = nodl.types.Topic(name='foo', message_type='bar', publisher=True)\n+    assert also_topic_publisher == topic_publisher\n+\n+    not_same_topic_publisher = nodl.types.Topic(\n+        name='foo', message_type='bar', publisher=True, qos=rclpy.qos.QoSProfile(depth=1)\n+    )\n+    assert not_same_topic_publisher != topic_publisher\n+\n+\n+def test_same_name_different_interface_type():\n+    topic = nodl.types.Topic(name='foo', message_type='bar')\n+    service = nodl.types.Service(name='foo', service_type='bar')\n+    assert topic != service\n+\n+\n+def test_node():\n+    topic = nodl.types.Topic(name='foo', message_type='bar')\n+    service = nodl.types.Service(name='baz', service_type='woo')\n+\n+    node = nodl.types.Node(name='test', topics=[topic], services=[service])\n+    assert node.name == 'test'\n+    assert node.topics[topic.name] == topic\n+    assert node.services[service.name] == service\n+\n+\n+def test_node__as_dict():\n+    topic = nodl.types.Topic(name='foo', message_type='bar')\n+    service = nodl.types.Service(name='baz', service_type='woo')\n+\n+    node = nodl.types.Node(name='test', topics=[topic], services=[service])\n+    assert node._as_dict['name'] == node.name\n+    assert topic._as_dict in node._as_dict['topics']"
+        },
+        {
+          "sha": "32f360ad41b5a4c30009e20de62444769ab59e2c",
+          "filename": "nodl_python/test/nodl/test_utils.py",
+          "status": "renamed",
+          "additions": 0,
+          "deletions": 0,
+          "changes": 0,
+          "blob_url": "https://github.com/ubuntu-robotics/nodl/blob/04617c899e18cab7c060ccb1b4ce3d1ac7e43dbf/nodl_python%2Ftest%2Fnodl%2Ftest_utils.py",
+          "raw_url": "https://github.com/ubuntu-robotics/nodl/raw/04617c899e18cab7c060ccb1b4ce3d1ac7e43dbf/nodl_python%2Ftest%2Fnodl%2Ftest_utils.py",
+          "contents_url": "https://api.github.com/repos/ubuntu-robotics/nodl/contents/nodl_python%2Ftest%2Fnodl%2Ftest_utils.py?ref=04617c899e18cab7c060ccb1b4ce3d1ac7e43dbf",
+          "previous_filename": "nodl_python/test/test_utils.py"
+        }
+      ]
     },
     {
       "author": "Kyle Fazzari",
@@ -95,7 +387,33 @@
       "files_changed": 2,
       "additions": 167,
       "deletions": 0,
-      "commit_type": "docs"
+      "commit_type": "docs",
+      "files": [
+        {
+          "sha": "0a041280bd00a9d068f503b8ee7ce35214bd24a1",
+          "filename": "LICENSE",
+          "status": "added",
+          "additions": 165,
+          "deletions": 0,
+          "changes": 165,
+          "blob_url": "https://github.com/ubuntu-robotics/nodl/blob/eb9f68fc2bd89dd074f774d9926d7a8cf8a3127d/LICENSE",
+          "raw_url": "https://github.com/ubuntu-robotics/nodl/raw/eb9f68fc2bd89dd074f774d9926d7a8cf8a3127d/LICENSE",
+          "contents_url": "https://api.github.com/repos/ubuntu-robotics/nodl/contents/LICENSE?ref=eb9f68fc2bd89dd074f774d9926d7a8cf8a3127d",
+          "patch": "@@ -0,0 +1,165 @@\n+                   GNU LESSER GENERAL PUBLIC LICENSE\n+                       Version 3, 29 June 2007\n+\n+ Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>\n+ Everyone is permitted to copy and distribute verbatim copies\n+ of this license document, but changing it is not allowed.\n+\n+\n+  This version of the GNU Lesser General Public License incorporates\n+the terms and conditions of version 3 of the GNU General Public\n+License, supplemented by the additional permissions listed below.\n+\n+  0. Additional Definitions.\n+\n+  As used herein, \"this License\" refers to version 3 of the GNU Lesser\n+General Public License, and the \"GNU GPL\" refers to version 3 of the GNU\n+General Public License.\n+\n+  \"The Library\" refers to a covered work governed by this License,\n+other than an Application or a Combined Work as defined below.\n+\n+  An \"Application\" is any work that makes use of an interface provided\n+by the Library, but which is not otherwise based on the Library.\n+Defining a subclass of a class defined by the Library is deemed a mode\n+of using an interface provided by the Library.\n+\n+  A \"Combined Work\" is a work produced by combining or linking an\n+Application with the Library.  The particular version of the Library\n+with which the Combined Work was made is also called the \"Linked\n+Version\".\n+\n+  The \"Minimal Corresponding Source\" for a Combined Work means the\n+Corresponding Source for the Combined Work, excluding any source code\n+for portions of the Combined Work that, considered in isolation, are\n+based on the Application, and not on the Linked Version.\n+\n+  The \"Corresponding Application Code\" for a Combined Work means the\n+object code and/or source code for the Application, including any data\n+and utility programs needed for reproducing the Combined Work from the\n+Application, but excluding the System Libraries of the Combined Work.\n+\n+  1. Exception to Section 3 of the GNU GPL.\n+\n+  You may convey a covered work under sections 3 and 4 of this License\n+without being bound by section 3 of the GNU GPL.\n+\n+  2. Conveying Modified Versions.\n+\n+  If you modify a copy of the Library, and, in your modifications, a\n+facility refers to a function or data to be supplied by an Application\n+that uses the facility (other than as an argument passed when the\n+facility is invoked), then you may convey a copy of the modified\n+version:\n+\n+   a) under this License, provided that you make a good faith effort to\n+   ensure that, in the event an Application does not supply the\n+   function or data, the facility still operates, and performs\n+   whatever part of its purpose remains meaningful, or\n+\n+   b) under the GNU GPL, with none of the additional permissions of\n+   this License applicable to that copy.\n+\n+  3. Object Code Incorporating Material from Library Header Files.\n+\n+  The object code form of an Application may incorporate material from\n+a header file that is part of the Library.  You may convey such object\n+code under terms of your choice, provided that, if the incorporated\n+material is not limited to numerical parameters, data structure\n+layouts and accessors, or small macros, inline functions and templates\n+(ten or fewer lines in length), you do both of the following:\n+\n+   a) Give prominent notice with each copy of the object code that the\n+   Library is used in it and that the Library and its use are\n+   covered by this License.\n+\n+   b) Accompany the object code with a copy of the GNU GPL and this license\n+   document.\n+\n+  4. Combined Works.\n+\n+  You may convey a Combined Work under terms of your choice that,\n+taken together, effectively do not restrict modification of the\n+portions of the Library contained in the Combined Work and reverse\n+engineering for debugging such modifications, if you also do each of\n+the following:\n+\n+   a) Give prominent notice with each copy of the Combined Work that\n+   the Library is used in it and that the Library and its use are\n+   covered by this License.\n+\n+   b) Accompany the Combined Work with a copy of the GNU GPL and this license\n+   document.\n+\n+   c) For a Combined Work that displays copyright notices during\n+   execution, include the copyright notice for the Library among\n+   these notices, as well as a reference directing the user to the\n+   copies of the GNU GPL and this license document.\n+\n+   d) Do one of the following:\n+\n+       0) Convey the Minimal Corresponding Source under the terms of this\n+       License, and the Corresponding Application Code in a form\n+       suitable for, and under terms that permit, the user to\n+       recombine or relink the Application with a modified version of\n+       the Linked Version to produce a modified Combined Work, in the\n+       manner specified by section 6 of the GNU GPL for conveying\n+       Corresponding Source.\n+\n+       1) Use a suitable shared library mechanism for linking with the\n+       Library.  A suitable mechanism is one that (a) uses at run time\n+       a copy of the Library already present on the user's computer\n+       system, and (b) will operate properly with a modified version\n+       of the Library that is interface-compatible with the Linked\n+       Version.\n+\n+   e) Provide Installation Information, but only if you would otherwise\n+   be required to provide such information under section 6 of the\n+   GNU GPL, and only to the extent that such information is\n+   necessary to install and execute a modified version of the\n+   Combined Work produced by recombining or relinking the\n+   Application with a modified version of the Linked Version. (If\n+   you use option 4d0, the Installation Information must accompany\n+   the Minimal Corresponding Source and Corresponding Application\n+   Code. If you use option 4d1, you must provide the Installation\n+   Information in the manner specified by section 6 of the GNU GPL\n+   for conveying Corresponding Source.)\n+\n+  5. Combined Libraries.\n+\n+  You may place library facilities that are a work based on the\n+Library side by side in a single library together with other library\n+facilities that are not Applications and are not covered by this\n+License, and convey such a combined library under terms of your\n+choice, if you do both of the following:\n+\n+   a) Accompany the combined library with a copy of the same work based\n+   on the Library, uncombined with any other library facilities,\n+   conveyed under the terms of this License.\n+\n+   b) Give prominent notice with the combined library that part of it\n+   is a work based on the Library, and explaining where to find the\n+   accompanying uncombined form of the same work.\n+\n+  6. Revised Versions of the GNU Lesser General Public License.\n+\n+  The Free Software Foundation may publish revised and/or new versions\n+of the GNU Lesser General Public License from time to time. Such new\n+versions will be similar in spirit to the present version, but may\n+differ in detail to address new problems or concerns.\n+\n+  Each version is given a distinguishing version number. If the\n+Library as you received it specifies that a certain numbered version\n+of the GNU Lesser General Public License \"or any later version\"\n+applies to it, you have the option of following the terms and\n+conditions either of that published version or of any later version\n+published by the Free Software Foundation. If the Library as you\n+received it does not specify a version number of the GNU Lesser\n+General Public License, you may choose any version of the GNU Lesser\n+General Public License ever published by the Free Software Foundation.\n+\n+  If the Library as you received it specifies that a proxy can decide\n+whether future versions of the GNU Lesser General Public License shall\n+apply, that proxy's public statement of acceptance of any version is\n+permanent authorization for you to choose that version for the\n+Library."
+        },
+        {
+          "sha": "c8ae1684071e7d49115845e82265b139e0097140",
+          "filename": "README.md",
+          "status": "added",
+          "additions": 2,
+          "deletions": 0,
+          "changes": 2,
+          "blob_url": "https://github.com/ubuntu-robotics/nodl/blob/eb9f68fc2bd89dd074f774d9926d7a8cf8a3127d/README.md",
+          "raw_url": "https://github.com/ubuntu-robotics/nodl/raw/eb9f68fc2bd89dd074f774d9926d7a8cf8a3127d/README.md",
+          "contents_url": "https://api.github.com/repos/ubuntu-robotics/nodl/contents/README.md?ref=eb9f68fc2bd89dd074f774d9926d7a8cf8a3127d",
+          "patch": "@@ -0,0 +1,2 @@\n+# nodl\n+CLI and parsing utilities for the ROS 2 NoDL "
+        }
+      ]
     }
   ]
 }

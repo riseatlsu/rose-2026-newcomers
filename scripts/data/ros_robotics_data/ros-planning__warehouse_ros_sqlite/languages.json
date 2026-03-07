@@ -1,0 +1,14 @@
+{
+  "_meta": {
+    "fetched_at": "2026-03-03T22:18:34Z",
+    "source": "github_rest",
+    "endpoint": "/repos/{owner}/{repo}/languages",
+    "owner": "ros-planning",
+    "repo": "warehouse_ros_sqlite"
+  },
+  "data": {
+    "C++": 92044,
+    "CMake": 3010,
+    "Shell": 546
+  }
+}

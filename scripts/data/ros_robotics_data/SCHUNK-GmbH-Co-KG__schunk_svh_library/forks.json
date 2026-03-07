@@ -1,0 +1,11 @@
+{
+  "_meta": {
+    "fetched_at": "2026-03-03T20:46:01Z",
+    "source": "github_rest",
+    "endpoint": "/repos/{owner}/{repo}/forks",
+    "owner": "SCHUNK-GmbH-Co-KG",
+    "repo": "schunk_svh_library",
+    "per_page": 100
+  },
+  "data": []
+}

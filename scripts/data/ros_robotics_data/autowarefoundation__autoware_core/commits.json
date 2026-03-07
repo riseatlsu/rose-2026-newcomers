@@ -1,12 +1,152 @@
 {
   "_meta": {
-    "fetched_at": "2026-02-24T22:20:08Z",
+    "fetched_at": "2026-03-04T23:02:03Z",
     "source": "github_rest",
     "endpoint": "/repos/{owner}/{repo}/commits",
     "owner": "autowarefoundation",
     "repo": "autoware_core"
   },
   "data": [
+    {
+      "sha": "675abf14d8cd6fe5e4d67288c2c13121c4791a90",
+      "author": "Ryohsuke Mitsudome",
+      "author_login": "mitsudome-r",
+      "date": "2026-03-04T02:45:53Z",
+      "message": "revert: \"chore(`autoware_ndt_scan_matcher`)): move header files from `include` to `src`\" (#880)\n\nThis reverts commit ee1c5d1d4d70e43e8345d06402e1fcb3a4007db3."
+    },
+    {
+      "sha": "8c26ae63d4c006b43f96cf85058fc22bab6a0370",
+      "author": "Michal Sojka",
+      "author_login": "wentasah",
+      "date": "2026-03-03T13:25:23Z",
+      "message": "build(autoware_trajectory): add missing include (#853)\n\nfix(autoware_trajectory): add missing include\n\nstd::clamp() added in #791 needs to include <algorithm>. Without it,\nGCC 14 complains with \"error: 'clamp' is not a member of 'std'\".\n\nSigned-off-by: Michal Sojka <michal.sojka@cvut.cz>\nCo-authored-by: Junya Sasaki <j2sasaki1990@gmail.com>"
+    },
+    {
+      "sha": "ee1c5d1d4d70e43e8345d06402e1fcb3a4007db3",
+      "author": "Junya Sasaki",
+      "author_login": "sasakisasaki",
+      "date": "2026-03-03T12:44:35Z",
+      "message": "chore(`autoware_ndt_scan_matcher`): move header files from `include` to `src` (#866)\n\n* chore(ndt_scan_matcher): move headers from `include` to `src` not to be public\n\nSigned-off-by: Junya Sasaki <junya.sasaki@tier4.jp>\n\n* bug(`ndt_omp`): fix a missing copyright\n\nSigned-off-by: Junya Sasaki <junya.sasaki@tier4.jp>\n\n* bug(ndt_scan_matcher): remove unnecessary lines in `CMakeLists.txt`\n\nSigned-off-by: Junya Sasaki <junya.sasaki@tier4.jp>\n\n* style(pre-commit): autofix\n\n* bug: fix by `pre-commit`\n\nSigned-off-by: Junya Sasaki <junya.sasaki@tier4.jp>\n\n* bug: fix by `cppcheck`\n\nSigned-off-by: Junya Sasaki <junya.sasaki@tier4.jp>\n\n* style(pre-commit): autofix\n\n* bug: fix by `pre-commit`\n\nSigned-off-by: Junya Sasaki <junya.sasaki@tier4.jp>\n\n---------\n\nSigned-off-by: Junya Sasaki <junya.sasaki@tier4.jp>\nCo-authored-by: pre-commit-ci[bot] <66853113+pre-commit-ci[bot]@users.noreply.github.com>"
+    },
+    {
+      "sha": "273b8ac6b71cbf3d25ab04fff48ea596e3670d3a",
+      "author": "Junya Sasaki",
+      "author_login": "sasakisasaki",
+      "date": "2026-03-03T12:13:48Z",
+      "message": "chore(`autoware_localization_util`): minor refactoring for header wrap (#874)\n\n* chore: use `<>` for public header wrap\n\nSigned-off-by: Junya Sasaki <junya.sasaki@tier4.jp>\n\n* fix: apply `pre-commit`\n\nSigned-off-by: Junya Sasaki <junya.sasaki@tier4.jp>\n\n---------\n\nSigned-off-by: Junya Sasaki <junya.sasaki@tier4.jp>"
+    },
+    {
+      "sha": "f20e40bdcbf6f4810baaff21017568a799aed6c8",
+      "author": "Motz",
+      "author_login": "Motsu-san",
+      "date": "2026-03-03T11:44:01Z",
+      "message": "refactor(ekf_localizer): move header files of ekf_localizer (#726)\n\n* refactor: move diagnostics.hpp to source folder\n\nSigned-off-by: Motsu-san <83898149+Motsu-san@users.noreply.github.com>\n\n* refactor: move aged_object_queue.hpp to source folder\n\nSigned-off-by: Motsu-san <83898149+Motsu-san@users.noreply.github.com>\n\n* refactor: move headers of ekf_localizer to source folder\n\nSigned-off-by: Motsu-san <83898149+Motsu-san@users.noreply.github.com>\n\n* refactor: fix include paths due to moving headers\n\nSigned-off-by: Motsu-san <83898149+Motsu-san@users.noreply.github.com>\n\n* style(pre-commit): autofix\n\n* refactor: fix cppcheck error\n\nSigned-off-by: Motsu-san <83898149+Motsu-san@users.noreply.github.com>\n\n* fix: typo\n\nSigned-off-by: Motsu-san <83898149+Motsu-san@users.noreply.github.com>\n\n* style(pre-commit): autofix\n\n---------\n\nSigned-off-by: Motsu-san <83898149+Motsu-san@users.noreply.github.com>\nCo-authored-by: pre-commit-ci[bot] <66853113+pre-commit-ci[bot]@users.noreply.github.com>\nCo-authored-by: Junya Sasaki <j2sasaki1990@gmail.com>"
+    },
+    {
+      "sha": "d091381810464f100f77052f47bbd6b0a454929d",
+      "author": "Takahisa Ishikawa",
+      "author_login": "interimadd",
+      "date": "2026-03-02T11:35:13Z",
+      "message": "feat(crop_box_filter): simplify validation logic for input point cloud (#875)\n\n* feat(crop_box_filter): simplify point cloud validation logic and remove redundant functions\n\nSigned-off-by: Takahisa.Ishikawa <takahisa.ishikawa@tier4.jp>\n\n* feat(crop_box_filter): remove dependency on rclcpp::Logger from validation logic\n\nSigned-off-by: Takahisa.Ishikawa <takahisa.ishikawa@tier4.jp>\n\n* refactor(crop_box_filter): rename validation function\n\nSigned-off-by: Takahisa.Ishikawa <takahisa.ishikawa@tier4.jp>\n\n* refactor(crop_box_filter): simplify point cloud validation tests and improve clarity\n\nSigned-off-by: Takahisa.Ishikawa <takahisa.ishikawa@tier4.jp>\n\n* refactor(crop_box_filter): simplify point cloud validation logic by removing redundant lambda function\n\nSigned-off-by: Takahisa.Ishikawa <takahisa.ishikawa@tier4.jp>\n\n* refactor(crop_box_filter): separate validation logic into its own files\n\nSigned-off-by: Takahisa.Ishikawa <takahisa.ishikawa@tier4.jp>\n\n* refactor(crop_box_filter): remove rclcpp dependency and simplify timestamp handling in validation logic\n\nSigned-off-by: Takahisa.Ishikawa <takahisa.ishikawa@tier4.jp>\n\n* chore(crop_box_filter): update copyright information to reflect current ownership\n\nSigned-off-by: Takahisa.Ishikawa <takahisa.ishikawa@tier4.jp>\n\n* refactor(crop_box_filter): restructure validation logic by separating xyz field and data size checks\n\nSigned-off-by: Takahisa.Ishikawa <takahisa.ishikawa@tier4.jp>\n\n* refactor(test): remove rclcpp dependency from test file\n\nSigned-off-by: Takahisa.Ishikawa <takahisa.ishikawa@tier4.jp>\n\n* refactor(crop_box_filter): update validation functions to accept PointCloud2\n\nSigned-off-by: Takahisa.Ishikawa <takahisa.ishikawa@tier4.jp>\n\n* refactor(crop_box_filter): improve error message comment\n\nSigned-off-by: Takahisa.Ishikawa <takahisa.ishikawa@tier4.jp>\n\n* refactor(crop_box_filter): simplify PointCloud2 test cases by removing shared_ptr usage\n\nSigned-off-by: Takahisa.Ishikawa <takahisa.ishikawa@tier4.jp>\n\n* feat(crop_box_filter): update data size validation logic to use greater than comparison\n\nSigned-off-by: Takahisa.Ishikawa <takahisa.ishikawa@tier4.jp>\n\n* refactor(crop_box_filter): streamline validation logic for x, y, z fields in PointCloud2\n\nSigned-off-by: Takahisa.Ishikawa <takahisa.ishikawa@tier4.jp>\n\n* refactor(crop_box_filter): remove unused memory header from crop_box_filter.cpp\n\nSigned-off-by: Takahisa.Ishikawa <takahisa.ishikawa@tier4.jp>\n\n---------\n\nSigned-off-by: Takahisa.Ishikawa <takahisa.ishikawa@tier4.jp>\nCo-authored-by: Takahisa.Ishikawa <takahisa.ishikawa@tier4.jp>"
+    },
+    {
+      "sha": "e232aec6d96d482c87420c8d70a6fe3f27099e93",
+      "author": "Takahisa Ishikawa",
+      "author_login": "interimadd",
+      "date": "2026-03-02T05:36:00Z",
+      "message": "refactor(crop_box_filter): remove PCL dependencies and use PointCloud2 iterators (#873)\n\n* refactor(crop_box_filter): remove PCL dependencies and use PointCloud2 iterators for processing\n\nSigned-off-by: Takahisa.Ishikawa <takahisa.ishikawa@tier4.jp>\n\n* refactor(crop_box_filter): rename out_x/y/z to output_x/y/z for clarity\n\nSigned-off-by: Takahisa.Ishikawa <takahisa.ishikawa@tier4.jp>\n\n---------\n\nSigned-off-by: Takahisa.Ishikawa <takahisa.ishikawa@tier4.jp>\nCo-authored-by: Takahisa.Ishikawa <takahisa.ishikawa@tier4.jp>"
+    },
+    {
+      "sha": "af43bf18c9633b60d2d1ff573d92bb1464bf0954",
+      "author": "Takagi, Isamu",
+      "author_login": "isamu-takagi",
+      "date": "2026-02-27T08:41:29Z",
+      "message": "fix(autoware_core_localization): add missing dependency (#872)\n\nSigned-off-by: Takagi, Isamu <isamu.takagi@tier4.jp>"
+    },
+    {
+      "sha": "7e2c2cb0b1c691765ebb0ef204cd58065f9572b4",
+      "author": "Maxime CLEMENT",
+      "author_login": "maxime-clem",
+      "date": "2026-02-27T06:45:04Z",
+      "message": "fix(motion_utils): properly use negative jerk in calculate_stop_distance (#870)\n\nSigned-off-by: Maxime CLEMENT <maxime.clement@tier4.jp>"
+    },
+    {
+      "sha": "14bf5e74ef95b2dc72aa40edeee9aa2445851b78",
+      "author": "Sarun MUKDAPITAK",
+      "author_login": "sarun-hub",
+      "date": "2026-02-27T06:00:52Z",
+      "message": "feat(lanelet2_extension): port lanelet2_extension utilities functions (final)  (#838)\n\nSigned-off-by: Sarun Mukdapitak <sarun.mukda@gmail.com>\nCo-authored-by: pre-commit-ci[bot] <66853113+pre-commit-ci[bot]@users.noreply.github.com>\nCo-authored-by: Mamoru Sobue <hilo.soblin@gmail.com>"
+    },
+    {
+      "sha": "2b119c9db7d947d7d0f12ca116e80aeb2c7a8bfd",
+      "author": "Takahisa Ishikawa",
+      "author_login": "interimadd",
+      "date": "2026-02-27T01:19:51Z",
+      "message": "chore(euclidean_cluster): move header files from include to src (#869)\n\n* chore(autoware_euclidean_cluster_object_detector): move header files from include/ to src/\n\nSigned-off-by: Takahisa.Ishikawa <takahisa.ishikawa@tier4.jp>\n\n* chore(euclidean_cluster): remove pragma once\n\nSigned-off-by: Takahisa.Ishikawa <takahisa.ishikawa@tier4.jp>\n\n---------\n\nSigned-off-by: Takahisa.Ishikawa <takahisa.ishikawa@tier4.jp>\nCo-authored-by: Takahisa.Ishikawa <takahisa.ishikawa@tier4.jp>"
+    },
+    {
+      "sha": "61157cf26fdbbbee364482fdbe4869f976e51741",
+      "author": "Takahisa Ishikawa",
+      "author_login": "interimadd",
+      "date": "2026-02-27T01:18:42Z",
+      "message": "chore(ground_fitler): move header files from include/ to src/ (#863)\n\n* chore(ground_fitler): move header files from include/ to src/\n\nSigned-off-by: Takahisa.Ishikawa <takahisa.ishikawa@tier4.jp>\n\n* chore(ground_filter): remove unused variable suppressions in grid.hpp\n\nSigned-off-by: Takahisa.Ishikawa <takahisa.ishikawa@tier4.jp>\n\n---------\n\nSigned-off-by: Takahisa.Ishikawa <takahisa.ishikawa@tier4.jp>\nCo-authored-by: Takahisa.Ishikawa <takahisa.ishikawa@tier4.jp>"
+    },
+    {
+      "sha": "1c4c0cba1e0202e56c8c3db2953d780fa68227ef",
+      "author": "Zulfaqar Azmi",
+      "author_login": "zulfaqar-azmi-t4",
+      "date": "2026-02-27T01:07:51Z",
+      "message": "feat(autoware_pyplot): support horizon and vertical line (#865)\n\nSigned-off-by: Zulfaqar Azmi <zulfaqar.azmi@tier4.jp>"
+    },
+    {
+      "sha": "59392731705fda4224de62888867365318dc9e6f",
+      "author": "Mitsuhiro Sakamoto",
+      "author_login": "mitukou1109",
+      "date": "2026-02-26T11:36:47Z",
+      "message": "feat(path_generator): use `route_manager` to handle route data (#803)\n\nSigned-off-by: mitukou1109 <mitukou1109@gmail.com>\nSigned-off-by: Mamoru Sobue <mamoru.sobue@tier4.jp>\nCo-authored-by: Mamoru Sobue <hilo.soblin@gmail.com>\nCo-authored-by: Mamoru Sobue <mamoru.sobue@tier4.jp>"
+    },
+    {
+      "sha": "178f09bfe06d5c0649a08d9f2ae1fddb1ffaf5c0",
+      "author": "Sarun MUKDAPITAK",
+      "author_login": "sarun-hub",
+      "date": "2026-02-26T09:31:13Z",
+      "message": "feat(lanelet2_utils): define create ConstLanelet from ConstLineString3d  (#868)\n\n* define create_safe_lanelet for ConstLineString3d\n\nSigned-off-by: Sarun Mukdapitak <sarun.mukda@gmail.com>\n\n* Update common/autoware_lanelet2_utils/src/conversion.cpp\n\n* remove unused definition\n\nSigned-off-by: Sarun Mukdapitak <sarun.mukda@gmail.com>\n\n* remove unused comment\n\nSigned-off-by: Sarun Mukdapitak <sarun.mukda@gmail.com>\n\n---------\n\nSigned-off-by: Sarun Mukdapitak <sarun.mukda@gmail.com>\nCo-authored-by: Mamoru Sobue <hilo.soblin@gmail.com>"
+    },
+    {
+      "sha": "4bc017b7cc2115393a66a89be23a18d79c220b1f",
+      "author": "Satoshi OTA",
+      "author_login": "satoshi-ota",
+      "date": "2026-02-25T05:21:45Z",
+      "message": "chore: organize maintainer (#858)\n\nSigned-off-by: satoshi-ota <satoshi.ota928@gmail.com>"
+    },
+    {
+      "sha": "ffdb2cc3ae1d8df4fb9e0c3b1a059f7a3ea464b8",
+      "author": "Takahisa Ishikawa",
+      "author_login": "interimadd",
+      "date": "2026-02-25T04:03:05Z",
+      "message": "fix(component_interface_specs): change ControlCommand QoS to volatile (#833)\n\n* fix(component_interface_specs): change ControlCommand QoS durability to volatile\n\nChange the QoS durability of ControlCommand from TRANSIENT_LOCAL to\nVOLATILE.\n\nSigned-off-by: Takahisa.Ishikawa <takahisa.ishikawa@tier4.jp>\n\n* test(component_interface_spec): update ControlCommand QoS durability to volatile on test\n\nSigned-off-by: Takahisa.Ishikawa <takahisa.ishikawa@tier4.jp>\n\n---------\n\nSigned-off-by: Takahisa.Ishikawa <takahisa.ishikawa@tier4.jp>\nCo-authored-by: Takahisa.Ishikawa <takahisa.ishikawa@tier4.jp>"
+    },
+    {
+      "sha": "0ae14382e5c5b47b17e4219988332fe9e2d41416",
+      "author": "Kotaro Uetake",
+      "author_login": "ktro2828",
+      "date": "2026-02-25T02:14:42Z",
+      "message": "feat(autoware_lanelet2_utils): add a custom find-nearest function (#839)\n\n* feat: add a custom find-nearest function\n\nSigned-off-by: ktro2828 <kotaro.uetake@tier4.jp>\n\n* test: add unit testings\n\nSigned-off-by: ktro2828 <kotaro.uetake@tier4.jp>\n\n* style: update docstrings\n\nSigned-off-by: ktro2828 <kotaro.uetake@tier4.jp>\n\n* refactor: minor fixes\n\nSigned-off-by: ktro2828 <kotaro.uetake@tier4.jp>\n\n* refactor: update boolean condition\n\nSigned-off-by: ktro2828 <kotaro.uetake@tier4.jp>\n\n* refactor: replace zero to epsilon\n\nSigned-off-by: ktro2828 <kotaro.uetake@tier4.jp>\n\n* docs: update API references for find_nearest\n\nSigned-off-by: ktro2828 <kotaro.uetake@tier4.jp>\n\n---------\n\nSigned-off-by: ktro2828 <kotaro.uetake@tier4.jp>"
+    },
+    {
+      "sha": "0d0c47950d88161c262be123d6906bf29863eb27",
+      "author": "Satoshi OTA",
+      "author_login": "satoshi-ota",
+      "date": "2026-02-25T01:46:17Z",
+      "message": "chore: organize maintainer (#860)\n\n* chore: organize maintainer\n\nSigned-off-by: satoshi-ota <satoshi.ota928@gmail.com>\n\n* chore: organize maintainer\n\nSigned-off-by: satoshi-ota <satoshi.ota928@gmail.com>\n\n---------\n\nSigned-off-by: satoshi-ota <satoshi.ota928@gmail.com>"
+    },
+    {
+      "sha": "34be3a3bc61f80c0053110b0c1ccaef95eb900ec",
+      "author": "Maxime CLEMENT",
+      "author_login": "maxime-clem",
+      "date": "2026-02-25T01:38:28Z",
+      "message": "feat(motion_utils): add calculate_stop_distance (#849)\n\nSigned-off-by: Maxime CLEMENT <maxime.clement@tier4.jp>\nCo-authored-by: Mamoru Sobue <hilo.soblin@gmail.com>"
+    },
     {
       "sha": "f8885fd91f60f8d5fecbe24679899d7387f9fcb0",
       "author": "Sarun MUKDAPITAK",

@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "fetched_at": "2026-02-25T14:58:57Z",
+    "fetched_at": "2026-03-05T05:04:27Z",
     "source": "derived+rest",
     "derivation": "earliest commit per author_login from commits.json; enrich via /commits/{sha} for files/stats",
     "owner": "ament",
@@ -15,7 +15,8 @@
       "files_changed": 0,
       "additions": 0,
       "deletions": 0,
-      "commit_type": "code"
+      "commit_type": "other",
+      "files": []
     },
     {
       "author": "mosfet80",
@@ -25,7 +26,21 @@
       "files_changed": 1,
       "additions": 1,
       "deletions": 1,
-      "commit_type": "docs"
+      "commit_type": "docs",
+      "files": [
+        {
+          "sha": "f69732941868c01d4258b977f38d04e59a73edc7",
+          "filename": "CMakeLists.txt",
+          "status": "modified",
+          "additions": 1,
+          "deletions": 1,
+          "changes": 2,
+          "blob_url": "https://github.com/ament/google_benchmark_vendor/blob/a39485da54edbe10ca0c7b411fc9e5f272208f30/CMakeLists.txt",
+          "raw_url": "https://github.com/ament/google_benchmark_vendor/raw/a39485da54edbe10ca0c7b411fc9e5f272208f30/CMakeLists.txt",
+          "contents_url": "https://api.github.com/repos/ament/google_benchmark_vendor/contents/CMakeLists.txt?ref=a39485da54edbe10ca0c7b411fc9e5f272208f30",
+          "patch": "@@ -1,4 +1,4 @@\n-cmake_minimum_required(VERSION 3.5)\n+cmake_minimum_required(VERSION 3.10)\n project(google_benchmark_vendor CXX)\n \n option(FORCE_BUILD_VENDOR_PKG"
+        }
+      ]
     },
     {
       "author": "clalancette",
@@ -35,7 +50,21 @@
       "files_changed": 1,
       "additions": 1,
       "deletions": 1,
-      "commit_type": "config"
+      "commit_type": "config",
+      "files": [
+        {
+          "sha": "d5669ade4709b382e7c1a08ad289cd4661daa7c5",
+          "filename": "package.xml",
+          "status": "modified",
+          "additions": 1,
+          "deletions": 1,
+          "changes": 2,
+          "blob_url": "https://github.com/ament/google_benchmark_vendor/blob/96539c8f0cf19f84bae820fa5bdb4460ac6ad854/package.xml",
+          "raw_url": "https://github.com/ament/google_benchmark_vendor/raw/96539c8f0cf19f84bae820fa5bdb4460ac6ad854/package.xml",
+          "contents_url": "https://api.github.com/repos/ament/google_benchmark_vendor/contents/package.xml?ref=96539c8f0cf19f84bae820fa5bdb4460ac6ad854",
+          "patch": "@@ -2,7 +2,7 @@\n <?xml-model href=\"http://download.ros.org/schema/package_format2.xsd\" schematypens=\"http://www.w3.org/2001/XMLSchema\"?>\n <package format=\"2\">\n   <name>google_benchmark_vendor</name>\n-  <version>0.0.3</version>\n+  <version>0.0.4</version>\n   <description>This package provides Google Benchmark.</description>\n   <maintainer email=\"michel@ekumenlabs.com\">Michel Hidalgo</maintainer>\n   <license>Apache License 2.0</license>  <!-- Both this package and Google Benchmark are ASL 2.0 -->"
+        }
+      ]
     },
     {
       "author": "marcoag",
@@ -45,7 +74,21 @@
       "files_changed": 1,
       "additions": 3,
       "deletions": 3,
-      "commit_type": "docs"
+      "commit_type": "docs",
+      "files": [
+        {
+          "sha": "88722febb8cc0a863420d5ded5da6312d3a45233",
+          "filename": "CMakeLists.txt",
+          "status": "modified",
+          "additions": 3,
+          "deletions": 3,
+          "changes": 6,
+          "blob_url": "https://github.com/ament/google_benchmark_vendor/blob/189599dd2acc99f7266c3cc2d807f7ddda6b6075/CMakeLists.txt",
+          "raw_url": "https://github.com/ament/google_benchmark_vendor/raw/189599dd2acc99f7266c3cc2d807f7ddda6b6075/CMakeLists.txt",
+          "contents_url": "https://api.github.com/repos/ament/google_benchmark_vendor/contents/CMakeLists.txt?ref=189599dd2acc99f7266c3cc2d807f7ddda6b6075",
+          "patch": "@@ -12,7 +12,7 @@ endif()\n macro(build_benchmark)\n   set(extra_cmake_args)\n \n-  set(GOOGLE_BENCHMARK_TARGET_VERSION \"1.6.1\")\n+  set(GOOGLE_BENCHMARK_TARGET_VERSION \"1.8.3\")\n \n   if(DEFINED CMAKE_BUILD_TYPE)\n     list(APPEND extra_cmake_args -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE})\n@@ -56,7 +56,7 @@ macro(build_benchmark)\n \n   externalproject_add(benchmark-${GOOGLE_BENCHMARK_TARGET_VERSION}\n     GIT_REPOSITORY https://github.com/google/benchmark.git\n-    GIT_TAG 0d98dba29d66e93259db7daa53a9327df767a415  # v${GOOGLE_BENCHMARK_TARGET_VERSION}\n+    GIT_TAG 344117638c8ff7e239044fd0fa7085839fc03021  # v${GOOGLE_BENCHMARK_TARGET_VERSION}\n     GIT_CONFIG advice.detachedHead=false\n     # Suppress git update due to https://gitlab.kitware.com/cmake/cmake/-/issues/16419\n     # See https://github.com/ament/uncrustify_vendor/pull/22 for details\n@@ -80,7 +80,7 @@ macro(build_benchmark)\n   )\n endmacro()\n \n-if(NOT benchmark_FOUND OR \"${benchmark_VERSION}\" VERSION_LESS 1.6.1)\n+if(NOT benchmark_FOUND OR \"${benchmark_VERSION}\" VERSION_LESS 1.8.3)\n   build_benchmark()\n elseif(benchmark_FOUND)\n   # Ubuntu Focal and Jammy have a packaging bug where libbenchmark_main has no symbols,"
+        }
+      ]
     },
     {
       "author": "mjcarroll",
@@ -55,7 +98,33 @@
       "files_changed": 2,
       "additions": 34,
       "deletions": 1,
-      "commit_type": "docs"
+      "commit_type": "docs",
+      "files": [
+        {
+          "sha": "95bb4f1674257276a38a25b6c0f89bf713956d74",
+          "filename": "CMakeLists.txt",
+          "status": "modified",
+          "additions": 3,
+          "deletions": 1,
+          "changes": 4,
+          "blob_url": "https://github.com/ament/google_benchmark_vendor/blob/173518d23ab7780b6a74d969bb464e521c277d94/CMakeLists.txt",
+          "raw_url": "https://github.com/ament/google_benchmark_vendor/raw/173518d23ab7780b6a74d969bb464e521c277d94/CMakeLists.txt",
+          "contents_url": "https://api.github.com/repos/ament/google_benchmark_vendor/contents/CMakeLists.txt?ref=173518d23ab7780b6a74d969bb464e521c277d94",
+          "patch": "@@ -66,7 +66,9 @@ macro(build_benchmark)\n       -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_install\n       ${extra_cmake_args}\n     PATCH_COMMAND\n-      ${CMAKE_COMMAND} -E chdir <SOURCE_DIR> git apply -p1 --ignore-space-change --whitespace=nowarn ${CMAKE_CURRENT_SOURCE_DIR}/thread_safety_attributes.patch\n+      ${CMAKE_COMMAND} -E chdir <SOURCE_DIR> git apply -p1 --ignore-space-change --whitespace=nowarn\n+        ${CMAKE_CURRENT_SOURCE_DIR}/thread_safety_attributes.patch\n+        ${CMAKE_CURRENT_SOURCE_DIR}/e991355c02b93fe17713efe04cbc2e278e00fdbd.patch\n   )\n \n   # The external project will install to the build folder, but we'll install that on make install."
+        },
+        {
+          "sha": "f0c2409ffed6dff9faa6fe18895648112ccf8719",
+          "filename": "e991355c02b93fe17713efe04cbc2e278e00fdbd.patch",
+          "status": "added",
+          "additions": 31,
+          "deletions": 0,
+          "changes": 31,
+          "blob_url": "https://github.com/ament/google_benchmark_vendor/blob/173518d23ab7780b6a74d969bb464e521c277d94/e991355c02b93fe17713efe04cbc2e278e00fdbd.patch",
+          "raw_url": "https://github.com/ament/google_benchmark_vendor/raw/173518d23ab7780b6a74d969bb464e521c277d94/e991355c02b93fe17713efe04cbc2e278e00fdbd.patch",
+          "contents_url": "https://api.github.com/repos/ament/google_benchmark_vendor/contents/e991355c02b93fe17713efe04cbc2e278e00fdbd.patch?ref=173518d23ab7780b6a74d969bb464e521c277d94",
+          "patch": "@@ -0,0 +1,31 @@\n+From e991355c02b93fe17713efe04cbc2e278e00fdbd Mon Sep 17 00:00:00 2001\n+From: Roman Lebedev <lebedev.ri@gmail.com>\n+Date: Wed, 9 Jun 2021 11:52:12 +0300\n+Subject: [PATCH] [NFCI] Drop warning to satisfy clang's\n+ -Wunused-but-set-variable diag (#1174)\n+\n+Fixes https://github.com/google/benchmark/issues/1172\n+---\n+ src/complexity.cc | 2 --\n+ 1 file changed, 2 deletions(-)\n+\n+diff --git a/src/complexity.cc b/src/complexity.cc\n+index d74b14692..29f7c3b03 100644\n+--- a/src/complexity.cc\n++++ b/src/complexity.cc\n+@@ -82,7 +82,6 @@ std::string GetBigOString(BigO complexity) {\n+ LeastSq MinimalLeastSq(const std::vector<int64_t>& n,\n+                        const std::vector<double>& time,\n+                        BigOFunc* fitting_curve) {\n+-  double sigma_gn = 0.0;\n+   double sigma_gn_squared = 0.0;\n+   double sigma_time = 0.0;\n+   double sigma_time_gn = 0.0;\n+@@ -90,7 +89,6 @@ LeastSq MinimalLeastSq(const std::vector<int64_t>& n,\n+   // Calculate least square fitting parameter\n+   for (size_t i = 0; i < n.size(); ++i) {\n+     double gn_i = fitting_curve(n[i]);\n+-    sigma_gn += gn_i;\n+     sigma_gn_squared += gn_i * gn_i;\n+     sigma_time += time[i];\n+     sigma_time_gn += time[i] * gn_i;"
+        }
+      ]
     },
     {
       "author": "audrow",
@@ -65,7 +134,33 @@
       "files_changed": 2,
       "additions": 4,
       "deletions": 1,
-      "commit_type": "config"
+      "commit_type": "config",
+      "files": [
+        {
+          "sha": "9f39bdb47f6d31cb09d1697c117f28a8382d3272",
+          "filename": "CODEOWNERS",
+          "status": "added",
+          "additions": 2,
+          "deletions": 0,
+          "changes": 2,
+          "blob_url": "https://github.com/ament/google_benchmark_vendor/blob/07b54823be024bbd3dd11b81dba11199d9843282/CODEOWNERS",
+          "raw_url": "https://github.com/ament/google_benchmark_vendor/raw/07b54823be024bbd3dd11b81dba11199d9843282/CODEOWNERS",
+          "contents_url": "https://api.github.com/repos/ament/google_benchmark_vendor/contents/CODEOWNERS?ref=07b54823be024bbd3dd11b81dba11199d9843282",
+          "patch": "@@ -0,0 +1,2 @@\n+# This file was generated by https://github.com/audrow/update-ros2-repos\n+* @cottsay"
+        },
+        {
+          "sha": "47f7586080b9ab99f670c0ede5bde23d977afbde",
+          "filename": "package.xml",
+          "status": "modified",
+          "additions": 2,
+          "deletions": 1,
+          "changes": 3,
+          "blob_url": "https://github.com/ament/google_benchmark_vendor/blob/07b54823be024bbd3dd11b81dba11199d9843282/package.xml",
+          "raw_url": "https://github.com/ament/google_benchmark_vendor/raw/07b54823be024bbd3dd11b81dba11199d9843282/package.xml",
+          "contents_url": "https://api.github.com/repos/ament/google_benchmark_vendor/contents/package.xml?ref=07b54823be024bbd3dd11b81dba11199d9843282",
+          "patch": "@@ -5,12 +5,13 @@\n   <version>0.2.0</version>\n   <description>This package provides Google Benchmark.</description>\n \n-  <maintainer email=\"audrow@openrobotics.org\">Audrow Nash</maintainer>\n+  <maintainer email=\"scott@openrobotics.org\">Scott K Logan</maintainer>\n \n   <license>Apache License 2.0</license>  <!-- Both this package and Google Benchmark are ASL 2.0 -->\n \n   <url type=\"website\">https://github.com/google/benchmark</url>\n \n+  <author email=\"audrow@openrobotics.org\">Audrow Nash</author>\n   <author email=\"michel@ekumenlabs.com\">Michel Hidalgo</author>\n   <author email=\"scott@openrobotics.org\">Scott K Logan</author>\n "
+        }
+      ]
     },
     {
       "author": "paudrow",
@@ -75,7 +170,21 @@
       "files_changed": 1,
       "additions": 5,
       "deletions": 1,
-      "commit_type": "config"
+      "commit_type": "config",
+      "files": [
+        {
+          "sha": "1e4a5fc04144d06c05ad0d4d35fa7ee154eceb3d",
+          "filename": "package.xml",
+          "status": "modified",
+          "additions": 5,
+          "deletions": 1,
+          "changes": 6,
+          "blob_url": "https://github.com/ament/google_benchmark_vendor/blob/ebbbf036ad6fe3b44b69b30d0a6b708295ab3948/package.xml",
+          "raw_url": "https://github.com/ament/google_benchmark_vendor/raw/ebbbf036ad6fe3b44b69b30d0a6b708295ab3948/package.xml",
+          "contents_url": "https://api.github.com/repos/ament/google_benchmark_vendor/contents/package.xml?ref=ebbbf036ad6fe3b44b69b30d0a6b708295ab3948",
+          "patch": "@@ -4,10 +4,14 @@\n   <name>google_benchmark_vendor</name>\n   <version>0.0.6</version>\n   <description>This package provides Google Benchmark.</description>\n-  <maintainer email=\"michel@ekumenlabs.com\">Michel Hidalgo</maintainer>\n+\n+  <maintainer email=\"audrow@openrobotics.org\">Audrow Nash</maintainer>\n+\n   <license>Apache License 2.0</license>  <!-- Both this package and Google Benchmark are ASL 2.0 -->\n \n   <url type=\"website\">https://github.com/google/benchmark</url>\n+\n+  <author email=\"michel@ekumenlabs.com\">Michel Hidalgo</author>\n   <author email=\"scott@openrobotics.org\">Scott K Logan</author>\n \n   <buildtool_depend>cmake</buildtool_depend>"
+        }
+      ]
     },
     {
       "author": "nuclearsandwich",
@@ -85,7 +194,21 @@
       "files_changed": 1,
       "additions": 1,
       "deletions": 0,
-      "commit_type": "ci"
+      "commit_type": "config",
+      "files": [
+        {
+          "sha": "c730b80b3c1dec7d1db88512ce2596fd05279022",
+          "filename": "package.xml",
+          "status": "modified",
+          "additions": 1,
+          "deletions": 0,
+          "changes": 1,
+          "blob_url": "https://github.com/ament/google_benchmark_vendor/blob/f867c65c6c2d7fb4b28b57ecb002b9fd58756aa7/package.xml",
+          "raw_url": "https://github.com/ament/google_benchmark_vendor/raw/f867c65c6c2d7fb4b28b57ecb002b9fd58756aa7/package.xml",
+          "contents_url": "https://api.github.com/repos/ament/google_benchmark_vendor/contents/package.xml?ref=f867c65c6c2d7fb4b28b57ecb002b9fd58756aa7",
+          "patch": "@@ -15,6 +15,7 @@\n   <author email=\"scott@openrobotics.org\">Scott K Logan</author>\n \n   <buildtool_depend>cmake</buildtool_depend>\n+  <buildtool_depend>git</buildtool_depend>\n \n   <depend>benchmark</depend>\n "
+        }
+      ]
     },
     {
       "author": "sloretz",
@@ -95,7 +218,21 @@
       "files_changed": 1,
       "additions": 1,
       "deletions": 1,
-      "commit_type": "docs"
+      "commit_type": "docs",
+      "files": [
+        {
+          "sha": "d5e34a0ad4fcf3a2509fc295c4f82b81e597926d",
+          "filename": "CMakeLists.txt",
+          "status": "modified",
+          "additions": 1,
+          "deletions": 1,
+          "changes": 2,
+          "blob_url": "https://github.com/ament/google_benchmark_vendor/blob/d5f23bcd2bdc380a6068f4842b68c2e3e3ff3953/CMakeLists.txt",
+          "raw_url": "https://github.com/ament/google_benchmark_vendor/raw/d5f23bcd2bdc380a6068f4842b68c2e3e3ff3953/CMakeLists.txt",
+          "contents_url": "https://api.github.com/repos/ament/google_benchmark_vendor/contents/CMakeLists.txt?ref=d5f23bcd2bdc380a6068f4842b68c2e3e3ff3953",
+          "patch": "@@ -56,7 +56,7 @@ macro(build_benchmark)\n \n   externalproject_add(benchmark-${GOOGLE_BENCHMARK_TARGET_VERSION}\n     GIT_REPOSITORY https://github.com/google/benchmark.git\n-    GIT_TAG v${GOOGLE_BENCHMARK_TARGET_VERSION}\n+    GIT_TAG c05843a9f622db08ad59804c190f98879b76beba  # v${GOOGLE_BENCHMARK_TARGET_VERSION}\n     GIT_CONFIG advice.detachedHead=false\n     # Suppress git update due to https://gitlab.kitware.com/cmake/cmake/-/issues/16419\n     # See https://github.com/ament/uncrustify_vendor/pull/22 for details"
+        }
+      ]
     },
     {
       "author": "homalozoa",
@@ -105,7 +242,33 @@
       "files_changed": 2,
       "additions": 2,
       "deletions": 55,
-      "commit_type": "docs"
+      "commit_type": "docs",
+      "files": [
+        {
+          "sha": "c64ed8deb6c413afc5434b952401e1b0304b961d",
+          "filename": "CMakeLists.txt",
+          "status": "modified",
+          "additions": 2,
+          "deletions": 3,
+          "changes": 5,
+          "blob_url": "https://github.com/ament/google_benchmark_vendor/blob/9416ce954dd66778b1d92c9bb57248fa4c39fa12/CMakeLists.txt",
+          "raw_url": "https://github.com/ament/google_benchmark_vendor/raw/9416ce954dd66778b1d92c9bb57248fa4c39fa12/CMakeLists.txt",
+          "contents_url": "https://api.github.com/repos/ament/google_benchmark_vendor/contents/CMakeLists.txt?ref=9416ce954dd66778b1d92c9bb57248fa4c39fa12",
+          "patch": "@@ -12,7 +12,7 @@ endif()\n macro(build_benchmark)\n   set(extra_cmake_args)\n \n-  set(GOOGLE_BENCHMARK_TARGET_VERSION \"1.5.2\")\n+  set(GOOGLE_BENCHMARK_TARGET_VERSION \"1.5.3\")\n \n   if(DEFINED CMAKE_BUILD_TYPE)\n     list(APPEND extra_cmake_args -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE})\n@@ -67,8 +67,7 @@ macro(build_benchmark)\n       ${extra_cmake_args}\n     PATCH_COMMAND\n       ${CMAKE_COMMAND} -E chdir <SOURCE_DIR> git apply -p1 --ignore-space-change --whitespace=nowarn ${CMAKE_CURRENT_SOURCE_DIR}/thread_safety_attributes.patch &&\n-      ${CMAKE_COMMAND} -E chdir <SOURCE_DIR> git apply -p1 --ignore-space-change --whitespace=nowarn ${CMAKE_CURRENT_SOURCE_DIR}/soversion.patch &&\n-      ${CMAKE_COMMAND} -E chdir <SOURCE_DIR> git apply -p1 --ignore-space-change --whitespace=nowarn ${CMAKE_CURRENT_SOURCE_DIR}/shrink-tz-offset-size.patch\n+      ${CMAKE_COMMAND} -E chdir <SOURCE_DIR> git apply -p1 --ignore-space-change --whitespace=nowarn ${CMAKE_CURRENT_SOURCE_DIR}/soversion.patch\n   )\n \n   # The external project will install to the build folder, but we'll install that on make install."
+        },
+        {
+          "sha": "9412e6a9b12ba1044b11555b0d983b51d023040d",
+          "filename": "shrink-tz-offset-size.patch",
+          "status": "removed",
+          "additions": 0,
+          "deletions": 52,
+          "changes": 52,
+          "blob_url": "https://github.com/ament/google_benchmark_vendor/blob/24ce571011f7bc4978f88fa5b21bb926e2c8a2f9/shrink-tz-offset-size.patch",
+          "raw_url": "https://github.com/ament/google_benchmark_vendor/raw/24ce571011f7bc4978f88fa5b21bb926e2c8a2f9/shrink-tz-offset-size.patch",
+          "contents_url": "https://api.github.com/repos/ament/google_benchmark_vendor/contents/shrink-tz-offset-size.patch?ref=24ce571011f7bc4978f88fa5b21bb926e2c8a2f9",
+          "patch": "@@ -1,52 +0,0 @@\n-From 07578d82e0a4f99bdd1546f4f6f1727109f9420d Mon Sep 17 00:00:00 2001\n-From: Chris Lalancette <clalancette@gmail.com>\n-Date: Fri, 9 Apr 2021 12:32:00 -0400\n-Subject: [PATCH] Shrink the tz_offset size to 41. (#1110)\n-MIME-Version: 1.0\n-Content-Type: text/plain; charset=UTF-8\n-Content-Transfer-Encoding: 8bit\n-\n-When building with gcc TSan on, and in Debug mode, we see a warning\n-like:\n-\n-benchmark/src/timers.cc: In function ‘std::string benchmark::LocalDateTimeString()’:\n-src/timers.cc:241:15: warning: ‘char* strncat(char*, const char*, size_t)’ output may be truncated copying 108 bytes from a string of length 127 [-Wstringop-truncation]\n-  241 |   std::strncat(storage, tz_offset, sizeof(storage) - timestamp_len - 1);\n-      |   ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n-\n-While this is essentially a false positive (we never expect\n-the number of bytes in tz_offset to be too large), the compiler can't\n-actually tell that.  Shrink the size of tz_offset to a smaller, but still safe\n-size to eliminate this warning.\n-\n-Signed-off-by: Chris Lalancette <clalancette@openrobotics.org>\n----\n- src/timers.cc | 12 ++++++++++--\n- 1 file changed, 10 insertions(+), 2 deletions(-)\n-\n-diff --git a/src/timers.cc b/src/timers.cc\n-index 1d3ab9a..af4767d 100644\n---- a/src/timers.cc\n-+++ b/src/timers.cc\n-@@ -190,8 +190,16 @@ std::string LocalDateTimeString() {\n-   std::size_t timestamp_len;\n-   long int offset_minutes;\n-   char tz_offset_sign = '+';\n--  // Long enough buffers to avoid format-overflow warnings\n--  char tz_offset[128];\n-+  // tz_offset is set in one of three ways:\n-+  // * strftime with %z - This either returns empty or the ISO 8601 time.  The maximum length an\n-+  //   ISO 8601 string can be is 7 (e.g. -03:30, plus trailing zero).\n-+  // * snprintf with %c%02li:%02li - The maximum length is 41 (one for %c, up to 19 for %02li,\n-+  //   one for :, up to 19 %02li, plus trailing zero).\n-+  // * A fixed string of \"-00:00\".  The maximum length is 7 (-00:00, plus trailing zero).\n-+  //\n-+  // Thus, the maximum size this needs to be is 41.\n-+  char tz_offset[41];\n-+  // Long enough buffer to avoid format-overflow warnings\n-   char storage[128];\n- \n- #if defined(BENCHMARK_OS_WINDOWS)\n--- \n-2.26.3\n-"
+        }
+      ]
     },
     {
       "author": "ivanpauno",
@@ -115,7 +278,21 @@
       "files_changed": 1,
       "additions": 37,
       "deletions": 0,
-      "commit_type": "docs"
+      "commit_type": "docs",
+      "files": [
+        {
+          "sha": "419414753496a3b19c5dcd2dfa8e6c6c079df1a5",
+          "filename": "CHANGELOG.rst",
+          "status": "added",
+          "additions": 37,
+          "deletions": 0,
+          "changes": 37,
+          "blob_url": "https://github.com/ament/google_benchmark_vendor/blob/24ce571011f7bc4978f88fa5b21bb926e2c8a2f9/CHANGELOG.rst",
+          "raw_url": "https://github.com/ament/google_benchmark_vendor/raw/24ce571011f7bc4978f88fa5b21bb926e2c8a2f9/CHANGELOG.rst",
+          "contents_url": "https://api.github.com/repos/ament/google_benchmark_vendor/contents/CHANGELOG.rst?ref=24ce571011f7bc4978f88fa5b21bb926e2c8a2f9",
+          "patch": "@@ -0,0 +1,37 @@\n+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n+Changelog for package google_benchmark_vendor\n+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n+\n+0.0.6 (2021-04-12)\n+------------------\n+* Shrink the size of the tz_offset variable. (`#13 <https://github.com/ament/google_benchmark_vendor/issues/13>`_)\n+* Contributors: Chris Lalancette\n+\n+0.0.5 (2021-03-18)\n+------------------\n+* Update the patching to work on Windows without admin. (`#11 <https://github.com/ament/google_benchmark_vendor/issues/11>`_)\n+* Always preserve source permissions in vendor packages. (`#12 <https://github.com/ament/google_benchmark_vendor/issues/12>`_)\n+* Contributors: Chris Lalancette, Scott K Logan\n+\n+0.0.4 (2020-12-07)\n+------------------\n+* Update package maintainers. (`#10 <https://github.com/ament/google_benchmark_vendor/issues/10>`_)\n+* Upgrade google benchmark from v1.5.1 to v1.5.2 to include QNX patch. (`#9 <https://github.com/ament/google_benchmark_vendor/issues/9>`_)\n+* Contributors: Ahmed Sobhy, Michel Hidalgo\n+\n+0.0.3 (2020-09-15)\n+------------------\n+* Set the SOVERSION on benchmark libraries. (`#8 <https://github.com/ament/google_benchmark_vendor/issues/8>`_)\n+* Contributors: Scott K Logan\n+\n+0.0.2 (2020-07-20)\n+------------------\n+* Set minimum criteria for system package. (`#3 <https://github.com/ament/google_benchmark_vendor/issues/3>`_)\n+* Work around warnings building Google Benchmark w/Clang. (`#2 <https://github.com/ament/google_benchmark_vendor/issues/2>`_)\n+* Contributors: Scott K Logan\n+\n+0.0.1 (2020-07-14)\n+------------------\n+* Initial google_benchmark_vendor package. (`#1 <https://github.com/ament/google_benchmark_vendor/issues/1>`_)\n+* Initial commit.\n+* Contributors: Scott K Logan"
+        }
+      ]
     },
     {
       "author": "hidmic",
@@ -125,7 +302,21 @@
       "files_changed": 1,
       "additions": 2,
       "deletions": 1,
-      "commit_type": "config"
+      "commit_type": "config",
+      "files": [
+        {
+          "sha": "c8f141c862e05b402feb72bbaba3077df0762f98",
+          "filename": "package.xml",
+          "status": "modified",
+          "additions": 2,
+          "deletions": 1,
+          "changes": 3,
+          "blob_url": "https://github.com/ament/google_benchmark_vendor/blob/fded186fbdb0d84e1b0584f62cbf245d886d2135/package.xml",
+          "raw_url": "https://github.com/ament/google_benchmark_vendor/raw/fded186fbdb0d84e1b0584f62cbf245d886d2135/package.xml",
+          "contents_url": "https://api.github.com/repos/ament/google_benchmark_vendor/contents/package.xml?ref=fded186fbdb0d84e1b0584f62cbf245d886d2135",
+          "patch": "@@ -4,10 +4,11 @@\n   <name>google_benchmark_vendor</name>\n   <version>0.0.3</version>\n   <description>This package provides Google Benchmark.</description>\n-  <maintainer email=\"scott@openrobotics.org\">Scott K Logan</maintainer>\n+  <maintainer email=\"michel@ekumenlabs.com\">Michel Hidalgo</maintainer>\n   <license>Apache License 2.0</license>  <!-- Both this package and Google Benchmark are ASL 2.0 -->\n \n   <url type=\"website\">https://github.com/google/benchmark</url>\n+  <author email=\"scott@openrobotics.org\">Scott K Logan</author>\n \n   <buildtool_depend>cmake</buildtool_depend>\n "
+        }
+      ]
     },
     {
       "author": "asobhy-qnx",
@@ -135,7 +326,21 @@
       "files_changed": 1,
       "additions": 2,
       "deletions": 2,
-      "commit_type": "docs"
+      "commit_type": "docs",
+      "files": [
+        {
+          "sha": "60e39064f9cc99adcd1ecd250098ebd9903677ee",
+          "filename": "CMakeLists.txt",
+          "status": "modified",
+          "additions": 2,
+          "deletions": 2,
+          "changes": 4,
+          "blob_url": "https://github.com/ament/google_benchmark_vendor/blob/a8fe69f2e44e2db43d4b3e06f2f699ce78b8d164/CMakeLists.txt",
+          "raw_url": "https://github.com/ament/google_benchmark_vendor/raw/a8fe69f2e44e2db43d4b3e06f2f699ce78b8d164/CMakeLists.txt",
+          "contents_url": "https://api.github.com/repos/ament/google_benchmark_vendor/contents/CMakeLists.txt?ref=a8fe69f2e44e2db43d4b3e06f2f699ce78b8d164",
+          "patch": "@@ -12,7 +12,7 @@ endif()\n macro(build_benchmark)\n   set(extra_cmake_args)\n \n-  set(GOOGLE_BENCHMARK_TARGET_VERSION \"1.5.1\")\n+  set(GOOGLE_BENCHMARK_TARGET_VERSION \"1.5.2\")\n \n   if(DEFINED CMAKE_BUILD_TYPE)\n     list(APPEND extra_cmake_args -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE})\n@@ -57,7 +57,7 @@ macro(build_benchmark)\n \n   externalproject_add(benchmark-${GOOGLE_BENCHMARK_TARGET_VERSION}\n     URL \"https://github.com/google/benchmark/archive/v${GOOGLE_BENCHMARK_TARGET_VERSION}/benchmark-${GOOGLE_BENCHMARK_TARGET_VERSION}.tar.gz\"\n-    URL_MD5 91d2d9a824cab82c67a80ccce5b93218\n+    URL_MD5 084b34aceaeac11a6607d35220ca2efa\n     TIMEOUT 600\n     CMAKE_ARGS\n       -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_install"
+        }
+      ]
     }
   ]
 }

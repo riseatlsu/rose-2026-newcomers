@@ -1,0 +1,695 @@
+{
+  "_meta": {
+    "fetched_at": "2026-03-05T06:39:50Z",
+    "source": "derived+rest",
+    "derivation": "earliest commit per author_login from commits.json; enrich via /commits/{sha} for files/stats",
+    "owner": "ros-simulation",
+    "repo": "simulation_interfaces"
+  },
+  "data": [
+    {
+      "author": "adamdbrw",
+      "date": "2025-03-21T17:29:55Z",
+      "sha": "86d4cce610e12bfecc63bd1c76ca10147e1741db",
+      "message": "Proposal for simulation interfaces (#1)\n\nFollowing ros-infrastructure/rep#410, this PR contains a first version of simulation interfaces.\n\nSigned-off-by: Adam Dąbrowski <adam.dabrowski@robotec.ai>\nCo-authored-by: Martin Pecka <peci1@seznam.cz>\nCo-authored-by: Steve Peters <computersthatmove@gmail.com>\nCo-authored-by: David V. Lu!! <davidvlu@gmail.com>\nCo-authored-by: Addisu Z. Taddese <addisu@openrobotics.org>\nCo-authored-by: Tully Foote <tully.foote@gmail.com>\nCo-authored-by: Sebastian Castro <4603398+sea-bass@users.noreply.github.com>\nCo-authored-by: Michał Pełka <michal.pelka@robotec.ai>\nCo-authored-by: Paweł Liberadzki <pawel.liberadzki@gmail.com>",
+      "files_changed": 32,
+      "additions": 538,
+      "deletions": 2,
+      "commit_type": "docs",
+      "files": [
+        {
+          "sha": "f9f6b0d5c1ef12b323985ffef48e97f377c15ba0",
+          "filename": "CMakeLists.txt",
+          "status": "added",
+          "additions": 66,
+          "deletions": 0,
+          "changes": 66,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/86d4cce610e12bfecc63bd1c76ca10147e1741db/CMakeLists.txt",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/86d4cce610e12bfecc63bd1c76ca10147e1741db/CMakeLists.txt",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/CMakeLists.txt?ref=86d4cce610e12bfecc63bd1c76ca10147e1741db",
+          "patch": "@@ -0,0 +1,66 @@\n+cmake_minimum_required(VERSION 3.16)\n+project(simulation_interfaces)\n+\n+if(NOT CMAKE_CXX_STANDARD)\n+  set(CMAKE_CXX_STANDARD 17)\n+  set(CMAKE_CXX_STANDARD_REQUIRED ON)\n+endif()\n+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES \"Clang\")\n+  add_compile_options(-Wall -Wextra -Wpedantic)\n+endif()\n+\n+find_package(ament_cmake REQUIRED)\n+find_package(builtin_interfaces REQUIRED)\n+find_package(geometry_msgs REQUIRED)\n+find_package(rosidl_default_generators REQUIRED)\n+find_package(std_msgs REQUIRED)\n+\n+set(msg_files\n+    \"msg/Bounds.msg\"\n+    \"msg/EntityCategory.msg\"\n+    \"msg/EntityFilters.msg\"\n+    \"msg/EntityInfo.msg\"\n+    \"msg/EntityState.msg\"\n+    \"msg/NamedPose.msg\"\n+    \"msg/Result.msg\"\n+    \"msg/SimulationState.msg\"\n+    \"msg/SimulatorFeatures.msg\"\n+    \"msg/Spawnable.msg\"\n+    \"msg/TagsFilter.msg\"\n+)\n+\n+set(srv_files\n+    \"srv/DeleteEntity.srv\"\n+    \"srv/GetEntities.srv\"\n+    \"srv/GetEntitiesStates.srv\"\n+    \"srv/GetEntityBounds.srv\"\n+    \"srv/GetEntityInfo.srv\"\n+    \"srv/GetEntityState.srv\"\n+    \"srv/GetNamedPoseBounds.srv\"\n+    \"srv/GetNamedPoses.srv\"\n+    \"srv/GetSimulationState.srv\"\n+    \"srv/GetSimulatorFeatures.srv\"\n+    \"srv/GetSpawnables.srv\"\n+    \"srv/ResetSimulation.srv\"\n+    \"srv/SetEntityInfo.srv\"\n+    \"srv/SetEntityState.srv\"\n+    \"srv/SetSimulationState.srv\"\n+    \"srv/SpawnEntity.srv\"\n+    \"srv/StepSimulation.srv\"\n+)\n+\n+set(action_files\n+    \"action/SimulateSteps.action\"\n+)\n+\n+rosidl_generate_interfaces(${PROJECT_NAME}\n+  ${msg_files}\n+  ${srv_files}\n+  ${action_files}\n+  DEPENDENCIES builtin_interfaces std_msgs geometry_msgs\n+  ADD_LINTER_TESTS\n+)\n+\n+ament_export_dependencies(rosidl_default_runtime)\n+\n+ament_package()"
+        },
+        {
+          "sha": "55c9481aa3eb5702661b1deb2d5100e72d2f6004",
+          "filename": "README.md",
+          "status": "modified",
+          "additions": 25,
+          "deletions": 2,
+          "changes": 27,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/86d4cce610e12bfecc63bd1c76ca10147e1741db/README.md",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/86d4cce610e12bfecc63bd1c76ca10147e1741db/README.md",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/README.md?ref=86d4cce610e12bfecc63bd1c76ca10147e1741db",
+          "patch": "@@ -1,2 +1,25 @@\n-# simulation_interfaces\n-Standard interfaces for interacting with simulators from ROS 2\n+# Simulation Interfaces\n+\n+Standard ROS 2 interfaces for interacting with simulators. \n+Messages, services, and actions are documented in their respective files.\n+\n+## Result.msg\n+\n+The standard includes a generic message for handling service responses, [Result.msg](msg/Result.msg),\n+which will likely not be included in the final version of the standard. Since it is generic, it will either be promoted to a common message or included in the\n+service mechanism itself. \n+\n+## Suggested interface implementation priorities\n+\n+[GetSimulatorFeatures](msg/GetSimulationFeatures.msg) should be implemented first, as it provides users with information about\n+the state of support for all standard simulation interfaces.\n+\n+Following that, aim for maintaining consistency within the implemented feature, such as enabling both\n+_Get_ and _Set_ parts.\n+\n+Some interfaces represent optional utility and are considered lower priority:\n+- [GetEntityBounds](srv/GetEntityBounds.srv)\n+- [GetNamedPoseBounds](srv/GetNamedPoseBounds.srv)\n+- [GetNamedPoses](srv/GetNamedPoses.srv)\n+- [GetSpawnables](srv/GetSpawnables.srv)\n+- [SetEntityInfo](srv/SetEntityInfo.srv)\n\\ No newline at end of file"
+        },
+        {
+          "sha": "4ba9ab72acb0e52e09b04326e88f3d77aeebb808",
+          "filename": "action/SimulateSteps.action",
+          "status": "added",
+          "additions": 13,
+          "deletions": 0,
+          "changes": 13,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/86d4cce610e12bfecc63bd1c76ca10147e1741db/action%2FSimulateSteps.action",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/86d4cce610e12bfecc63bd1c76ca10147e1741db/action%2FSimulateSteps.action",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/action%2FSimulateSteps.action?ref=86d4cce610e12bfecc63bd1c76ca10147e1741db",
+          "patch": "@@ -0,0 +1,13 @@\n+# Assuming the simulation is paused, simulate a finite number of steps and return to paused state. \n+# The action returns feedback after each complete step.\n+# For a service alternative, see StepSimulation, which often makes more sense when doing a single step (steps = 1).\n+# Support for this interface is indicated through the STEP_SIMULATION_ACTION value in GetSimulationFeatures.\n+\n+uint64 steps                        # Action goal: step through the simulation loop this many times.\n+---\n+\n+Result result                       # Calling with simulation unpaused will return OPERATION_FAILED and error message.\n+\n+---\n+uint64 completed_steps              # number of completed steps in this action so far.\n+uint64 remaining_steps              # number of steps remaining to be completed in this action."
+        },
+        {
+          "sha": "ed16b8924f460dabc48d5f836ae68f7361277cdd",
+          "filename": "msg/Bounds.msg",
+          "status": "added",
+          "additions": 25,
+          "deletions": 0,
+          "changes": 25,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/86d4cce610e12bfecc63bd1c76ca10147e1741db/msg%2FBounds.msg",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/86d4cce610e12bfecc63bd1c76ca10147e1741db/msg%2FBounds.msg",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/msg%2FBounds.msg?ref=86d4cce610e12bfecc63bd1c76ca10147e1741db",
+          "patch": "@@ -0,0 +1,25 @@\n+# Bounds which are useful in several contexts, e.g. to avoid spawning with other object overlap,\n+# or parking in a spot that is too small.\n+# Certain goals or points might be valid for a small object, but not suitable for a large one,\n+# or a differently shaped one.\n+# Bounds can be also checked to ensure certain scenario conditions are met.\n+# For entities, these limits are relative to entity's canonical link transform, following ROS rep-103 convention.\n+\n+# As bounds are optional in most interfaces, TYPE_EMPTY signifies empty bounds, to be understood as \"unbounded\".\n+# Otherwise, the fields are expected to define a valid volume.\n+# For spawning with a named pose, you should check whether the entity simulation model fits within the bounds\n+# before calling SpawnEntity, to avoid overlaps and unstable behavior.\n+\n+# bounds type\n+uint8 TYPE_EMPTY         = 0      # No bounds. The points vector will be empty.\n+uint8 TYPE_BOX           = 1      # Axis-aligned bounding box, points field should have two values,\n+                                  # which are upper right and lower left corners of the box.\n+uint8 TYPE_CONVEX_HULL   = 2      # Points define a convex hull (at least 3 non-collinear points).\n+uint8 TYPE_SPHERE        = 3      # A sphere with center and radius. First element of points vector is the center.\n+                                  # The x field of the second point of the vector is the radius (y and z are ignored).\n+\n+\n+uint8 type\n+geometry_msgs/Vector3[] points           # Points defining the bounded area. Check type field to determine semantics.\n+                                         # Valid sizes are zero (no bounds), 2 (sphere or box, depending on type field),\n+                                         # and 3 or more (convex hull)."
+        },
+        {
+          "sha": "63d3c0f0f5706a099d6502912aba473c8a9742b8",
+          "filename": "msg/EntityCategory.msg",
+          "status": "added",
+          "additions": 16,
+          "deletions": 0,
+          "changes": 16,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/86d4cce610e12bfecc63bd1c76ca10147e1741db/msg%2FEntityCategory.msg",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/86d4cce610e12bfecc63bd1c76ca10147e1741db/msg%2FEntityCategory.msg",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/msg%2FEntityCategory.msg?ref=86d4cce610e12bfecc63bd1c76ca10147e1741db",
+          "patch": "@@ -0,0 +1,16 @@\n+# Entity major category, which often warrants a specific way to handle such entity, e.g. when handling humans\n+# or mapping persistence for dynamic vs static objects.\n+\n+uint8 CATEGORY_OBJECT         = 0    # Generic or unspecified type.\n+uint8 CATEGORY_ROBOT          = 1    # A broad category for mobile robots, arms, drones etc.,\n+                                     # usually with ROS 2 interfaces.\n+uint8 CATEGORY_HUMAN          = 2    # Simulated humans, e.g. pedestrians, warehouse workers.\n+                                     # Compared to CATEGORY_DYNAMIC_OBJECT, humans are often expected to be treated\n+                                     # exceptionally in regards to safety constraints.\n+uint8 CATEGORY_DYNAMIC_OBJECT = 4    # Vehicles, animals, mobile obstacles, typically to present a detection and\n+                                     # tracking challenge, such as when simulation is used to test robot perception\n+                                     # or navigation stack.\n+uint8 CATEGORY_STATIC_OBJECT  = 5    # Any object which is static, e.g. not supposed to change its pose\n+                                     # unless by means of SetEntityState.\n+\n+uint8 category\n\\ No newline at end of file"
+        },
+        {
+          "sha": "967ffacda704c3ed800f042bf75805f2ce0fe98b",
+          "filename": "msg/EntityFilters.msg",
+          "status": "added",
+          "additions": 25,
+          "deletions": 0,
+          "changes": 25,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/86d4cce610e12bfecc63bd1c76ca10147e1741db/msg%2FEntityFilters.msg",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/86d4cce610e12bfecc63bd1c76ca10147e1741db/msg%2FEntityFilters.msg",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/msg%2FEntityFilters.msg?ref=86d4cce610e12bfecc63bd1c76ca10147e1741db",
+          "patch": "@@ -0,0 +1,25 @@\n+# A set of filters to apply to entity queries. See GetEntities, GetEntitiesStates.\n+\n+string filter                                       # Optional, defaults to empty. Return entities with matching names.\n+                                                    # Entity names are matched with the filter regular expression.\n+                                                    # An empty filter will result in all entities being returned.\n+                                                    # The regular expression syntax is POSIX Extended,\n+                                                    # see https://pubs.opengroup.org/onlinepubs/9799919799/ definitions.\n+                                                    # Applies together with other filters (categories, tags).\n+EntityCategory[] categories                         # Optional, defaults to empty, which means no category filter.\n+                                                    # Entities matching any of the categories will be returned.\n+                                                    # To get entity category, use GetEntityInfo.\n+                                                    # Applies together with other filters (filter, tags).\n+                                                    # Check ENTITY_CATEGORIES in GetSimulatorFeatures to determine if\n+                                                    # your simulator supports entity categories.\n+TagsFilter tags                                     # Tags filter to apply. To get entity tags, use GetEntityInfo.\n+                                                    # Applies together with other filters (filter, categories).\n+                                                    # Check support for this feature (ENTITY_TAGS) in GetSimulationFeatures.\n+Bounds bounds                                       # if bounds are not empty, the overlap filter is applied\n+                                                    # and entities overlapping with bounds will be returned.\n+                                                    # Note that not all bound types might be supported by the simulator,\n+                                                    # though at least TYPE_SPHERE needs to be supported.\n+                                                    # Check ENTITY_BOUNDS_BOX and ENTITY_BOUNDS_CONVEX in GetSimulationFeatures\n+                                                    # to determine whether your simulator supports other bound types.\n+                                                    # If service is called with filter bounds set to an unsupported type,\n+                                                    # a FEATURE_UNSUPPORTED result will be returned."
+        },
+        {
+          "sha": "eeb7fdc3a292edb449bc9e16d271788ec82496fa",
+          "filename": "msg/EntityInfo.msg",
+          "status": "added",
+          "additions": 5,
+          "deletions": 0,
+          "changes": 5,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/86d4cce610e12bfecc63bd1c76ca10147e1741db/msg%2FEntityInfo.msg",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/86d4cce610e12bfecc63bd1c76ca10147e1741db/msg%2FEntityInfo.msg",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/msg%2FEntityInfo.msg?ref=86d4cce610e12bfecc63bd1c76ca10147e1741db",
+          "patch": "@@ -0,0 +1,5 @@\n+# Entity type and additional information\n+\n+EntityCategory category     # Major category for the entity. Extra entity type distinction can be made through tags.\n+string description          # optional: verbose, human-readable description of the entity.\n+string[] tags               # optional: tags which are useful for filtering and categorizing entities further."
+        },
+        {
+          "sha": "c1a128dd617fdde50db2ed023df24c57b86fc4a0",
+          "filename": "msg/EntityState.msg",
+          "status": "added",
+          "additions": 8,
+          "deletions": 0,
+          "changes": 8,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/86d4cce610e12bfecc63bd1c76ca10147e1741db/msg%2FEntityState.msg",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/86d4cce610e12bfecc63bd1c76ca10147e1741db/msg%2FEntityState.msg",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/msg%2FEntityState.msg?ref=86d4cce610e12bfecc63bd1c76ca10147e1741db",
+          "patch": "@@ -0,0 +1,8 @@\n+# Entity current pose, twist and acceleration\n+\n+std_msgs/Header header                  # Reference frame and timestamp for pose and twist. Empty frame defaults to world.\n+geometry_msgs/Pose pose                 # Pose in reference frame, ground truth.\n+geometry_msgs/Twist twist               # Ground truth linear and angular velocities\n+                                        # observed in the frame specified by header.frame_id\n+                                        # See https://github.com/ros2/common_interfaces/pull/240 for conventions.\n+geometry_msgs/Accel acceleration        # Linear and angular acceleration ground truth, following the same convention."
+        },
+        {
+          "sha": "54dec31be08843c7c99b79dc1634a3d6a895fb0b",
+          "filename": "msg/NamedPose.msg",
+          "status": "added",
+          "additions": 8,
+          "deletions": 0,
+          "changes": 8,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/86d4cce610e12bfecc63bd1c76ca10147e1741db/msg%2FNamedPose.msg",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/86d4cce610e12bfecc63bd1c76ca10147e1741db/msg%2FNamedPose.msg",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/msg%2FNamedPose.msg?ref=86d4cce610e12bfecc63bd1c76ca10147e1741db",
+          "patch": "@@ -0,0 +1,8 @@\n+# A named pose defined in the simulation for certain purposes such as spawning.\n+\n+string name                               # Unique name.\n+string description                        # Description for the user, e.g. \"near the charging station\".\n+string[] tags                             # Optional tags which can be used to determine the named pose\n+                                          # purpose, for example: \"spawn\", \"parking\", \"navigation_goal\",\n+                                          # as well as fitting entity types e.g. \"drone\", \"turtlebot3\".\n+geometry_msgs/Pose pose                   # Pose relative to world, which can be used with SpawnEntity.srv."
+        },
+        {
+          "sha": "64f3879daecb0eaeeab3b363b8e8bb6c3cb987e3",
+          "filename": "msg/Result.msg",
+          "status": "added",
+          "additions": 18,
+          "deletions": 0,
+          "changes": 18,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/86d4cce610e12bfecc63bd1c76ca10147e1741db/msg%2FResult.msg",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/86d4cce610e12bfecc63bd1c76ca10147e1741db/msg%2FResult.msg",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/msg%2FResult.msg?ref=86d4cce610e12bfecc63bd1c76ca10147e1741db",
+          "patch": "@@ -0,0 +1,18 @@\n+# Result code and message for service calls.\n+# Note that additional results for specific services can defined within them using values above 100.\n+\n+uint8 RESULT_FEATURE_UNSUPPORTED   = 0    # Feature is not supported by the simulator, check GetSimulatorFeatures.\n+                                          # While feature support can sometimes be deduced from presence of corresponding\n+                                          # service / action interface, in other cases it is about supporting certain\n+                                          # call parameters, formats and options within interface call.\n+uint8 RESULT_OK                    = 1\n+uint8 RESULT_NOT_FOUND             = 2    # No match for input (such as when entity name does not exist).\n+uint8 RESULT_INCORRECT_STATE       = 3    # Simulator is in an incorrect state for this interface call, e.g. a service\n+                                          # requires paused state but the simulator is not paused.\n+uint8 RESULT_OPERATION_FAILED      = 4    # Request could not be completed successfully even though feature is supported\n+                                          # and the input is correct; check error_message for details.\n+                                          # Implementation rule: check extended codes for called service\n+                                          #  (e.g. SpawnEntity) to provide a return code which is more specific.\n+\n+uint8 result                              # Result to be checked on return from service interface call\n+string error_message                      # Additional error description when useful."
+        },
+        {
+          "sha": "41e3942e1d0be5267d4fb2a97fcfdc509f292bfb",
+          "filename": "msg/SimulationState.msg",
+          "status": "added",
+          "additions": 16,
+          "deletions": 0,
+          "changes": 16,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/86d4cce610e12bfecc63bd1c76ca10147e1741db/msg%2FSimulationState.msg",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/86d4cce610e12bfecc63bd1c76ca10147e1741db/msg%2FSimulationState.msg",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/msg%2FSimulationState.msg?ref=86d4cce610e12bfecc63bd1c76ca10147e1741db",
+          "patch": "@@ -0,0 +1,16 @@\n+# Simulation states used in SetSimulationState and returned in GetSimulationState\n+\n+uint8 STATE_STOPPED      = 0           # Simulation is stopped, which is equivalent to pausing and resetting with ALL.\n+                                       # This is typically the default state when simulator is launched.\n+                                       # Stopped simulation can be played. It can also be paused, which means\n+                                       # starting simulation in a paused state immediately,\n+                                       # without any time steps for physics or simulated clock ticks.\n+uint8 STATE_PLAYING      = 1           # Simulation is playing, can be either paused or stopped.\n+uint8 STATE_PAUSED       = 2           # Simulation is paused, can be either stopped (which will reset it) or played.\n+uint8 STATE_QUITTING     = 3           # Closing the simulator application. Switching from STATE_PLAYING or STATE_PAUSED\n+                                       # states is expected to stop the simulation first, and then exit.\n+                                       # Simulation interfaces will become unavailable after quitting.\n+                                       # Running simulation application is outside of the simulation interfaces as\n+                                       # there is no service to handle the call when the simulator is not up.\n+\n+uint8 state"
+        },
+        {
+          "sha": "023c80d36bcdb524404c2055d1f38d0428bc1cad",
+          "filename": "msg/SimulatorFeatures.msg",
+          "status": "added",
+          "additions": 45,
+          "deletions": 0,
+          "changes": 45,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/86d4cce610e12bfecc63bd1c76ca10147e1741db/msg%2FSimulatorFeatures.msg",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/86d4cce610e12bfecc63bd1c76ca10147e1741db/msg%2FSimulatorFeatures.msg",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/msg%2FSimulatorFeatures.msg?ref=86d4cce610e12bfecc63bd1c76ca10147e1741db",
+          "patch": "@@ -0,0 +1,45 @@\n+# Features supported by the simulator.\n+\n+uint8 SPAWNING                  = 0       # Supports spawn interface (SpawnEntity).\n+uint8 DELETING                  = 1       # Supports deleting entities (DeleteEntity).\n+uint8 NAMED_POSES               = 2       # Supports predefined named poses (GetNamedPoses).\n+uint8 POSE_BOUNDS               = 3       # Supports pose bounds (GetNamedPoseBounds).\n+uint8 ENTITY_TAGS               = 4       # Supports entity tags in interfaces using EntityFilters, such as GetEntities.\n+uint8 ENTITY_BOUNDS             = 5       # Supports entity bounds (GetEntityBounds).\n+uint8 ENTITY_BOUNDS_BOX         = 6       # Supports entity filtering with bounds with TYPE_BOX.\n+uint8 ENTITY_BOUNDS_CONVEX      = 7       # Supports entity filtering with Bounds TYPE_CONVEX_HULL.\n+uint8 ENTITY_CATEGORIES         = 8       # Supports entity categories, such as in use with EntityFilters or SetEntityInfo.\n+uint8 SPAWNING_RESOURCE_STRING  = 9       # Supports SpawnEntity resource_string field.\n+\n+uint8 ENTITY_STATE_GETTING      = 10      # Supports GetEntityState interface.\n+uint8 ENTITY_STATE_SETTING      = 11      # Supports SetEntityState interface.\n+uint8 ENTITY_INFO_GETTING       = 12      # Supports GetEntityInfo interface.\n+uint8 ENTITY_INFO_SETTING       = 13      # Supports SetEntityInfo interface.\n+uint8 SPAWNABLES                = 14      # Supports GetSpawnables interface.\n+\n+uint8 SIMULATION_RESET          = 20      # Supports one or more ways to reset the simulation through ResetSimulation.\n+uint8 SIMULATION_RESET_TIME     = 21      # Supports SCOPE_TIME flag for resetting.\n+uint8 SIMULATION_RESET_STATE    = 22      # Supports SCOPE_STATE flag for resetting.\n+uint8 SIMULATION_RESET_SPAWNED  = 23      # Supports SCOPE_SPAWNED flag for resetting.\n+uint8 SIMULATION_STATE_GETTING  = 24      # Supports GetSimulationState interface.\n+uint8 SIMULATION_STATE_SETTING  = 25      # Supports SetSimulationState interface. Check SIMULATION_STATE_PAUSE feature\n+                                          # for setting STATE_PAUSED.\n+uint8 SIMULATION_STATE_PAUSE    = 26      # Supports the STATE_PAUSED SimulationState in SetSimulationState interface.\n+\n+uint8 STEP_SIMULATION_SINGLE    = 31      # Supports single stepping through simulation with StepSimulation interface.\n+uint8 STEP_SIMULATION_MULTIPLE  = 32      # Supports multi-stepping through simulation, either through StepSimulation.\n+                                          # service or through SimulateSteps action.\n+uint8 STEP_SIMULATION_ACTION    = 33      # Supports SimulateSteps action interface.\n+\n+\n+uint16[] features                         # A list of simulation features as specified by the list above.\n+\n+# A list of additional supported formats for spawning, which might be empty. Values may include\n+#  * sdf (SDFormat)\n+#  * urdf (Unified Robot Description Format)\n+#  * usd (Universal Scene Description)\n+#  * mjcf (MuJoCo's XML format)\n+# or whatever simulator-native formats that are supported. \n+string[] spawn_formats\n+string custom_info                       # Optional: extra information for the caller, which could point to\n+                                         # documentation, version compatibility and other useful meta information."
+        },
+        {
+          "sha": "c89eae2b6cc9e0f18008b0c825fb6e0510cc1327",
+          "filename": "msg/Spawnable.msg",
+          "status": "added",
+          "additions": 5,
+          "deletions": 0,
+          "changes": 5,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/86d4cce610e12bfecc63bd1c76ca10147e1741db/msg%2FSpawnable.msg",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/86d4cce610e12bfecc63bd1c76ca10147e1741db/msg%2FSpawnable.msg",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/msg%2FSpawnable.msg?ref=86d4cce610e12bfecc63bd1c76ca10147e1741db",
+          "patch": "@@ -0,0 +1,5 @@\n+# Robot or other object which can be spawned in simulation runtime.\n+\n+string uri                                # URI which will be accepted by SpawnEntity service.\n+string description                        # Optional description for the user, e.g. \"robot X with sensors A,B,C\".\n+Bounds spawn_bounds                       # Optional spawn area bounds which fully encompass this object."
+        },
+        {
+          "sha": "5d087f72fdd09775d300addf1ba496e0b5fd25db",
+          "filename": "msg/TagsFilter.msg",
+          "status": "added",
+          "additions": 10,
+          "deletions": 0,
+          "changes": 10,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/86d4cce610e12bfecc63bd1c76ca10147e1741db/msg%2FTagsFilter.msg",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/86d4cce610e12bfecc63bd1c76ca10147e1741db/msg%2FTagsFilter.msg",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/msg%2FTagsFilter.msg?ref=86d4cce610e12bfecc63bd1c76ca10147e1741db",
+          "patch": "@@ -0,0 +1,10 @@\n+# An utility message type for specification of tag-based filtering\n+\n+string[] tags                           # Optional, defaults to empty, which means no tags filter.\n+                                        # Results matching any or all of tags will be returned, depending\n+                                        # on tags_filter_mode.\n+\n+uint8 FILTER_MODE_ANY    = 0            # Filter with OR mode (any tag can match).\n+uint8 FILTER_MODE_ALL    = 1            # Filter with AND mode (all tags need to match).\n+\n+uint8 filter_mode                       # Set to control filter application for tags."
+        },
+        {
+          "sha": "a3b3729d35d07c287f4788d56b468486e55fd85d",
+          "filename": "package.xml",
+          "status": "added",
+          "additions": 28,
+          "deletions": 0,
+          "changes": 28,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/86d4cce610e12bfecc63bd1c76ca10147e1741db/package.xml",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/86d4cce610e12bfecc63bd1c76ca10147e1741db/package.xml",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/package.xml?ref=86d4cce610e12bfecc63bd1c76ca10147e1741db",
+          "patch": "@@ -0,0 +1,28 @@\n+<?xml version=\"1.0\"?>\n+<?xml-model href=\"http://download.ros.org/schema/package_format3.xsd\" schematypens=\"http://www.w3.org/2001/XMLSchema\"?>\n+<package format=\"3\">\n+  <name>simulation_interfaces</name>\n+  <version>1.0.0</version>\n+  <description>A package containing simulation interfaces including messages, services and actions</description>\n+  <maintainer email=\"adam.dabrowski@robotec.ai\">Adam Dabrowski</maintainer>\n+  <license>Apache License 2.0</license>\n+  <url type=\"repository\">https://github.com/ros-simulation/simulation-interfaces</url>\n+  <author email=\"adam.dabrowski@robotec.ai\">Adam Dabrowski</author>\n+\n+  <buildtool_depend>ament_cmake</buildtool_depend>\n+  <buildtool_depend>rosidl_default_generators</buildtool_depend>\n+\n+  <depend>builtin_interfaces</depend>\n+  <depend>geometry_msgs</depend>\n+  <depend>std_msgs</depend>\n+\n+  <exec_depend>rosidl_default_runtime</exec_depend>\n+\n+  <test_depend>ament_lint_common</test_depend>\n+\n+  <member_of_group>rosidl_interface_packages</member_of_group>\n+\n+  <export>\n+    <build_type>ament_cmake</build_type>\n+  </export>\n+</package>"
+        },
+        {
+          "sha": "334c92b7c66a1ea1938b1f153460d373d1f2beea",
+          "filename": "srv/DeleteEntity.srv",
+          "status": "added",
+          "additions": 9,
+          "deletions": 0,
+          "changes": 9,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/86d4cce610e12bfecc63bd1c76ca10147e1741db/srv%2FDeleteEntity.srv",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/86d4cce610e12bfecc63bd1c76ca10147e1741db/srv%2FDeleteEntity.srv",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/srv%2FDeleteEntity.srv?ref=86d4cce610e12bfecc63bd1c76ca10147e1741db",
+          "patch": "@@ -0,0 +1,9 @@\n+# Remove an entity (a robot, other object) from the simulation.\n+# Support for this interface is indicated through the DELETING value in GetSimulationFeatures.\n+\n+string entity                         # Entity identified by its unique name with a namespace,\n+                                      # as returned by SpawnEntity or GetEntities.\n+\n+---\n+\n+Result result"
+        },
+        {
+          "sha": "3cbf707a0d454b942e1b9eeff85987c8e525e485",
+          "filename": "srv/GetEntities.srv",
+          "status": "added",
+          "additions": 11,
+          "deletions": 0,
+          "changes": 11,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/86d4cce610e12bfecc63bd1c76ca10147e1741db/srv%2FGetEntities.srv",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/86d4cce610e12bfecc63bd1c76ca10147e1741db/srv%2FGetEntities.srv",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/srv%2FGetEntities.srv?ref=86d4cce610e12bfecc63bd1c76ca10147e1741db",
+          "patch": "@@ -0,0 +1,11 @@\n+# Get objects in the scene which can be interacted with, e.g. with using SetEntityState.\n+# You can get further information about entities through GetEntityInfo and GetEntityState services.\n+# There is also a GetEntitiesStates service if you would like to get state for each entity.\n+\n+EntityFilters filters                               # Optional filters for the query, including name, category, tags,\n+                                                    # and overlap filters.\n+\n+---\n+\n+Result result\n+string[] entities                                   # Unique names of all entities matching the filters."
+        },
+        {
+          "sha": "1e18846fb3f4bf1881fd1bd06d9f27150274074c",
+          "filename": "srv/GetEntitiesStates.srv",
+          "status": "added",
+          "additions": 12,
+          "deletions": 0,
+          "changes": 12,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/86d4cce610e12bfecc63bd1c76ca10147e1741db/srv%2FGetEntitiesStates.srv",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/86d4cce610e12bfecc63bd1c76ca10147e1741db/srv%2FGetEntitiesStates.srv",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/srv%2FGetEntitiesStates.srv?ref=86d4cce610e12bfecc63bd1c76ca10147e1741db",
+          "patch": "@@ -0,0 +1,12 @@\n+# Get objects in the scene which can be interacted, e.g. with using SetEntityState.\n+# Use GetEntities service instead if EntityState information for all entities is not needed.\n+# Support for this interface is indicated through the ENTITY_STATE_GETTING value in GetSimulationFeatures.\n+\n+EntityFilters filters                               # Optional filters for the query, including name, category, tags,\n+                                                    # and overlap filters.\n+\n+---\n+\n+Result result\n+string[] entities                                   # Unique names of all entities matching the filters.\n+EntityState[] states                                # States for these entities."
+        },
+        {
+          "sha": "3c366402ffc81d094d1d3a0afbfb70957bf11ebf",
+          "filename": "srv/GetEntityBounds.srv",
+          "status": "added",
+          "additions": 11,
+          "deletions": 0,
+          "changes": 11,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/86d4cce610e12bfecc63bd1c76ca10147e1741db/srv%2FGetEntityBounds.srv",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/86d4cce610e12bfecc63bd1c76ca10147e1741db/srv%2FGetEntityBounds.srv",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/srv%2FGetEntityBounds.srv?ref=86d4cce610e12bfecc63bd1c76ca10147e1741db",
+          "patch": "@@ -0,0 +1,11 @@\n+# Get geometrical bounds for entity. This feature is available if GetSimulatorFeatures includes ENTITY_BOUNDS feature.\n+# Support for this interface is indicated through the ENTITY_BOUNDS value in GetSimulationFeatures.\n+\n+string entity                         # Entity identified by its unique name as returned by GetEntities / SpawnEntity.\n+\n+---\n+\n+Result result\n+Bounds bounds                         # Entity bounds. Only valid if result.result_code is OK.\n+                                      # Bounds with TYPE_BOX should be returned, unless there is a configuration\n+                                      # parameter for the simulator to control the type and it is set otherwise."
+        },
+        {
+          "sha": "09370bc9b502d3d373ecfd1d10dcc8eeeb572ced",
+          "filename": "srv/GetEntityInfo.srv",
+          "status": "added",
+          "additions": 9,
+          "deletions": 0,
+          "changes": 9,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/86d4cce610e12bfecc63bd1c76ca10147e1741db/srv%2FGetEntityInfo.srv",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/86d4cce610e12bfecc63bd1c76ca10147e1741db/srv%2FGetEntityInfo.srv",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/srv%2FGetEntityInfo.srv?ref=86d4cce610e12bfecc63bd1c76ca10147e1741db",
+          "patch": "@@ -0,0 +1,9 @@\n+# Get type and other information about an entity.\n+# Support for this interface is indicated through the ENTITY_INFO_GETTING value in GetSimulationFeatures.\n+\n+string entity                         # Entity identified by its unique name as returned by GetEntities.\n+\n+---\n+\n+Result result\n+EntityInfo info                       # Only valid if result.result_code is OK."
+        },
+        {
+          "sha": "b054ec26440a62775d242d6f8521f491c5563293",
+          "filename": "srv/GetEntityState.srv",
+          "status": "added",
+          "additions": 9,
+          "deletions": 0,
+          "changes": 9,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/86d4cce610e12bfecc63bd1c76ca10147e1741db/srv%2FGetEntityState.srv",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/86d4cce610e12bfecc63bd1c76ca10147e1741db/srv%2FGetEntityState.srv",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/srv%2FGetEntityState.srv?ref=86d4cce610e12bfecc63bd1c76ca10147e1741db",
+          "patch": "@@ -0,0 +1,9 @@\n+# Get state of an entity.\n+# Support for this interface is indicated through the ENTITY_STATE_GETTING value in GetSimulationFeatures.\n+\n+string entity                         # Entity identified by its unique name as returned by GetEntities / SpawnEntity.\n+\n+---\n+\n+Result result\n+EntityState state                     # Entity ground truth state. Valid when result.result = OK."
+        },
+        {
+          "sha": "088b9d3e47e40665aad2341d99c3c7005da39170",
+          "filename": "srv/GetNamedPoseBounds.srv",
+          "status": "added",
+          "additions": 9,
+          "deletions": 0,
+          "changes": 9,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/86d4cce610e12bfecc63bd1c76ca10147e1741db/srv%2FGetNamedPoseBounds.srv",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/86d4cce610e12bfecc63bd1c76ca10147e1741db/srv%2FGetNamedPoseBounds.srv",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/srv%2FGetNamedPoseBounds.srv?ref=86d4cce610e12bfecc63bd1c76ca10147e1741db",
+          "patch": "@@ -0,0 +1,9 @@\n+# Get bounds for the named pose. This feature is available if GetSimulatorFeatures includes POSE_BOUNDS feature.\n+# Support for this interface is indicated through the POSE_BOUNDS value in GetSimulationFeatures.\n+\n+string name                                         # unique name (as returned from GetNamedPoses).\n+\n+---\n+\n+Result result\n+Bounds bounds                                       # bounds for the named pose."
+        },
+        {
+          "sha": "cb9158c42a6250740335509655469a996676521f",
+          "filename": "srv/GetNamedPoses.srv",
+          "status": "added",
+          "additions": 10,
+          "deletions": 0,
+          "changes": 10,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/86d4cce610e12bfecc63bd1c76ca10147e1741db/srv%2FGetNamedPoses.srv",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/86d4cce610e12bfecc63bd1c76ca10147e1741db/srv%2FGetNamedPoses.srv",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/srv%2FGetNamedPoses.srv?ref=86d4cce610e12bfecc63bd1c76ca10147e1741db",
+          "patch": "@@ -0,0 +1,10 @@\n+# Get predefined poses which are convenient to for spawning, navigation goals etc.\n+# Support for this interface is indicated through the NAMED_POSES value in GetSimulationFeatures.\n+\n+TagsFilter tags                                     # Tags filter to apply. Only named poses with matching tags field\n+                                                    # will be returned. Can be empty (see TagsFilter).\n+\n+---\n+\n+Result result\n+NamedPose[] poses                                   # A list of predefined poses, which may be empty."
+        },
+        {
+          "sha": "9b4cd2cdbc52ac4bbd2e372ed838fa923b041830",
+          "filename": "srv/GetSimulationState.srv",
+          "status": "added",
+          "additions": 8,
+          "deletions": 0,
+          "changes": 8,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/86d4cce610e12bfecc63bd1c76ca10147e1741db/srv%2FGetSimulationState.srv",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/86d4cce610e12bfecc63bd1c76ca10147e1741db/srv%2FGetSimulationState.srv",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/srv%2FGetSimulationState.srv?ref=86d4cce610e12bfecc63bd1c76ca10147e1741db",
+          "patch": "@@ -0,0 +1,8 @@\n+# Gets the simulation state (paused, playing, stopped)\n+# Support for this interface is indicated through the SIMULATION_STATE_GETTING value in GetSimulationFeatures.\n+\n+---\n+\n+SimulationState state                      # Current state of the simulation.\n+\n+Result result"
+        },
+        {
+          "sha": "785efa84e2762a9c612e17108b9b201743fa09c3",
+          "filename": "srv/GetSimulatorFeatures.srv",
+          "status": "added",
+          "additions": 6,
+          "deletions": 0,
+          "changes": 6,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/86d4cce610e12bfecc63bd1c76ca10147e1741db/srv%2FGetSimulatorFeatures.srv",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/86d4cce610e12bfecc63bd1c76ca10147e1741db/srv%2FGetSimulatorFeatures.srv",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/srv%2FGetSimulatorFeatures.srv?ref=86d4cce610e12bfecc63bd1c76ca10147e1741db",
+          "patch": "@@ -0,0 +1,6 @@\n+# Get a list of features supported by the simulator.\n+# Simulators adhering to the standard need to implement at least this interface.\n+\n+---\n+\n+SimulatorFeatures features"
+        },
+        {
+          "sha": "ad18d0f9d9d1e703755b2ee9d986c65c36439e83",
+          "filename": "srv/GetSpawnables.srv",
+          "status": "added",
+          "additions": 17,
+          "deletions": 0,
+          "changes": 17,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/86d4cce610e12bfecc63bd1c76ca10147e1741db/srv%2FGetSpawnables.srv",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/86d4cce610e12bfecc63bd1c76ca10147e1741db/srv%2FGetSpawnables.srv",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/srv%2FGetSpawnables.srv?ref=86d4cce610e12bfecc63bd1c76ca10147e1741db",
+          "patch": "@@ -0,0 +1,17 @@\n+# Return a list of resources which are valid as SpawnEntity uri fields (e.g. visible to or registered in simulator).\n+# This interface is an optional extension and might not be implemented by your simulator, check the result_code.\n+# Support for this interface is indicated through the SPAWNABLES value in GetSimulationFeatures.\n+\n+string[] sources                                    # Optional field for additional sources (local or remote) to search.\n+                                                    # By default, each simulator has visibility of spawnables through\n+                                                    # some mechanisms, e.g. a set of paths, registered assets etc.\n+                                                    # Since the simulator cannot possibly look everywhere,\n+                                                    # this field allows the user to specify additional sources.\n+                                                    # Unrecognized values are listed as such in the result.error_message,\n+                                                    # but do not hinder success of the response.\n+                                                    # Sources may include subcategories and be simulator-specific.\n+\n+---\n+\n+Result result\n+Spawnable[] spawnables                              # Spawnable objects with URI and additional information."
+        },
+        {
+          "sha": "a53afd53dc65c42566227e7d7f7ce3cce61c10d7",
+          "filename": "srv/ResetSimulation.srv",
+          "status": "added",
+          "additions": 18,
+          "deletions": 0,
+          "changes": 18,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/86d4cce610e12bfecc63bd1c76ca10147e1741db/srv%2FResetSimulation.srv",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/86d4cce610e12bfecc63bd1c76ca10147e1741db/srv%2FResetSimulation.srv",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/srv%2FResetSimulation.srv?ref=86d4cce610e12bfecc63bd1c76ca10147e1741db",
+          "patch": "@@ -0,0 +1,18 @@\n+# Reset the simulation to the start, including the entire scene and the simulation time.\n+# Objects that were dynamically spawned are de-spawned.\n+# Support for this interface is indicated through the SIMULATION_RESET value in GetSimulationFeatures,\n+# and supported scopes are further detailed by SIMULATION_RESET_TIME, SIMULATION_RESET_STATE, and SIMULATION_RESET_SPAWNED.\n+\n+uint8 SCOPE_DEFAULT       = 0             # same as SCOPE_ALL.\n+uint8 SCOPE_TIME          = 1             # Reset simulation time to start.\n+uint8 SCOPE_STATE         = 2             # Reset state such as poses and velocities. This may include state randomization\n+                                          # if such feature is available and turned on.\n+uint8 SCOPE_SPAWNED       = 4             # De-spawns all spawned entities.\n+uint8 SCOPE_ALL           = 255           # Fully resets simulation to the start, as if it was closed and launched again.\n+\n+uint8 scope                               # Scope of the reset. Note that simulators might only support some scopes.\n+                                          # This is a bit field which may be checked for each scope e.g. scope & SCOPE_TIME.\n+\n+---\n+\n+Result result"
+        },
+        {
+          "sha": "d77561e4b7a6af1cc46360c8114295fa011acc06",
+          "filename": "srv/SetEntityInfo.srv",
+          "status": "added",
+          "additions": 9,
+          "deletions": 0,
+          "changes": 9,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/86d4cce610e12bfecc63bd1c76ca10147e1741db/srv%2FSetEntityInfo.srv",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/86d4cce610e12bfecc63bd1c76ca10147e1741db/srv%2FSetEntityInfo.srv",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/srv%2FSetEntityInfo.srv?ref=86d4cce610e12bfecc63bd1c76ca10147e1741db",
+          "patch": "@@ -0,0 +1,9 @@\n+# Set type, tags and other information about an entity.\n+# Support for this interface is indicated through the ENTITY_INFO_SETTING value in GetSimulationFeatures.\n+\n+string entity                         # Entity identified by its unique name as returned by GetEntities.\n+EntityInfo info                       # EntityInfo to set to the entity, which will override its current values.\n+\n+---\n+\n+Result result"
+        },
+        {
+          "sha": "51063f4fd114ddfc031e991de61269a1db5163c8",
+          "filename": "srv/SetEntityState.srv",
+          "status": "added",
+          "additions": 12,
+          "deletions": 0,
+          "changes": 12,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/86d4cce610e12bfecc63bd1c76ca10147e1741db/srv%2FSetEntityState.srv",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/86d4cce610e12bfecc63bd1c76ca10147e1741db/srv%2FSetEntityState.srv",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/srv%2FSetEntityState.srv?ref=86d4cce610e12bfecc63bd1c76ca10147e1741db",
+          "patch": "@@ -0,0 +1,12 @@\n+# Set a state of an object, which will result in an instant change in its pose and/or twist.\n+# Support for this interface is indicated through the ENTITY_STATE_SETTING value in GetSimulationFeatures.\n+\n+string entity                           # Entity identified by its unique name as returned by GetEntities / SpawnEntity.\n+EntityState state                       # New state to set immediately. The timestamp in header is ignored.\n+                                        # If non-zero twist or acceleration is requested for static object, the service call\n+                                        # fails and RESULT_OPERATION_FAILED is returned.\n+                                        # Note that the acceleration field may be ignored by simulators.\n+\n+---\n+\n+Result result"
+        },
+        {
+          "sha": "e5a96044049b675d4e77972008883b95b98d7ba6",
+          "filename": "srv/SetSimulationState.srv",
+          "status": "added",
+          "additions": 16,
+          "deletions": 0,
+          "changes": 16,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/86d4cce610e12bfecc63bd1c76ca10147e1741db/srv%2FSetSimulationState.srv",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/86d4cce610e12bfecc63bd1c76ca10147e1741db/srv%2FSetSimulationState.srv",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/srv%2FSetSimulationState.srv?ref=86d4cce610e12bfecc63bd1c76ca10147e1741db",
+          "patch": "@@ -0,0 +1,16 @@\n+# Change the simulation state\n+# Support for this interface is indicated through the SIMULATION_STATE_SETTING value in GetSimulationFeatures.\n+# Support for setting STATE_PAUSED is determined by SIMULATION_STATE_PAUSE feature.\n+\n+SimulationState state                      # Target state to set for the simulation.\n+\n+---\n+\n+uint8 ALREADY_IN_TARGET_STATE   = 101      # Additional result type for this call, which means simulation was already in\n+                                           # the target state (e.g. was already stopped when STATE_STOPPED was requested).\n+uint8 STATE_TRANSITION_ERROR    = 102      # The simulator failed to transition to the target state. This might happen\n+                                           # especially with the transition to STATE_PLAYING from STATE_STOPPED.\n+                                           # See result.error_message for details.\n+uint8 INCORRECT_TRANSITION      = 103      # Incorrect transition (pausing when in stopped state).\n+\n+Result result"
+        },
+        {
+          "sha": "0e76c104e7a27d8ef2a8c316f2112dd0c43a9700",
+          "filename": "srv/SpawnEntity.srv",
+          "status": "added",
+          "additions": 48,
+          "deletions": 0,
+          "changes": 48,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/86d4cce610e12bfecc63bd1c76ca10147e1741db/srv%2FSpawnEntity.srv",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/86d4cce610e12bfecc63bd1c76ca10147e1741db/srv%2FSpawnEntity.srv",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/srv%2FSpawnEntity.srv?ref=86d4cce610e12bfecc63bd1c76ca10147e1741db",
+          "patch": "@@ -0,0 +1,48 @@\n+# Spawn an entity (a robot, other object) by name or URI\n+# Support for this interface is indicated through the SPAWNING value in GetSimulationFeatures.\n+\n+string name                             # A name to give to the spawned entity.\n+                                        # If empty, a name field in the uri file or resource_string will be used,\n+                                        # if supported and not empty (e.g. \"name\" field in SDFormat, URDF).\n+                                        # If the name is still empty or not unique (as determined by the simulator),\n+                                        # the service returns a generated name in the entity_name response field if the\n+                                        # allow_renaming field is set to true. Otherwise, the service call fails and an\n+                                        # error is returned.\n+bool allow_renaming                     # Determines whether the spawning succeeds with a non-unique name.\n+                                        # If it is set to true, the user should always check entity_name response field\n+                                        # and use it for any further interactions.\n+string uri                              # Resource such as SDFormat, URDF, USD or MJCF file, a native prefab, etc.\n+                                        # Valid URIs can be determined by calling GetSpawnables first, and you can check\n+                                        # the simulator format support by reading SimulatorFeatures spawn_formats field.\n+                                        # If uri field is empty, resource_string must not be empty.\n+string resource_string                  # An entity definition file passed as a string.\n+                                        # Simulators may support spawning from a file generated on the fly (e.g. XACRO).\n+                                        # It is supported by your simulator if GetSimulatorFeatures includes\n+                                        # SPAWNING_RESOURCE_STRING feature.\n+                                        # If uri field is not empty, resource_string field will be ignored.\n+string entity_namespace                 # Spawn the entity with all its interfaces under this namespace.\n+geometry_msgs/PoseStamped initial_pose  # Initial entity pose.\n+                                        # The header contains a reference frame, which defaults to global \"world\" frame.\n+                                        # This frame must be known to the simulator, e.g. of an object spawned earlier.\n+                                        # The timestamp field in the header is ignored.\n+\n+---\n+\n+# Additional result.result_code values for this service. Check result.error_message for further details.\n+uint8 NAME_NOT_UNIQUE       = 101       # Given name is already taken by entity and allow_renaming is false.\n+uint8 NAME_INVALID          = 102       # Given name is invalid in the simulator (e.g. does not meet naming\n+                                        # requirements such as allowed characters). This is also returned if name is\n+                                        # empty and allow_renaming is false.\n+uint8 UNSUPPORTED_FORMAT    = 103       # Format for uri or resource string is unsupported. Check supported formats\n+                                        # through GetSimulatorFeatures service, in spawn_formats field.\n+uint8 NO_RESOURCE           = 104       # Both uri and resource string are empty.\n+uint8 NAMESPACE_INVALID     = 105       # Namespace does not meet namespace naming standards.\n+uint8 RESOURCE_PARSE_ERROR  = 106       # Resource file or string failed to parse.\n+uint8 MISSING_ASSETS        = 107       # At least one of resource assets (such as meshes) was not found.\n+uint8 UNSUPPORTED_ASSETS    = 108       # At least one of resource assets (such as meshes) is not supported.\n+uint8 INVALID_POSE          = 109       # initial_pose is invalid, such as when the quaternion is invalid or position\n+                                        # exceeds simulator world bounds.\n+\n+Result result\n+string entity_name                      # Spawned entity full name, guaranteed to be unique in the simulation.\n+                                        # If allow_renaming is true, it may differ from the request name field."
+        },
+        {
+          "sha": "6ec13766930f8accaee68db20391931379753d0f",
+          "filename": "srv/StepSimulation.srv",
+          "status": "added",
+          "additions": 11,
+          "deletions": 0,
+          "changes": 11,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/86d4cce610e12bfecc63bd1c76ca10147e1741db/srv%2FStepSimulation.srv",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/86d4cce610e12bfecc63bd1c76ca10147e1741db/srv%2FStepSimulation.srv",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/srv%2FStepSimulation.srv?ref=86d4cce610e12bfecc63bd1c76ca10147e1741db",
+          "patch": "@@ -0,0 +1,11 @@\n+# Assuming the simulation is paused, simulate a finite number of steps and return to paused state.\n+# The service only returns once stepping is complete, which might take considerable time.\n+# There is an alternative in SimulateSteps action, which is worth considering for a multi-step interface.\n+# Support for this interface is indicated through the STEP_SIMULATION_SINGLE and STEP_SIMULATION_MULTIPLE values\n+# in GetSimulationFeatures, for steps = 1 and steps > 1 correspondingly.\n+\n+uint64 steps 1                      # Step through the simulation loop this many times.\n+\n+---\n+\n+Result result                       # Calling with simulation not paused will return RESULT_OPERATION_FAILED and error message."
+        }
+      ]
+    },
+    {
+      "author": "luca-della-vedova",
+      "date": "2025-10-30T07:01:56Z",
+      "sha": "759050095fd85e462a0690e0da3aaedc05392704",
+      "message": "Make setting entity values optional\n\nSigned-off-by: Luca Della Vedova <lucadv@intrinsic.ai>",
+      "files_changed": 1,
+      "additions": 3,
+      "deletions": 0,
+      "commit_type": "other",
+      "files": [
+        {
+          "sha": "244a8695ab3b71fdcd8cae7593e9029995146851",
+          "filename": "srv/SetEntityState.srv",
+          "status": "modified",
+          "additions": 3,
+          "deletions": 0,
+          "changes": 3,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/759050095fd85e462a0690e0da3aaedc05392704/srv%2FSetEntityState.srv",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/759050095fd85e462a0690e0da3aaedc05392704/srv%2FSetEntityState.srv",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/srv%2FSetEntityState.srv?ref=759050095fd85e462a0690e0da3aaedc05392704",
+          "patch": "@@ -6,6 +6,9 @@ EntityState state                       # New state to set immediately. The time\n                                         # If non-zero twist or acceleration is requested for static object, the service call\n                                         # fails and RESULT_OPERATION_FAILED is returned.\n                                         # Note that the acceleration field may be ignored by simulators.\n+bool set_pose                           # Flags to choose whether pose, twist or acceleration should be set or ignored.\n+bool set_twist                          # These can be used to choose which EntityState properties to set.\n+bool set_acceleration\n \n ---\n "
+        }
+      ]
+    },
+    {
+      "author": "norbertprokopiuk",
+      "date": "2025-08-04T12:58:31Z",
+      "sha": "b5b9fcc7657ce37014ff65501dde7d531e9afbd2",
+      "message": "Individual uri and resource_string replaced by Resource msg\n\nSigned-off-by: Norbert Prokopiuk <norbert.prokopiuk@robotec.ai>",
+      "files_changed": 1,
+      "additions": 2,
+      "deletions": 3,
+      "commit_type": "other",
+      "files": [
+        {
+          "sha": "4872399796b040a9f1b45b8d11ea1685e146ad8a",
+          "filename": "srv/LoadWorld.srv",
+          "status": "modified",
+          "additions": 2,
+          "deletions": 3,
+          "changes": 5,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/b5b9fcc7657ce37014ff65501dde7d531e9afbd2/srv%2FLoadWorld.srv",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/b5b9fcc7657ce37014ff65501dde7d531e9afbd2/srv%2FLoadWorld.srv",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/srv%2FLoadWorld.srv?ref=b5b9fcc7657ce37014ff65501dde7d531e9afbd2",
+          "patch": "@@ -5,9 +5,8 @@\n # Currently loaded worlds will be unloaded before attempting to load a new one.\n # Any previously spawned entities will be removed. Once a world is loaded, simulation will be left in a Stopped state.\n \n-string uri                                  # Resource such as SDF, USD, MJCF, or other simulator-native format world file.\n-\n-string resource_string                      # Simulation world passed as a string. This field is used if the uri field is empty.\n+Resource level_resource                     # Resource such as SDF, USD, MJCF, or other simulator-native format world file or,\n+                                            # Simulation world passed as a string. \n \n bool fail_on_unsupported_element            # Fail on unsupported elements (such as SDFormat sub-tags). By default, such elements are ignored.\n "
+        }
+      ]
+    },
+    {
+      "author": "zakmat",
+      "date": "2025-04-16T14:22:37Z",
+      "sha": "cc6a6fcbce665a394d55ccbaf668137d0a67477a",
+      "message": "Prepare for release 1.0.0 (#7)\n\n* Add a CHANGELOG.rst for the initial release\n\nSigned-off-by: Mateusz Żak <mateusz.zak@robotec.ai>\n\n* 1.0.0\n\nSigned-off-by: Mateusz Żak <mateusz.zak@robotec.ai>\n\n* replace autogenerated details with custom description\n\nSigned-off-by: Mateusz Żak <mateusz.zak@robotec.ai>\n\n* adjust according to review\n\nSigned-off-by: Mateusz Żak <mateusz.zak@robotec.ai>\nCo-authored-by: Adam Dąbrowski <adam.dabrowski@robotec.ai>\n\n---------\n\nSigned-off-by: Mateusz Żak <mateusz.zak@robotec.ai>\nCo-authored-by: Adam Dąbrowski <adam.dabrowski@robotec.ai>",
+      "files_changed": 1,
+      "additions": 20,
+      "deletions": 0,
+      "commit_type": "docs",
+      "files": [
+        {
+          "sha": "28ba2a12702d5bf3bc6df258de2da2cdb85a8d0e",
+          "filename": "CHANGELOG.rst",
+          "status": "added",
+          "additions": 20,
+          "deletions": 0,
+          "changes": 20,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/cc6a6fcbce665a394d55ccbaf668137d0a67477a/CHANGELOG.rst",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/cc6a6fcbce665a394d55ccbaf668137d0a67477a/CHANGELOG.rst",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/CHANGELOG.rst?ref=cc6a6fcbce665a394d55ccbaf668137d0a67477a",
+          "patch": "@@ -0,0 +1,20 @@\n+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n+Changelog for package simulation_interfaces\n+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n+\n+1.0.0 (2025-04-16)\n+------------------\n+Initial release of the simulation_interfaces package - a new Standard ROS 2 interfaces for interacting with simulators.\n+\n+The standard defines highly useful features such as spawning robots and other objects, moving things around for testing, stepping through simulation and querying the virtual world for ground truth data. It is supportive of automation and scenario-based testing.\n+\n+* Contributors: Adam Dąbrowski <adam.dabrowski@robotec.ai>, Addisu Z. Taddese <addisu@openrobotics.org>\n+\n+* Co-authored-by: Martin Pecka <peci1@seznam.cz>\n+* Co-authored-by: Steve Peters <computersthatmove@gmail.com>\n+* Co-authored-by: David V. Lu!! <davidvlu@gmail.com>\n+* Co-authored-by: Addisu Z. Taddese <addisu@openrobotics.org>\n+* Co-authored-by: Tully Foote <tully.foote@gmail.com>\n+* Co-authored-by: Sebastian Castro <4603398+sea-bass@users.noreply.github.com>\n+* Co-authored-by: Michał Pełka <michal.pelka@robotec.ai>\n+* Co-authored-by: Paweł Liberadzki <pawel.liberadzki@gmail.com>"
+        }
+      ]
+    },
+    {
+      "author": "ayushgnv",
+      "date": "2025-04-01T20:06:44Z",
+      "sha": "9997b6c06bc960baf1647d7db7192bc63478b617",
+      "message": "Added new interfaces for simulation worlds",
+      "files_changed": 8,
+      "additions": 78,
+      "deletions": 0,
+      "commit_type": "docs",
+      "files": [
+        {
+          "sha": "4e983ddabf3b691f5ec622d42db840f110e3d8b3",
+          "filename": "CMakeLists.txt",
+          "status": "modified",
+          "additions": 5,
+          "deletions": 0,
+          "changes": 5,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/9997b6c06bc960baf1647d7db7192bc63478b617/CMakeLists.txt",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/9997b6c06bc960baf1647d7db7192bc63478b617/CMakeLists.txt",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/CMakeLists.txt?ref=9997b6c06bc960baf1647d7db7192bc63478b617",
+          "patch": "@@ -28,6 +28,7 @@ set(msg_files\n     \"msg/SimulatorFeatures.msg\"\n     \"msg/Spawnable.msg\"\n     \"msg/TagsFilter.msg\"\n+    \"msg/WorldResource.msg\"\n )\n \n set(srv_files\n@@ -48,6 +49,10 @@ set(srv_files\n     \"srv/SetSimulationState.srv\"\n     \"srv/SpawnEntity.srv\"\n     \"srv/StepSimulation.srv\"\n+    \"srv/LoadWorld.srv\"\n+    \"srv/UnloadWorld.srv\"\n+    \"srv/GetCurrentWorld.srv\"\n+    \"srv/GetAvailableWorlds.srv\"\n )\n \n set(action_files"
+        },
+        {
+          "sha": "918135efaff4ab81caa5c3fa7514a8c54ed62d0d",
+          "filename": "README.md",
+          "status": "modified",
+          "additions": 4,
+          "deletions": 0,
+          "changes": 4,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/9997b6c06bc960baf1647d7db7192bc63478b617/README.md",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/9997b6c06bc960baf1647d7db7192bc63478b617/README.md",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/README.md?ref=9997b6c06bc960baf1647d7db7192bc63478b617",
+          "patch": "@@ -23,3 +23,7 @@ Some interfaces represent optional utility and are considered lower priority:\n - [GetNamedPoses](srv/GetNamedPoses.srv)\n - [GetSpawnables](srv/GetSpawnables.srv)\n - [SetEntityInfo](srv/SetEntityInfo.srv)\n+- [GetAvailableWorlds](srv/GetAvailableWorlds.srv)\n+- [LoadWorld](srv/LoadWorld.srv)\n+- [UnloadWorld](srv/UnloadWorld.srv)\n+- [GetCurrentWorld](srv/GetCurrentWorld.srv)"
+        },
+        {
+          "sha": "244d7dbda6414eddc30a4d7e8311e2f8e84edf2d",
+          "filename": "msg/SimulatorFeatures.msg",
+          "status": "modified",
+          "additions": 5,
+          "deletions": 0,
+          "changes": 5,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/9997b6c06bc960baf1647d7db7192bc63478b617/msg%2FSimulatorFeatures.msg",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/9997b6c06bc960baf1647d7db7192bc63478b617/msg%2FSimulatorFeatures.msg",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/msg%2FSimulatorFeatures.msg?ref=9997b6c06bc960baf1647d7db7192bc63478b617",
+          "patch": "@@ -31,6 +31,11 @@ uint8 STEP_SIMULATION_MULTIPLE  = 32      # Supports multi-stepping through simu\n                                           # service or through SimulateSteps action.\n uint8 STEP_SIMULATION_ACTION    = 33      # Supports SimulateSteps action interface.\n \n+uint8 WORLD_LOADING             = 40      # Supports LoadWorld interface\n+uint8 WORLD_LOADING_RESOURCE_STRING = 41  # Supports LoadWorld resource_string field\n+uint8 WORLD_UNLOADING           = 42      # Supports UnloadWorld interface\n+uint8 WORLD_INFO_GETTING        = 43      # Supports GetCurrentWorld interface\n+uint8 AVAILABLE_WORLDS          = 44      # Supports GetAvailableWorlds interface\n \n uint16[] features                         # A list of simulation features as specified by the list above.\n "
+        },
+        {
+          "sha": "3f5b3a48dc58f378ad1f8cfa403f22208a95dc3e",
+          "filename": "msg/WorldResource.msg",
+          "status": "added",
+          "additions": 16,
+          "deletions": 0,
+          "changes": 16,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/9997b6c06bc960baf1647d7db7192bc63478b617/msg%2FWorldResource.msg",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/9997b6c06bc960baf1647d7db7192bc63478b617/msg%2FWorldResource.msg",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/msg%2FWorldResource.msg?ref=9997b6c06bc960baf1647d7db7192bc63478b617",
+          "patch": "@@ -0,0 +1,16 @@\n+# World resource that can be loaded into the simulation\n+\n+# World name\n+string name\n+\n+# URI which will be accepted by LoadWorld service\n+string uri\n+\n+# Optional description of the world\n+string description\n+\n+# Optional tags describing the world (e.g., \"indoor\", \"outdoor\", \"warehouse\")\n+string[] tags\n+\n+# Whether this is the simulator's default/initial world\n+bool is_default \n\\ No newline at end of file"
+        },
+        {
+          "sha": "8a4b9c51bc8e76f79026b92c954530d05026c68a",
+          "filename": "srv/GetAvailableWorlds.srv",
+          "status": "added",
+          "additions": 10,
+          "deletions": 0,
+          "changes": 10,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/9997b6c06bc960baf1647d7db7192bc63478b617/srv%2FGetAvailableWorlds.srv",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/9997b6c06bc960baf1647d7db7192bc63478b617/srv%2FGetAvailableWorlds.srv",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/srv%2FGetAvailableWorlds.srv?ref=9997b6c06bc960baf1647d7db7192bc63478b617",
+          "patch": "@@ -0,0 +1,10 @@\n+# Return a list of available world resources which are valid as LoadWorld uri fields\n+\n+# Optional field for additional sources (local or remote) to search\n+string[] sources\n+---\n+# Standard result message\n+simulation_interfaces/Result result\n+\n+# Available world resources with URI and additional information\n+simulation_interfaces/WorldResource[] worlds \n\\ No newline at end of file"
+        },
+        {
+          "sha": "586f77b094c34b039e29bf6da941d6ff06d47374",
+          "filename": "srv/GetCurrentWorld.srv",
+          "status": "added",
+          "additions": 8,
+          "deletions": 0,
+          "changes": 8,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/9997b6c06bc960baf1647d7db7192bc63478b617/srv%2FGetCurrentWorld.srv",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/9997b6c06bc960baf1647d7db7192bc63478b617/srv%2FGetCurrentWorld.srv",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/srv%2FGetCurrentWorld.srv?ref=9997b6c06bc960baf1647d7db7192bc63478b617",
+          "patch": "@@ -0,0 +1,8 @@\n+# Get information about the currently loaded world in the simulation\n+\n+---\n+# Standard result message\n+simulation_interfaces/Result result\n+\n+# Information about the currently loaded world\n+simulation_interfaces/WorldResource world \n\\ No newline at end of file"
+        },
+        {
+          "sha": "ebfa8d7749937727dc33e0f5b44ddd7645a9e3bc",
+          "filename": "srv/LoadWorld.srv",
+          "status": "added",
+          "additions": 23,
+          "deletions": 0,
+          "changes": 23,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/9997b6c06bc960baf1647d7db7192bc63478b617/srv%2FLoadWorld.srv",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/9997b6c06bc960baf1647d7db7192bc63478b617/srv%2FLoadWorld.srv",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/srv%2FLoadWorld.srv?ref=9997b6c06bc960baf1647d7db7192bc63478b617",
+          "patch": "@@ -0,0 +1,23 @@\n+# Load a simulation world from a file or resource\n+\n+# Resource such as SDF, URDF, USD, or MJCF world file\n+string uri\n+\n+# World definition passed as a string\n+string resource_string\n+\n+# If true, existing entities will be cleared before loading the new world\n+bool clear_entities\n+---\n+# Error Codes\n+uint8 UNSUPPORTED_FORMAT = 101 # Format for uri or resource string is unsupported\n+uint8 NO_RESOURCE = 102 # Both uri and resource string are empty\n+uint8 RESOURCE_PARSE_ERROR = 103 # Resource file or string failed to parse\n+uint8 MISSING_ASSETS = 104 # At least one of resource assets (such as meshes) was not found\n+uint8 UNSUPPORTED_ASSETS = 105 # At least one of resource assets (such as meshes) is not supported \n+\n+# Standard result message\n+simulation_interfaces/Result result\n+\n+# Information about the loaded world\n+simulation_interfaces/WorldResource world"
+        },
+        {
+          "sha": "24912021ebe649f727fe3c845c488203eddf20df",
+          "filename": "srv/UnloadWorld.srv",
+          "status": "added",
+          "additions": 7,
+          "deletions": 0,
+          "changes": 7,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/9997b6c06bc960baf1647d7db7192bc63478b617/srv%2FUnloadWorld.srv",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/9997b6c06bc960baf1647d7db7192bc63478b617/srv%2FUnloadWorld.srv",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/srv%2FUnloadWorld.srv?ref=9997b6c06bc960baf1647d7db7192bc63478b617",
+          "patch": "@@ -0,0 +1,7 @@\n+# Unload the current simulation world\n+\n+# If true, existing dynamically spawned entities will remain\n+bool keep_entities\n+---\n+# Standard result message\n+simulation_interfaces/Result result \n\\ No newline at end of file"
+        }
+      ]
+    },
+    {
+      "author": "fred-labs",
+      "date": "2025-06-24T12:36:49Z",
+      "sha": "52d906e82ee2b9b7d6b5e853d0ca79da4be4b3d4",
+      "message": "Update README.md\n\nFix link to srv/GetSimulatorFeatures.srv",
+      "files_changed": 1,
+      "additions": 1,
+      "deletions": 1,
+      "commit_type": "docs",
+      "files": [
+        {
+          "sha": "d468902cd171943dc3dd42fef62490890975dc1e",
+          "filename": "README.md",
+          "status": "modified",
+          "additions": 1,
+          "deletions": 1,
+          "changes": 2,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/52d906e82ee2b9b7d6b5e853d0ca79da4be4b3d4/README.md",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/52d906e82ee2b9b7d6b5e853d0ca79da4be4b3d4/README.md",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/README.md?ref=52d906e82ee2b9b7d6b5e853d0ca79da4be4b3d4",
+          "patch": "@@ -11,7 +11,7 @@ service mechanism itself.\n \n ## Suggested interface implementation priorities\n \n-[GetSimulatorFeatures](srv/GetSimulationFeatures.srv) should be implemented first, as it provides users with information about\n+[GetSimulatorFeatures](srv/GetSimulatorFeatures.srv) should be implemented first, as it provides users with information about\n the state of support for all standard simulation interfaces.\n \n Following that, aim for maintaining consistency within the implemented feature, such as enabling both"
+        }
+      ]
+    },
+    {
+      "author": "arjo129",
+      "date": "2025-05-20T08:47:22Z",
+      "sha": "2376f5904d650bcd7ebb833a67f0b8071b6e81e0",
+      "message": "Link the GetSimulatorFeatures was invalid.\n\nThe link to GetSimulatorFeatures is invalid, I presume its supposed to point to the service.",
+      "files_changed": 1,
+      "additions": 2,
+      "deletions": 2,
+      "commit_type": "docs",
+      "files": [
+        {
+          "sha": "475e910d3ca91929287debf69703949ecc1af738",
+          "filename": "README.md",
+          "status": "modified",
+          "additions": 2,
+          "deletions": 2,
+          "changes": 4,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/2376f5904d650bcd7ebb833a67f0b8071b6e81e0/README.md",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/2376f5904d650bcd7ebb833a67f0b8071b6e81e0/README.md",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/README.md?ref=2376f5904d650bcd7ebb833a67f0b8071b6e81e0",
+          "patch": "@@ -11,7 +11,7 @@ service mechanism itself.\n \n ## Suggested interface implementation priorities\n \n-[GetSimulatorFeatures](msg/GetSimulationFeatures.msg) should be implemented first, as it provides users with information about\n+[GetSimulatorFeatures](srv/GetSimulationFeatures.srv) should be implemented first, as it provides users with information about\n the state of support for all standard simulation interfaces.\n \n Following that, aim for maintaining consistency within the implemented feature, such as enabling both\n@@ -22,4 +22,4 @@ Some interfaces represent optional utility and are considered lower priority:\n - [GetNamedPoseBounds](srv/GetNamedPoseBounds.srv)\n - [GetNamedPoses](srv/GetNamedPoses.srv)\n - [GetSpawnables](srv/GetSpawnables.srv)\n-- [SetEntityInfo](srv/SetEntityInfo.srv)\n\\ No newline at end of file\n+- [SetEntityInfo](srv/SetEntityInfo.srv)"
+        }
+      ]
+    },
+    {
+      "author": "michalpelka",
+      "date": "2025-05-12T12:52:53Z",
+      "sha": "ab8d27bfb08d0d37faaac297550a0be489ab3a6d",
+      "message": "Added error code to SetEntityState.srv (#8)\n\nSigned-off-by: Michał Pełka <michal.pelka@robotec.ai>",
+      "files_changed": 1,
+      "additions": 4,
+      "deletions": 0,
+      "commit_type": "other",
+      "files": [
+        {
+          "sha": "2e42e8b444090d29e7dd679340e0fdea0f1057bf",
+          "filename": "srv/SetEntityState.srv",
+          "status": "modified",
+          "additions": 4,
+          "deletions": 0,
+          "changes": 4,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/ab8d27bfb08d0d37faaac297550a0be489ab3a6d/srv%2FSetEntityState.srv",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/ab8d27bfb08d0d37faaac297550a0be489ab3a6d/srv%2FSetEntityState.srv",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/srv%2FSetEntityState.srv?ref=ab8d27bfb08d0d37faaac297550a0be489ab3a6d",
+          "patch": "@@ -9,4 +9,8 @@ EntityState state                       # New state to set immediately. The time\n \n ---\n \n+# Additional result.result_code values for this service. Check result.error_message for further details.\n+uint8 INVALID_POSE          = 101       # initial_pose is invalid, such as when the quaternion is invalid or position\n+                                        # exceeds simulator world bounds.\n+\n Result result"
+        }
+      ]
+    },
+    {
+      "author": "azeey",
+      "date": "2024-12-06T23:27:40Z",
+      "sha": "c229347be875a2c68ee945316b4abb920661c5e6",
+      "message": "Initial commit",
+      "files_changed": 2,
+      "additions": 203,
+      "deletions": 0,
+      "commit_type": "docs",
+      "files": [
+        {
+          "sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+          "filename": "LICENSE",
+          "status": "added",
+          "additions": 201,
+          "deletions": 0,
+          "changes": 201,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/c229347be875a2c68ee945316b4abb920661c5e6/LICENSE",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/c229347be875a2c68ee945316b4abb920661c5e6/LICENSE",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/LICENSE?ref=c229347be875a2c68ee945316b4abb920661c5e6",
+          "patch": "@@ -0,0 +1,201 @@\n+                                 Apache License\n+                           Version 2.0, January 2004\n+                        http://www.apache.org/licenses/\n+\n+   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\n+\n+   1. Definitions.\n+\n+      \"License\" shall mean the terms and conditions for use, reproduction,\n+      and distribution as defined by Sections 1 through 9 of this document.\n+\n+      \"Licensor\" shall mean the copyright owner or entity authorized by\n+      the copyright owner that is granting the License.\n+\n+      \"Legal Entity\" shall mean the union of the acting entity and all\n+      other entities that control, are controlled by, or are under common\n+      control with that entity. For the purposes of this definition,\n+      \"control\" means (i) the power, direct or indirect, to cause the\n+      direction or management of such entity, whether by contract or\n+      otherwise, or (ii) ownership of fifty percent (50%) or more of the\n+      outstanding shares, or (iii) beneficial ownership of such entity.\n+\n+      \"You\" (or \"Your\") shall mean an individual or Legal Entity\n+      exercising permissions granted by this License.\n+\n+      \"Source\" form shall mean the preferred form for making modifications,\n+      including but not limited to software source code, documentation\n+      source, and configuration files.\n+\n+      \"Object\" form shall mean any form resulting from mechanical\n+      transformation or translation of a Source form, including but\n+      not limited to compiled object code, generated documentation,\n+      and conversions to other media types.\n+\n+      \"Work\" shall mean the work of authorship, whether in Source or\n+      Object form, made available under the License, as indicated by a\n+      copyright notice that is included in or attached to the work\n+      (an example is provided in the Appendix below).\n+\n+      \"Derivative Works\" shall mean any work, whether in Source or Object\n+      form, that is based on (or derived from) the Work and for which the\n+      editorial revisions, annotations, elaborations, or other modifications\n+      represent, as a whole, an original work of authorship. For the purposes\n+      of this License, Derivative Works shall not include works that remain\n+      separable from, or merely link (or bind by name) to the interfaces of,\n+      the Work and Derivative Works thereof.\n+\n+      \"Contribution\" shall mean any work of authorship, including\n+      the original version of the Work and any modifications or additions\n+      to that Work or Derivative Works thereof, that is intentionally\n+      submitted to Licensor for inclusion in the Work by the copyright owner\n+      or by an individual or Legal Entity authorized to submit on behalf of\n+      the copyright owner. For the purposes of this definition, \"submitted\"\n+      means any form of electronic, verbal, or written communication sent\n+      to the Licensor or its representatives, including but not limited to\n+      communication on electronic mailing lists, source code control systems,\n+      and issue tracking systems that are managed by, or on behalf of, the\n+      Licensor for the purpose of discussing and improving the Work, but\n+      excluding communication that is conspicuously marked or otherwise\n+      designated in writing by the copyright owner as \"Not a Contribution.\"\n+\n+      \"Contributor\" shall mean Licensor and any individual or Legal Entity\n+      on behalf of whom a Contribution has been received by Licensor and\n+      subsequently incorporated within the Work.\n+\n+   2. Grant of Copyright License. Subject to the terms and conditions of\n+      this License, each Contributor hereby grants to You a perpetual,\n+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n+      copyright license to reproduce, prepare Derivative Works of,\n+      publicly display, publicly perform, sublicense, and distribute the\n+      Work and such Derivative Works in Source or Object form.\n+\n+   3. Grant of Patent License. Subject to the terms and conditions of\n+      this License, each Contributor hereby grants to You a perpetual,\n+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n+      (except as stated in this section) patent license to make, have made,\n+      use, offer to sell, sell, import, and otherwise transfer the Work,\n+      where such license applies only to those patent claims licensable\n+      by such Contributor that are necessarily infringed by their\n+      Contribution(s) alone or by combination of their Contribution(s)\n+      with the Work to which such Contribution(s) was submitted. If You\n+      institute patent litigation against any entity (including a\n+      cross-claim or counterclaim in a lawsuit) alleging that the Work\n+      or a Contribution incorporated within the Work constitutes direct\n+      or contributory patent infringement, then any patent licenses\n+      granted to You under this License for that Work shall terminate\n+      as of the date such litigation is filed.\n+\n+   4. Redistribution. You may reproduce and distribute copies of the\n+      Work or Derivative Works thereof in any medium, with or without\n+      modifications, and in Source or Object form, provided that You\n+      meet the following conditions:\n+\n+      (a) You must give any other recipients of the Work or\n+          Derivative Works a copy of this License; and\n+\n+      (b) You must cause any modified files to carry prominent notices\n+          stating that You changed the files; and\n+\n+      (c) You must retain, in the Source form of any Derivative Works\n+          that You distribute, all copyright, patent, trademark, and\n+          attribution notices from the Source form of the Work,\n+          excluding those notices that do not pertain to any part of\n+          the Derivative Works; and\n+\n+      (d) If the Work includes a \"NOTICE\" text file as part of its\n+          distribution, then any Derivative Works that You distribute must\n+          include a readable copy of the attribution notices contained\n+          within such NOTICE file, excluding those notices that do not\n+          pertain to any part of the Derivative Works, in at least one\n+          of the following places: within a NOTICE text file distributed\n+          as part of the Derivative Works; within the Source form or\n+          documentation, if provided along with the Derivative Works; or,\n+          within a display generated by the Derivative Works, if and\n+          wherever such third-party notices normally appear. The contents\n+          of the NOTICE file are for informational purposes only and\n+          do not modify the License. You may add Your own attribution\n+          notices within Derivative Works that You distribute, alongside\n+          or as an addendum to the NOTICE text from the Work, provided\n+          that such additional attribution notices cannot be construed\n+          as modifying the License.\n+\n+      You may add Your own copyright statement to Your modifications and\n+      may provide additional or different license terms and conditions\n+      for use, reproduction, or distribution of Your modifications, or\n+      for any such Derivative Works as a whole, provided Your use,\n+      reproduction, and distribution of the Work otherwise complies with\n+      the conditions stated in this License.\n+\n+   5. Submission of Contributions. Unless You explicitly state otherwise,\n+      any Contribution intentionally submitted for inclusion in the Work\n+      by You to the Licensor shall be under the terms and conditions of\n+      this License, without any additional terms or conditions.\n+      Notwithstanding the above, nothing herein shall supersede or modify\n+      the terms of any separate license agreement you may have executed\n+      with Licensor regarding such Contributions.\n+\n+   6. Trademarks. This License does not grant permission to use the trade\n+      names, trademarks, service marks, or product names of the Licensor,\n+      except as required for reasonable and customary use in describing the\n+      origin of the Work and reproducing the content of the NOTICE file.\n+\n+   7. Disclaimer of Warranty. Unless required by applicable law or\n+      agreed to in writing, Licensor provides the Work (and each\n+      Contributor provides its Contributions) on an \"AS IS\" BASIS,\n+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or\n+      implied, including, without limitation, any warranties or conditions\n+      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A\n+      PARTICULAR PURPOSE. You are solely responsible for determining the\n+      appropriateness of using or redistributing the Work and assume any\n+      risks associated with Your exercise of permissions under this License.\n+\n+   8. Limitation of Liability. In no event and under no legal theory,\n+      whether in tort (including negligence), contract, or otherwise,\n+      unless required by applicable law (such as deliberate and grossly\n+      negligent acts) or agreed to in writing, shall any Contributor be\n+      liable to You for damages, including any direct, indirect, special,\n+      incidental, or consequential damages of any character arising as a\n+      result of this License or out of the use or inability to use the\n+      Work (including but not limited to damages for loss of goodwill,\n+      work stoppage, computer failure or malfunction, or any and all\n+      other commercial damages or losses), even if such Contributor\n+      has been advised of the possibility of such damages.\n+\n+   9. Accepting Warranty or Additional Liability. While redistributing\n+      the Work or Derivative Works thereof, You may choose to offer,\n+      and charge a fee for, acceptance of support, warranty, indemnity,\n+      or other liability obligations and/or rights consistent with this\n+      License. However, in accepting such obligations, You may act only\n+      on Your own behalf and on Your sole responsibility, not on behalf\n+      of any other Contributor, and only if You agree to indemnify,\n+      defend, and hold each Contributor harmless for any liability\n+      incurred by, or claims asserted against, such Contributor by reason\n+      of your accepting any such warranty or additional liability.\n+\n+   END OF TERMS AND CONDITIONS\n+\n+   APPENDIX: How to apply the Apache License to your work.\n+\n+      To apply the Apache License to your work, attach the following\n+      boilerplate notice, with the fields enclosed by brackets \"[]\"\n+      replaced with your own identifying information. (Don't include\n+      the brackets!)  The text should be enclosed in the appropriate\n+      comment syntax for the file format. We also recommend that a\n+      file or class name and description of purpose be included on the\n+      same \"printed page\" as the copyright notice for easier\n+      identification within third-party archives.\n+\n+   Copyright [yyyy] [name of copyright owner]\n+\n+   Licensed under the Apache License, Version 2.0 (the \"License\");\n+   you may not use this file except in compliance with the License.\n+   You may obtain a copy of the License at\n+\n+       http://www.apache.org/licenses/LICENSE-2.0\n+\n+   Unless required by applicable law or agreed to in writing, software\n+   distributed under the License is distributed on an \"AS IS\" BASIS,\n+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n+   See the License for the specific language governing permissions and\n+   limitations under the License."
+        },
+        {
+          "sha": "1746f2004ea652df3844e9096aead26a4e5f13b2",
+          "filename": "README.md",
+          "status": "added",
+          "additions": 2,
+          "deletions": 0,
+          "changes": 2,
+          "blob_url": "https://github.com/ros-simulation/simulation_interfaces/blob/c229347be875a2c68ee945316b4abb920661c5e6/README.md",
+          "raw_url": "https://github.com/ros-simulation/simulation_interfaces/raw/c229347be875a2c68ee945316b4abb920661c5e6/README.md",
+          "contents_url": "https://api.github.com/repos/ros-simulation/simulation_interfaces/contents/README.md?ref=c229347be875a2c68ee945316b4abb920661c5e6",
+          "patch": "@@ -0,0 +1,2 @@\n+# simulation_interfaces\n+Standard interfaces for interacting with simulators from ROS 2"
+        }
+      ]
+    }
+  ]
+}

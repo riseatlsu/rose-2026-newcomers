@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "fetched_at": "2026-03-03T21:15:00Z",
+    "source": "github_rest",
+    "endpoint": "/users/{owner}",
+    "owner": "ros-planning",
+    "repo": "srdfdom"
+  },
+  "data": {
+    "login": "ros-planning",
+    "type": "Organization",
+    "public_repos": 10,
+    "followers": 746,
+    "company": null
+  }
+}

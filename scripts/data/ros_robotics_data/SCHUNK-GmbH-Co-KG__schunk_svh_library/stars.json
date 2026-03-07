@@ -1,0 +1,15 @@
+{
+  "_meta": {
+    "fetched_at": "2026-03-03T20:46:02Z",
+    "source": "github_graphql",
+    "endpoint": "repository.stargazers(edges{starredAt,node{login}})",
+    "owner": "SCHUNK-GmbH-Co-KG",
+    "repo": "schunk_svh_library"
+  },
+  "data": [
+    {
+      "starred_at": "2023-09-02T07:04:38Z",
+      "user": "mrsbCN"
+    }
+  ]
+}

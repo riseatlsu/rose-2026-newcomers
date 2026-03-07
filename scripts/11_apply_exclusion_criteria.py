@@ -5,9 +5,10 @@ Apply exclusion criteria from the research design to filter ROS packages dataset
 
 Exclusion Criteria:
 1. Inactive/archived repositories: No commits in the last 6 months
-2. Non-software/content-only repositories: No programming languages or very small size
-3. Duplicates/forks: Exclude forked repositories
-4. Not hosted on GitHub: Already satisfied by input dataset
+2. Too new repositories: Created in the last 6 months
+3. Non-software/content-only repositories: No programming languages or very small size
+4. Duplicates/forks: Exclude forked repositories
+5. Not hosted on GitHub: Already satisfied by input dataset
 
 Inputs:
   - out/final_repo_dataset.csv
@@ -26,13 +27,14 @@ import os
 import csv
 import json
 from datetime import datetime, timedelta
+from dateutil.relativedelta import relativedelta
 from typing import Dict, Any, List, Tuple, Set
 
 # =========================
 # CONFIG
 # =========================
 INPUT_CSV = "out/final_repo_dataset.csv"
-DATA_ROOT = "data/ros_robotics_data"
+DATA_ROOT = "scripts/data/ros_robotics_data"
 OUTPUT_FILTERED = "out/filtered_repo_dataset.csv"
 OUTPUT_EXCLUDED = "out/exclusion_summary.csv"
 OUTPUT_STATS = "out/exclusion_statistics.txt"
@@ -41,6 +43,8 @@ OUTPUT_STATS = "out/exclusion_statistics.txt"
 INACTIVITY_MONTHS = 6
 MIN_REPO_SIZE_KB = 1  # Minimum repo size to consider it software
 MIN_LANGUAGES = 1     # Must have at least 1 programming language
+
+CUTOFF_DATE = datetime(2026, 3, 3, 0, 0, 0)
 
 # =========================
 # HELPERS
@@ -91,7 +95,7 @@ def is_within_months(date_str: str, months: int) -> bool:
     if date.tzinfo is not None:
         date = date.replace(tzinfo=None)
     
-    cutoff = datetime.utcnow() - timedelta(days=months * 30)
+    cutoff = CUTOFF_DATE - relativedelta(months=months)
     return date >= cutoff
 
 def get_last_commit_date(owner: str, repo: str) -> str:
@@ -213,6 +217,54 @@ def check_fork(row: Dict[str, Any]) -> Tuple[bool, str]:
     
     return False, None
 
+def get_first_commit_date(owner: str, repo: str) -> str:
+    """Get the oldest commit date from commits.json"""
+    repo_dir = os.path.join(DATA_ROOT, f"{owner}__{repo}")
+    commits = read_snapshot_file(repo_dir, "commits.json") or []
+    
+    if not isinstance(commits, list) or len(commits) == 0:
+        return None
+    
+    # Find the oldest commit date
+    oldest = None
+    for c in commits:
+        commit_date_str = None
+        
+        # Handle multiple date formats:
+        # 1. Simplified format: {date: "...", author: "..."}
+        # 2. Nested format: {commit: {author: {date: "..."}}}
+        # 3. Alternative format: {author_date: "..."}
+        
+        if 'date' in c:
+            commit_date_str = c['date']
+        elif 'author_date' in c:
+            commit_date_str = c['author_date']
+        elif 'commit' in c and isinstance(c['commit'], dict):
+            if 'author' in c['commit'] and isinstance(c['commit']['author'], dict):
+                commit_date_str = c['commit']['author'].get('date')
+        
+        if commit_date_str:
+            # Compare dates (ISO format strings compare correctly)
+            if oldest is None or commit_date_str < oldest:
+                oldest = commit_date_str
+    
+    return oldest
+
+def check_too_new(row: Dict[str, Any]) -> Tuple[bool, str]:
+    """Check if repository's first commit was recently (within last N months)"""
+    owner = row.get("Owner", "").strip()
+    repo = row.get("Name", "").strip()
+    
+    if not owner or not repo:
+        return False, None
+    
+    first_commit = get_first_commit_date(owner, repo)
+    
+    if first_commit and is_within_months(first_commit, INACTIVITY_MONTHS):
+        return True, f"created_recently_{INACTIVITY_MONTHS}mo"
+    
+    return False, None
+
 # =========================
 # MAIN FILTERING LOGIC
 # =========================
@@ -230,6 +282,11 @@ def apply_exclusions(row: Dict[str, Any]) -> Tuple[bool, List[str]]:
     
     # Check inactive
     excluded, reason = check_inactive(row)
+    if excluded and reason:
+        exclusions.append(reason)
+    
+    # Check too new
+    excluded, reason = check_too_new(row)
     if excluded and reason:
         exclusions.append(reason)
     
@@ -325,6 +382,7 @@ def main():
         f.write("NOTES:\n")
         f.write("-" * 70 + "\n")
         f.write(f"  - inactive_{INACTIVITY_MONTHS}mo: No commits in last {INACTIVITY_MONTHS} months\n")
+        f.write(f"  - created_recently_{INACTIVITY_MONTHS}mo: Repository created in last {INACTIVITY_MONTHS} months\n")
         f.write(f"  - archived: Repository marked as archived on GitHub\n")
         f.write(f"  - is_fork: Repository is a fork of another repository\n")
         f.write(f"  - no_programming_languages: No detected programming languages\n")

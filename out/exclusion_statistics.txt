@@ -2,20 +2,22 @@
 EXCLUSION CRITERIA STATISTICS
 ======================================================================
 
-Total repositories in input:      872
-Included repositories:            509 (58.4%)
-Excluded repositories:            363 (41.6%)
+Total repositories in input:      874
+Included repositories:            467 (53.4%)
+Excluded repositories:            407 (46.6%)
 
 EXCLUSION BREAKDOWN (by criterion):
 ----------------------------------------------------------------------
-  inactive_6mo............................   350 ( 40.1%)
-  is_fork.................................    24 (  2.8%)
+  inactive_6mo............................   376 ( 43.0%)
+  is_fork.................................    24 (  2.7%)
+  created_recently_6mo....................    23 (  2.6%)
   no_programming_languages................    16 (  1.8%)
   archived................................     4 (  0.5%)
 
 NOTES:
 ----------------------------------------------------------------------
   - inactive_6mo: No commits in last 6 months
+  - created_recently_6mo: Repository created in last 6 months
   - archived: Repository marked as archived on GitHub
   - is_fork: Repository is a fork of another repository
   - no_programming_languages: No detected programming languages

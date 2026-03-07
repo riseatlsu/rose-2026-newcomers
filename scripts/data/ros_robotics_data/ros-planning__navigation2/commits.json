@@ -1,12 +1,75 @@
 {
   "_meta": {
-    "fetched_at": "2026-02-25T00:09:40Z",
+    "fetched_at": "2026-03-04T23:04:21Z",
     "source": "github_rest",
     "endpoint": "/repos/{owner}/{repo}/commits",
     "owner": "ros-planning",
     "repo": "navigation2"
   },
   "data": [
+    {
+      "sha": "21e687dbcefb3f722aff08b254f2f983242a43e9",
+      "author": "Tatsuro Sakaguchi",
+      "author_login": "Tacha-S",
+      "date": "2026-03-04T17:03:39Z",
+      "message": "[Graceful Controller] Enhance approach goal logic (#5947)\n\n* Enhance approach goal logic\n\nSigned-off-by: Tatsuro Sakaguchi <tatsuro.sakaguchi@g.softbank.co.jp>\n\n* Add test case for finding best approach\n\nSigned-off-by: Tatsuro Sakaguchi <tatsuro.sakaguchi@g.softbank.co.jp>\n\n* Cast static and validate safety_cost\n\nSigned-off-by: Tatsuro Sakaguchi <tatsuro.sakaguchi@g.softbank.co.jp>\n\n* Refactor max cost calculation\n\nSigned-off-by: Tatsuro Sakaguchi <tatsuro.sakaguchi@g.softbank.co.jp>\n\n* Add validateTargetPoseOnApproach() and reduce unnecessary copies\n\nSigned-off-by: Tatsuro Sakaguchi <tatsuro.sakaguchi@g.softbank.co.jp>\n\n* Share speed limit\n\nSigned-off-by: Tatsuro Sakaguchi <tatsuro.sakaguchi@g.softbank.co.jp>\n\n* Set lethal obstacle\n\nSigned-off-by: Tatsuro Sakaguchi <tatsuro.sakaguchi@g.softbank.co.jp>\n\n* Spread risky cost to 0.5x0.5 region\n\nSigned-off-by: Tatsuro Sakaguchi <tatsuro.sakaguchi@g.softbank.co.jp>\n\n* Remove shared max_velocity (managed inside smooth_control_law)\n\nSigned-off-by: Tatsuro Sakaguchi <tatsuro.sakaguchi@g.softbank.co.jp>\n\n* Fix for reviews\n\nSigned-off-by: Tatsuro Sakaguchi <tatsuro.sakaguchi@g.softbank.co.jp>\n\n* Suppress chattering\n\nSigned-off-by: Tatsuro Sakaguchi <tatsuro.sakaguchi@g.softbank.co.jp>\n\n* Add comment\n\nSigned-off-by: Tatsuro Sakaguchi <tatsuro.sakaguchi@g.softbank.co.jp>\n\n* Refactor reuse condition\n\nSigned-off-by: Tatsuro Sakaguchi <tatsuro.sakaguchi@g.softbank.co.jp>\n\n* Fix redundancy\n\nSigned-off-by: Tatsuro Sakaguchi <tatsuro.sakaguchi@g.softbank.co.jp>\n\n* Fix bug\n\nSigned-off-by: Tatsuro Sakaguchi <tatsuro.sakaguchi@g.softbank.co.jp>\n\n---------\n\nSigned-off-by: Tatsuro Sakaguchi <tatsuro.sakaguchi@g.softbank.co.jp>"
+    },
+    {
+      "sha": "f0a202a3dc9cb34fce897a5a045e2d7226de293f",
+      "author": "DylanDeCoeyer-Quimesis",
+      "author_login": "DylanDeCoeyer-Quimesis",
+      "date": "2026-03-02T20:54:09Z",
+      "message": "Avoid unnecessary A* heuristic table recomputation on dynamic parameter changes (#5980) (#5981)\n\n* nav2_smac_planner: avoid unnecessary heuristic table recomputation on dynamic parameter changes (#5980)\n\nThe SmacPlanner dynamic parameter callbacks destroyed and recreated the\nAStarAlgorithm instance for every reinit_a_star parameter change,\nunconditionally triggering precomputeDistanceHeuristic which blocks the\nexecutor.\n\nOnly parameters that affect the heuristic table (lookup_table_size,\nminimum_turning_radius, downsampling_factor, angle_quantization_bins,\nmotion_model_for_search) now trigger a full rebuild. All others reuse\nthe existing instance via a new setSearchInfo method, skipping the\nexpensive recomputation.\n\nSigned-off-by: Dylan De Coeyer <dylan.decoeyer@quimesis.be>\n\n* nav2_smac_planner: recompute motion primitives when allow_primitive_interpolation changes\n\nThis commit prevents initDubin and initReedsShepp from early-returning\nwhen the allow_primitive_interpolation is updated, ensuring motion\nprimitives recomputation. It allows to stop re-generating the lookup\ntable in this case.\n\nSigned-off-by: Dylan De Coeyer <dylan.decoeyer@quimesis.be>\n\n* Update nav2_smac_planner/src/a_star.cpp\n\nSigned-off-by: Steve Macenski <stevenmacenski@gmail.com>\n\n* nav2_smac_planner: rework comment in nav2_smac_planner/src/a_star.cpp\n\nSigned-off-by: Dylan De Coeyer <dylan.decoeyer@quimesis.be>\n\n---------\n\nSigned-off-by: Dylan De Coeyer <dylan.decoeyer@quimesis.be>\nSigned-off-by: Steve Macenski <stevenmacenski@gmail.com>\nCo-authored-by: Steve Macenski <stevenmacenski@gmail.com>"
+    },
+    {
+      "sha": "e85bbba88d4ce5f71b56887514cbd5e1e48203e3",
+      "author": "Tony Najjar",
+      "author_login": "tonynajjar",
+      "date": "2026-03-02T20:14:20Z",
+      "message": "Set StaticLayer to non-current as soon as an update is received (#5984)\n\n* fix: reset current state to false after updating map in StaticLayer\n\nSigned-off-by: Tony Najjar <tony.najjar@dexory.com>\n\n* feat: log duration for costmap updates in ControllerServer and PlannerServer\n\nSigned-off-by: Tony Najjar <tony.najjar@dexory.com>\n\n* feat: add waitForCostmap method to synchronize costmap updates in ControllerServer and PlannerServer\n\nSigned-off-by: Tony Najjar <tony.najjar@dexory.com>\n\n* lint\n\nSigned-off-by: Tony Najjar <tony.najjar@dexory.com>\n\n---------\n\nSigned-off-by: Tony Najjar <tony.najjar@dexory.com>"
+    },
+    {
+      "sha": "7a6ceaff850959ec549e731577015f40adec78c8",
+      "author": "Érico Meger",
+      "author_login": "EricoMeger",
+      "date": "2026-03-02T20:13:21Z",
+      "message": "[RPP] Prevent collision check premature termination with scaled_lookahead (#5677)\n\n* dynamic param + test\n\nSigned-off-by: EricoMeger <ericomeger9@gmail.com>\n\n* expand tests\n\nSigned-off-by: EricoMeger <ericomeger9@gmail.com>\n\n---------\n\nSigned-off-by: EricoMeger <ericomeger9@gmail.com>"
+    },
+    {
+      "sha": "cf36cc8237f46f58cec1f868d2e3ad354be67092",
+      "author": "Maurice Alexander Purnawan",
+      "author_login": "mini-1235",
+      "date": "2026-02-28T06:16:12Z",
+      "message": "Fix tests after rolling sync 0225 (#5987)\n\n* Fix tests after rolling sync 0225\n\nSigned-off-by: mini-1235 <mauricepurnawan@gmail.com>\n\n* Fix docking test\n\nSigned-off-by: mini-1235 <mauricepurnawan@gmail.com>\n\n* Add support for Jazzy and Kilted\n\nSigned-off-by: mini-1235 <mauricepurnawan@gmail.com>\n\n* Fix rclcpp version\n\nSigned-off-by: mini-1235 <mauricepurnawan@gmail.com>\n\n* Add NodeExecutionError\n\nSigned-off-by: mini-1235 <mauricepurnawan@gmail.com>\n\n* Remove deprecated exception handling for BT.CPP\n\nRemove back-compatibility code for BT.CPP 3.8.x.\n\nSigned-off-by: Maurice Alexander Purnawan <mauricepurnawan@gmail.com>\n\n* Update behavior_tree_engine.cpp\n\nCo-authored-by: Steve Macenski <stevenmacenski@gmail.com>\nSigned-off-by: Maurice Alexander Purnawan <mauricepurnawan@gmail.com>\n\n---------\n\nSigned-off-by: mini-1235 <mauricepurnawan@gmail.com>\nSigned-off-by: Maurice Alexander Purnawan <mauricepurnawan@gmail.com>\nCo-authored-by: Steve Macenski <stevenmacenski@gmail.com>"
+    },
+    {
+      "sha": "eed33e8efc6e7e96e57c2721702e5209cb056577",
+      "author": "Maurice Alexander Purnawan",
+      "author_login": "mini-1235",
+      "date": "2026-02-27T20:42:25Z",
+      "message": "Ensure BtServiceNode respects constructor service name when XML port is empty (#5990)\n\nSigned-off-by: mini-1235 <mauricepurnawan@gmail.com>"
+    },
+    {
+      "sha": "19a12409f30908ac2ba27718a42b2d8080a0552f",
+      "author": "Maurice Alexander Purnawan",
+      "author_login": "mini-1235",
+      "date": "2026-02-26T18:39:12Z",
+      "message": "Add isWithinPathTrackingBounds node (#5983)\n\n* Add isWithinPathTrackingBounds node\n\nCo-authored-by: silanus23 <berkantali23@outlook.com>\nSigned-off-by: mini-1235 <mauricepurnawan@gmail.com>\n\n* Add code coverage\n\nSigned-off-by: mini-1235 <mauricepurnawan@gmail.com>\n\n* Apply suggestions\n\nSigned-off-by: mini-1235 <mauricepurnawan@gmail.com>\n\n* Log\n\nSigned-off-by: mini-1235 <mauricepurnawan@gmail.com>\n\n* Remove check\n\nSigned-off-by: mini-1235 <mauricepurnawan@gmail.com>\n\n* Fix test\n\nSigned-off-by: mini-1235 <mauricepurnawan@gmail.com>\n\n* Apply suggestions\n\nSigned-off-by: mini-1235 <mauricepurnawan@gmail.com>\n\n* Lint\n\nSigned-off-by: mini-1235 <mauricepurnawan@gmail.com>\n\n---------\n\nSigned-off-by: mini-1235 <mauricepurnawan@gmail.com>\nCo-authored-by: silanus23 <berkantali23@outlook.com>"
+    },
+    {
+      "sha": "972dd4f2acbb64b679ea598996c4356aac41996d",
+      "author": "Maurice Alexander Purnawan",
+      "author_login": "mini-1235",
+      "date": "2026-02-25T17:52:26Z",
+      "message": "Redesign dynamic parameters patterns for costmap and fix costmap tests (#5974)\n\n* Redesign costmap dynamic parameters patterns\n\nSigned-off-by: mini-1235 <mauricepurnawan@gmail.com>\n\n* Clang tidy\n\nSigned-off-by: mini-1235 <mauricepurnawan@gmail.com>\n\n* Self review\n\nSigned-off-by: mini-1235 <mauricepurnawan@gmail.com>\n\n* Self review\n\nSigned-off-by: mini-1235 <mauricepurnawan@gmail.com>\n\n* Fix tests\n\nSigned-off-by: mini-1235 <mauricepurnawan@gmail.com>\n\n* Fix tests\n\nSigned-off-by: mini-1235 <mauricepurnawan@gmail.com>\n\n* Add code coverage\n\nSigned-off-by: mini-1235 <mauricepurnawan@gmail.com>\n\n* Fix\n\nSigned-off-by: mini-1235 <mauricepurnawan@gmail.com>\n\n* Lint\n\nSigned-off-by: Maurice Alexander Purnawan <mauricepurnawan@gmail.com>\n\n* retrigger ci\n\nSigned-off-by: mini-1235 <mauricepurnawan@gmail.com>\n\n---------\n\nSigned-off-by: mini-1235 <mauricepurnawan@gmail.com>\nSigned-off-by: Maurice Alexander Purnawan <mauricepurnawan@gmail.com>"
+    },
+    {
+      "sha": "5caac6a8c110824da8b43a1f2323e396fc9d41b0",
+      "author": "Arnav_Panjla",
+      "author_login": "Arnav-panjla",
+      "date": "2026-02-25T00:26:12Z",
+      "message": "Reject dynamic kinematic parameter updates when speed limit is active (#5832)\n\n* Reject dynamic kinematic parameter updates when speed limit is active\n\nSigned-off-by: Arnav-panjla <arnavpanjla@gmail.com>\nSigned-off-by: Panav Arpit Raaj <praajarpit@gmail.com>\n\n* fix: correct indentation for ament_uncrustify compliance\n\nSigned-off-by: Arnav-panjla <arnavpanjla@gmail.com>\nSigned-off-by: Panav Arpit Raaj <praajarpit@gmail.com>\n\n* refactor: allow dynamic kinematic param updates when speed limit inactive and Removed ParameterType::Static\n\nSigned-off-by: Arnav-panjla <arnavpanjla@gmail.com>\nSigned-off-by: Panav Arpit Raaj <praajarpit@gmail.com>\n\n* Add unit test for speed limit dynamic parameter\n\nSigned-off-by: Arnav-panjla <arnavpanjla@gmail.com>\nSigned-off-by: Panav Arpit Raaj <praajarpit@gmail.com>\n\n* Add unit test for speed limit dynamic parameter guard\n\nSigned-off-by: Arnav-panjla <arnavpanjla@gmail.com>\nSigned-off-by: Panav Arpit Raaj <praajarpit@gmail.com>\n\n* Reject dynamic kinematic param updates when speed limit active (#5832)\n\nSigned-off-by: Arnav-Panjla <arnavpanjla@gmail.com>\n\n* CI: Indentation fix\n\nSigned-off-by: Panav Arpit Raaj <praajarpit@gmail.com>\n\n* Formatting fix\n\nSigned-off-by: panav <panav@10xconstruction.com>\nSigned-off-by: Panav Arpit Raaj <praajarpit@gmail.com>\n\n* Implement PreCallback for Param Changes\n\nSigned-off-by: panav <panav@10xconstruction.com>\n\n* Remove unused addPreParamCallback method and update references to addPreCallback in optimizer\n\nSigned-off-by: panav <panav@10xconstruction.com>\nSigned-off-by: Panav Arpit Raaj <praajarpit@gmail.com>\n\n* Update nav2_mppi_controller/src/optimizer.cpp\n\nCo-authored-by: Maurice Alexander Purnawan <mauricepurnawan@gmail.com>\nSigned-off-by: Panav <63401208+Pana1v@users.noreply.github.com>\nSigned-off-by: Panav Arpit Raaj <praajarpit@gmail.com>\n\n* feat: Implement parameter pre-callbacks to prevent dynamic kinematic parameter updates during active speed limits and refine parameter handling logic.\n\nSigned-off-by: Panav Arpit Raaj <praajarpit@gmail.com>\n\n* removed acceleration params\n\nSigned-off-by: Arnav-Panjla <arnavpanjla@gmail.com>\n\n---------\n\nSigned-off-by: Arnav-panjla <arnavpanjla@gmail.com>\nSigned-off-by: Panav Arpit Raaj <praajarpit@gmail.com>\nSigned-off-by: Arnav-Panjla <arnavpanjla@gmail.com>\nSigned-off-by: panav <panav@10xconstruction.com>\nSigned-off-by: Panav <63401208+Pana1v@users.noreply.github.com>\nCo-authored-by: panav <panav@10xconstruction.com>\nCo-authored-by: Panav <63401208+Pana1v@users.noreply.github.com>\nCo-authored-by: Maurice Alexander Purnawan <mauricepurnawan@gmail.com>"
+    },
     {
       "sha": "913205382cb6a660505a026b4f83c07b7d787079",
       "author": "Maurice Alexander Purnawan",

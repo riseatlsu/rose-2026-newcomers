@@ -22,14 +22,10 @@ pip install -r requirements.txt
 echo "GITHUB_TOKEN=your_github_token_here" > .env
 python run_pipeline.py
 ```
-
-<<<<<<< HEAD
 The pipeline analyzes ROS packages across three distributions (ROS 2 Humble, Jazzy, and Kilted) and generates the final repository dataset at `out/filtered_repo_dataset.csv`. Individual scripts can also be run independently if you want to execute specific steps of the pipeline.
-=======
-This orchestrates the complete pipeline across ROS 2 distributions (Humble, Jazzy, Kilted) and generates outputs in the `out/` directory. For clustering and additional analysis, see [scripts/clustering](scripts/clustering) and [scripts/descriptive_stats](scripts/descriptive_stats).
 
 # Contact
-For questions or contributions:
+If you have any questions or are interested in contributing to this project, please don't hesitate to contact us:
 
 * Juliana Freitas (jfreit4@lsu.edu)
 * Elijah Phifer (ephife3@lsu.edu)

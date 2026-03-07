@@ -47,12 +47,8 @@ def main():
     print("="*70)
     
     scripts = [
-        '00_plot_inflow.py',
-        '01_plot_average_newcomers.py',
-        '02_plot_documentation_metrics.py',
-        '03_basic_statistics.py',
-        '04_plot_commit_types.py',
-        '05_plot_label_analysis.py',
+        '01_inflow.py',
+        '02_plot_inflow.py',
     ]
     
     results = {}

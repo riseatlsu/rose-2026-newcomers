@@ -8,7 +8,6 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 from collections import defaultdict
-from datetime import datetime, timedelta
 
 class InflowVisualizer:
     def __init__(self, csv_path, output_folder='plots', filtered_repos_csv=None, plot_prefix='00_plot_inflow__00'):
@@ -36,28 +35,9 @@ class InflowVisualizer:
         self.df = pd.read_csv(csv_path)
         
         # Extract week information and convert to proper format
-        all_week_columns = [col for col in self.df.columns if col != 'project']
+        self.week_columns = [col for col in self.df.columns if col != 'project']
         
-        # Filter to past 6 months only
-        cutoff_date = datetime(2026, 3, 5) - timedelta(days=180)
-        self.week_columns = []
-        
-        for col in all_week_columns:
-            week_str = col.strip('()').replace(' ', '')
-            parts = week_str.split(',')
-            if len(parts) == 2:
-                week, year = int(parts[0]), int(parts[1])
-                # Convert ISO week to approximate date
-                week_date = datetime.strptime(f'{year}-W{week:02d}-1', '%Y-W%W-%w').date()
-                if week_date >= cutoff_date.date():
-                    self.week_columns.append(col)
-            else:
-                self.week_columns.append(col)  # Keep unknown format
-        
-        # Filter dataframe to only include past 6 months columns
-        self.df = self.df[['project'] + self.week_columns]
-        
-        print(f"Loaded {len(self.df)} repositories with {len(self.week_columns)} weeks of data (past 6 months)")
+        print(f"Loaded {len(self.df)} repositories with {len(self.week_columns)} weeks of data")
         
         # Convert week tuples to readable format
         self.week_labels = []
@@ -450,10 +430,11 @@ class InflowVisualizer:
                     linewidth=linewidth, alpha=0.8, color=color, label=label, linestyle=linestyle)
         
         period_label = 'Month' if use_monthly else 'Week'
-        plt.xlabel(period_label, fontsize=9)
-        plt.ylabel('Number of Newcomers', fontsize=9)
-        plt.legend(loc='upper left', fontsize=3.25, framealpha=0.9, handlelength=2.8, 
-                  handletextpad=0.4, borderpad=0.25)
+        plt.xlabel(period_label, fontsize=13)
+        plt.ylabel('Number of Newcomers', fontsize=12)
+        plt.legend(bbox_to_anchor=(0.5, 1.02), loc='lower center', ncol=2, 
+                  fontsize=8.5, framealpha=0, handlelength=1, 
+                  handletextpad=0.4, borderpad=0)
         plt.grid(True, alpha=0.3)
         
         # Show period numbers on x-axis
@@ -461,13 +442,13 @@ class InflowVisualizer:
         tick_step = 4 if use_monthly else 2
         tick_positions = range(0, num_periods, tick_step)
         tick_labels = range(0, num_periods, tick_step)
-        plt.xticks(tick_positions, tick_labels, rotation=0, fontsize=7)
-        plt.yticks(fontsize=8)
+        plt.xticks(tick_positions, tick_labels, rotation=0, fontsize=7.5)
+        plt.yticks(fontsize=10)
         
         plt.tight_layout()
         
         suffix = "monthly" if use_monthly else "weekly"
-        output_path_png = os.path.join(self.output_folder, f'{self.plot_prefix}_distribution_{suffix}.png')
+        output_path_png = os.path.join(self.output_folder, 'newcomer_inflow_distribution.png')
         plt.savefig(output_path_png, dpi=300, bbox_inches='tight')
         print(f"Saved: {output_path_png}")
         
@@ -540,10 +521,11 @@ class InflowVisualizer:
                     linewidth=linewidth, alpha=0.8, color=color, label=label, linestyle=linestyle)
         
         period_label = 'Month' if use_monthly else 'Week'
-        plt.xlabel(period_label, fontsize=9)
-        plt.ylabel('Number of Newcomers', fontsize=9)
-        plt.legend(loc='upper left', fontsize=6.5, framealpha=0.9, handlelength=2.8, 
-                  handletextpad=0.4, borderpad=0.25)
+        plt.xlabel(period_label, fontsize=13)
+        plt.ylabel('Number of Newcomers', fontsize=12)
+        plt.legend(bbox_to_anchor=(0.5, 1.02), loc='lower center', ncol=2, 
+                  fontsize=8.5, framealpha=0, handlelength=1, 
+                  handletextpad=0.4, borderpad=0)
         plt.grid(True, alpha=0.3)
         
         # Show period numbers on x-axis
@@ -557,7 +539,7 @@ class InflowVisualizer:
         plt.tight_layout()
         
         suffix = "monthly" if use_monthly else "weekly"
-        output_path_png = os.path.join(self.output_folder, f'{self.plot_prefix}_owner_type_{suffix}.png')
+        output_path_png = os.path.join(self.output_folder, 'newcomer_inflow_owner.png')
         plt.savefig(output_path_png, dpi=300, bbox_inches='tight')
         print(f"Saved: {output_path_png}")
         
@@ -572,16 +554,16 @@ class InflowVisualizer:
         print("="*60)
         
         # Weekly plots (original default behavior)
-        self.plot_aggregate_inflow()
-        self.plot_all_repositories()
+        # self.plot_aggregate_inflow()
+        # self.plot_all_repositories()
         self.plot_distribution_inflow_multi_category()
         self.plot_owner_type_inflow()
         
         # Monthly plots (new)
-        self.plot_aggregate_inflow(use_monthly=True)
-        self.plot_all_repositories(use_monthly=True)
-        self.plot_distribution_inflow_multi_category(use_monthly=True)
-        self.plot_owner_type_inflow(use_monthly=True)
+        # self.plot_aggregate_inflow(use_monthly=True)
+        # self.plot_all_repositories(use_monthly=True)
+        # self.plot_distribution_inflow_multi_category(use_monthly=True)
+        # self.plot_owner_type_inflow(use_monthly=True)
         
         print("\n" + "="*60)
         print(f"Plots saved to: {os.path.abspath(self.output_folder)}")
@@ -589,10 +571,10 @@ class InflowVisualizer:
 
 if __name__ == '__main__':
     # Use paths relative to script location
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    csv_path = os.path.join(script_dir, '..', 'clustering', 'tables', 'inflow.csv')
-    output_folder = os.path.join(script_dir, 'plots')
-    filtered_repos_csv = os.path.join(script_dir, '..', '..', 'out', 'filtered_repo_dataset.csv')
+    script_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    csv_path = os.path.join(script_dir, 'tables', 'inflow.csv')
+    output_folder = os.path.join(script_dir, '..', 'figs', 'inflow')
+    filtered_repos_csv = os.path.join(script_dir, '..', 'out', 'filtered_repo_dataset.csv')
     
     # Check if CSV exists
     if not os.path.exists(csv_path):

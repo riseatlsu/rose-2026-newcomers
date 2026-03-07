@@ -20,13 +20,19 @@ import csv
 import json
 import re
 from typing import Any, Dict, Optional, Tuple, List
+from datetime import datetime
+import requests
+from dotenv import load_dotenv
+
+# Load environment variables for GitHub token (optional, for file size fetching)
+load_dotenv()
 
 
 # =========================
 # CONFIG
 # =========================
 REPOS_CSV = "out/repos/github_repos_unique.csv"
-DATA_ROOT = "data/ros_robotics_data"
+DATA_ROOT = "scripts/data/ros_robotics_data"
 OUT_CSV = "out/final_repo_dataset.csv"
 
 
@@ -174,6 +180,204 @@ def license_string(license_json: Any, general_info: Any) -> str:
 
 
 # =========================
+# PR / Issue / Metrics Helpers
+# =========================
+def safe_parse_date(date_str: Optional[str]) -> Optional[datetime]:
+    """Parse ISO 8601 date string to datetime."""
+    if not date_str:
+        return None
+    try:
+        # Handle ISO format: 2025-02-08T21:46:28Z
+        if date_str.endswith('Z'):
+            date_str = date_str[:-1] + '+00:00'
+        return datetime.fromisoformat(date_str)
+    except:
+        return None
+
+def days_between(date_start: Optional[str], date_end: Optional[str]) -> Optional[float]:
+    """Calculate days between two ISO 8601 date strings."""
+    d1 = safe_parse_date(date_start)
+    d2 = safe_parse_date(date_end)
+    if d1 and d2:
+        return (d2 - d1).total_seconds() / 86400.0
+    return None
+
+def get_pr_stats(pull_requests: Any) -> Dict[str, Any]:
+    """Calculate PR statistics: open, merged, closed, avg time to close."""
+    stats = {
+        "pr_open_count": 0,
+        "pr_merged_count": 0,
+        "pr_closed_count": 0,
+        "pr_avg_time_to_close_days": None,
+    }
+    
+    if not isinstance(pull_requests, list):
+        return stats
+    
+    closed_times = []
+    for pr in pull_requests:
+        state = (pr.get("state") or "").lower()
+        if state == "open":
+            stats["pr_open_count"] += 1
+        elif state == "closed":
+            stats["pr_closed_count"] += 1
+            # merged_at indicates it was merged (merged_at is not null)
+            if pr.get("merged_at"):
+                stats["pr_merged_count"] += 1
+            # Calculate time to close
+            days = days_between(pr.get("created_at"), pr.get("closed_at"))
+            if days is not None:
+                closed_times.append(days)
+    
+    if closed_times:
+        stats["pr_avg_time_to_close_days"] = round(sum(closed_times) / len(closed_times), 2)
+    
+    return stats
+
+def get_issue_stats(issues: Any) -> Dict[str, Any]:
+    """Calculate issue statistics: open, closed, avg time to close."""
+    stats = {
+        "issue_open_count": 0,
+        "issue_closed_count": 0,
+        "issue_avg_time_to_close_days": None,
+    }
+    
+    if not isinstance(issues, list):
+        return stats
+    
+    closed_times = []
+    for issue in issues:
+        state = (issue.get("state") or "").upper()
+        if state == "OPEN":
+            stats["issue_open_count"] += 1
+        elif state == "CLOSED":
+            stats["issue_closed_count"] += 1
+            # Calculate time to close
+            days = days_between(issue.get("created_at"), issue.get("closed_at"))
+            if days is not None:
+                closed_times.append(days)
+    
+    if closed_times:
+        stats["issue_avg_time_to_close_days"] = round(sum(closed_times) / len(closed_times), 2)
+    
+    return stats
+
+def get_repository_age_months(created_at: Optional[str]) -> Optional[int]:
+    """Calculate repository age in months from created_at."""
+    created = safe_parse_date(created_at)
+    if not created:
+        return None
+    now = datetime.now().replace(tzinfo=created.tzinfo)
+    months = (now.year - created.year) * 12 + (now.month - created.month)
+    return max(0, months)
+
+def get_avg_per_month(total_count: int, age_months: Optional[int]) -> Optional[float]:
+    """Calculate average count per month."""
+    if age_months and age_months > 0:
+        return round(total_count / age_months, 2)
+    return None
+
+def get_newcomers_per_month(first_commits: Any, repo_age_months: Optional[int]) -> Optional[float]:
+    """
+    Calculate average number of newcomers (new first-time contributors) per month.
+    
+    Uses first_commits_by_author to count unique authors by the month of their first commit.
+    Returns average count per month.
+    """
+    if not isinstance(first_commits, list) or not first_commits or not repo_age_months or repo_age_months <= 0:
+        return None
+    
+    # Group first commits by month
+    from collections import defaultdict
+    month_counts = defaultdict(set)  # month -> set of unique authors (avoid duplicates)
+    
+    for commit in first_commits:
+        date_str = commit.get("date")
+        author = commit.get("author")
+        
+        if date_str and author:
+            d = safe_parse_date(date_str)
+            if d:
+                # Key by year-month (e.g., "2023-05")
+                month_key = d.strftime("%Y-%m")
+                month_counts[month_key].add(author)
+    
+    # Total unique authors across all months
+    total_unique_authors = len(set(a for authors in month_counts.values() for a in authors))
+    
+    if total_unique_authors == 0:
+        return None
+    
+    # Average per month
+    return round(total_unique_authors / repo_age_months, 2)
+
+def get_file_size_kb(readme: Any) -> float:
+    """Extract file size in KB from file JSON."""
+    if isinstance(readme, dict) and "size" in readme:
+        size_bytes = readme.get("size", 0)
+        return round(size_bytes / 1024, 2) if size_bytes else 0.0
+    return 0.0
+
+def get_file_size_from_github_api(owner: str, repo: str, file_path: str) -> float:
+    """
+    Fetch file size in KB from GitHub API using /repos/{owner}/{repo}/contents/{path}.
+    Returns size in KB, or 0.0 if not found.
+    """
+    if not file_path:
+        return 0.0
+    
+    try:
+        token = os.getenv("GITHUB_TOKEN")
+        headers = {}
+        if token:
+            headers["Authorization"] = f"Bearer {token}"
+        
+        # Ensure file_path doesn't start with /
+        file_path = file_path.lstrip("/")
+        
+        url = f"https://api.github.com/repos/{owner}/{repo}/contents/{file_path}"
+        response = requests.get(url, headers=headers, timeout=5)
+        
+        if response.status_code == 200:
+            data = response.json()
+            if isinstance(data, dict) and "size" in data:
+                size_bytes = data.get("size", 0)
+                return round(size_bytes / 1024, 2) if size_bytes else 0.0
+        
+        return 0.0
+    except Exception:
+        return 0.0
+
+def extract_file_size_kb(file_obj: Any, owner: str, repo: str, fallback_key: str = "path") -> float:
+    """
+    Extract file size in KB from file JSON object.
+    First tries local "size" field, then attempts GitHub API if path is available.
+    
+    Args:
+        file_obj: The file JSON object (readme, contributing, etc.)
+        owner: Repository owner
+        repo: Repository name
+        fallback_key: Key to use for path if "path" not found (e.g., "path", "download_url")
+    
+    Returns:
+        Size in KB (float), or 0.0 if not found
+    """
+    # Try local size first
+    if isinstance(file_obj, dict) and "size" in file_obj:
+        size_bytes = file_obj.get("size", 0)
+        if size_bytes:
+            return round(size_bytes / 1024, 2)
+    
+    # Try GitHub API using path
+    if isinstance(file_obj, dict):
+        file_path = file_obj.get("path")
+        if file_path:
+            return get_file_size_from_github_api(owner, repo, file_path)
+    
+    return 0.0
+
+
+# =========================
 # Load repos list (unique CSV)
 # =========================
 def load_repos_csv(path: str) -> List[Dict[str, Any]]:
@@ -216,6 +420,10 @@ def build_row(owner: str, repo: str, distros_present: str) -> Dict[str, Any]:
     commits = read_snapshot_file(repo_dir, "commits.json") or []
     license_json = read_snapshot_file(repo_dir, "license.json") or {}
     languages_json = read_snapshot_file(repo_dir, "languages.json") or {}
+    pull_requests = read_snapshot_file(repo_dir, "pull_requests.json") or []
+    issues = read_snapshot_file(repo_dir, "issues.json") or []
+    forks = read_snapshot_file(repo_dir, "forks.json") or []
+    stars = read_snapshot_file(repo_dir, "stars.json") or []
 
     # contributors_count
     contributors_count = len(contributors) if isinstance(contributors, list) else 0
@@ -244,6 +452,7 @@ def build_row(owner: str, repo: str, distros_present: str) -> Dict[str, Any]:
     open_issues_count = general_info.get("open_issues_count") or 0
     subscribers_count = general_info.get("subscribers_count") or 0
     watchers_count = general_info.get("watchers_count") or 0
+    created_at = general_info.get("created_at")
 
     # has_ flags (semantic)
     has_readme = bool_found(readme)
@@ -272,7 +481,7 @@ def build_row(owner: str, repo: str, distros_present: str) -> Dict[str, Any]:
     first_commit_files_changed = 0
     first_commit_additions = 0
     first_commit_deletions = 0
-    first_commit_type = ""
+    first_commit_language = ""
     
     if isinstance(first_commits, list) and len(first_commits) > 0:
         # Find the earliest commit overall
@@ -282,9 +491,25 @@ def build_row(owner: str, repo: str, distros_present: str) -> Dict[str, Any]:
             first_commit_files_changed = earliest.get("files_changed", 0)
             first_commit_additions = earliest.get("additions", 0)
             first_commit_deletions = earliest.get("deletions", 0)
-            first_commit_type = earliest.get("commit_type", "")
+            first_commit_language = earliest.get("commit_type", "")
         except:
             pass
+
+    # PR / Issue / Repository metrics
+    pr_stats = get_pr_stats(pull_requests)
+    issue_stats = get_issue_stats(issues)
+    repo_age_months = get_repository_age_months(created_at)
+    
+    # Average per month metrics
+    avg_commits_per_month = get_avg_per_month(commits_count, repo_age_months)
+    avg_newcomers_per_month = get_newcomers_per_month(first_commits, repo_age_months)  # New contributors by first commit date
+    avg_forks_per_month = get_avg_per_month(forks_count, repo_age_months)
+    avg_stars_per_month = get_avg_per_month(stargazers_count, repo_age_months)
+    
+    # File sizes (KB) - try local first, then GitHub API
+    readme_size_kb = extract_file_size_kb(readme, owner, repo)
+    contributing_size_kb = extract_file_size_kb(contributing, owner, repo)
+    coc_size_kb = extract_file_size_kb(coc, owner, repo)
 
     return {
         "Name": repo,
@@ -310,7 +535,7 @@ def build_row(owner: str, repo: str, distros_present: str) -> Dict[str, Any]:
         "first_commit_files_changed": first_commit_files_changed,
         "first_commit_additions": first_commit_additions,
         "first_commit_deletions": first_commit_deletions,
-        "first_commit_type": first_commit_type,
+        "first_commit_language": first_commit_language,
         "owner_type": owner_type,
         "size": size,
         "subscribers_count": subscribers_count,
@@ -318,6 +543,25 @@ def build_row(owner: str, repo: str, distros_present: str) -> Dict[str, Any]:
         "languages": languages,
         "full_name": full_name,
         "distros_present": distros_present,
+        # New PR/Issue metrics
+        "Number of pull requests open": pr_stats["pr_open_count"],
+        "Number of pull requests merged": pr_stats["pr_merged_count"],
+        "Number of pull requests closed": pr_stats["pr_closed_count"],
+        "Number of issues open": issue_stats["issue_open_count"],
+        "Number of issues closed": issue_stats["issue_closed_count"],
+        "Average time to close a pull request (days)": pr_stats["pr_avg_time_to_close_days"],
+        "Average time to close an issue (days)": issue_stats["issue_avg_time_to_close_days"],
+        # New activity metrics
+        "Average number of commits per month": avg_commits_per_month,
+        "Average number of newcomers per month": avg_newcomers_per_month,
+        "Average number of forks per month": avg_forks_per_month,
+        "Average number of stars per month": avg_stars_per_month,
+        # New file size metrics (KB)
+        "Size of README (KB)": readme_size_kb,
+        "Size of CONTRIBUTING (KB)": contributing_size_kb,
+        "Size of CODE_OF_CONDUCT (KB)": coc_size_kb,
+        # New repository age metric
+        "Repository age (months)": repo_age_months,
     }
 
 def main():
@@ -360,10 +604,29 @@ def main():
         "has_readme", "has_contributing", "has_code_of_conduct", "has_pr_template", "has_issue_template",
         "has_newcomer_labels", "found_newcomer_labels",
         "contributors_count", "commits_count",
-        "first_contributor_date", "first_commit_files_changed", "first_commit_additions", "first_commit_deletions", "first_commit_type",
+        "first_contributor_date", "first_commit_files_changed", "first_commit_additions", "first_commit_deletions", "first_commit_language",
         "owner_type",
         "size", "subscribers_count", "watchers_count",
         "languages",
+        # New PR/Issue metrics
+        "Number of pull requests open",
+        "Number of pull requests merged",
+        "Number of pull requests closed",
+        "Number of issues open",
+        "Number of issues closed",
+        "Average time to close a pull request (days)",
+        "Average time to close an issue (days)",
+        # New activity metrics
+        "Average number of commits per month",
+        "Average number of newcomers per month",
+        "Average number of forks per month",
+        "Average number of stars per month",
+        # New file size metrics
+        "Size of README (KB)",
+        "Size of CONTRIBUTING (KB)",
+        "Size of CODE_OF_CONDUCT (KB)",
+        # New repository metrics
+        "Repository age (months)",
         "full_name", "distros_present",
     ]
 

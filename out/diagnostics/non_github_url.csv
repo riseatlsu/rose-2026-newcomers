@@ -38,6 +38,7 @@ jazzy,ackermann_nlmpc,ackermann_nlmpc,https://git.ime.uni-luebeck.de/public-proj
 jazzy,ackermann_nlmpc_msgs,ackermann_nlmpc,https://git.ime.uni-luebeck.de/public-projects/asl/ackermann_nlmpc.git,source,,,True,rosdistro_release_packages
 jazzy,apex_test_tools,apex_test_tools,https://gitlab.com/ApexAI/apex_test_tools.git,source,,,True,rosdistro_release_packages
 jazzy,autoware_auto_msgs,autoware_auto_msgs,https://gitlab.com/autowarefoundation/autoware.auto/autoware_auto_msgs.git,source,,,True,rosdistro_release_packages
+jazzy,data_tamer_tools,data_tamer_tools,https://gitlab.com/jlack/data_tamer_tools.git,source,,,True,rosdistro_release_packages
 jazzy,dataspeed_can,dataspeed_can,https://bitbucket.org/dataspeedinc/dataspeed_can.git,source,,,True,rosdistro_release_packages
 jazzy,dataspeed_can_msg_filters,dataspeed_can,https://bitbucket.org/dataspeedinc/dataspeed_can.git,source,,,True,rosdistro_release_packages
 jazzy,dataspeed_can_msgs,dataspeed_can,https://bitbucket.org/dataspeedinc/dataspeed_can.git,source,,,True,rosdistro_release_packages

@@ -1,0 +1,28 @@
+# Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.54      0.51      0.53        37
+           1       0.69      0.72      0.71        69
+           2       0.43      0.38      0.40         8
+
+    accuracy                           0.63       114
+   macro avg       0.56      0.54      0.55       114
+weighted avg       0.63      0.63      0.63       114
+
+# Feature Importances:
+age: 0.088062
+stars: 0.549902
+languages: 0.166096
+main_language: 0.092292
+integrators: 0.000000
+has_license: 0.018279
+domain: 0.000000
+has_contributing: 0.038897
+has_wiki: 0.000000
+time_for_merge: 0.000000
+has_code_of_conduct: 0.014756
+has_issue_template: 0.007452
+has_pull_request_template: 0.024263
+
+# Accuracy Score:
+0.631578947368421

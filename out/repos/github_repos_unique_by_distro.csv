@@ -63,6 +63,7 @@ MOLAorg/mola_sm_loop_closure,humble,1,https://github.com/MOLAorg/mola_sm_loop_cl
 MOLAorg/mola_state_estimation,humble,5,https://github.com/MOLAorg/mola_state_estimation.git
 MOLAorg/mola_test_datasets,humble,1,https://github.com/MOLAorg/mola_test_datasets.git
 MOLAorg/mp2p_icp,humble,1,https://github.com/MOLAorg/mp2p_icp.git
+MRPT/gtsam2mrpt_serial,humble,1,https://github.com/MRPT/gtsam2mrpt_serial.git
 MRPT/mrpt_path_planning,humble,1,https://github.com/MRPT/mrpt_path_planning.git
 MRPT/mrpt_ros,humble,13,https://github.com/MRPT/mrpt_ros.git
 MRPT/mrpt_ros_bridge,humble,2,https://github.com/MRPT/mrpt_ros_bridge.git
@@ -191,12 +192,14 @@ aussierobots/ublox_dgnss,humble,6,https://github.com/aussierobots/ublox_dgnss.gi
 automatika-robotics/kompass,humble,2,https://github.com/automatika-robotics/kompass.git
 automatika-robotics/ros-agents,humble,1,https://github.com/automatika-robotics/ros-agents.git
 automatika-robotics/ros-sugar,humble,1,https://github.com/automatika-robotics/ros-sugar.git
+autowarefoundation/agnocast,humble,6,https://github.com/autowarefoundation/agnocast.git
 autowarefoundation/autoware_adapi_msgs,humble,2,https://github.com/autowarefoundation/autoware_adapi_msgs.git
 autowarefoundation/autoware_cmake,humble,2,https://github.com/autowarefoundation/autoware_cmake.git
-autowarefoundation/autoware_core,humble,65,https://github.com/autowarefoundation/autoware_core.git
+autowarefoundation/autoware_core,humble,69,https://github.com/autowarefoundation/autoware_core.git
 autowarefoundation/autoware_internal_msgs,humble,6,https://github.com/autowarefoundation/autoware_internal_msgs.git
 autowarefoundation/autoware_lanelet2_extension,humble,2,https://github.com/autowarefoundation/autoware_lanelet2_extension.git
 autowarefoundation/autoware_msgs,humble,11,https://github.com/autowarefoundation/autoware_msgs.git
+autowarefoundation/autoware_rviz_plugins,humble,6,https://github.com/autowarefoundation/autoware_rviz_plugins.git
 autowarefoundation/autoware_utils,humble,12,https://github.com/autowarefoundation/autoware_utils.git
 autowarefoundation/ros2_socketcan,humble,2,https://github.com/autowarefoundation/ros2_socketcan.git
 autowarefoundation/tvm_vendor,humble,1,https://github.com/autowarefoundation/tvm_vendor.git
@@ -313,7 +316,7 @@ kobuki-base/kobuki_ros_interfaces,humble,1,https://github.com/kobuki-base/kobuki
 kobuki-base/kobuki_velocity_smoother,humble,1,https://github.com/kobuki-base/kobuki_velocity_smoother.git
 koide3/ndt_omp,humble,1,https://github.com/koide3/ndt_omp.git
 kroshu/kuka-external-control-sdk,humble,2,https://github.com/kroshu/kuka-external-control-sdk.git
-kroshu/kuka_drivers,humble,15,https://github.com/kroshu/kuka_drivers.git
+kroshu/kuka_drivers,humble,14,https://github.com/kroshu/kuka_drivers.git
 kroshu/kuka_robot_descriptions,humble,14,https://github.com/kroshu/kuka_robot_descriptions.git
 lgsvl/lgsvl_msgs,humble,1,https://github.com/lgsvl/lgsvl_msgs.git
 li9i/hitch-estimation-apriltag-array,humble,1,https://github.com/li9i/hitch-estimation-apriltag-array.git
@@ -337,7 +340,7 @@ mrpt-ros-pkg/mrpt_navigation,humble,9,https://github.com/mrpt-ros-pkg/mrpt_navig
 mrpt-ros-pkg/mrpt_sensors,humble,7,https://github.com/mrpt-ros-pkg/mrpt_sensors.git
 mrpt-ros-pkg/pose_cov_ops,humble,1,https://github.com/mrpt-ros-pkg/pose_cov_ops.git
 namo-robotics/aruco_markers,humble,2,https://github.com/namo-robotics/aruco_markers.git
-naturerobots/move_base_flex,humble,1,https://github.com/naturerobots/move_base_flex.git
+naturerobots/move_base_flex,humble,9,https://github.com/naturerobots/move_base_flex.git
 neobotix/neo_nav2_bringup,humble,1,https://github.com/neobotix/neo_nav2_bringup.git
 nerian-vision/nerian_stereo_ros2,humble,1,https://github.com/nerian-vision/nerian_stereo_ros2.git
 ngmor/catch_ros2,humble,1,https://github.com/ngmor/catch_ros2.git
@@ -423,6 +426,7 @@ pal-robotics/urdf_test,humble,1,https://github.com/pal-robotics/urdf_test.git
 pantor/ruckig,humble,1,https://github.com/pantor/ruckig.git
 polymathrobotics/replay_testing,humble,1,https://github.com/polymathrobotics/replay_testing.git
 pradyum/dual_laser_merger,humble,1,https://github.com/pradyum/dual_laser_merger.git
+qleonardolp/kinematic_pose_msgs,humble,1,https://github.com/qleonardolp/kinematic_pose_msgs.git
 reazon-research/openarm_ros2,humble,1,https://github.com/reazon-research/openarm_ros2.git
 rfzeg/wall_follower_ros2,humble,1,https://github.com/rfzeg/wall_follower_ros2.git
 roboception/rc_common_msgs_ros2,humble,1,https://github.com/roboception/rc_common_msgs_ros2.git
@@ -448,6 +452,7 @@ ros-controls/control_msgs,humble,1,https://github.com/ros-controls/control_msgs.
 ros-controls/control_toolbox,humble,1,https://github.com/ros-controls/control_toolbox.git
 ros-controls/gz_ros2_control,humble,5,https://github.com/ros-controls/gz_ros2_control.git
 ros-controls/kinematics_interface,humble,2,https://github.com/ros-controls/kinematics_interface.git
+ros-controls/mujoco_ros2_control,humble,3,https://github.com/ros-controls/mujoco_ros2_control.git
 ros-controls/realtime_tools,humble,1,https://github.com/ros-controls/realtime_tools.git
 ros-controls/ros2_control,humble,11,https://github.com/ros-controls/ros2_control.git
 ros-controls/ros2_control_cmake,humble,1,https://github.com/ros-controls/ros2_control_cmake.git
@@ -731,7 +736,6 @@ teamspatzenhirn/rig_reconfigure,humble,1,https://github.com/teamspatzenhirn/rig_
 teamspatzenhirn/rviz_2d_overlay_plugins,humble,2,https://github.com/teamspatzenhirn/rviz_2d_overlay_plugins.git
 tecgihan/tecgihan_driver,humble,1,https://github.com/tecgihan/tecgihan_driver.git
 tesseract-robotics/boost_plugin_loader,humble,1,https://github.com/tesseract-robotics/boost_plugin_loader.git
-tier4/agnocast,humble,6,https://github.com/tier4/agnocast.git
 tier4/callback_isolated_executor,humble,1,https://github.com/tier4/callback_isolated_executor.git
 tier4/caret_analyze,humble,1,https://github.com/tier4/caret_analyze.git
 tier4/caret_analyze_cpp_impl,humble,1,https://github.com/tier4/caret_analyze_cpp_impl.git
@@ -827,6 +831,7 @@ MOLAorg/mola_lidar_odometry,jazzy,1,https://github.com/MOLAorg/mola_lidar_odomet
 MOLAorg/mola_state_estimation,jazzy,5,https://github.com/MOLAorg/mola_state_estimation.git
 MOLAorg/mola_test_datasets,jazzy,1,https://github.com/MOLAorg/mola_test_datasets.git
 MOLAorg/mp2p_icp,jazzy,1,https://github.com/MOLAorg/mp2p_icp.git
+MRPT/gtsam2mrpt_serial,jazzy,1,https://github.com/MRPT/gtsam2mrpt_serial.git
 MRPT/mrpt_path_planning,jazzy,1,https://github.com/MRPT/mrpt_path_planning.git
 MRPT/mrpt_ros,jazzy,13,https://github.com/MRPT/mrpt_ros.git
 MRPT/mrpt_ros_bridge,jazzy,2,https://github.com/MRPT/mrpt_ros_bridge.git
@@ -963,7 +968,6 @@ brow1633/network_bridge,jazzy,1,https://github.com/brow1633/network_bridge.git
 brukg/so_arm_100_hardware,jazzy,1,https://github.com/brukg/so_arm_100_hardware.git
 carologistics/clips_executive,jazzy,17,https://github.com/carologistics/clips_executive.git
 carologistics/clips_vendor,jazzy,1,https://github.com/carologistics/clips_vendor.git
-cellumation/cm_executors,jazzy,1,https://github.com/cellumation/cm_executors.git
 chapulina/dolly,jazzy,4,https://github.com/chapulina/dolly.git
 chrisib/open_sound_control_ros,jazzy,3,https://github.com/chrisib/open_sound_control_ros.git
 christianrauch/apriltag_msgs,jazzy,1,https://github.com/christianrauch/apriltag_msgs.git
@@ -1009,6 +1013,7 @@ eclipse-zenoh/zenoh-plugin-dds,jazzy,1,https://github.com/eclipse-zenoh/zenoh-pl
 ethz-asl/libnabo,jazzy,1,https://github.com/ethz-asl/libnabo.git
 eurogroep/fadecandy_ros,jazzy,2,https://github.com/eurogroep/fadecandy_ros.git
 facontidavide/PlotJuggler,jazzy,1,https://github.com/facontidavide/PlotJuggler.git
+facontidavide/cloudini,jazzy,2,https://github.com/facontidavide/cloudini.git
 facontidavide/plotjuggler_msgs,jazzy,1,https://github.com/facontidavide/plotjuggler_msgs.git
 facontidavide/rosx_introspection,jazzy,1,https://github.com/facontidavide/rosx_introspection.git
 fawkesrobotics/protobuf_comm,jazzy,1,https://github.com/fawkesrobotics/protobuf_comm.git
@@ -1060,6 +1065,7 @@ hatchbed/opensw_ros,jazzy,1,https://github.com/hatchbed/opensw_ros.git
 hbanzhaf/steering_functions,jazzy,1,https://github.com/hbanzhaf/steering_functions.git
 husarion/husarion_components_description,jazzy,1,https://github.com/husarion/husarion_components_description.git
 husarion/husarion_ugv_ros,jazzy,2,https://github.com/husarion/husarion_ugv_ros.git
+husarion/rosbot_ros,jazzy,10,https://github.com/husarion/rosbot_ros.git
 iRobotEducation/create3_examples,jazzy,6,https://github.com/iRobotEducation/create3_examples.git
 iRobotEducation/create3_sim,jazzy,9,https://github.com/iRobotEducation/create3_sim.git
 iRobotEducation/irobot_create_msgs,jazzy,1,https://github.com/iRobotEducation/irobot_create_msgs.git
@@ -1074,7 +1080,6 @@ introlab/rtabmap,jazzy,1,https://github.com/introlab/rtabmap.git
 introlab/rtabmap_ros,jazzy,13,https://github.com/introlab/rtabmap_ros.git
 ipa320/ros_battery_monitoring,jazzy,2,https://github.com/ipa320/ros_battery_monitoring.git
 ipa320/rqt_frame_editor_plugin,jazzy,1,https://github.com/ipa320/rqt_frame_editor_plugin.git
-jlack1987/data_tamer_tools-release,jazzy,1,https://github.com/jlack1987/data_tamer_tools-release.git
 jlack1987/rdl-release,jazzy,2,https://github.com/jlack1987/rdl-release.git
 joshnewans/joy_tester,jazzy,1,https://github.com/joshnewans/joy_tester.git
 joshnewans/twist_stamper,jazzy,1,https://github.com/joshnewans/twist_stamper.git
@@ -1105,7 +1110,7 @@ mrpt-ros-pkg/mrpt_navigation,jazzy,9,https://github.com/mrpt-ros-pkg/mrpt_naviga
 mrpt-ros-pkg/mrpt_sensors,jazzy,7,https://github.com/mrpt-ros-pkg/mrpt_sensors.git
 mrpt-ros-pkg/pose_cov_ops,jazzy,1,https://github.com/mrpt-ros-pkg/pose_cov_ops.git
 namo-robotics/aruco_markers,jazzy,2,https://github.com/namo-robotics/aruco_markers.git
-naturerobots/move_base_flex,jazzy,1,https://github.com/naturerobots/move_base_flex.git
+naturerobots/move_base_flex,jazzy,9,https://github.com/naturerobots/move_base_flex.git
 neobotix/neo_nav2_bringup,jazzy,1,https://github.com/neobotix/neo_nav2_bringup.git
 ngmor/catch_ros2,jazzy,1,https://github.com/ngmor/catch_ros2.git
 niwcpac/rqt_dotgraph,jazzy,1,https://github.com/niwcpac/rqt_dotgraph.git
@@ -1149,6 +1154,7 @@ p2p-industries/hyveos_ros,jazzy,1,https://github.com/p2p-industries/hyveos_ros.g
 p2p-industries/hyveos_ros_msgs,jazzy,1,https://github.com/p2p-industries/hyveos_ros_msgs.git
 pal-robotics/aruco_ros,jazzy,3,https://github.com/pal-robotics/aruco_ros.git
 pal-robotics/backward_ros,jazzy,1,https://github.com/pal-robotics/backward_ros.git
+pal-robotics/launch_pal,jazzy,1,https://github.com/pal-robotics/launch_pal.git
 pal-robotics/mujoco_vendor,jazzy,1,https://github.com/pal-robotics/mujoco_vendor.git
 pal-robotics/pal_statistics,jazzy,2,https://github.com/pal-robotics/pal_statistics.git
 pal-robotics/play_motion2,jazzy,3,https://github.com/pal-robotics/play_motion2.git
@@ -1156,6 +1162,7 @@ pal-robotics/play_motion_builder,jazzy,3,https://github.com/pal-robotics/play_mo
 pantor/ruckig,jazzy,1,https://github.com/pantor/ruckig.git
 polymathrobotics/replay_testing,jazzy,1,https://github.com/polymathrobotics/replay_testing.git
 pradyum/dual_laser_merger,jazzy,1,https://github.com/pradyum/dual_laser_merger.git
+qleonardolp/kinematic_pose_msgs,jazzy,1,https://github.com/qleonardolp/kinematic_pose_msgs.git
 reductstore/reductstore_agent,jazzy,1,https://github.com/reductstore/reductstore_agent.git
 roboception/rc_common_msgs_ros2,jazzy,1,https://github.com/roboception/rc_common_msgs_ros2.git
 roboception/rc_dynamics_api,jazzy,1,https://github.com/roboception/rc_dynamics_api.git
@@ -1179,7 +1186,7 @@ ros-controls/control_msgs,jazzy,1,https://github.com/ros-controls/control_msgs.g
 ros-controls/control_toolbox,jazzy,1,https://github.com/ros-controls/control_toolbox.git
 ros-controls/gz_ros2_control,jazzy,2,https://github.com/ros-controls/gz_ros2_control.git
 ros-controls/kinematics_interface,jazzy,3,https://github.com/ros-controls/kinematics_interface.git
-ros-controls/mujoco_ros2_control,jazzy,1,https://github.com/ros-controls/mujoco_ros2_control.git
+ros-controls/mujoco_ros2_control,jazzy,3,https://github.com/ros-controls/mujoco_ros2_control.git
 ros-controls/realtime_tools,jazzy,1,https://github.com/ros-controls/realtime_tools.git
 ros-controls/ros2_control,jazzy,11,https://github.com/ros-controls/ros2_control.git
 ros-controls/ros2_control_cmake,jazzy,1,https://github.com/ros-controls/ros2_control_cmake.git
@@ -1404,6 +1411,9 @@ ros2/unique_identifier_msgs,jazzy,1,https://github.com/ros2/unique_identifier_ms
 ros2/urdf,jazzy,2,https://github.com/ros2/urdf.git
 ros2/variants,jazzy,6,https://github.com/ros2/variants.git
 ros2/yaml_cpp_vendor,jazzy,1,https://github.com/ros2/yaml_cpp_vendor.git
+ros4hri/hri_actions_msgs,jazzy,1,https://github.com/ros4hri/hri_actions_msgs.git
+ros4hri/hri_msgs,jazzy,1,https://github.com/ros4hri/hri_msgs.git
+ros4hri/libhri,jazzy,2,https://github.com/ros4hri/libhri.git
 rst-tu-dortmund/control_box_rst,jazzy,1,https://github.com/rst-tu-dortmund/control_box_rst.git
 rt-net/crane_plus,jazzy,6,https://github.com/rt-net/crane_plus.git
 rt-net/raspimouse2,jazzy,2,https://github.com/rt-net/raspimouse2.git
@@ -1525,6 +1535,7 @@ MOLAorg/mola_lidar_odometry,kilted,1,https://github.com/MOLAorg/mola_lidar_odome
 MOLAorg/mola_state_estimation,kilted,5,https://github.com/MOLAorg/mola_state_estimation.git
 MOLAorg/mola_test_datasets,kilted,1,https://github.com/MOLAorg/mola_test_datasets.git
 MOLAorg/mp2p_icp,kilted,1,https://github.com/MOLAorg/mp2p_icp.git
+MRPT/gtsam2mrpt_serial,kilted,1,https://github.com/MRPT/gtsam2mrpt_serial.git
 MRPT/mrpt_path_planning,kilted,1,https://github.com/MRPT/mrpt_path_planning.git
 MRPT/mrpt_ros,kilted,13,https://github.com/MRPT/mrpt_ros.git
 MRPT/mrpt_ros_bridge,kilted,2,https://github.com/MRPT/mrpt_ros_bridge.git
@@ -1663,6 +1674,7 @@ eclipse-iceoryx/iceoryx,kilted,4,https://github.com/eclipse-iceoryx/iceoryx.git
 eclipse-zenoh/zenoh-plugin-dds,kilted,1,https://github.com/eclipse-zenoh/zenoh-plugin-dds.git
 ethz-asl/libnabo,kilted,1,https://github.com/ethz-asl/libnabo.git
 facontidavide/PlotJuggler,kilted,1,https://github.com/facontidavide/PlotJuggler.git
+facontidavide/cloudini,kilted,2,https://github.com/facontidavide/cloudini.git
 facontidavide/plotjuggler_msgs,kilted,1,https://github.com/facontidavide/plotjuggler_msgs.git
 facontidavide/rosx_introspection,kilted,1,https://github.com/facontidavide/rosx_introspection.git
 fawkesrobotics/protobuf_comm,kilted,1,https://github.com/fawkesrobotics/protobuf_comm.git
@@ -1796,6 +1808,7 @@ pal-robotics/play_motion_builder,kilted,3,https://github.com/pal-robotics/play_m
 pantor/ruckig,kilted,1,https://github.com/pantor/ruckig.git
 polymathrobotics/replay_testing,kilted,1,https://github.com/polymathrobotics/replay_testing.git
 pradyum/dual_laser_merger,kilted,1,https://github.com/pradyum/dual_laser_merger.git
+qleonardolp/kinematic_pose_msgs,kilted,1,https://github.com/qleonardolp/kinematic_pose_msgs.git
 roboception/rc_common_msgs_ros2,kilted,1,https://github.com/roboception/rc_common_msgs_ros2.git
 roboception/rc_dynamics_api,kilted,1,https://github.com/roboception/rc_dynamics_api.git
 roboception/rc_genicam_api,kilted,1,https://github.com/roboception/rc_genicam_api.git
@@ -1816,7 +1829,7 @@ ros-controls/control_msgs,kilted,1,https://github.com/ros-controls/control_msgs.
 ros-controls/control_toolbox,kilted,1,https://github.com/ros-controls/control_toolbox.git
 ros-controls/gz_ros2_control,kilted,2,https://github.com/ros-controls/gz_ros2_control.git
 ros-controls/kinematics_interface,kilted,3,https://github.com/ros-controls/kinematics_interface.git
-ros-controls/mujoco_ros2_control,kilted,1,https://github.com/ros-controls/mujoco_ros2_control.git
+ros-controls/mujoco_ros2_control,kilted,3,https://github.com/ros-controls/mujoco_ros2_control.git
 ros-controls/realtime_tools,kilted,1,https://github.com/ros-controls/realtime_tools.git
 ros-controls/ros2_control,kilted,11,https://github.com/ros-controls/ros2_control.git
 ros-controls/ros2_control_cmake,kilted,1,https://github.com/ros-controls/ros2_control_cmake.git

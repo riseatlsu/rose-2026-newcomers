@@ -35,7 +35,7 @@ class InflowVisualizer:
         self.df = pd.read_csv(csv_path)
         
         # Extract week information and convert to proper format
-        self.week_columns = [col for col in self.df.columns if col != 'project']
+        self.week_columns = [col for col in self.df.columns if col not in ('project', 'owner_type', 'distribution_type')]
         
         print(f"Loaded {len(self.df)} repositories with {len(self.week_columns)} weeks of data")
         
@@ -63,109 +63,33 @@ class InflowVisualizer:
     
     def _extract_distributions(self):
         """
-        Extract ROS distribution for each repository from filtered_repo_dataset.csv.
+        Read ROS distribution for each repository directly from inflow.csv.
         Returns a dictionary mapping project names to distributions.
         """
-        if not self.filtered_repos_csv or not os.path.exists(self.filtered_repos_csv):
-            print(f"Warning: Filtered repos CSV not found: {self.filtered_repos_csv}")
-            print("All repositories will be marked as 'unknown'")
+        if 'distribution_type' not in self.df.columns:
+            print("Warning: 'distribution_type' column not found in inflow.csv. Re-run 01_inflow.py.")
             return {row['project']: 'unknown' for _, row in self.df.iterrows()}
         
-        # Load the filtered repos dataset
-        print(f"Loading distribution data from: {self.filtered_repos_csv}")
-        filtered_df = pd.read_csv(self.filtered_repos_csv)
-        
-        # Filter to only include repositories in inflow.csv
-        allowed_projects = set(self.df['project'].values)
-        filtered_df['project_key'] = filtered_df['Owner'] + '/' + filtered_df['Name']
-        filtered_df = filtered_df[filtered_df['project_key'].isin(allowed_projects)]
-        print(f"  Filtered to {len(filtered_df)} repositories from inflow.csv")
-        
-        # Create a mapping using Owner/Name format to match inflow.csv project names
-        distro_mapping = {}
-        for _, row in filtered_df.iterrows():
-            owner = row['Owner']
-            name = row['Name']
-            project_key = f"{owner}/{name}"
-            distros = row.get('distros_present', '')
-            
-            # If multiple distributions, pick the most recent one for single-distro assignment
-            if distros and '|' in distros:
-                # For repos with multiple distros, pick the most recent one
-                distro_list = distros.split('|')
-                # Preference order: kilted > jazzy > humble > iron > rolling > galactic > foxy
-                distro_priority = ['kilted', 'jazzy', 'humble', 'iron', 'rolling', 'galactic', 'foxy']
-                assigned_distro = None
-                for d in distro_priority:
-                    if d in distro_list:
-                        assigned_distro = d
-                        break
-                distro_mapping[project_key] = assigned_distro if assigned_distro else distro_list[0]
-            elif distros:
-                distro_mapping[project_key] = distros
-            else:
-                distro_mapping[project_key] = 'unknown'
-        
-        # Map each project in inflow.csv to its distribution
-        repo_distros = {}
-        unmapped_count = 0
-        for _, row in self.df.iterrows():
-            project = row['project']
-            if project in distro_mapping:
-                repo_distros[project] = distro_mapping[project]
-            else:
-                repo_distros[project] = 'unknown'
-                unmapped_count += 1
-                print(f"  Warning: Could not find distribution for: {project}")
-        
-        if unmapped_count > 0:
-            print(f"  Total unmapped repositories: {unmapped_count}")
-        
-        return repo_distros
+        return {
+            row['project']: row['distribution_type'].replace('-only', '')
+            for _, row in self.df.iterrows()
+        }
     
     def _extract_all_distributions(self):
         """
-        Extract ALL ROS distributions for each repository (for multi-distro analysis).
+        Read ALL ROS distributions for each repository directly from inflow.csv.
         Returns a dictionary mapping project names to list of distributions.
         """
-        if not self.filtered_repos_csv or not os.path.exists(self.filtered_repos_csv):
-            print(f"Warning: Filtered repos CSV not found: {self.filtered_repos_csv}")
+        if 'distribution_type' not in self.df.columns:
             return {row['project']: ['unknown'] for _, row in self.df.iterrows()}
         
-        # Load the filtered repos dataset
-        filtered_df = pd.read_csv(self.filtered_repos_csv)
-        
-        # Filter to only include repositories in inflow.csv
-        allowed_projects = set(self.df['project'].values)
-        filtered_df['project_key'] = filtered_df['Owner'] + '/' + filtered_df['Name']
-        filtered_df = filtered_df[filtered_df['project_key'].isin(allowed_projects)]
-        
-        # Create a mapping using Owner/Name format to match inflow.csv project names
-        distro_mapping = {}
-        for _, row in filtered_df.iterrows():
-            owner = row['Owner']
-            name = row['Name']
-            project_key = f"{owner}/{name}"
-            distros = row.get('distros_present', '')
-            
-            if distros and '|' in distros:
-                # Multiple distributions - return as list
-                distro_mapping[project_key] = distros.split('|')
-            elif distros:
-                # Single distribution
-                distro_mapping[project_key] = [distros]
-            else:
-                distro_mapping[project_key] = ['unknown']
-        
-        # Map each project in inflow.csv to its distributions
         repo_distros = {}
         for _, row in self.df.iterrows():
-            project = row['project']
-            if project in distro_mapping:
-                repo_distros[project] = distro_mapping[project]
+            dist_type = row['distribution_type']
+            if dist_type == 'multi-distro':
+                repo_distros[row['project']] = ['multi-distro']
             else:
-                repo_distros[project] = ['unknown']
-        
+                repo_distros[row['project']] = [dist_type.replace('-only', '')]
         return repo_distros
     
     def _categorize_single_vs_multi_distro(self):
@@ -186,50 +110,14 @@ class InflowVisualizer:
     
     def _extract_owner_types(self):
         """
-        Extract owner type (User/Organization) for each repository from filtered_repo_dataset.csv.
+        Read owner type (User/Organization) for each repository directly from inflow.csv.
         Returns a dictionary mapping project names to owner types.
         """
-        if not self.filtered_repos_csv or not os.path.exists(self.filtered_repos_csv):
-            print(f"Warning: Filtered repos CSV not found: {self.filtered_repos_csv}")
+        if 'owner_type' not in self.df.columns:
+            print("Warning: 'owner_type' column not found in inflow.csv. Re-run 01_inflow.py.")
             return {row['project']: 'unknown' for _, row in self.df.iterrows()}
         
-        # Load the filtered repos dataset
-        filtered_df = pd.read_csv(self.filtered_repos_csv)
-        
-        # Filter to only include repositories in inflow.csv
-        allowed_projects = set(self.df['project'].values)
-        filtered_df['project_key'] = filtered_df['Owner'] + '/' + filtered_df['Name']
-        filtered_df = filtered_df[filtered_df['project_key'].isin(allowed_projects)]
-        
-        # Create a mapping using Owner/Name format to match inflow.csv project names
-        owner_type_mapping = {}
-        for _, row in filtered_df.iterrows():
-            owner = row['Owner']
-            name = row['Name']
-            project_key = f"{owner}/{name}"
-            owner_type = row.get('owner_type', 'unknown')
-            
-            # Normalize owner type
-            if owner_type in ['User', 'Organization']:
-                owner_type_mapping[project_key] = owner_type
-            else:
-                owner_type_mapping[project_key] = 'unknown'
-        
-        # Map each project in inflow.csv to its owner type
-        repo_owner_types = {}
-        unmapped_count = 0
-        for _, row in self.df.iterrows():
-            project = row['project']
-            if project in owner_type_mapping:
-                repo_owner_types[project] = owner_type_mapping[project]
-            else:
-                repo_owner_types[project] = 'unknown'
-                unmapped_count += 1
-        
-        if unmapped_count > 0:
-            print(f"  Could not find owner type for {unmapped_count} repositories")
-        
-        return repo_owner_types
+        return {row['project']: row['owner_type'] for _, row in self.df.iterrows()}
     
     def _print_distribution_summary(self):
         """
@@ -315,7 +203,7 @@ class InflowVisualizer:
         df_to_use = self.monthly_df if use_monthly else self.df
         period_columns = self.month_columns if use_monthly else self.week_columns
         
-        plt.figure(figsize=(7, 5))
+        plt.figure(figsize=(3.5, 2.5))
         
         # Plot each repository with very thin, semi-transparent lines
         for idx, (_, row) in enumerate(df_to_use.iterrows()):
@@ -402,7 +290,7 @@ class InflowVisualizer:
         }
         
         # Create the plot (sized for single column)
-        plt.figure(figsize=(3.5, 2.5))
+        plt.figure(figsize=(4, 3))
         
         # Plot multi-distro first so it's in the background
         plot_order = ['multi-distro'] + [c for c in sorted(category_data.keys()) if c not in ['multi-distro', 'unknown']] + ['unknown']
@@ -417,13 +305,13 @@ class InflowVisualizer:
             
             if category == 'multi-distro':
                 label = f"Multi-Distribution (n={category_repo_counts[category]})"
-                linewidth = 2
+                linewidth = 3
             elif category == 'unknown':
                 label = f"Unknown/Other (n={category_repo_counts[category]})"
-                linewidth = 1.5
+                linewidth = 2.5
             else:
                 label = f"{category.capitalize()} only (n={category_repo_counts[category]})"
-                linewidth = 1.5
+                linewidth = 2.5
             
             period_totals = category_data[category]
             plt.plot(range(len(period_totals)), period_totals, 
@@ -431,21 +319,21 @@ class InflowVisualizer:
         
         period_label = 'Month' if use_monthly else 'Week'
         plt.xlabel(period_label, fontsize=13)
-        plt.ylabel('Number of Newcomers', fontsize=12)
+        plt.ylabel('Number of Newcomers', fontsize=13)
         plt.legend(bbox_to_anchor=(0.5, 1.02), loc='lower center', ncol=2, 
-                  fontsize=8.5, framealpha=0, handlelength=1, 
-                  handletextpad=0.4, borderpad=0)
+                  fontsize=10, framealpha=0, handlelength=1, 
+                  handletextpad=0.4, borderpad=0, columnspacing=0.5)
         plt.grid(True, alpha=0.3)
         
         # Show period numbers on x-axis
         num_periods = len(period_totals)
-        tick_step = 4 if use_monthly else 2
+        tick_step = 4
         tick_positions = range(0, num_periods, tick_step)
         tick_labels = range(0, num_periods, tick_step)
-        plt.xticks(tick_positions, tick_labels, rotation=0, fontsize=7.5)
-        plt.yticks(fontsize=10)
+        plt.xticks(tick_positions, tick_labels, rotation=0, fontsize=12)
+        plt.yticks(fontsize=12)
         
-        plt.tight_layout()
+        plt.tight_layout(pad=0.1)
         
         suffix = "monthly" if use_monthly else "weekly"
         output_path_png = os.path.join(self.output_folder, 'newcomer_inflow_distribution.png')
@@ -521,20 +409,20 @@ class InflowVisualizer:
                     linewidth=linewidth, alpha=0.8, color=color, label=label, linestyle=linestyle)
         
         period_label = 'Month' if use_monthly else 'Week'
-        plt.xlabel(period_label, fontsize=13)
+        plt.xlabel(period_label, fontsize=12)
         plt.ylabel('Number of Newcomers', fontsize=12)
         plt.legend(bbox_to_anchor=(0.5, 1.02), loc='lower center', ncol=2, 
-                  fontsize=8.5, framealpha=0, handlelength=1, 
+                  fontsize=9, framealpha=0, handlelength=1, 
                   handletextpad=0.4, borderpad=0)
         plt.grid(True, alpha=0.3)
         
         # Show period numbers on x-axis
         num_periods = len(period_totals)
-        tick_step = 4 if use_monthly else 2
+        tick_step = 4
         tick_positions = range(0, num_periods, tick_step)
         tick_labels = range(0, num_periods, tick_step)
-        plt.xticks(tick_positions, tick_labels, rotation=0, fontsize=7)
-        plt.yticks(fontsize=8)
+        plt.xticks(tick_positions, tick_labels, rotation=0, fontsize=10)
+        plt.yticks(fontsize=10)
         
         plt.tight_layout()
         

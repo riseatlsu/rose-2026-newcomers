@@ -24,6 +24,7 @@ class NewcomersInflow():
         
         # Load projects from filtered CSV and check their ages
         projects = self.load_and_filter_projects()
+        self.repo_metadata = self._load_repo_metadata()
         
         if not projects:
             print("No projects with valid commits found after filtering!")
@@ -154,6 +155,48 @@ class NewcomersInflow():
         print(f"  Repositories old enough (>= {self.min_age_months} months): {repos_old_enough}")
         
         return projects
+
+    def _load_repo_metadata(self):
+        """
+        Load owner_type and distribution_type for each repo from filtered_repo_dataset.csv.
+        Returns a dict mapping 'owner/name' -> {'owner_type': ..., 'distribution_type': ...}.
+        """
+        metadata = {}
+        if not self.filtered_repos_csv or not os.path.exists(self.filtered_repos_csv):
+            return metadata
+        
+        try:
+            with open(self.filtered_repos_csv, 'r', encoding='utf-8') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    owner = row.get('Owner', '').strip()
+                    name = row.get('Name', '').strip()
+                    if not owner or not name:
+                        continue
+                    project_key = f"{owner}/{name}"
+                    
+                    # Owner type
+                    owner_type = row.get('owner_type', 'unknown').strip()
+                    if owner_type not in ['User', 'Organization']:
+                        owner_type = 'unknown'
+                    
+                    # Distribution type
+                    distros = row.get('distros_present', '').strip()
+                    if distros and '|' in distros:
+                        distribution_type = 'multi-distro'
+                    elif distros:
+                        distribution_type = f"{distros}-only"
+                    else:
+                        distribution_type = 'unknown'
+                    
+                    metadata[project_key] = {
+                        'owner_type': owner_type,
+                        'distribution_type': distribution_type
+                    }
+        except Exception as e:
+            print(f"Warning: Could not load repo metadata: {e}")
+        
+        return metadata
 
     def get_first_commit_date(self, commits_file_path):
         """
@@ -292,7 +335,7 @@ class NewcomersInflow():
         if weekly_min is None or weekly_max is None:
             print("No commit data found. Creating empty inflow.csv")
             with open(self.csv_folder + '/inflow.csv', 'w', newline='', encoding='utf-8') as inflow_file:
-                writer = csv.DictWriter(inflow_file, fieldnames=['project'])
+                writer = csv.DictWriter(inflow_file, fieldnames=['project', 'owner_type', 'distribution_type'])
                 writer.writeheader()
             return
         
@@ -315,7 +358,7 @@ class NewcomersInflow():
         print(f"Exporting inflow data for {len(fieldnames)} weeks (from week {fieldnames[0]} to week {fieldnames[-1]})...")
         
         with open(self.csv_folder + '/inflow.csv', 'w', newline='', encoding='utf-8') as inflow_file:
-            writer = csv.DictWriter(inflow_file, fieldnames=['project'] + fieldnames)
+            writer = csv.DictWriter(inflow_file, fieldnames=['project'] + fieldnames + ['owner_type', 'distribution_type'])
             writer.writeheader()
         
         for project in weekly_series:
@@ -331,8 +374,12 @@ class NewcomersInflow():
                         number_of_newcomers += count
                 inflow[week] = number_of_newcomers
 
+            meta = self.repo_metadata.get(project, {})
+            inflow['owner_type'] = meta.get('owner_type', 'unknown')
+            inflow['distribution_type'] = meta.get('distribution_type', 'unknown')
+
             with open(self.csv_folder + '/inflow.csv', 'a', newline='', encoding='utf-8') as inflow_file:
-                writer = csv.DictWriter(inflow_file, fieldnames=['project'] + fieldnames)
+                writer = csv.DictWriter(inflow_file, fieldnames=['project'] + fieldnames + ['owner_type', 'distribution_type'])
                 writer.writerow(inflow)
         
         print(f"Inflow data saved to: {self.csv_folder}/inflow.csv")

@@ -4,9 +4,7 @@ Welcome to the replication package of the paper entitled "Are We Welcome Here? A
 # Repository Structure
 - [**scripts**](scripts): Complete data processing pipeline
   - **00-11**: Core data collection pipeline (download ROS index, build mappings, extract features, apply exclusion criteria)
-  - **12-14**: Inflow and documentation visualization scripts
-  - [**clustering**](scripts/clustering): Time series clustering analysis and package classification
-  - [**descriptive_stats**](scripts/descriptive_stats): Descriptive statistics and visualization generation
+  - [**inflow_plot**](scripts/inflow_plot): Descriptive statistics and visualization generation
   - **Utility scripts**: `generate_all_commits_spreadsheet.py`, `generate_ros_packages_statistics.py`
 - [**data**](scripts/data): Per-repository data collected from GitHub (metadata, commits, contributors, issues, community files)
 - [**tables**](scripts/tables): Summarized results and statistics (inflow metrics, repository overlap, cluster assignments)

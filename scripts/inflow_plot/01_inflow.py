@@ -24,56 +24,34 @@ class NewcomersInflow():
         
         # Load projects from filtered CSV and check their ages
         projects = self.load_and_filter_projects()
+        self.repo_metadata = self._load_repo_metadata()
         
         if not projects:
             print("No projects with valid commits found after filtering!")
             return
         
-        # Find youngest (latest first commit) and oldest (earliest first commit) repositories
-        youngest_repo = None  # Latest first commit
-        oldest_repo = None    # Earliest first commit
-        
-        for project_info in projects:
-            # Track youngest (latest first commit) and oldest (earliest first commit)
-            if youngest_repo is None or project_info['first_commit_date'] > youngest_repo['first_commit_date']:
-                youngest_repo = project_info
-            if oldest_repo is None or project_info['first_commit_date'] < oldest_repo['first_commit_date']:
-                oldest_repo = project_info
-        
-        print(f"\nRepository Statistics:")
-        if youngest_repo:
-            print(f"  Youngest repository: {youngest_repo['full_name']} (first commit: {youngest_repo['first_commit_date']})")
-        if oldest_repo:
-            print(f"  Oldest repository: {oldest_repo['full_name']} (first commit: {oldest_repo['first_commit_date']})")
-        
-        # Use the YOUNGEST repo's first commit date as the start point
-        if youngest_repo and youngest_repo['first_commit_date']:
-            self.start_date = youngest_repo['first_commit_date']
-            print(f"\nCounting newcomers from: {self.start_date} (youngest repo's first commit)\n")
-        else:
-            print("Error: No valid start date found!")
-            return
+        # Fixed 6-month window ending on the reference date March 3, 2026
+        self.end_date = datetime(2026, 3, 3).date()
+        self.start_date = self.end_date - relativedelta(months=6)
+        print(f"\nCounting newcomers from: {self.start_date} to {self.end_date} (6-month window)\n")
         
         # Track latest commit across all repos
         self.latest_commit_date = None
         
         weekly_series = self.get_weekly_series(projects)
-        weekly_min, weekly_max = self.get_number_of_weeks(weekly_series)
         
-        # Print commit date range
-        print(f"\nCommit Date Statistics:")
-        print(f"  Oldest commit in dataset: {weekly_min}")
-        print(f"  Newest commit in dataset: {self.latest_commit_date if self.latest_commit_date else weekly_max}")
+        print(f"\nExporting weekly inflow from {self.start_date} to {self.end_date}...")
         
         # Export weekly inflow
-        self.export_newcomers_inflow(weekly_series, weekly_min, weekly_max)
+        self.export_newcomers_inflow(weekly_series)
         
         # Export monthly inflow
         # self.export_monthly_inflow(weekly_series, weekly_min, weekly_max)
     
     def load_and_filter_projects(self):
         """
-        Load repositories from the filtered CSV and filter by age.
+        Load repositories from the filtered CSV.
+        All repos in filtered_repo_dataset.csv are assumed mature.
         Returns list of project info dicts with folder paths and first commit dates.
         """
         # Determine the data folder path
@@ -89,14 +67,9 @@ class NewcomersInflow():
             print(f"ERROR: Data directory does not exist: {os.path.abspath(ros_data_folder)}")
             return []
         
-        # Calculate age cutoff
-        cutoff_date = datetime.now().date() - relativedelta(months=self.min_age_months)
-        print(f"Filtering: keeping only repositories with first commit before {cutoff_date} ({self.min_age_months} months ago)\n")
-        
         projects = []
         repos_in_csv = 0
         repos_with_commits = 0
-        repos_old_enough = 0
         
         try:
             with open(self.filtered_repos_csv, 'r', encoding='utf-8') as f:
@@ -132,17 +105,11 @@ class NewcomersInflow():
                         continue
                     
                     repos_with_commits += 1
-                    
-                    # Check age
-                    if first_commit_date <= cutoff_date:
-                        repos_old_enough += 1
-                        projects.append({
-                            'full_name': full_name,
-                            'folder_path': project_path,
-                            'first_commit_date': first_commit_date
-                        })
-                    else:
-                        print(f"  Excluding {full_name} (first commit {first_commit_date}, too young)")
+                    projects.append({
+                        'full_name': full_name,
+                        'folder_path': project_path,
+                        'first_commit_date': first_commit_date
+                    })
         
         except Exception as e:
             print(f"ERROR reading filtered CSV: {e}")
@@ -151,9 +118,49 @@ class NewcomersInflow():
         print(f"\nFiltering Summary:")
         print(f"  Repositories in filtered CSV: {repos_in_csv}")
         print(f"  Repositories with commit data: {repos_with_commits}")
-        print(f"  Repositories old enough (>= {self.min_age_months} months): {repos_old_enough}")
+        print(f"  Repositories included: {len(projects)}")
         
         return projects
+
+    def _load_repo_metadata(self):
+        """
+        Load owner_type and distribution_type for each repo from filtered_repo_dataset.csv.
+        Returns a dict mapping 'owner/name' -> {'owner_type': ..., 'distribution_type': ...}.
+        """
+        metadata = {}
+        if not self.filtered_repos_csv or not os.path.exists(self.filtered_repos_csv):
+            return metadata
+        
+        try:
+            with open(self.filtered_repos_csv, 'r', encoding='utf-8') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    owner = row.get('Owner', '').strip()
+                    name = row.get('Name', '').strip()
+                    if not owner or not name:
+                        continue
+                    project_key = f"{owner}/{name}"
+                    
+                    owner_type = row.get('owner_type', 'unknown').strip()
+                    if owner_type not in ['User', 'Organization']:
+                        owner_type = 'unknown'
+                    
+                    distros = row.get('distros_present', '').strip()
+                    if distros and '|' in distros:
+                        distribution_type = 'multi-distro'
+                    elif distros:
+                        distribution_type = f"{distros}-only"
+                    else:
+                        distribution_type = 'unknown'
+                    
+                    metadata[project_key] = {
+                        'owner_type': owner_type,
+                        'distribution_type': distribution_type
+                    }
+        except Exception as e:
+            print(f"Warning: Could not load repo metadata: {e}")
+        
+        return metadata
 
     def get_first_commit_date(self, commits_file_path):
         """
@@ -288,19 +295,10 @@ class NewcomersInflow():
 
         return weekly_min, weekly_max
 
-    def export_newcomers_inflow(self, weekly_series, weekly_min, weekly_max):
-        if weekly_min is None or weekly_max is None:
-            print("No commit data found. Creating empty inflow.csv")
-            with open(self.csv_folder + '/inflow.csv', 'w', newline='', encoding='utf-8') as inflow_file:
-                writer = csv.DictWriter(inflow_file, fieldnames=['project'])
-                writer.writeheader()
-            return
-        
-        # Don't include future weeks - cap at today's date
-        today = datetime.now().date()
-        if weekly_max > today:
-            print(f"Capping data collection at today ({today}) instead of latest commit date ({weekly_max})")
-            weekly_max = today
+    def export_newcomers_inflow(self, weekly_series):
+        # Use the fixed 6-month window
+        weekly_min = self.start_date
+        weekly_max = self.end_date
         
         fieldnames = []
         step = timedelta(days=1)
@@ -315,7 +313,7 @@ class NewcomersInflow():
         print(f"Exporting inflow data for {len(fieldnames)} weeks (from week {fieldnames[0]} to week {fieldnames[-1]})...")
         
         with open(self.csv_folder + '/inflow.csv', 'w', newline='', encoding='utf-8') as inflow_file:
-            writer = csv.DictWriter(inflow_file, fieldnames=['project'] + fieldnames)
+            writer = csv.DictWriter(inflow_file, fieldnames=['project'] + fieldnames + ['owner_type', 'distribution_type'])
             writer.writeheader()
         
         for project in weekly_series:
@@ -331,8 +329,12 @@ class NewcomersInflow():
                         number_of_newcomers += count
                 inflow[week] = number_of_newcomers
 
+            meta = self.repo_metadata.get(project, {})
+            inflow['owner_type'] = meta.get('owner_type', 'unknown')
+            inflow['distribution_type'] = meta.get('distribution_type', 'unknown')
+
             with open(self.csv_folder + '/inflow.csv', 'a', newline='', encoding='utf-8') as inflow_file:
-                writer = csv.DictWriter(inflow_file, fieldnames=['project'] + fieldnames)
+                writer = csv.DictWriter(inflow_file, fieldnames=['project'] + fieldnames + ['owner_type', 'distribution_type'])
                 writer.writerow(inflow)
         
         print(f"Inflow data saved to: {self.csv_folder}/inflow.csv")

@@ -58,11 +58,11 @@ box(lwd = 3)
 # This redraws the x-axis line with the thicker width
 axis(side = 1, lwd = 3, labels = FALSE)
 
-# SIZE
+# AGE
 par(mar = c(2, 2, 1, 1), cex.axis = 1.2, cex.lab = 1.2)
 
 boxplot(
-  na.omit(final_dataset$size),
+  na.omit(final_dataset$`Repository age (months)`),
   horizontal = TRUE,
   col = "lightgray",
   lwd = 3,        # Controls the box and median

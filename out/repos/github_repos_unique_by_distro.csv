@@ -10,7 +10,6 @@ AutonicsLiDAR/lsc_ros2_driver,humble,1,https://github.com/AutonicsLiDAR/lsc_ros2
 AutonomyLab/create_robot,humble,5,https://github.com/AutonomyLab/create_robot.git
 AutonomyLab/libcreate,humble,1,https://github.com/AutonomyLab/libcreate.git
 Autoware-AI/qpoases_vendor,humble,1,https://github.com/Autoware-AI/qpoases_vendor.git
-BehaviorTree/BehaviorTree.CPP,humble,1,https://github.com/BehaviorTree/BehaviorTree.CPP.git
 BerkeleyAutomation/FogROS2,humble,2,https://github.com/BerkeleyAutomation/FogROS2.git
 Boeing/gazebo_no_physics_plugin,humble,1,https://github.com/Boeing/gazebo_no_physics_plugin.git
 Boeing/gazebo_planar_move_plugin,humble,1,https://github.com/Boeing/gazebo_planar_move_plugin.git
@@ -232,7 +231,6 @@ clearpathrobotics/clearpath_config,humble,1,https://github.com/clearpathrobotics
 clearpathrobotics/clearpath_desktop,humble,3,https://github.com/clearpathrobotics/clearpath_desktop.git
 clearpathrobotics/clearpath_msgs,humble,2,https://github.com/clearpathrobotics/clearpath_msgs.git
 clearpathrobotics/clearpath_nav2_demos,humble,1,https://github.com/clearpathrobotics/clearpath_nav2_demos.git
-clearpathrobotics/clearpath_ros2_socketcan_interface,humble,1,https://github.com/clearpathrobotics/clearpath_ros2_socketcan_interface.git
 clearpathrobotics/clearpath_simulator,humble,3,https://github.com/clearpathrobotics/clearpath_simulator.git
 clearpathrobotics/ewellix_lift_common,humble,6,https://github.com/clearpathrobotics/ewellix_lift_common.git
 clearpathrobotics/ptz_action_server,humble,1,https://github.com/clearpathrobotics/ptz_action_server.git
@@ -786,7 +784,6 @@ AprilRobotics/apriltag,jazzy,1,https://github.com/AprilRobotics/apriltag.git
 AutoAPMS/auto-apms,jazzy,7,https://github.com/AutoAPMS/auto-apms.git
 Autoware-AI/qpoases_vendor,jazzy,1,https://github.com/Autoware-AI/qpoases_vendor.git
 Beam-and-Spyrosoft/rtest,jazzy,1,https://github.com/Beam-and-Spyrosoft/rtest.git
-BehaviorTree/BehaviorTree.CPP,jazzy,1,https://github.com/BehaviorTree/BehaviorTree.CPP.git
 BruceChanJianLe/laser_scan_merger,jazzy,1,https://github.com/BruceChanJianLe/laser_scan_merger.git
 CCNYRoboticsLab/imu_tools,jazzy,4,https://github.com/CCNYRoboticsLab/imu_tools.git
 DFKI-NI/mir_robot,jazzy,1,https://github.com/DFKI-NI/mir_robot.git
@@ -981,14 +978,13 @@ clearpathrobotics/clearpath_config,jazzy,1,https://github.com/clearpathrobotics/
 clearpathrobotics/clearpath_desktop,jazzy,4,https://github.com/clearpathrobotics/clearpath_desktop.git
 clearpathrobotics/clearpath_msgs,jazzy,2,https://github.com/clearpathrobotics/clearpath_msgs.git
 clearpathrobotics/clearpath_nav2_demos,jazzy,1,https://github.com/clearpathrobotics/clearpath_nav2_demos.git
-clearpathrobotics/clearpath_ros2_socketcan_interface,jazzy,1,https://github.com/clearpathrobotics/clearpath_ros2_socketcan_interface.git
 clearpathrobotics/clearpath_simulator,jazzy,3,https://github.com/clearpathrobotics/clearpath_simulator.git
-clearpathrobotics/clearpath_tests,jazzy,1,https://github.com/clearpathrobotics/clearpath_tests.git
 clearpathrobotics/ewellix_lift_common,jazzy,6,https://github.com/clearpathrobotics/ewellix_lift_common.git
 clearpathrobotics/ptz_action_server,jazzy,1,https://github.com/clearpathrobotics/ptz_action_server.git
 clearpathrobotics/robot_upstart,jazzy,1,https://github.com/clearpathrobotics/robot_upstart.git
 clearpathrobotics/simple-term-menu,jazzy,1,https://github.com/clearpathrobotics/simple-term-menu.git
 clearpathrobotics/wireless,jazzy,2,https://github.com/clearpathrobotics/wireless.git
+cnurobotics/ros2_snapshot,jazzy,1,https://github.com/cnurobotics/ros2_snapshot.git
 coal-library/coal,jazzy,1,https://github.com/coal-library/coal.git
 cra-ros-pkg/robot_localization,jazzy,1,https://github.com/cra-ros-pkg/robot_localization.git
 ctu-vras/compass,jazzy,5,https://github.com/ctu-vras/compass.git
@@ -1159,6 +1155,7 @@ pal-robotics/mujoco_vendor,jazzy,1,https://github.com/pal-robotics/mujoco_vendor
 pal-robotics/pal_statistics,jazzy,2,https://github.com/pal-robotics/pal_statistics.git
 pal-robotics/play_motion2,jazzy,3,https://github.com/pal-robotics/play_motion2.git
 pal-robotics/play_motion_builder,jazzy,3,https://github.com/pal-robotics/play_motion_builder.git
+pal-robotics/urdf_test,jazzy,1,https://github.com/pal-robotics/urdf_test.git
 pantor/ruckig,jazzy,1,https://github.com/pantor/ruckig.git
 polymathrobotics/replay_testing,jazzy,1,https://github.com/polymathrobotics/replay_testing.git
 pradyum/dual_laser_merger,jazzy,1,https://github.com/pradyum/dual_laser_merger.git
@@ -1496,7 +1493,6 @@ AutoAPMS/auto-apms,kilted,7,https://github.com/AutoAPMS/auto-apms.git
 Autoware-AI/qpoases_vendor,kilted,1,https://github.com/Autoware-AI/qpoases_vendor.git
 Barry-Xu-2018/ros2_service_load_balancing,kilted,1,https://github.com/Barry-Xu-2018/ros2_service_load_balancing.git
 Beam-and-Spyrosoft/rtest,kilted,1,https://github.com/Beam-and-Spyrosoft/rtest.git
-BehaviorTree/BehaviorTree.CPP,kilted,1,https://github.com/BehaviorTree/BehaviorTree.CPP.git
 CCNYRoboticsLab/imu_tools,kilted,4,https://github.com/CCNYRoboticsLab/imu_tools.git
 DFKI-NI/mir_robot,kilted,1,https://github.com/DFKI-NI/mir_robot.git
 DFKI-NI/rospy_message_converter,kilted,2,https://github.com/DFKI-NI/rospy_message_converter.git
@@ -1507,6 +1503,7 @@ EasyNavigation/NavMap,kilted,5,https://github.com/EasyNavigation/NavMap.git
 Ekumen-OS/beluga,kilted,3,https://github.com/Ekumen-OS/beluga.git
 Fields2Cover/fields2cover,kilted,1,https://github.com/Fields2Cover/fields2cover.git
 ForteFibre/FluentRviz,kilted,1,https://github.com/ForteFibre/FluentRviz.git
+FraunhoferIOSB/camera_aravis2,kilted,1,https://github.com/FraunhoferIOSB/camera_aravis2.git
 FraunhoferIOSB/multisensor_calibration,kilted,3,https://github.com/FraunhoferIOSB/multisensor_calibration.git
 HebiRobotics/hebi_cpp_api_ros,kilted,1,https://github.com/HebiRobotics/hebi_cpp_api_ros.git
 HebiRobotics/hebi_msgs,kilted,1,https://github.com/HebiRobotics/hebi_msgs.git
@@ -1769,6 +1766,7 @@ nobleo/nobleo_socketcan_bridge,kilted,1,https://github.com/nobleo/nobleo_socketc
 nobleo/ros2_fmt_logger,kilted,1,https://github.com/nobleo/ros2_fmt_logger.git
 nobleo/rviz_satellite,kilted,1,https://github.com/nobleo/rviz_satellite.git
 norlab-ulaval/libpointmatcher,kilted,1,https://github.com/norlab-ulaval/libpointmatcher.git
+novatel/novatel_oem7_driver,kilted,1,https://github.com/novatel/novatel_oem7_driver.git
 oKermorgant/simple_launch,kilted,1,https://github.com/oKermorgant/simple_launch.git
 oKermorgant/slider_publisher,kilted,1,https://github.com/oKermorgant/slider_publisher.git
 octomap/octomap_msgs,kilted,1,https://github.com/octomap/octomap_msgs.git

@@ -308,7 +308,6 @@ humble,bcr_arm_gazebo,bcr_arm,https://github.com/blackcoffeerobotics/bcr_arm.git
 humble,bcr_arm_moveit_config,bcr_arm,https://github.com/blackcoffeerobotics/bcr_arm.git,source,blackcoffeerobotics,bcr_arm,True,rosdistro_release_packages
 humble,bcr_arm_ros2,bcr_arm,https://github.com/blackcoffeerobotics/bcr_arm.git,source,blackcoffeerobotics,bcr_arm,True,rosdistro_release_packages
 humble,bcr_bot,bcr_bot,https://github.com/blackcoffeerobotics/bcr_bot.git,source,blackcoffeerobotics,bcr_bot,True,rosdistro_release_packages
-humble,behaviortree_cpp,behaviortree_cpp_v4,https://github.com/BehaviorTree/BehaviorTree.CPP.git,source,BehaviorTree,BehaviorTree.CPP,True,rosdistro_release_packages
 humble,beluga,beluga,https://github.com/Ekumen-OS/beluga.git,source,Ekumen-OS,beluga,True,rosdistro_release_packages
 humble,beluga_amcl,beluga,https://github.com/Ekumen-OS/beluga.git,source,Ekumen-OS,beluga,True,rosdistro_release_packages
 humble,beluga_benchmark,,https://github.com/Ekumen-OS/beluga.git,index_checkout_uri,Ekumen-OS,beluga,True,index_html_checkout_uri
@@ -396,7 +395,6 @@ humble,clearpath_msgs,clearpath_msgs,https://github.com/clearpathrobotics/clearp
 humble,clearpath_nav2_demos,clearpath_nav2_demos,https://github.com/clearpathrobotics/clearpath_nav2_demos.git,source,clearpathrobotics,clearpath_nav2_demos,True,rosdistro_release_packages
 humble,clearpath_platform_description,clearpath_common,https://github.com/clearpathrobotics/clearpath_common.git,source,clearpathrobotics,clearpath_common,True,rosdistro_release_packages
 humble,clearpath_platform_msgs,clearpath_msgs,https://github.com/clearpathrobotics/clearpath_msgs.git,source,clearpathrobotics,clearpath_msgs,True,rosdistro_release_packages
-humble,clearpath_ros2_socketcan_interface,clearpath_ros2_socketcan_interface,https://github.com/clearpathrobotics/clearpath_ros2_socketcan_interface.git,source,clearpathrobotics,clearpath_ros2_socketcan_interface,True,rosdistro_release_packages
 humble,clearpath_sensors_description,clearpath_common,https://github.com/clearpathrobotics/clearpath_common.git,source,clearpathrobotics,clearpath_common,True,rosdistro_release_packages
 humble,clearpath_simulator,clearpath_simulator,https://github.com/clearpathrobotics/clearpath_simulator.git,source,clearpathrobotics,clearpath_simulator,True,rosdistro_release_packages
 humble,clearpath_socketcan_interface,puma_motor_driver,https://github.com/clearpathrobotics/puma_motor_driver.git,source,clearpathrobotics,puma_motor_driver,True,rosdistro_release_packages
@@ -2514,7 +2512,6 @@ jazzy,bcr_arm_ros2,bcr_arm,https://github.com/blackcoffeerobotics/bcr_arm.git,so
 jazzy,bcr_bot,bcr_bot,https://github.com/blackcoffeerobotics/bcr_bot.git,source,blackcoffeerobotics,bcr_bot,True,rosdistro_release_packages
 jazzy,beckhoff_ads_bringup,beckhoff_ads_driver,https://github.com/b-robotized/beckhoff_ads_driver-release.git,release,b-robotized,beckhoff_ads_driver-release,True,rosdistro_release_packages
 jazzy,beckhoff_ads_hardware_interface,beckhoff_ads_driver,https://github.com/b-robotized/beckhoff_ads_driver-release.git,release,b-robotized,beckhoff_ads_driver-release,True,rosdistro_release_packages
-jazzy,behaviortree_cpp,behaviortree_cpp_v4,https://github.com/BehaviorTree/BehaviorTree.CPP.git,source,BehaviorTree,BehaviorTree.CPP,True,rosdistro_release_packages
 jazzy,beluga,beluga,https://github.com/Ekumen-OS/beluga.git,source,Ekumen-OS,beluga,True,rosdistro_release_packages
 jazzy,beluga_amcl,beluga,https://github.com/Ekumen-OS/beluga.git,source,Ekumen-OS,beluga,True,rosdistro_release_packages
 jazzy,beluga_benchmark,,https://github.com/Ekumen-OS/beluga.git,index_checkout_uri,Ekumen-OS,beluga,True,index_html_checkout_uri
@@ -2601,10 +2598,8 @@ jazzy,clearpath_nav2_demos,clearpath_nav2_demos,https://github.com/clearpathrobo
 jazzy,clearpath_offboard_sensors,clearpath_desktop,https://github.com/clearpathrobotics/clearpath_desktop.git,source,clearpathrobotics,clearpath_desktop,True,rosdistro_release_packages
 jazzy,clearpath_platform_description,clearpath_common,https://github.com/clearpathrobotics/clearpath_common.git,source,clearpathrobotics,clearpath_common,True,rosdistro_release_packages
 jazzy,clearpath_platform_msgs,clearpath_msgs,https://github.com/clearpathrobotics/clearpath_msgs.git,source,clearpathrobotics,clearpath_msgs,True,rosdistro_release_packages
-jazzy,clearpath_ros2_socketcan_interface,clearpath_ros2_socketcan_interface,https://github.com/clearpathrobotics/clearpath_ros2_socketcan_interface.git,source,clearpathrobotics,clearpath_ros2_socketcan_interface,True,rosdistro_release_packages
 jazzy,clearpath_sensors_description,clearpath_common,https://github.com/clearpathrobotics/clearpath_common.git,source,clearpathrobotics,clearpath_common,True,rosdistro_release_packages
 jazzy,clearpath_simulator,clearpath_simulator,https://github.com/clearpathrobotics/clearpath_simulator.git,source,clearpathrobotics,clearpath_simulator,True,rosdistro_release_packages
-jazzy,clearpath_tests,clearpath_tests,https://github.com/clearpathrobotics/clearpath_tests.git,source,clearpathrobotics,clearpath_tests,True,rosdistro_release_packages
 jazzy,clearpath_viz,clearpath_desktop,https://github.com/clearpathrobotics/clearpath_desktop.git,source,clearpathrobotics,clearpath_desktop,True,rosdistro_release_packages
 jazzy,clips_executive,clips_executive,https://github.com/carologistics/clips_executive.git,source,carologistics,clips_executive,True,rosdistro_release_packages
 jazzy,clips_vendor,clips_vendor,https://github.com/carologistics/clips_vendor.git,source,carologistics,clips_vendor,True,rosdistro_release_packages
@@ -2705,7 +2700,6 @@ jazzy,demo_nodes_py,demos,https://github.com/ros2/demos.git,source,ros2,demos,Tr
 jazzy,depth_image_proc,image_pipeline,https://github.com/ros-perception/image_pipeline.git,source,ros-perception,image_pipeline,True,rosdistro_release_packages
 jazzy,depth_obstacle_detect_ros,depth_obstacle_detect_ros,https://github.com/analogdevicesinc/depth-obstacle-detect-ros.git,source,analogdevicesinc,depth-obstacle-detect-ros,True,rosdistro_release_packages
 jazzy,depth_obstacle_detect_ros_msgs,depth_obstacle_detect_ros,https://github.com/analogdevicesinc/depth-obstacle-detect-ros.git,source,analogdevicesinc,depth-obstacle-detect-ros,True,rosdistro_release_packages
-jazzy,depthai,depthai,https://github.com/luxonis/depthai-core.git,source,luxonis,depthai-core,True,rosdistro_release_packages
 jazzy,depthai-ros,depthai-ros,https://github.com/luxonis/depthai-ros.git,source,luxonis,depthai-ros,True,rosdistro_release_packages
 jazzy,depthai_bridge,depthai-ros,https://github.com/luxonis/depthai-ros.git,source,luxonis,depthai-ros,True,rosdistro_release_packages
 jazzy,depthai_descriptions,depthai-ros,https://github.com/luxonis/depthai-ros.git,source,luxonis,depthai-ros,True,rosdistro_release_packages
@@ -2713,6 +2707,7 @@ jazzy,depthai_examples,depthai-ros,https://github.com/luxonis/depthai-ros.git,so
 jazzy,depthai_filters,depthai-ros,https://github.com/luxonis/depthai-ros.git,source,luxonis,depthai-ros,True,rosdistro_release_packages
 jazzy,depthai_ros_driver,depthai-ros,https://github.com/luxonis/depthai-ros.git,source,luxonis,depthai-ros,True,rosdistro_release_packages
 jazzy,depthai_ros_msgs,depthai-ros,https://github.com/luxonis/depthai-ros.git,source,luxonis,depthai-ros,True,rosdistro_release_packages
+jazzy,depthai_v3,depthai_v3,https://github.com/luxonis/depthai-core.git,source,luxonis,depthai-core,True,rosdistro_release_packages
 jazzy,depthimage_to_laserscan,depthimage_to_laserscan,https://github.com/ros-perception/depthimage_to_laserscan.git,source,ros-perception,depthimage_to_laserscan,True,rosdistro_release_packages
 jazzy,derived_object_msgs,astuff_sensor_msgs,https://github.com/astuff/astuff_sensor_msgs.git,source,astuff,astuff_sensor_msgs,True,rosdistro_release_packages
 jazzy,desktop,variants,https://github.com/ros2/variants.git,source,ros2,variants,True,rosdistro_release_packages
@@ -3847,6 +3842,7 @@ jazzy,ros2_medkit_integration_tests,,https://github.com/selfpatch/ros2_medkit.gi
 jazzy,ros2_medkit_msgs,,https://github.com/selfpatch/ros2_medkit.git,index_checkout_uri,selfpatch,ros2_medkit,True,index_html_checkout_uri
 jazzy,ros2_medkit_serialization,,https://github.com/selfpatch/ros2_medkit.git,index_checkout_uri,selfpatch,ros2_medkit,True,index_html_checkout_uri
 jazzy,ros2_ouster,,,,,,False,
+jazzy,ros2_snapshot,ros2_snapshot,https://github.com/cnurobotics/ros2_snapshot.git,source,cnurobotics,ros2_snapshot,True,rosdistro_release_packages
 jazzy,ros2_socketcan,ros2_socketcan,https://github.com/autowarefoundation/ros2_socketcan.git,source,autowarefoundation,ros2_socketcan,True,rosdistro_release_packages
 jazzy,ros2_socketcan_msgs,ros2_socketcan,https://github.com/autowarefoundation/ros2_socketcan.git,source,autowarefoundation,ros2_socketcan,True,rosdistro_release_packages
 jazzy,ros2acceleration,ros2acceleration,https://github.com/ros-acceleration/ros2acceleration.git,source,ros-acceleration,ros2acceleration,True,rosdistro_release_packages
@@ -4036,7 +4032,7 @@ jazzy,rtabmap_sync,rtabmap_ros,https://github.com/introlab/rtabmap_ros.git,sourc
 jazzy,rtabmap_util,rtabmap_ros,https://github.com/introlab/rtabmap_ros.git,source,introlab,rtabmap_ros,True,rosdistro_release_packages
 jazzy,rtabmap_viz,rtabmap_ros,https://github.com/introlab/rtabmap_ros.git,source,introlab,rtabmap_ros,True,rosdistro_release_packages
 jazzy,rtcm_msgs,rtcm_msgs,https://github.com/tilk/rtcm_msgs.git,source,tilk,rtcm_msgs,True,rosdistro_release_packages
-jazzy,rtest,rtest,https://github.com/Beam-and-Spyrosoft/rtest.git,source,Beam-and-Spyrosoft,rtest,True,rosdistro_repo_key_name_match
+jazzy,rtest,rtest,https://github.com/Beam-and-Spyrosoft/rtest.git,source,Beam-and-Spyrosoft,rtest,True,rosdistro_release_packages
 jazzy,rtest_examples,,https://github.com/Beam-and-Spyrosoft/rtest.git,index_checkout_uri,Beam-and-Spyrosoft,rtest,True,index_html_checkout_uri
 jazzy,rtest_examples_interfaces,,https://github.com/Beam-and-Spyrosoft/rtest.git,index_checkout_uri,Beam-and-Spyrosoft,rtest,True,index_html_checkout_uri
 jazzy,rti_connext_dds_cmake_module,rmw_connextdds,https://github.com/ros2/rmw_connextdds.git,source,ros2,rmw_connextdds,True,rosdistro_release_packages
@@ -4362,6 +4358,7 @@ jazzy,ur_simulation_gz,ur_simulation_gz,https://github.com/UniversalRobots/Unive
 jazzy,urdf,urdf,https://github.com/ros2/urdf.git,source,ros2,urdf,True,rosdistro_release_packages
 jazzy,urdf_launch,urdf_launch,https://github.com/ros/urdf_launch.git,source,ros,urdf_launch,True,rosdistro_release_packages
 jazzy,urdf_parser_plugin,urdf,https://github.com/ros2/urdf.git,source,ros2,urdf,True,rosdistro_release_packages
+jazzy,urdf_test,urdf_test,https://github.com/pal-robotics/urdf_test.git,source,pal-robotics,urdf_test,True,rosdistro_release_packages
 jazzy,urdf_tutorial,urdf_tutorial,https://github.com/ros/urdf_tutorial.git,source,ros,urdf_tutorial,True,rosdistro_release_packages
 jazzy,urdfdom,urdfdom,https://github.com/ros/urdfdom.git,source,ros,urdfdom,True,rosdistro_release_packages
 jazzy,urdfdom_py,urdf_parser_py,https://github.com/ros/urdf_parser_py.git,source,ros,urdf_parser_py,True,rosdistro_release_packages
@@ -4590,7 +4587,6 @@ kilted,battery_state_broadcaster,ros_battery_monitoring,https://github.com/ipa32
 kilted,battery_state_rviz_overlay,ros_battery_monitoring,https://github.com/ipa320/ros_battery_monitoring.git,source,ipa320,ros_battery_monitoring,True,rosdistro_release_packages
 kilted,beckhoff_ads_bringup,beckhoff_ads_driver,https://github.com/b-robotized/beckhoff_ads_driver-release.git,release,b-robotized,beckhoff_ads_driver-release,True,rosdistro_release_packages
 kilted,beckhoff_ads_hardware_interface,beckhoff_ads_driver,https://github.com/b-robotized/beckhoff_ads_driver-release.git,release,b-robotized,beckhoff_ads_driver-release,True,rosdistro_release_packages
-kilted,behaviortree_cpp,behaviortree_cpp_v4,https://github.com/BehaviorTree/BehaviorTree.CPP.git,source,BehaviorTree,BehaviorTree.CPP,True,rosdistro_release_packages
 kilted,beluga,beluga,https://github.com/Ekumen-OS/beluga.git,source,Ekumen-OS,beluga,True,rosdistro_release_packages
 kilted,beluga_amcl,beluga,https://github.com/Ekumen-OS/beluga.git,source,Ekumen-OS,beluga,True,rosdistro_release_packages
 kilted,beluga_benchmark,,https://github.com/Ekumen-OS/beluga.git,index_checkout_uri,Ekumen-OS,beluga,True,index_html_checkout_uri
@@ -4612,6 +4608,8 @@ kilted,boost_plugin_loader,boost_plugin_loader,https://github.com/tesseract-robo
 kilted,boost_sml_vendor,boost_sml_vendor,https://github.com/nobleo/boost_sml_vendor.git,source,nobleo,boost_sml_vendor,True,rosdistro_release_packages
 kilted,broll,rosbag2_broll,https://github.com/ros-tooling/rosbag2_broll.git,source,ros-tooling,rosbag2_broll,True,rosdistro_release_packages
 kilted,builtin_interfaces,rcl_interfaces,https://github.com/ros2/rcl_interfaces.git,source,ros2,rcl_interfaces,True,rosdistro_release_packages
+kilted,camera_aravis2,camera_aravis2,https://github.com/FraunhoferIOSB/camera_aravis2.git,source,FraunhoferIOSB,camera_aravis2,True,rosdistro_repo_key_name_match
+kilted,camera_aravis2_msgs,,https://github.com/FraunhoferIOSB/camera_aravis2.git,index_checkout_uri,FraunhoferIOSB,camera_aravis2,True,index_html_checkout_uri
 kilted,camera_calibration,image_pipeline,https://github.com/ros-perception/image_pipeline.git,source,ros-perception,image_pipeline,True,rosdistro_release_packages
 kilted,camera_calibration_parsers,image_common,https://github.com/ros-perception/image_common.git,source,ros-perception,image_common,True,rosdistro_release_packages
 kilted,camera_info_manager,image_common,https://github.com/ros-perception/image_common.git,source,ros-perception,image_common,True,rosdistro_release_packages
@@ -5407,6 +5405,8 @@ kilted,nonpersistent_voxel_layer,nonpersistent_voxel_layer,https://github.com/St
 kilted,novatel_gps_driver,novatel_gps_driver,https://github.com/swri-robotics/novatel_gps_driver.git,source,swri-robotics,novatel_gps_driver,True,rosdistro_release_packages
 kilted,novatel_gps_msgs,novatel_gps_driver,https://github.com/swri-robotics/novatel_gps_driver.git,source,swri-robotics,novatel_gps_driver,True,rosdistro_release_packages
 kilted,novatel_oem6_msgs,,https://github.com/mrpt-ros-pkg/mrpt_sensors.git,index_checkout_uri,mrpt-ros-pkg,mrpt_sensors,True,index_html_checkout_uri
+kilted,novatel_oem7_driver,novatel_oem7_driver,https://github.com/novatel/novatel_oem7_driver.git,source,novatel,novatel_oem7_driver,True,rosdistro_repo_key_name_match
+kilted,novatel_oem7_msgs,,https://github.com/novatel/novatel_oem7_driver.git,index_checkout_uri,novatel,novatel_oem7_driver,True,index_html_checkout_uri
 kilted,ntpd_driver,ntpd_driver,https://github.com/vooon/ntpd_driver.git,source,vooon,ntpd_driver,True,rosdistro_release_packages
 kilted,ntrip_client,ntrip_client,https://github.com/LORD-MicroStrain/ntrip_client.git,source,LORD-MicroStrain,ntrip_client,True,rosdistro_release_packages
 kilted,ntrip_client_node,ublox_dgnss,https://github.com/aussierobots/ublox_dgnss.git,source,aussierobots,ublox_dgnss,True,rosdistro_release_packages
@@ -5893,7 +5893,7 @@ kilted,rtabmap_sync,rtabmap_ros,https://github.com/introlab/rtabmap_ros.git,sour
 kilted,rtabmap_util,rtabmap_ros,https://github.com/introlab/rtabmap_ros.git,source,introlab,rtabmap_ros,True,rosdistro_release_packages
 kilted,rtabmap_viz,rtabmap_ros,https://github.com/introlab/rtabmap_ros.git,source,introlab,rtabmap_ros,True,rosdistro_release_packages
 kilted,rtcm_msgs,rtcm_msgs,https://github.com/tilk/rtcm_msgs.git,source,tilk,rtcm_msgs,True,rosdistro_release_packages
-kilted,rtest,rtest,https://github.com/Beam-and-Spyrosoft/rtest.git,source,Beam-and-Spyrosoft,rtest,True,rosdistro_repo_key_name_match
+kilted,rtest,rtest,https://github.com/Beam-and-Spyrosoft/rtest.git,source,Beam-and-Spyrosoft,rtest,True,rosdistro_release_packages
 kilted,rtest_examples,,https://github.com/Beam-and-Spyrosoft/rtest.git,index_checkout_uri,Beam-and-Spyrosoft,rtest,True,index_html_checkout_uri
 kilted,rtest_examples_interfaces,,https://github.com/Beam-and-Spyrosoft/rtest.git,index_checkout_uri,Beam-and-Spyrosoft,rtest,True,index_html_checkout_uri
 kilted,rti_connext_dds_cmake_module,rmw_connextdds,https://github.com/ros2/rmw_connextdds.git,source,ros2,rmw_connextdds,True,rosdistro_release_packages

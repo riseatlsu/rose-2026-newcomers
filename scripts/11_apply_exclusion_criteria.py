@@ -33,7 +33,7 @@ from typing import Dict, Any, List, Tuple, Set
 # =========================
 # CONFIG
 # =========================
-INPUT_CSV = "out/final_repo_dataset.csv"
+INPUT_CSV = "out/final_repo_dataset_backup.csv"
 DATA_ROOT = "scripts/data/ros_robotics_data"
 OUTPUT_FILTERED = "out/filtered_repo_dataset.csv"
 OUTPUT_EXCLUDED = "out/exclusion_summary.csv"
@@ -79,7 +79,7 @@ def parse_iso_date(date_str: str) -> datetime:
         if date_str.endswith("Z"):
             return datetime.fromisoformat(date_str.replace("Z", "+00:00"))
         return datetime.fromisoformat(date_str)
-    except Exception:
+    except Exception: 
         return None
 
 def is_within_months(date_str: str, months: int) -> bool:
@@ -251,18 +251,12 @@ def get_first_commit_date(owner: str, repo: str) -> str:
     return oldest
 
 def check_too_new(row: Dict[str, Any]) -> Tuple[bool, str]:
-    """Check if repository's first commit was recently (within last N months)"""
-    owner = row.get("Owner", "").strip()
-    repo = row.get("Name", "").strip()
-    
-    if not owner or not repo:
+    """Check if repository was created recently (within last N months)"""
+    created_at = row.get("created_at", "").strip()
+    if not created_at:
         return False, None
-    
-    first_commit = get_first_commit_date(owner, repo)
-    
-    if first_commit and is_within_months(first_commit, INACTIVITY_MONTHS):
+    if is_within_months(created_at, INACTIVITY_MONTHS):
         return True, f"created_recently_{INACTIVITY_MONTHS}mo"
-    
     return False, None
 
 # =========================
@@ -345,6 +339,26 @@ def main():
     fieldnames = list(rows[0].keys()) if rows else []
     if "exclusion_reasons" not in fieldnames:
         fieldnames.append("exclusion_reasons")
+    if "created_at" not in fieldnames:
+        # Tenta buscar o campo created_at dos arquivos general_info.json
+        for row in rows:
+            owner = row.get("Owner", "").strip()
+            repo = row.get("Name", "").strip()
+            repo_dir = os.path.join(DATA_ROOT, f"{owner}__{repo}")
+            info_path = os.path.join(repo_dir, "general_info.json")
+            created_at = None
+            if os.path.exists(info_path):
+                try:
+                    with open(info_path, "r", encoding="utf-8") as f:
+                        data = json.load(f)
+                        if 'data' in data and 'created_at' in data['data']:
+                            created_at = data['data']['created_at']
+                        elif 'created_at' in data:
+                            created_at = data['created_at']
+                except Exception:
+                    pass
+            row["created_at"] = created_at
+        fieldnames.append("created_at")
     
     with open(OUTPUT_FILTERED, "w", encoding="utf-8", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)

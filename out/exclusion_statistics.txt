@@ -2,15 +2,14 @@
 EXCLUSION CRITERIA STATISTICS
 ======================================================================
 
-Total repositories in input:      874
-Included repositories:            467 (53.4%)
-Excluded repositories:            407 (46.6%)
+Total repositories in input:      871
+Included repositories:            487 (55.9%)
+Excluded repositories:            384 (44.1%)
 
 EXCLUSION BREAKDOWN (by criterion):
 ----------------------------------------------------------------------
-  inactive_6mo............................   376 ( 43.0%)
-  is_fork.................................    24 (  2.7%)
-  created_recently_6mo....................    23 (  2.6%)
+  inactive_6mo............................   374 ( 42.9%)
+  is_fork.................................    24 (  2.8%)
   no_programming_languages................    16 (  1.8%)
   archived................................     4 (  0.5%)
 

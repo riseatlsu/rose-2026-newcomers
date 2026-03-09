@@ -2,6 +2,21 @@ library(readxl)
 
 # Image size: 270 x 140 pixels
 final_dataset <- read_excel("GitHub/rose-2026-newcomers/final_dataset.xlsx")
+summary(final_dataset$`Average number of newcomers per month`)
+
+mean(
+  final_dataset$`Average number of newcomers per month`[
+    final_dataset$owner_type == "Organization"
+  ],
+  na.rm = TRUE
+)
+
+mean(
+  final_dataset$`Average number of newcomers per month`[
+    final_dataset$owner_type == "User"
+  ],
+  na.rm = TRUE
+)
 
 # CONTRIBUTORS COUNT
 par(mar = c(2, 2, 1, 1), cex.axis = 1.2, cex.lab = 1.2)
@@ -103,4 +118,5 @@ box(lwd = 3)
 
 # Redraw the y-axis thicker
 axis(side = 2, lwd = 3, labels = FALSE)
+
 

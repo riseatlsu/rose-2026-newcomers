@@ -7,6 +7,7 @@ __contact__ = "elijah.phifer@lsu.edu"
 import os
 import pandas as pd
 import matplotlib.pyplot as plt
+from matplotlib.ticker import MultipleLocator
 from collections import defaultdict
 
 class InflowVisualizer:
@@ -286,22 +287,30 @@ class InflowVisualizer:
         plt.plot(range(len(period_totals)), period_totals.values, linewidth=3, color='black')
         
         period_label = 'Month' if use_monthly else 'Week'
-        plt.xlabel(period_label, fontsize=14)
-        plt.ylabel('Total Newcomers Across All Repositories', fontsize=14)
+        plt.xlabel(period_label, fontsize=10)
+        plt.ylabel('Total Newcomers Across All Repositories', fontsize=10)
         plt.grid(True, alpha=0.3)
         
         # Show period numbers on x-axis
         num_periods = len(period_totals)
-        step = max(1, num_periods // 10)
+        step = max(1, num_periods // 5)
         tick_positions = range(0, num_periods, step)
-        plt.xticks(tick_positions, tick_positions)
+        tick_labels = [pos - num_periods + 1 for pos in tick_positions]
+        plt.xticks(tick_positions, tick_labels)
+        
+        # Add minor ticks
+        ax = plt.gca()
+        ax.xaxis.set_minor_locator(MultipleLocator(1))
         
         plt.tight_layout()
         
         suffix = "monthly" if use_monthly else "weekly"
         output_path_png = os.path.join(self.output_folder, f'{self.plot_prefix}_aggregate_{suffix}.png')
+        output_path_eps = os.path.join(self.output_folder, f'{self.plot_prefix}_aggregate_{suffix}.eps')
         plt.savefig(output_path_png, dpi=300, bbox_inches='tight')
+        plt.savefig(output_path_eps, bbox_inches='tight')
         print(f"Saved: {output_path_png}")
+        print(f"Saved: {output_path_eps}")
         
         plt.close()
     
@@ -324,22 +333,30 @@ class InflowVisualizer:
                     linewidth=0.5, alpha=0.9, color='black')
         
         period_label = 'Month' if use_monthly else 'Week'
-        plt.xlabel(period_label, fontsize=14)
-        plt.ylabel('Number of Newcomers', fontsize=14)
+        plt.xlabel(period_label, fontsize=10)
+        plt.ylabel('# Newcomers', fontsize=10)
         plt.grid(True, alpha=0.3)
         
         # Show period numbers on x-axis
         num_periods = len(period_data)
-        step = max(1, num_periods // 10)
+        step = max(1, num_periods // 5)
         tick_positions = range(0, num_periods, step)
-        plt.xticks(tick_positions, tick_positions)
+        tick_labels = [pos - num_periods + 1 for pos in tick_positions]
+        plt.xticks(tick_positions, tick_labels)
+        
+        # Add minor ticks
+        ax = plt.gca()
+        ax.xaxis.set_minor_locator(MultipleLocator(1))
         
         plt.tight_layout()
         
         suffix = "monthly" if use_monthly else "weekly"
         output_path_png = os.path.join(self.output_folder, f'{self.plot_prefix}_all_repositories_{suffix}.png')
+        output_path_eps = os.path.join(self.output_folder, f'{self.plot_prefix}_all_repositories_{suffix}.eps')
         plt.savefig(output_path_png, dpi=300, bbox_inches='tight')
+        plt.savefig(output_path_eps, bbox_inches='tight')
         print(f"Saved: {output_path_png}")
+        print(f"Saved: {output_path_eps}")
         
         plt.close()
     
@@ -430,27 +447,34 @@ class InflowVisualizer:
                     linewidth=linewidth, alpha=0.8, color=color, label=label, linestyle=linestyle)
         
         period_label = 'Month' if use_monthly else 'Week'
-        plt.xlabel(period_label, fontsize=13)
-        plt.ylabel('Number of Newcomers', fontsize=12)
-        plt.legend(bbox_to_anchor=(0.5, 1.02), loc='lower center', ncol=2, 
-                  fontsize=8.5, framealpha=0, handlelength=1, 
-                  handletextpad=0.4, borderpad=0)
-        plt.grid(True, alpha=0.3)
+        plt.xlabel(period_label, fontsize=12)
+        plt.ylabel('# Newcomers', fontsize=12)
+        plt.legend( loc='upper left', ncol=1, 
+                  fontsize=8, framealpha=0, handlelength=1, 
+                  handletextpad=0.2, borderpad=0)
+        plt.grid(True, alpha=0.1)
         
         # Show period numbers on x-axis
         num_periods = len(period_totals)
-        tick_step = 4 if use_monthly else 2
+        tick_step = 8 if use_monthly else 4
         tick_positions = range(0, num_periods, tick_step)
-        tick_labels = range(0, num_periods, tick_step)
-        plt.xticks(tick_positions, tick_labels, rotation=0, fontsize=7.5)
-        plt.yticks(fontsize=10)
+        tick_labels = [pos - num_periods + 1 for pos in tick_positions]
+        plt.xticks(tick_positions, tick_labels, rotation=0, fontsize=9)
+        plt.yticks(fontsize=9)
+        
+        # Add minor ticks
+        ax = plt.gca()
+        ax.xaxis.set_minor_locator(MultipleLocator(1))
         
         plt.tight_layout()
         
         suffix = "monthly" if use_monthly else "weekly"
         output_path_png = os.path.join(self.output_folder, 'newcomer_inflow_distribution.png')
+        output_path_eps = os.path.join(self.output_folder, 'newcomer_inflow_distribution.eps')
         plt.savefig(output_path_png, dpi=300, bbox_inches='tight')
+        plt.savefig(output_path_eps, bbox_inches='tight')
         print(f"Saved: {output_path_png}")
+        print(f"Saved: {output_path_eps}")
         
         plt.close()
     
@@ -521,27 +545,34 @@ class InflowVisualizer:
                     linewidth=linewidth, alpha=0.8, color=color, label=label, linestyle=linestyle)
         
         period_label = 'Month' if use_monthly else 'Week'
-        plt.xlabel(period_label, fontsize=13)
-        plt.ylabel('Number of Newcomers', fontsize=12)
-        plt.legend(bbox_to_anchor=(0.5, 1.02), loc='lower center', ncol=2, 
-                  fontsize=8.5, framealpha=0, handlelength=1, 
-                  handletextpad=0.4, borderpad=0)
-        plt.grid(True, alpha=0.3)
+        plt.xlabel(period_label, fontsize=12)
+        plt.ylabel('# Newcomers', fontsize=12)
+        plt.legend( loc='upper left', ncol=1, 
+                  fontsize=8, framealpha=0, handlelength=1, 
+                  handletextpad=0.2, borderpad=0)
+        plt.grid(True, alpha=0.1)
         
         # Show period numbers on x-axis
         num_periods = len(period_totals)
-        tick_step = 4 if use_monthly else 2
+        tick_step = 8 if use_monthly else 4
         tick_positions = range(0, num_periods, tick_step)
-        tick_labels = range(0, num_periods, tick_step)
-        plt.xticks(tick_positions, tick_labels, rotation=0, fontsize=7)
-        plt.yticks(fontsize=8)
+        tick_labels = [pos - num_periods + 1 for pos in tick_positions]
+        plt.xticks(tick_positions, tick_labels, rotation=0, fontsize=9)
+        plt.yticks(fontsize=9)
+        
+        # Add minor ticks
+        ax = plt.gca()
+        ax.xaxis.set_minor_locator(MultipleLocator(1))
         
         plt.tight_layout()
         
         suffix = "monthly" if use_monthly else "weekly"
         output_path_png = os.path.join(self.output_folder, 'newcomer_inflow_owner.png')
+        output_path_eps = os.path.join(self.output_folder, 'newcomer_inflow_owner.eps')
         plt.savefig(output_path_png, dpi=300, bbox_inches='tight')
+        plt.savefig(output_path_eps, bbox_inches='tight')
         print(f"Saved: {output_path_png}")
+        print(f"Saved: {output_path_eps}")
         
         plt.close()
     

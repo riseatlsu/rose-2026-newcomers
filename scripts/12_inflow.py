@@ -336,64 +336,6 @@ class NewcomersInflow():
                 writer.writerow(inflow)
         
         print(f"Inflow data saved to: {self.csv_folder}/inflow.csv")
-    
-    # def export_monthly_inflow(self, weekly_series, weekly_min, weekly_max):
-    #     """Export monthly aggregated newcomer inflow data."""
-    #     if weekly_min is None or weekly_max is None:
-    #         print("No commit data found. Creating empty inflow_monthly.csv")
-    #         with open(self.csv_folder + '/inflow_monthly.csv', 'w', newline='', encoding='utf-8') as inflow_file:
-    #             writer = csv.DictWriter(inflow_file, fieldnames=['project'])
-    #             writer.writeheader()
-    #         return
-        
-    #     # Don't include future months - cap at today's date
-    #     today = datetime.now().date()
-    #     if weekly_max > today:
-    #         print(f"Capping monthly data collection at today ({today})")
-    #         weekly_max = today
-        
-    #     # Generate list of months between min and max dates
-    #     fieldnames = []
-    #     current_date = weekly_min.replace(day=1)  # Start from first day of the month
-    #     end_date = weekly_max.replace(day=1)
-        
-    #     while current_date <= end_date:
-    #         month_key = current_date.strftime('%Y-%m')
-    #         if month_key not in fieldnames:
-    #             fieldnames.append(month_key)
-            
-    #         # Move to next month
-    #         if current_date.month == 12:
-    #             current_date = current_date.replace(year=current_date.year + 1, month=1)
-    #         else:
-    #             current_date = current_date.replace(month=current_date.month + 1)
-        
-    #     print(f"\nExporting monthly inflow data for {len(fieldnames)} months (from {fieldnames[0]} to {fieldnames[-1]})...")
-        
-    #     # Create monthly aggregation for each project
-    #     with open(self.csv_folder + '/inflow_monthly.csv', 'w', newline='', encoding='utf-8') as inflow_file:
-    #         writer = csv.DictWriter(inflow_file, fieldnames=['project'] + fieldnames)
-    #         writer.writeheader()
-        
-    #     for project in weekly_series:
-    #         inflow = {}
-    #         inflow['project'] = project
-            
-    #         # Initialize all months to 0
-    #         for month in fieldnames:
-    #             inflow[month] = 0
-            
-    #         # Aggregate newcomers by month
-    #         for entry_date, count in weekly_series[project].items():
-    #             month_key = entry_date.strftime('%Y-%m')
-    #             if month_key in fieldnames:
-    #                 inflow[month_key] += count
-            
-    #         with open(self.csv_folder + '/inflow_monthly.csv', 'a', newline='', encoding='utf-8') as inflow_file:
-    #             writer = csv.DictWriter(inflow_file, fieldnames=['project'] + fieldnames)
-    #             writer.writerow(inflow)
-        
-    #     print(f"Monthly inflow data saved to: {self.csv_folder}/inflow_monthly.csv")
 
 if __name__ == '__main__':
     # Use paths relative to script location, not current working directory

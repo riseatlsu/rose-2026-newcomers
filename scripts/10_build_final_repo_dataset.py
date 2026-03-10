@@ -562,6 +562,7 @@ def build_row(owner: str, repo: str, distros_present: str) -> Dict[str, Any]:
         "Size of CODE_OF_CONDUCT (KB)": coc_size_kb,
         # New repository age metric
         "Repository age (months)": repo_age_months,
+        "created_at": created_at,
     }
 
 def main():
@@ -628,6 +629,7 @@ def main():
         # New repository metrics
         "Repository age (months)",
         "full_name", "distros_present",
+        "created_at",
     ]
 
     with open(OUT_CSV, "w", encoding="utf-8", newline="") as f:

@@ -734,6 +734,7 @@ Tacha-S/sync_parameter_server,https://github.com/Tacha-S/sync_parameter_server.g
 tier4/sync_tooling_msgs,https://github.com/tier4/sync_tooling_msgs.git,humble|jazzy,2,1,rosdistro_release_packages:2
 bdaiinstitute/synchros2,https://github.com/bdaiinstitute/synchros2.git,humble|jazzy,2,1,rosdistro_release_packages:2
 MetroRobots/ros_system_fingerprint,https://github.com/MetroRobots/ros_system_fingerprint.git,humble|jazzy|kilted,3,1,rosdistro_release_packages:3
+namo-robotics/ros2_system_webview,https://github.com/namo-robotics/ros2_system_webview.git,humble|jazzy|kilted,3,1,rosdistro_repo_key_name_match:3
 pal-robotics/talos_simulation,https://github.com/pal-robotics/talos_simulation.git,humble,1,1,rosdistro_release_packages:1
 pal-robotics/talos_moveit_config,https://github.com/pal-robotics/talos_moveit_config.git,humble,1,1,rosdistro_release_packages:1
 ros-visualization/tango_icons_vendor,https://github.com/ros-visualization/tango_icons_vendor.git,humble|jazzy|kilted,3,1,rosdistro_release_packages:3
@@ -865,7 +866,9 @@ trimble-oss/trimble_driver_ros,https://github.com/trimble-oss/trimble_driver_ros
 tuw-robotics/tuw_robotics,https://github.com/tuw-robotics/tuw_robotics.git,jazzy,1,1,rosdistro_repo_key_name_match:1
 uwgraphics/mini_tof,https://github.com/uwgraphics/mini_tof.git,kilted,1,1,rosdistro_repo_key_name_match:1
 uwgraphics/mini_tof_interfaces,https://github.com/uwgraphics/mini_tof_interfaces.git,kilted,1,1,rosdistro_repo_key_name_match:1
+nobleo/mobile_robot_simulator,https://github.com/nobleo/mobile_robot_simulator.git,kilted,1,1,rosdistro_release_packages:1
 SteveMacenski/nonpersistent_voxel_layer,https://github.com/SteveMacenski/nonpersistent_voxel_layer.git,kilted,1,1,rosdistro_release_packages:1
+dtrugman/pfs,https://github.com/dtrugman/pfs.git,kilted,1,1,rosdistro_repo_key_name_match:1
 felixdivo/ros2-easy-test,https://github.com/felixdivo/ros2-easy-test.git,kilted,1,1,rosdistro_repo_key_name_match:1
 allenh1/rplidar_ros,https://github.com/allenh1/rplidar_ros.git,kilted,1,1,rosdistro_release_packages:1
 Barry-Xu-2018/ros2_service_load_balancing,https://github.com/Barry-Xu-2018/ros2_service_load_balancing.git,kilted,1,1,rosdistro_release_packages:1

@@ -338,6 +338,7 @@ mrpt-ros-pkg/mrpt_navigation,humble,9,https://github.com/mrpt-ros-pkg/mrpt_navig
 mrpt-ros-pkg/mrpt_sensors,humble,7,https://github.com/mrpt-ros-pkg/mrpt_sensors.git
 mrpt-ros-pkg/pose_cov_ops,humble,1,https://github.com/mrpt-ros-pkg/pose_cov_ops.git
 namo-robotics/aruco_markers,humble,2,https://github.com/namo-robotics/aruco_markers.git
+namo-robotics/ros2_system_webview,humble,1,https://github.com/namo-robotics/ros2_system_webview.git
 naturerobots/move_base_flex,humble,9,https://github.com/naturerobots/move_base_flex.git
 neobotix/neo_nav2_bringup,humble,1,https://github.com/neobotix/neo_nav2_bringup.git
 nerian-vision/nerian_stereo_ros2,humble,1,https://github.com/nerian-vision/nerian_stereo_ros2.git
@@ -1106,6 +1107,7 @@ mrpt-ros-pkg/mrpt_navigation,jazzy,9,https://github.com/mrpt-ros-pkg/mrpt_naviga
 mrpt-ros-pkg/mrpt_sensors,jazzy,7,https://github.com/mrpt-ros-pkg/mrpt_sensors.git
 mrpt-ros-pkg/pose_cov_ops,jazzy,1,https://github.com/mrpt-ros-pkg/pose_cov_ops.git
 namo-robotics/aruco_markers,jazzy,2,https://github.com/namo-robotics/aruco_markers.git
+namo-robotics/ros2_system_webview,jazzy,1,https://github.com/namo-robotics/ros2_system_webview.git
 naturerobots/move_base_flex,jazzy,9,https://github.com/naturerobots/move_base_flex.git
 neobotix/neo_nav2_bringup,jazzy,1,https://github.com/neobotix/neo_nav2_bringup.git
 ngmor/catch_ros2,jazzy,1,https://github.com/ngmor/catch_ros2.git
@@ -1661,6 +1663,7 @@ ctu-vras/ros-utils,kilted,4,https://github.com/ctu-vras/ros-utils.git
 cyberbotics/webots_ros2,kilted,14,https://github.com/cyberbotics/webots_ros2.git
 danielcranston/crx_kinematics,kilted,1,https://github.com/danielcranston/crx_kinematics.git
 dfki-ric/better_launch,kilted,1,https://github.com/dfki-ric/better_launch.git
+dtrugman/pfs,kilted,1,https://github.com/dtrugman/pfs.git
 dynamixel-community/dynamixel_hardware,kilted,1,https://github.com/dynamixel-community/dynamixel_hardware.git
 eProsima/Fast-CDR,kilted,1,https://github.com/eProsima/Fast-CDR.git
 eProsima/Fast-DDS,kilted,1,https://github.com/eProsima/Fast-DDS.git
@@ -1757,10 +1760,12 @@ mrpt-ros-pkg/mrpt_navigation,kilted,9,https://github.com/mrpt-ros-pkg/mrpt_navig
 mrpt-ros-pkg/mrpt_sensors,kilted,7,https://github.com/mrpt-ros-pkg/mrpt_sensors.git
 mrpt-ros-pkg/pose_cov_ops,kilted,1,https://github.com/mrpt-ros-pkg/pose_cov_ops.git
 namo-robotics/aruco_markers,kilted,1,https://github.com/namo-robotics/aruco_markers.git
+namo-robotics/ros2_system_webview,kilted,1,https://github.com/namo-robotics/ros2_system_webview.git
 neobotix/neo_nav2_bringup,kilted,1,https://github.com/neobotix/neo_nav2_bringup.git
 ngmor/catch_ros2,kilted,1,https://github.com/ngmor/catch_ros2.git
 niwcpac/rqt_dotgraph,kilted,1,https://github.com/niwcpac/rqt_dotgraph.git
 nobleo/boost_sml_vendor,kilted,1,https://github.com/nobleo/boost_sml_vendor.git
+nobleo/mobile_robot_simulator,kilted,1,https://github.com/nobleo/mobile_robot_simulator.git
 nobleo/mp_units_vendor,kilted,1,https://github.com/nobleo/mp_units_vendor.git
 nobleo/nobleo_socketcan_bridge,kilted,1,https://github.com/nobleo/nobleo_socketcan_bridge.git
 nobleo/ros2_fmt_logger,kilted,1,https://github.com/nobleo/ros2_fmt_logger.git

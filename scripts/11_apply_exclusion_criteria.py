@@ -33,7 +33,7 @@ from typing import Dict, Any, List, Tuple, Set
 # =========================
 # CONFIG
 # =========================
-INPUT_CSV = "out/final_repo_dataset_backup.csv"
+INPUT_CSV = "out/final_repo_dataset.csv"
 DATA_ROOT = "scripts/data/ros_robotics_data"
 OUTPUT_FILTERED = "out/filtered_repo_dataset.csv"
 OUTPUT_EXCLUDED = "out/exclusion_summary.csv"
@@ -252,10 +252,10 @@ def get_first_commit_date(owner: str, repo: str) -> str:
 
 def check_too_new(row: Dict[str, Any]) -> Tuple[bool, str]:
     """Check if repository was created recently (within last N months)"""
-    created_at = row.get("created_at", "").strip()
+    created_at = row.get("created_at", "")
     if not created_at:
         return False, None
-    if is_within_months(created_at, INACTIVITY_MONTHS):
+    if is_within_months(created_at.strip(), INACTIVITY_MONTHS):
         return True, f"created_recently_{INACTIVITY_MONTHS}mo"
     return False, None
 

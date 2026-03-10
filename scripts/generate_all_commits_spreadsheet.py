@@ -16,9 +16,9 @@ from urllib.parse import quote
 # =========================
 # CONFIG
 # =========================
-DATA_ROOT = "data/ros_robotics_data"
-FILTERED_CSV = "../out/filtered_repo_dataset.csv"
-OUTPUT_CSV = "../out/all_commits_spreadsheet.csv"
+DATA_ROOT = "scripts/data/ros_robotics_data"
+FILTERED_CSV = "out/filtered_repo_dataset.csv"
+OUTPUT_CSV = "out/all_commits_spreadsheet.csv"
 
 # Mapping for repos with different owner/name in directories
 # Maps full_name from CSV to (directory_owner, directory_repo, actual_full_name)

@@ -1800,6 +1800,7 @@ humble,system_fingerprint,system_fingerprint,https://github.com/MetroRobots/ros_
 humble,system_modes,system_modes,https://github.com/micro-ROS/system_modes.git,source,micro-ROS,system_modes,True,rosdistro_release_packages
 humble,system_modes_examples,system_modes,https://github.com/micro-ROS/system_modes.git,source,micro-ROS,system_modes,True,rosdistro_release_packages
 humble,system_modes_msgs,system_modes,https://github.com/micro-ROS/system_modes.git,source,micro-ROS,system_modes,True,rosdistro_release_packages
+humble,system_webview,system_webview,https://github.com/namo-robotics/ros2_system_webview.git,source,namo-robotics,ros2_system_webview,True,rosdistro_repo_key_name_match
 humble,talos_bringup,talos_robot,https://github.com/pal-robotics/talos_robot.git,source,pal-robotics,talos_robot,True,rosdistro_release_packages
 humble,talos_controller_configuration,talos_robot,https://github.com/pal-robotics/talos_robot.git,source,pal-robotics,talos_robot,True,rosdistro_release_packages
 humble,talos_description,talos_robot,https://github.com/pal-robotics/talos_robot.git,source,pal-robotics,talos_robot,True,rosdistro_release_packages
@@ -3740,6 +3741,7 @@ jazzy,system_fingerprint,system_fingerprint,https://github.com/MetroRobots/ros_s
 jazzy,system_modes,system_modes,https://github.com/micro-ROS/system_modes.git,source,micro-ROS,system_modes,True,rosdistro_release_packages
 jazzy,system_modes_examples,system_modes,https://github.com/micro-ROS/system_modes.git,source,micro-ROS,system_modes,True,rosdistro_release_packages
 jazzy,system_modes_msgs,system_modes,https://github.com/micro-ROS/system_modes.git,source,micro-ROS,system_modes,True,rosdistro_release_packages
+jazzy,system_webview,system_webview,https://github.com/namo-robotics/ros2_system_webview.git,source,namo-robotics,ros2_system_webview,True,rosdistro_repo_key_name_match
 jazzy,tango_icons_vendor,tango_icons_vendor,https://github.com/ros-visualization/tango_icons_vendor.git,source,ros-visualization,tango_icons_vendor,True,rosdistro_release_packages
 jazzy,tcb_span,cpp_polyfills,https://github.com/PickNikRobotics/cpp_polyfills.git,source,PickNikRobotics,cpp_polyfills,True,rosdistro_release_packages
 jazzy,tecgihan_driver,tecgihan_driver,https://github.com/tecgihan/tecgihan_driver.git,source,tecgihan,tecgihan_driver,True,rosdistro_release_packages
@@ -4655,6 +4657,7 @@ kilted,mimick_vendor,mimick_vendor,https://github.com/ros2/mimick_vendor.git,sou
 kilted,mini_tof,mini_tof,https://github.com/uwgraphics/mini_tof.git,source,uwgraphics,mini_tof,True,rosdistro_repo_key_name_match
 kilted,mini_tof_interfaces,mini_tof_interfaces,https://github.com/uwgraphics/mini_tof_interfaces.git,source,uwgraphics,mini_tof_interfaces,True,rosdistro_repo_key_name_match
 kilted,mir_robot,mir_robot,https://github.com/DFKI-NI/mir_robot.git,source,DFKI-NI,mir_robot,True,rosdistro_repo_key_name_match
+kilted,mobile_robot_simulator,mobile_robot_simulator,https://github.com/nobleo/mobile_robot_simulator.git,source,nobleo,mobile_robot_simulator,True,rosdistro_release_packages
 kilted,mobileye_560_660_msgs,astuff_sensor_msgs,https://github.com/astuff/astuff_sensor_msgs.git,source,astuff,astuff_sensor_msgs,True,rosdistro_release_packages
 kilted,mocap4r2_msgs,mocap4r2_msgs,https://github.com/MOCAP4ROS2-Project/mocap4r2_msgs.git,source,MOCAP4ROS2-Project,mocap4r2_msgs,True,rosdistro_release_packages
 kilted,mola,mola,https://github.com/MOLAorg/mola.git,source,MOLAorg,mola,True,rosdistro_release_packages
@@ -4911,6 +4914,7 @@ kilted,perception,variants,https://github.com/ros2/variants.git,source,ros2,vari
 kilted,perception_pcl,perception_pcl,https://github.com/ros-perception/perception_pcl.git,source,ros-perception,perception_pcl,True,rosdistro_release_packages
 kilted,performance_test_fixture,performance_test_fixture,https://github.com/ros2/performance_test_fixture.git,source,ros2,performance_test_fixture,True,rosdistro_release_packages
 kilted,persist_parameter_server,persist_parameter_server,https://github.com/fujitatomoya/ros2_persist_parameter_server.git,source,fujitatomoya,ros2_persist_parameter_server,True,rosdistro_release_packages
+kilted,pfs,pfs,https://github.com/dtrugman/pfs.git,source,dtrugman,pfs,True,rosdistro_repo_key_name_match
 kilted,phidgets_accelerometer,phidgets_drivers,https://github.com/ros-drivers/phidgets_drivers.git,source,ros-drivers,phidgets_drivers,True,rosdistro_release_packages
 kilted,phidgets_analog_inputs,phidgets_drivers,https://github.com/ros-drivers/phidgets_drivers.git,source,ros-drivers,phidgets_drivers,True,rosdistro_release_packages
 kilted,phidgets_analog_outputs,phidgets_drivers,https://github.com/ros-drivers/phidgets_drivers.git,source,ros-drivers,phidgets_drivers,True,rosdistro_release_packages
@@ -5421,6 +5425,7 @@ kilted,system_fingerprint,system_fingerprint,https://github.com/MetroRobots/ros_
 kilted,system_modes,system_modes,https://github.com/micro-ROS/system_modes.git,source,micro-ROS,system_modes,True,rosdistro_release_packages
 kilted,system_modes_examples,system_modes,https://github.com/micro-ROS/system_modes.git,source,micro-ROS,system_modes,True,rosdistro_release_packages
 kilted,system_modes_msgs,system_modes,https://github.com/micro-ROS/system_modes.git,source,micro-ROS,system_modes,True,rosdistro_release_packages
+kilted,system_webview,system_webview,https://github.com/namo-robotics/ros2_system_webview.git,source,namo-robotics,ros2_system_webview,True,rosdistro_repo_key_name_match
 kilted,tango_icons_vendor,tango_icons_vendor,https://github.com/ros-visualization/tango_icons_vendor.git,source,ros-visualization,tango_icons_vendor,True,rosdistro_release_packages
 kilted,tcb_span,cpp_polyfills,https://github.com/PickNikRobotics/cpp_polyfills.git,source,PickNikRobotics,cpp_polyfills,True,rosdistro_release_packages
 kilted,teleop_tools,teleop_tools,https://github.com/ros-teleop/teleop_tools.git,source,ros-teleop,teleop_tools,True,rosdistro_release_packages

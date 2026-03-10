@@ -36,7 +36,9 @@ class InflowVisualizer:
         self.df = pd.read_csv(csv_path)
         
         # Extract week information and convert to proper format
-        self.week_columns = [col for col in self.df.columns if col != 'project']
+        # ignore metadata columns that may appear in the CSV
+        metadata_cols = {'project', 'owner_type', 'distribution_type'}
+        self.week_columns = [col for col in self.df.columns if col not in metadata_cols]
         
         print(f"Loaded {len(self.df)} repositories with {len(self.week_columns)} weeks of data")
         
@@ -291,15 +293,18 @@ class InflowVisualizer:
         plt.ylabel('Total Newcomers Across All Repositories', fontsize=10)
         plt.grid(True, alpha=0.3)
         
-        # Show period numbers on x-axis
+        # Show period numbers on x-axis, from 0 (far right) to negative values (far left)
         num_periods = len(period_totals)
         step = max(1, num_periods // 5)
-        tick_positions = range(0, num_periods, step)
-        tick_labels = [pos - num_periods + 1 for pos in tick_positions]
+        tick_positions = list(range(0, num_periods, step))
+        if tick_positions[-1] != num_periods - 1:
+            tick_positions.append(num_periods - 1)
+        tick_labels = [pos - (num_periods - 1) for pos in tick_positions]
         plt.xticks(tick_positions, tick_labels)
         
-        # Add minor ticks
+        # Add major and minor ticks for weeks
         ax = plt.gca()
+        ax.xaxis.set_major_locator(MultipleLocator(step))
         ax.xaxis.set_minor_locator(MultipleLocator(1))
         
         plt.tight_layout()
@@ -337,15 +342,15 @@ class InflowVisualizer:
         plt.ylabel('# Newcomers', fontsize=10)
         plt.grid(True, alpha=0.3)
         
-        # Show period numbers on x-axis
+        # Show period numbers on x-axis, from 0 (far right) to negative values (far left)
         num_periods = len(period_data)
-        step = max(1, num_periods // 5)
-        tick_positions = range(0, num_periods, step)
-        tick_labels = [pos - num_periods + 1 for pos in tick_positions]
+        tick_positions = list(range(0, num_periods, 5))
+        tick_labels = [pos - (num_periods - 1) for pos in tick_positions]
         plt.xticks(tick_positions, tick_labels)
         
-        # Add minor ticks
+        # Add major and minor ticks for weeks
         ax = plt.gca()
+        ax.xaxis.set_major_locator(MultipleLocator(5))
         ax.xaxis.set_minor_locator(MultipleLocator(1))
         
         plt.tight_layout()
@@ -382,11 +387,12 @@ class InflowVisualizer:
         for _, row in df_to_use.iterrows():
             project = row['project']
             category = repo_categories.get(project, 'unknown')
-            period_data = row[period_columns].values
+            period_data = pd.to_numeric(row[period_columns], errors='coerce').values
             
             category_repo_counts[category] += 1
             for i, value in enumerate(period_data):
-                category_data[category][i] += value
+                if pd.notna(value):
+                    category_data[category][i] += value
         
         # Print repo counts per category
         print("\nRepository counts per category:")
@@ -452,18 +458,19 @@ class InflowVisualizer:
         plt.legend( loc='upper left', ncol=1, 
                   fontsize=8, framealpha=0, handlelength=1, 
                   handletextpad=0.2, borderpad=0)
-        plt.grid(True, alpha=0.1)
-        
-        # Show period numbers on x-axis
+        plt.grid(True, color='#d9d9d9', linewidth=0.5)       
+
+        # Show period numbers on x-axis, from 0 (far right) to negative values (far left)
         num_periods = len(period_totals)
-        tick_step = 8 if use_monthly else 4
-        tick_positions = range(0, num_periods, tick_step)
-        tick_labels = [pos - num_periods + 1 for pos in tick_positions]
+        tick_step = 8 if use_monthly else 3
+        tick_positions = list(range(0, num_periods, tick_step))
+        tick_labels = [pos - (num_periods - 1) for pos in tick_positions]
         plt.xticks(tick_positions, tick_labels, rotation=0, fontsize=9)
         plt.yticks(fontsize=9)
         
-        # Add minor ticks
+        # Add major and minor ticks for weeks/months
         ax = plt.gca()
+        ax.xaxis.set_major_locator(MultipleLocator(tick_step))
         ax.xaxis.set_minor_locator(MultipleLocator(1))
         
         plt.tight_layout()
@@ -498,11 +505,12 @@ class InflowVisualizer:
         for _, row in df_to_use.iterrows():
             project = row['project']
             owner_type = repo_owner_types.get(project, 'unknown')
-            period_data = row[period_columns].values
+            period_data = pd.to_numeric(row[period_columns], errors='coerce').values
             
             owner_type_repo_counts[owner_type] += 1
             for i, value in enumerate(period_data):
-                owner_type_data[owner_type][i] += value
+                if pd.notna(value):
+                    owner_type_data[owner_type][i] += value
         
         # Print repo counts per owner type
         print("\nRepository counts per owner type:")
@@ -550,18 +558,19 @@ class InflowVisualizer:
         plt.legend( loc='upper left', ncol=1, 
                   fontsize=8, framealpha=0, handlelength=1, 
                   handletextpad=0.2, borderpad=0)
-        plt.grid(True, alpha=0.1)
+        plt.grid(True, color='#d9d9d9', linewidth=0.5)
         
-        # Show period numbers on x-axis
+        # Show period numbers on x-axis, from 0 (far right) to negative values (far left)
         num_periods = len(period_totals)
-        tick_step = 8 if use_monthly else 4
-        tick_positions = range(0, num_periods, tick_step)
-        tick_labels = [pos - num_periods + 1 for pos in tick_positions]
+        tick_step = 8 if use_monthly else 3
+        tick_positions = list(range(0, num_periods, tick_step))
+        tick_labels = [pos - (num_periods - 1) for pos in tick_positions]
         plt.xticks(tick_positions, tick_labels, rotation=0, fontsize=9)
         plt.yticks(fontsize=9)
         
-        # Add minor ticks
+        # Add major and minor ticks for weeks/months
         ax = plt.gca()
+        ax.xaxis.set_major_locator(MultipleLocator(tick_step))
         ax.xaxis.set_minor_locator(MultipleLocator(1))
         
         plt.tight_layout()

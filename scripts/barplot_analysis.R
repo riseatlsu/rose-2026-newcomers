@@ -1,12 +1,20 @@
-library(readxl)
-
 # Load datasets
-final_dataset <- read_excel("GitHub/rose-2026-newcomers/final_dataset.xlsx")
-# Load commits dataset (CSV)
-all_commits_spreadsheet <- read.csv("GitHub/rose-2026-newcomers/all_commits.csv")
+final_dataset <- read.csv(
+  "GitHub/rose-2026-newcomers/repositories.csv",
+  check.names = FALSE
+)
+
+commits_spreadsheet <- read.csv(
+  "GitHub/rose-2026-newcomers/commits.csv",
+  check.names = FALSE
+)
+
+# ============================================================
+# BARPLOT 1: Commits per type
+# ============================================================
 
 # Count commits per type
-commit_counts <- table(all_commits_spreadsheet$commit_type)
+commit_counts <- table(commits_spreadsheet$commit_type)
 
 # Remove NA if present
 commit_counts <- commit_counts[!is.na(names(commit_counts))]
@@ -70,6 +78,11 @@ axis(
   at = pretty(c(0, max(commit_counts))),
   lwd = 2
 )
+
+# ============================================================
+# BARPLOT 2: Repository documentation/community practices
+# ============================================================
+
 # Select boolean columns
 docs <- final_dataset[, c(
   "has_readme",
@@ -79,6 +92,9 @@ docs <- final_dataset[, c(
   "has_issue_template",
   "has_newcomer_labels"
 )]
+
+# Convert TRUE/FALSE strings to logical
+docs[] <- lapply(docs, function(x) as.logical(x))
 
 # Count repositories containing each document
 doc_counts <- colSums(docs, na.rm = TRUE)
@@ -125,14 +141,16 @@ plot(
 # Draw grid first
 abline(v = seq(0, 100, 25), col = "lightgray", lwd = 1)
 
+# Bar colors
 bar_colors <- c(
-  "#4E79A7",  # blue
-  "#59A14F",  # green
-  "#F28E2B",  # orange
-  "#E15759",  # red
-  "#76B7B2",  # teal
-  "#B07AA1"   # purple
+  "#4E79A7",
+  "#59A14F",
+  "#F28E2B",
+  "#E15759",
+  "#76B7B2",
+  "#B07AA1"
 )
+
 # Draw bars on top of the grid
 barplot(
   doc_percent,

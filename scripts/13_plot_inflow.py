@@ -460,21 +460,22 @@ class InflowVisualizer:
                   handletextpad=0.2, borderpad=0)
         plt.grid(True, color='#d9d9d9', linewidth=0.5)       
 
-        # Show period numbers on x-axis, from 0 (far right) to negative values (far left)
+        # Show period numbers on x-axis: 0 at far right, negative values to the left
         num_periods = len(period_totals)
         tick_step = 8 if use_monthly else 3
-        tick_positions = list(range(0, num_periods, tick_step))
+        # Generate ticks backwards from last position (=0) to ensure 0 is always included
+        tick_positions = list(range(num_periods - 1, -1, -tick_step))[::-1]
         tick_labels = [pos - (num_periods - 1) for pos in tick_positions]
         plt.xticks(tick_positions, tick_labels, rotation=0, fontsize=9)
         plt.yticks(fontsize=9)
-        
+
         # Add major and minor ticks for weeks/months
         ax = plt.gca()
         ax.xaxis.set_major_locator(MultipleLocator(tick_step))
         ax.xaxis.set_minor_locator(MultipleLocator(1))
-        
+
         plt.tight_layout()
-        
+
         suffix = "monthly" if use_monthly else "weekly"
         output_path_png = os.path.join(self.output_folder, 'newcomer_inflow_distribution.png')
         output_path_eps = os.path.join(self.output_folder, 'newcomer_inflow_distribution.eps')
@@ -560,21 +561,22 @@ class InflowVisualizer:
                   handletextpad=0.2, borderpad=0)
         plt.grid(True, color='#d9d9d9', linewidth=0.5)
         
-        # Show period numbers on x-axis, from 0 (far right) to negative values (far left)
+        # Show period numbers on x-axis: 0 at far right, negative values to the left
         num_periods = len(period_totals)
         tick_step = 8 if use_monthly else 3
-        tick_positions = list(range(0, num_periods, tick_step))
+        # Generate ticks backwards from last position (=0) to ensure 0 is always included
+        tick_positions = list(range(num_periods - 1, -1, -tick_step))[::-1]
         tick_labels = [pos - (num_periods - 1) for pos in tick_positions]
         plt.xticks(tick_positions, tick_labels, rotation=0, fontsize=9)
         plt.yticks(fontsize=9)
-        
+
         # Add major and minor ticks for weeks/months
         ax = plt.gca()
         ax.xaxis.set_major_locator(MultipleLocator(tick_step))
         ax.xaxis.set_minor_locator(MultipleLocator(1))
-        
+
         plt.tight_layout()
-        
+
         suffix = "monthly" if use_monthly else "weekly"
         output_path_png = os.path.join(self.output_folder, 'newcomer_inflow_owner.png')
         output_path_eps = os.path.join(self.output_folder, 'newcomer_inflow_owner.eps')

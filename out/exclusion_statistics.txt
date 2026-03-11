@@ -11,9 +11,8 @@ EXCLUSION BREAKDOWN (by criterion):
   inactive_6mo............................   375 ( 42.9%)
   created_recently_6mo....................    27 (  3.1%)
   is_fork.................................    24 (  2.7%)
-  no_programming_languages................    16 (  1.8%)
+  no_programming_languages................    20 (  2.3%)
   archived................................     4 (  0.5%)
-  no_programming_languages;too_small......     4 (  0.5%)
 
 NOTES:
 ----------------------------------------------------------------------
@@ -22,8 +21,6 @@ NOTES:
   - archived: Repository marked as archived on GitHub
   - is_fork: Repository is a fork of another repository
   - no_programming_languages: No detected programming languages
-  - too_small: Repository size < 1 KB
-  - content_only: Appears to be documentation/content repository
 
 Note: A repository can be excluded for multiple reasons.
 ======================================================================

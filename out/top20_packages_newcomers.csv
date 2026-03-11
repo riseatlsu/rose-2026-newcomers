@@ -1,0 +1,21 @@
+rank,project,newcomers_28w,category
+1,ros-planning/navigation2,75,ROS org
+2,autowarefoundation/autoware_core,42,Non-profit
+3,ros-controls/ros2_controllers,41,ROS org
+4,foxglove/foxglove-sdk,36,Company
+5,borglab/gtsam,36,Research lab
+6,facontidavide/PlotJuggler,35,Individual
+7,IntelRealSense/librealsense,34,Company
+8,ros2/rclcpp,33,ROS org
+9,luxonis/depthai-core,31,Company
+10,ros-controls/ros2_control,29,ROS org
+11,ros2/rclpy,24,ROS org
+12,ros2/rviz,23,ROS org
+13,ros2/rmw_zenoh,23,ROS org
+14,stack-of-tasks/pinocchio,23,Research lab
+15,ros-planning/moveit2,22,ROS org
+16,ros2/geometry2,20,ROS org
+17,ros2/rosbag2,19,ROS org
+18,eProsima/Fast-DDS,17,Company
+19,BehaviorTree/BehaviorTree.CPP,17,Individual
+20,ompl/ompl,17,Research lab

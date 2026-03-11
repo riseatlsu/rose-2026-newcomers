@@ -41,7 +41,6 @@ OUTPUT_STATS = "out/exclusion_statistics.txt"
 
 # Exclusion thresholds
 INACTIVITY_MONTHS = 6
-MIN_REPO_SIZE_KB = 1  # Minimum repo size to consider it software
 MIN_LANGUAGES = 1     # Must have at least 1 programming language
 
 CUTOFF_DATE = datetime(2026, 3, 3, 0, 0, 0)
@@ -164,41 +163,13 @@ def check_inactive(row: Dict[str, Any]) -> Tuple[bool, str]:
     return False, None
 
 def check_non_software(row: Dict[str, Any]) -> Tuple[bool, str]:
-    """Check if repository is non-software (content-only)"""
-    reasons = []
-    
-    # Check 1: No programming languages
+    """Check if repository lacks source code (no programming languages detected)"""
     languages_str = row.get("languages", "").strip()
     num_languages = count_languages(languages_str)
-    
+
     if num_languages < MIN_LANGUAGES:
-        reasons.append("no_programming_languages")
-    
-    # Check 2: Very small repository size (likely documentation/content only)
-    try:
-        size_kb = int(row.get("Repository Size", 0) or 0)
-        if size_kb < MIN_REPO_SIZE_KB:
-            reasons.append("too_small")
-    except (ValueError, TypeError):
-        pass
-    
-    # Check 3: Keywords in description suggesting content-only
-    description = (row.get("Description", "") or "").lower()
-    content_keywords = [
-        "documentation", "tutorial", "webinar", "slides",
-        "template", "example data", "benchmark dataset",
-        "dataset", "data repository", "archive"
-    ]
-    
-    # Only flag if description explicitly mentions content/docs only
-    if description and any(kw in description for kw in content_keywords):
-        # But only if also no languages detected
-        if num_languages == 0:
-            reasons.append("content_only")
-    
-    if reasons:
-        return True, ";".join(reasons)
-    
+        return True, "no_programming_languages"
+
     return False, None
 
 def check_fork(row: Dict[str, Any]) -> Tuple[bool, str]:
@@ -400,8 +371,6 @@ def main():
         f.write(f"  - archived: Repository marked as archived on GitHub\n")
         f.write(f"  - is_fork: Repository is a fork of another repository\n")
         f.write(f"  - no_programming_languages: No detected programming languages\n")
-        f.write(f"  - too_small: Repository size < {MIN_REPO_SIZE_KB} KB\n")
-        f.write(f"  - content_only: Appears to be documentation/content repository\n")
         f.write("\nNote: A repository can be excluded for multiple reasons.\n")
         f.write("=" * 70 + "\n")
     

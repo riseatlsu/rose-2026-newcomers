@@ -30,10 +30,10 @@ class NewcomersInflow():
             print("No projects with valid commits found after filtering!")
             return
         
-        # Fixed 6-month window ending on the reference date March 3, 2026
+        # Fixed 28-week window ending on the reference date March 3, 2026 (x-axis: -27 to 0)
         self.end_date = datetime(2026, 3, 3).date()
-        self.start_date = self.end_date - relativedelta(months=6)
-        print(f"\nCounting newcomers from: {self.start_date} to {self.end_date} (6-month window)\n")
+        self.start_date = self.end_date - timedelta(weeks=27)
+        print(f"\nCounting newcomers from: {self.start_date} to {self.end_date} (28-week window)\n")
         
         # Track latest commit across all repos
         self.latest_commit_date = None

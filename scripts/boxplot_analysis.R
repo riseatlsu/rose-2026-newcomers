@@ -59,7 +59,7 @@ plot_horizontal_boxplot <- function(data, file_name) {
     height = fig_height
   )
   
-  par(mar = c(2,2,1,1), cex.axis = 1.2, cex.lab = 1.2)
+  par(mar = c(2,2,1,1), cex.axis = 1.8, cex.lab = 1.8)
   
   boxplot(
     na.omit(data),
@@ -89,7 +89,7 @@ plot_vertical_boxplot <- function(data, file_name) {
     height = fig_height
   )
   
-  par(mar = c(2,2,1,1), cex.axis = 1.2, cex.lab = 1.2)
+  par(mar = c(2,2,1,1), cex.axis = 1.8, cex.lab = 1.8)
   
   boxplot(
     na.omit(data),

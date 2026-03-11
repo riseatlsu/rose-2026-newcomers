@@ -10,6 +10,7 @@ AutonicsLiDAR/lsc_ros2_driver,humble,1,https://github.com/AutonicsLiDAR/lsc_ros2
 AutonomyLab/create_robot,humble,5,https://github.com/AutonomyLab/create_robot.git
 AutonomyLab/libcreate,humble,1,https://github.com/AutonomyLab/libcreate.git
 Autoware-AI/qpoases_vendor,humble,1,https://github.com/Autoware-AI/qpoases_vendor.git
+BehaviorTree/BehaviorTree.CPP,humble,1,https://github.com/BehaviorTree/BehaviorTree.CPP.git
 BerkeleyAutomation/FogROS2,humble,2,https://github.com/BerkeleyAutomation/FogROS2.git
 Boeing/gazebo_no_physics_plugin,humble,1,https://github.com/Boeing/gazebo_no_physics_plugin.git
 Boeing/gazebo_planar_move_plugin,humble,1,https://github.com/Boeing/gazebo_planar_move_plugin.git
@@ -172,7 +173,6 @@ ament/ament_cmake,humble,23,https://github.com/ament/ament_cmake.git
 ament/ament_index,humble,2,https://github.com/ament/ament_index.git
 ament/ament_lint,humble,31,https://github.com/ament/ament_lint.git
 ament/ament_package,humble,1,https://github.com/ament/ament_package.git
-ament/google_benchmark_vendor,humble,1,https://github.com/ament/google_benchmark_vendor.git
 ament/googletest,humble,2,https://github.com/ament/googletest.git
 ament/uncrustify_vendor,humble,1,https://github.com/ament/uncrustify_vendor.git
 analogdevicesinc/adi_3dtof_adtf31xx,humble,1,https://github.com/analogdevicesinc/adi_3dtof_adtf31xx.git
@@ -231,6 +231,7 @@ clearpathrobotics/clearpath_config,humble,1,https://github.com/clearpathrobotics
 clearpathrobotics/clearpath_desktop,humble,3,https://github.com/clearpathrobotics/clearpath_desktop.git
 clearpathrobotics/clearpath_msgs,humble,2,https://github.com/clearpathrobotics/clearpath_msgs.git
 clearpathrobotics/clearpath_nav2_demos,humble,1,https://github.com/clearpathrobotics/clearpath_nav2_demos.git
+clearpathrobotics/clearpath_ros2_socketcan_interface,humble,1,https://github.com/clearpathrobotics/clearpath_ros2_socketcan_interface.git
 clearpathrobotics/clearpath_simulator,humble,3,https://github.com/clearpathrobotics/clearpath_simulator.git
 clearpathrobotics/ewellix_lift_common,humble,6,https://github.com/clearpathrobotics/ewellix_lift_common.git
 clearpathrobotics/ptz_action_server,humble,1,https://github.com/clearpathrobotics/ptz_action_server.git
@@ -424,6 +425,7 @@ pal-robotics/tiago_simulation,humble,2,https://github.com/pal-robotics/tiago_sim
 pal-robotics/urdf_test,humble,1,https://github.com/pal-robotics/urdf_test.git
 pantor/ruckig,humble,1,https://github.com/pantor/ruckig.git
 polymathrobotics/replay_testing,humble,1,https://github.com/polymathrobotics/replay_testing.git
+polymathrobotics/socketcan_adapter,humble,1,https://github.com/polymathrobotics/socketcan_adapter.git
 pradyum/dual_laser_merger,humble,1,https://github.com/pradyum/dual_laser_merger.git
 qleonardolp/kinematic_pose_msgs,humble,1,https://github.com/qleonardolp/kinematic_pose_msgs.git
 reazon-research/openarm_ros2,humble,1,https://github.com/reazon-research/openarm_ros2.git
@@ -538,7 +540,6 @@ ros-planning/warehouse_ros_mongo,humble,1,https://github.com/ros-planning/wareho
 ros-planning/warehouse_ros_sqlite,humble,1,https://github.com/ros-planning/warehouse_ros_sqlite.git
 ros-simulation/gazebo_ros2_control,humble,2,https://github.com/ros-simulation/gazebo_ros2_control.git
 ros-simulation/gazebo_ros_pkgs,humble,5,https://github.com/ros-simulation/gazebo_ros_pkgs.git
-ros-simulation/simulation_interfaces,humble,1,https://github.com/ros-simulation/simulation_interfaces.git
 ros-sports/game_controller_spl,humble,9,https://github.com/ros-sports/game_controller_spl.git
 ros-sports/nao_lola,humble,1,https://github.com/ros-sports/nao_lola.git
 ros-sports/r2r_spl,humble,8,https://github.com/ros-sports/r2r_spl.git
@@ -785,6 +786,7 @@ AprilRobotics/apriltag,jazzy,1,https://github.com/AprilRobotics/apriltag.git
 AutoAPMS/auto-apms,jazzy,7,https://github.com/AutoAPMS/auto-apms.git
 Autoware-AI/qpoases_vendor,jazzy,1,https://github.com/Autoware-AI/qpoases_vendor.git
 Beam-and-Spyrosoft/rtest,jazzy,1,https://github.com/Beam-and-Spyrosoft/rtest.git
+BehaviorTree/BehaviorTree.CPP,jazzy,1,https://github.com/BehaviorTree/BehaviorTree.CPP.git
 BruceChanJianLe/laser_scan_merger,jazzy,1,https://github.com/BruceChanJianLe/laser_scan_merger.git
 CCNYRoboticsLab/imu_tools,jazzy,4,https://github.com/CCNYRoboticsLab/imu_tools.git
 DFKI-NI/mir_robot,jazzy,1,https://github.com/DFKI-NI/mir_robot.git
@@ -925,7 +927,6 @@ ament/ament_cmake,jazzy,22,https://github.com/ament/ament_cmake.git
 ament/ament_index,jazzy,2,https://github.com/ament/ament_index.git
 ament/ament_lint,jazzy,31,https://github.com/ament/ament_lint.git
 ament/ament_package,jazzy,1,https://github.com/ament/ament_package.git
-ament/google_benchmark_vendor,jazzy,1,https://github.com/ament/google_benchmark_vendor.git
 ament/googletest,jazzy,2,https://github.com/ament/googletest.git
 ament/uncrustify_vendor,jazzy,1,https://github.com/ament/uncrustify_vendor.git
 analogdevicesinc/depth-obstacle-detect-ros,jazzy,2,https://github.com/analogdevicesinc/depth-obstacle-detect-ros.git
@@ -979,7 +980,9 @@ clearpathrobotics/clearpath_config,jazzy,1,https://github.com/clearpathrobotics/
 clearpathrobotics/clearpath_desktop,jazzy,4,https://github.com/clearpathrobotics/clearpath_desktop.git
 clearpathrobotics/clearpath_msgs,jazzy,2,https://github.com/clearpathrobotics/clearpath_msgs.git
 clearpathrobotics/clearpath_nav2_demos,jazzy,1,https://github.com/clearpathrobotics/clearpath_nav2_demos.git
+clearpathrobotics/clearpath_ros2_socketcan_interface,jazzy,1,https://github.com/clearpathrobotics/clearpath_ros2_socketcan_interface.git
 clearpathrobotics/clearpath_simulator,jazzy,3,https://github.com/clearpathrobotics/clearpath_simulator.git
+clearpathrobotics/clearpath_tests,jazzy,1,https://github.com/clearpathrobotics/clearpath_tests.git
 clearpathrobotics/ewellix_lift_common,jazzy,6,https://github.com/clearpathrobotics/ewellix_lift_common.git
 clearpathrobotics/ptz_action_server,jazzy,1,https://github.com/clearpathrobotics/ptz_action_server.git
 clearpathrobotics/robot_upstart,jazzy,1,https://github.com/clearpathrobotics/robot_upstart.git
@@ -1113,6 +1116,7 @@ neobotix/neo_nav2_bringup,jazzy,1,https://github.com/neobotix/neo_nav2_bringup.g
 ngmor/catch_ros2,jazzy,1,https://github.com/ngmor/catch_ros2.git
 niwcpac/rqt_dotgraph,jazzy,1,https://github.com/niwcpac/rqt_dotgraph.git
 nobleo/boost_sml_vendor,jazzy,1,https://github.com/nobleo/boost_sml_vendor.git
+nobleo/mobile_robot_simulator,jazzy,1,https://github.com/nobleo/mobile_robot_simulator.git
 nobleo/mp_units_vendor,jazzy,1,https://github.com/nobleo/mp_units_vendor.git
 nobleo/nobleo_socketcan_bridge,jazzy,1,https://github.com/nobleo/nobleo_socketcan_bridge.git
 nobleo/ros2_fmt_logger,jazzy,1,https://github.com/nobleo/ros2_fmt_logger.git
@@ -1160,6 +1164,7 @@ pal-robotics/play_motion_builder,jazzy,3,https://github.com/pal-robotics/play_mo
 pal-robotics/urdf_test,jazzy,1,https://github.com/pal-robotics/urdf_test.git
 pantor/ruckig,jazzy,1,https://github.com/pantor/ruckig.git
 polymathrobotics/replay_testing,jazzy,1,https://github.com/polymathrobotics/replay_testing.git
+polymathrobotics/socketcan_adapter,jazzy,1,https://github.com/polymathrobotics/socketcan_adapter.git
 pradyum/dual_laser_merger,jazzy,1,https://github.com/pradyum/dual_laser_merger.git
 qleonardolp/kinematic_pose_msgs,jazzy,1,https://github.com/qleonardolp/kinematic_pose_msgs.git
 reductstore/reductstore_agent,jazzy,1,https://github.com/reductstore/reductstore_agent.git
@@ -1267,7 +1272,6 @@ ros-planning/random_numbers,jazzy,1,https://github.com/ros-planning/random_numbe
 ros-planning/srdfdom,jazzy,1,https://github.com/ros-planning/srdfdom.git
 ros-planning/warehouse_ros,jazzy,1,https://github.com/ros-planning/warehouse_ros.git
 ros-planning/warehouse_ros_sqlite,jazzy,1,https://github.com/ros-planning/warehouse_ros_sqlite.git
-ros-simulation/simulation_interfaces,jazzy,1,https://github.com/ros-simulation/simulation_interfaces.git
 ros-sports/game_controller_spl,jazzy,2,https://github.com/ros-sports/game_controller_spl.git
 ros-sports/nao_lola,jazzy,4,https://github.com/ros-sports/nao_lola.git
 ros-sports/r2r_spl,jazzy,4,https://github.com/ros-sports/r2r_spl.git
@@ -1412,6 +1416,8 @@ ros2/variants,jazzy,6,https://github.com/ros2/variants.git
 ros2/yaml_cpp_vendor,jazzy,1,https://github.com/ros2/yaml_cpp_vendor.git
 ros4hri/hri_actions_msgs,jazzy,1,https://github.com/ros4hri/hri_actions_msgs.git
 ros4hri/hri_msgs,jazzy,1,https://github.com/ros4hri/hri_msgs.git
+ros4hri/hri_rviz,jazzy,1,https://github.com/ros4hri/hri_rviz.git
+ros4hri/human_description,jazzy,1,https://github.com/ros4hri/human_description.git
 ros4hri/libhri,jazzy,2,https://github.com/ros4hri/libhri.git
 rst-tu-dortmund/control_box_rst,jazzy,1,https://github.com/rst-tu-dortmund/control_box_rst.git
 rt-net/crane_plus,jazzy,6,https://github.com/rt-net/crane_plus.git
@@ -1495,6 +1501,7 @@ AutoAPMS/auto-apms,kilted,7,https://github.com/AutoAPMS/auto-apms.git
 Autoware-AI/qpoases_vendor,kilted,1,https://github.com/Autoware-AI/qpoases_vendor.git
 Barry-Xu-2018/ros2_service_load_balancing,kilted,1,https://github.com/Barry-Xu-2018/ros2_service_load_balancing.git
 Beam-and-Spyrosoft/rtest,kilted,1,https://github.com/Beam-and-Spyrosoft/rtest.git
+BehaviorTree/BehaviorTree.CPP,kilted,1,https://github.com/BehaviorTree/BehaviorTree.CPP.git
 CCNYRoboticsLab/imu_tools,kilted,4,https://github.com/CCNYRoboticsLab/imu_tools.git
 DFKI-NI/mir_robot,kilted,1,https://github.com/DFKI-NI/mir_robot.git
 DFKI-NI/rospy_message_converter,kilted,2,https://github.com/DFKI-NI/rospy_message_converter.git
@@ -1505,7 +1512,7 @@ EasyNavigation/NavMap,kilted,5,https://github.com/EasyNavigation/NavMap.git
 Ekumen-OS/beluga,kilted,3,https://github.com/Ekumen-OS/beluga.git
 Fields2Cover/fields2cover,kilted,1,https://github.com/Fields2Cover/fields2cover.git
 ForteFibre/FluentRviz,kilted,1,https://github.com/ForteFibre/FluentRviz.git
-FraunhoferIOSB/camera_aravis2,kilted,1,https://github.com/FraunhoferIOSB/camera_aravis2.git
+FraunhoferIOSB/camera_aravis2,kilted,2,https://github.com/FraunhoferIOSB/camera_aravis2.git
 FraunhoferIOSB/multisensor_calibration,kilted,3,https://github.com/FraunhoferIOSB/multisensor_calibration.git
 HebiRobotics/hebi_cpp_api_ros,kilted,1,https://github.com/HebiRobotics/hebi_cpp_api_ros.git
 HebiRobotics/hebi_msgs,kilted,1,https://github.com/HebiRobotics/hebi_msgs.git
@@ -1619,7 +1626,6 @@ ament/ament_cmake,kilted,22,https://github.com/ament/ament_cmake.git
 ament/ament_index,kilted,2,https://github.com/ament/ament_index.git
 ament/ament_lint,kilted,31,https://github.com/ament/ament_lint.git
 ament/ament_package,kilted,1,https://github.com/ament/ament_package.git
-ament/google_benchmark_vendor,kilted,1,https://github.com/ament/google_benchmark_vendor.git
 ament/googletest,kilted,2,https://github.com/ament/googletest.git
 ament/uncrustify_vendor,kilted,1,https://github.com/ament/uncrustify_vendor.git
 analogdevicesinc/iio_ros2,kilted,1,https://github.com/analogdevicesinc/iio_ros2.git
@@ -1810,6 +1816,7 @@ pal-robotics/play_motion2,kilted,3,https://github.com/pal-robotics/play_motion2.
 pal-robotics/play_motion_builder,kilted,3,https://github.com/pal-robotics/play_motion_builder.git
 pantor/ruckig,kilted,1,https://github.com/pantor/ruckig.git
 polymathrobotics/replay_testing,kilted,1,https://github.com/polymathrobotics/replay_testing.git
+polymathrobotics/socketcan_adapter,kilted,1,https://github.com/polymathrobotics/socketcan_adapter.git
 pradyum/dual_laser_merger,kilted,1,https://github.com/pradyum/dual_laser_merger.git
 qleonardolp/kinematic_pose_msgs,kilted,1,https://github.com/qleonardolp/kinematic_pose_msgs.git
 roboception/rc_common_msgs_ros2,kilted,1,https://github.com/roboception/rc_common_msgs_ros2.git
@@ -1911,7 +1918,6 @@ ros-planning/random_numbers,kilted,1,https://github.com/ros-planning/random_numb
 ros-planning/srdfdom,kilted,1,https://github.com/ros-planning/srdfdom.git
 ros-planning/warehouse_ros,kilted,1,https://github.com/ros-planning/warehouse_ros.git
 ros-planning/warehouse_ros_sqlite,kilted,1,https://github.com/ros-planning/warehouse_ros_sqlite.git
-ros-simulation/simulation_interfaces,kilted,1,https://github.com/ros-simulation/simulation_interfaces.git
 ros-sports/game_controller_spl,kilted,2,https://github.com/ros-sports/game_controller_spl.git
 ros-sports/nao_lola,kilted,4,https://github.com/ros-sports/nao_lola.git
 ros-sports/r2r_spl,kilted,4,https://github.com/ros-sports/r2r_spl.git

@@ -46,17 +46,20 @@ def main():
     # Load filtered repos by distribution
     filtered_repos_by_distro = defaultdict(int)
     total_filtered_repos = 0
-    
+
     filtered_repo_names = set()
+    filtered_repo_distros = {}  # full_name -> distros_present string
     if os.path.exists("out/filtered_repo_dataset.csv"):
         with open("out/filtered_repo_dataset.csv", encoding='utf-8') as f:
             reader = csv.DictReader(f)
             for row in reader:
                 full_name = row.get('full_name', '').strip()
+                distros_present = row.get('distros_present', '').strip()
                 if full_name:
                     filtered_repo_names.add(full_name)
+                    filtered_repo_distros[full_name] = distros_present
                     total_filtered_repos += 1
-    
+
     # Count filtered repos per distribution
     if os.path.exists("out/repos/github_repos_unique_by_distro.csv"):
         with open("out/repos/github_repos_unique_by_distro.csv", encoding='utf-8') as f:
@@ -66,7 +69,44 @@ def main():
                 full_name = row.get('full_name', '').strip()
                 if distro and full_name in filtered_repo_names:
                     filtered_repos_by_distro[distro] += 1
-    
+
+    # Count repos exclusive to each distro vs multi-distro (after exclusion)
+    repos_exclusive_by_distro = defaultdict(int)
+    total_multi_distro_repos = 0
+    for full_name, distros_str in filtered_repo_distros.items():
+        distros = [d.strip() for d in distros_str.replace(';', '|').split('|') if d.strip()]
+        if len(distros) == 1:
+            repos_exclusive_by_distro[distros[0]] += 1
+        else:
+            total_multi_distro_repos += 1
+
+    # Unique packages in filtered repos and multi-package repo stats
+    pkg_repos = defaultdict(set)   # unique pkg name -> set of repos
+    repo_pkgs = defaultdict(set)   # repo -> set of unique pkg names
+
+    if os.path.exists("out/mapping_packages_to_github_with_index_html.csv"):
+        with open("out/mapping_packages_to_github_with_index_html.csv", encoding='utf-8') as f:
+            for row in csv.DictReader(f):
+                owner = row.get('github_owner', '').strip()
+                repo_name = row.get('github_repo', '').strip()
+                pkg = row.get('package', '').strip()
+                if not owner or not repo_name or not pkg:
+                    continue
+                fn = f'{owner}/{repo_name}'
+                if fn in filtered_repo_names:
+                    pkg_repos[pkg].add(fn)
+                    repo_pkgs[fn].add(pkg)
+
+    total_unique_packages = len(pkg_repos)
+    repos_with_multi_pkgs = sum(1 for pkgs in repo_pkgs.values() if len(pkgs) > 1)
+    repos_with_single_pkg = sum(1 for pkgs in repo_pkgs.values() if len(pkgs) == 1)
+    pkgs_in_multi_pkg_repos = sum(
+        1 for pkg, repos in pkg_repos.items()
+        if any(len(repo_pkgs[r]) > 1 for r in repos)
+    )
+    pct_pkgs_in_multi = (pkgs_in_multi_pkg_repos / total_unique_packages * 100) if total_unique_packages else 0
+    pct_repos_with_multi = (repos_with_multi_pkgs / len(repo_pkgs) * 100) if repo_pkgs else 0
+
     # Build table
     all_distros = sorted(set(all_packages_by_distro.keys()))
     rows_data = []
@@ -77,7 +117,7 @@ def main():
         repos = repos_by_distro[distro]
         filtered_repos = filtered_repos_by_distro[distro]
         pct = (github / total * 100) if total > 0 else 0
-        
+
         rows_data.append({
             'distribution': distro,
             'total_packages': total,
@@ -86,12 +126,19 @@ def main():
             'github_percentage': f"{pct:.1f}%",
             'unique_repositories': repos,
             'repos_after_exclusion': filtered_repos,
+            'repos_exclusive_to_distro': repos_exclusive_by_distro.get(distro, ''),
+            'repos_multi_distro': '',
+            'unique_packages_after_exclusion': '',
+            'repos_with_multiple_packages': '',
+            'pct_repos_with_multiple_packages': '',
+            'packages_in_multi_pkg_repos': '',
+            'pct_packages_in_multi_pkg_repos': '',
         })
-    
+
     # Total row
     total_not_github = total_all_packages - total_github_packages
     total_pct = (total_github_packages / total_all_packages * 100) if total_all_packages > 0 else 0
-    
+
     rows_data.append({
         'distribution': 'TOTAL',
         'total_packages': total_all_packages,
@@ -100,6 +147,13 @@ def main():
         'github_percentage': f"{total_pct:.1f}%",
         'unique_repositories': total_repos,
         'repos_after_exclusion': total_filtered_repos,
+        'repos_exclusive_to_distro': sum(repos_exclusive_by_distro.values()),
+        'repos_multi_distro': total_multi_distro_repos,
+        'unique_packages_after_exclusion': total_unique_packages,
+        'repos_with_multiple_packages': repos_with_multi_pkgs,
+        'pct_repos_with_multiple_packages': f"{pct_repos_with_multi:.1f}%",
+        'packages_in_multi_pkg_repos': pkgs_in_multi_pkg_repos,
+        'pct_packages_in_multi_pkg_repos': f"{pct_pkgs_in_multi:.1f}%",
     })
     
     # Print table
@@ -112,7 +166,14 @@ def main():
     os.makedirs("out", exist_ok=True)
     
     with open("out/ros_package_statistics.csv", 'w', newline='', encoding='utf-8') as f:
-        fieldnames = ['distribution', 'total_packages', 'packages_on_github', 'not_on_github', 'github_percentage', 'unique_repositories', 'repos_after_exclusion']
+        fieldnames = [
+            'distribution', 'total_packages', 'packages_on_github', 'not_on_github',
+            'github_percentage', 'unique_repositories', 'repos_after_exclusion',
+            'repos_exclusive_to_distro', 'repos_multi_distro',
+            'unique_packages_after_exclusion',
+            'repos_with_multiple_packages', 'pct_repos_with_multiple_packages',
+            'packages_in_multi_pkg_repos', 'pct_packages_in_multi_pkg_repos',
+        ]
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(rows_data)

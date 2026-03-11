@@ -3,10 +3,10 @@
 # ============================================================
 
 # Input file
-input_file <- "C:/Users/conso/OneDrive/Documents/GitHub/rose-2026-newcomers/repositories.csv"
+input_file <- "out/filtered_repo_dataset.csv"
 
 # Output folder
-output_dir <- "C:/Users/conso/OneDrive/Documents/GitHub/rose-2026-newcomers/figs"
+output_dir <- "figs"
 
 # Create output folder if it does not exist
 if (!dir.exists(output_dir)) {

@@ -182,6 +182,7 @@ humble,sm_panda_moveit2z_cb_inventory,,https://github.com/robosoft-ai/SMACC2.git
 humble,sm_simple_action_client,,https://github.com/robosoft-ai/SMACC2.git,index_checkout_uri,robosoft-ai,SMACC2,True,index_html_checkout_uri
 humble,sm_three_some,,https://github.com/robosoft-ai/SMACC2.git,index_checkout_uri,robosoft-ai,SMACC2,True,index_html_checkout_uri
 humble,social_nav_metrics,,https://github.com/MetroRobots/social_nav_ros.git,index_checkout_uri,MetroRobots,social_nav_ros,True,index_html_checkout_uri
+humble,socketcan_adapter_ros,,https://github.com/polymathrobotics/socketcan_adapter.git,index_checkout_uri,polymathrobotics,socketcan_adapter,True,index_html_checkout_uri
 humble,sr_all_events_go,,https://github.com/robosoft-ai/SMACC2.git,index_checkout_uri,robosoft-ai,SMACC2,True,index_html_checkout_uri
 humble,sr_conditional,,https://github.com/robosoft-ai/SMACC2.git,index_checkout_uri,robosoft-ai,SMACC2,True,index_html_checkout_uri
 humble,sr_event_countdown,,https://github.com/robosoft-ai/SMACC2.git,index_checkout_uri,robosoft-ai,SMACC2,True,index_html_checkout_uri
@@ -256,8 +257,9 @@ jazzy,cmake_generate_parameter_module_example,,https://github.com/PickNikRobotic
 jazzy,crx_kinematics_py,,https://github.com/danielcranston/crx_kinematics.git,index_checkout_uri,danielcranston,crx_kinematics,True,index_html_checkout_uri
 jazzy,cx_pddl_bringup,,https://github.com/carologistics/clips_executive.git,index_checkout_uri,carologistics,clips_executive,True,index_html_checkout_uri
 jazzy,cx_pddl_clips,,https://github.com/carologistics/clips_executive.git,index_checkout_uri,carologistics,clips_executive,True,index_html_checkout_uri
+jazzy,cx_pddl_interfaces,,https://github.com/carologistics/clips_executive.git,index_checkout_uri,carologistics,clips_executive,True,index_html_checkout_uri
 jazzy,cx_pddl_manager,,https://github.com/carologistics/clips_executive.git,index_checkout_uri,carologistics,clips_executive,True,index_html_checkout_uri
-jazzy,cx_pddl_msgs,,https://github.com/carologistics/clips_executive.git,index_checkout_uri,carologistics,clips_executive,True,index_html_checkout_uri
+jazzy,cx_rl_bringup,,https://github.com/carologistics/clips_executive.git,index_checkout_uri,carologistics,clips_executive,True,index_html_checkout_uri
 jazzy,cx_rl_clips,,https://github.com/carologistics/clips_executive.git,index_checkout_uri,carologistics,clips_executive,True,index_html_checkout_uri
 jazzy,cx_rl_gym,,https://github.com/carologistics/clips_executive.git,index_checkout_uri,carologistics,clips_executive,True,index_html_checkout_uri
 jazzy,cx_rl_interfaces,,https://github.com/carologistics/clips_executive.git,index_checkout_uri,carologistics,clips_executive,True,index_html_checkout_uri
@@ -372,6 +374,7 @@ jazzy,sm_panda_cl_moveit2z_cb_inventory,,https://github.com/robosoft-ai/SMACC2.g
 jazzy,sm_panda_cl_moveit2z_cb_inventory_isaacsim,,https://github.com/robosoft-ai/SMACC2.git,index_checkout_uri,robosoft-ai,SMACC2,True,index_html_checkout_uri
 jazzy,sm_simple_action_client,,https://github.com/robosoft-ai/SMACC2.git,index_checkout_uri,robosoft-ai,SMACC2,True,index_html_checkout_uri
 jazzy,sm_three_some,,https://github.com/robosoft-ai/SMACC2.git,index_checkout_uri,robosoft-ai,SMACC2,True,index_html_checkout_uri
+jazzy,socketcan_adapter_ros,,https://github.com/polymathrobotics/socketcan_adapter.git,index_checkout_uri,polymathrobotics,socketcan_adapter,True,index_html_checkout_uri
 jazzy,splsm_8,,https://github.com/ros-sports/r2r_spl.git,index_checkout_uri,ros-sports,r2r_spl,True,index_html_checkout_uri
 jazzy,splsm_8_conversion,,https://github.com/ros-sports/r2r_spl.git,index_checkout_uri,ros-sports,r2r_spl,True,index_html_checkout_uri
 jazzy,sr_all_events_go,,https://github.com/robosoft-ai/SMACC2.git,index_checkout_uri,robosoft-ai,SMACC2,True,index_html_checkout_uri
@@ -429,13 +432,13 @@ kilted,beluga_system_tests,,https://github.com/Ekumen-OS/beluga.git,index_checko
 kilted,beluga_tools,,https://github.com/Ekumen-OS/beluga.git,index_checkout_uri,Ekumen-OS,beluga,True,index_html_checkout_uri
 kilted,beluga_tutorial,,https://github.com/Ekumen-OS/beluga.git,index_checkout_uri,Ekumen-OS,beluga,True,index_html_checkout_uri
 kilted,beluga_vdb,,https://github.com/Ekumen-OS/beluga.git,index_checkout_uri,Ekumen-OS,beluga,True,index_html_checkout_uri
-kilted,camera_aravis2_msgs,,https://github.com/FraunhoferIOSB/camera_aravis2.git,index_checkout_uri,FraunhoferIOSB,camera_aravis2,True,index_html_checkout_uri
 kilted,cmake_generate_parameter_module_example,,https://github.com/PickNikRobotics/generate_parameter_library.git,index_checkout_uri,PickNikRobotics,generate_parameter_library,True,index_html_checkout_uri
 kilted,crx_kinematics_py,,https://github.com/danielcranston/crx_kinematics.git,index_checkout_uri,danielcranston,crx_kinematics,True,index_html_checkout_uri
 kilted,cx_pddl_bringup,,https://github.com/carologistics/clips_executive.git,index_checkout_uri,carologistics,clips_executive,True,index_html_checkout_uri
 kilted,cx_pddl_clips,,https://github.com/carologistics/clips_executive.git,index_checkout_uri,carologistics,clips_executive,True,index_html_checkout_uri
+kilted,cx_pddl_interfaces,,https://github.com/carologistics/clips_executive.git,index_checkout_uri,carologistics,clips_executive,True,index_html_checkout_uri
 kilted,cx_pddl_manager,,https://github.com/carologistics/clips_executive.git,index_checkout_uri,carologistics,clips_executive,True,index_html_checkout_uri
-kilted,cx_pddl_msgs,,https://github.com/carologistics/clips_executive.git,index_checkout_uri,carologistics,clips_executive,True,index_html_checkout_uri
+kilted,cx_rl_bringup,,https://github.com/carologistics/clips_executive.git,index_checkout_uri,carologistics,clips_executive,True,index_html_checkout_uri
 kilted,cx_rl_clips,,https://github.com/carologistics/clips_executive.git,index_checkout_uri,carologistics,clips_executive,True,index_html_checkout_uri
 kilted,cx_rl_gym,,https://github.com/carologistics/clips_executive.git,index_checkout_uri,carologistics,clips_executive,True,index_html_checkout_uri
 kilted,cx_rl_interfaces,,https://github.com/carologistics/clips_executive.git,index_checkout_uri,carologistics,clips_executive,True,index_html_checkout_uri
@@ -535,6 +538,7 @@ kilted,sm_pubsub_1,,https://github.com/robosoft-ai/SMACC2.git,index_checkout_uri
 kilted,sm_respira_1,,,,,,False,
 kilted,sm_test_moveit_ur5_sim,,https://github.com/robosoft-ai/SMACC2.git,index_checkout_uri,robosoft-ai,SMACC2,True,index_html_checkout_uri
 kilted,sm_three_some,,,,,,False,
+kilted,socketcan_adapter_ros,,https://github.com/polymathrobotics/socketcan_adapter.git,index_checkout_uri,polymathrobotics,socketcan_adapter,True,index_html_checkout_uri
 kilted,splsm_8,,https://github.com/ros-sports/r2r_spl.git,index_checkout_uri,ros-sports,r2r_spl,True,index_html_checkout_uri
 kilted,splsm_8_conversion,,https://github.com/ros-sports/r2r_spl.git,index_checkout_uri,ros-sports,r2r_spl,True,index_html_checkout_uri
 kilted,sr_all_events_go,,,,,,False,

@@ -1,11 +1,11 @@
 # Load datasets
 final_dataset <- read.csv(
-  "GitHub/rose-2026-newcomers/repositories.csv",
+  "out/filtered_repo_dataset.csv",
   check.names = FALSE
 )
 
 commits_spreadsheet <- read.csv(
-  "GitHub/rose-2026-newcomers/commits.csv",
+  "out/all_commits_spreadsheet.csv",
   check.names = FALSE
 )
 

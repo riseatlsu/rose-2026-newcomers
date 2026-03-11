@@ -580,6 +580,7 @@ def main():
     distros_key = detect_distros_key(rows[0])
 
     out_rows: List[Dict[str, Any]] = []
+    seen_full_names: set = set()
     skipped = 0
 
     for i, row in enumerate(rows, start=1):
@@ -594,6 +595,11 @@ def main():
             distros_present = parse_distros_field(row.get(distros_key))
 
         built = build_row(owner, repo, distros_present)
+        out_full_name = built.get("full_name", "").lower()
+        if out_full_name in seen_full_names:
+            skipped += 1
+            continue
+        seen_full_names.add(out_full_name)
         out_rows.append(built)
 
     os.makedirs(os.path.dirname(OUT_CSV), exist_ok=True)

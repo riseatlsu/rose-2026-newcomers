@@ -106,7 +106,7 @@ draw_inflow_distribution <- function() {
   inflow <- read.csv("scripts/tables/inflow.csv", check.names = FALSE)
 
   meta_cols <- c("project", "owner_type", "distribution_type")
-  week_cols <- setdiff(names(inflow), meta_cols)
+  week_cols <- tail(setdiff(names(inflow), meta_cols), 28)  # keep last 28 weeks only
   n_weeks <- length(week_cols)
   x_vals <- seq(-(n_weeks - 1), 0)
 
@@ -177,7 +177,7 @@ draw_inflow_owner <- function() {
   inflow <- read.csv("scripts/tables/inflow.csv", check.names = FALSE)
 
   meta_cols <- c("project", "owner_type", "distribution_type")
-  week_cols <- setdiff(names(inflow), meta_cols)
+  week_cols <- tail(setdiff(names(inflow), meta_cols), 28)  # keep last 28 weeks only
   n_weeks <- length(week_cols)
   x_vals <- seq(-(n_weeks - 1), 0)
 

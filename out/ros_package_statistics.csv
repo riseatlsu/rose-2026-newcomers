@@ -1,5 +1,5 @@
-distribution,total_packages,packages_on_github,not_on_github,github_percentage,unique_repositories,repos_after_exclusion,repos_exclusive_to_distro,repos_multi_distro,unique_packages_after_exclusion,repos_with_multiple_packages,pct_repos_with_multiple_packages,packages_in_multi_pkg_repos,pct_packages_in_multi_pkg_repos
-humble,2330,2075,255,89.1%,779,384,67,,,,,,
-jazzy,2111,1895,216,89.8%,716,373,10,,,,,,
-kilted,1812,1637,175,90.3%,621,326,4,,,,,,
-TOTAL,6253,5607,646,89.7%,2116,461,81,380,1615,203,46.3%,1382,85.6%
+distribution,total_packages,unique_packages,packages_on_github,not_on_github,github_percentage,unique_repositories,repos_after_exclusion,repos_exclusive_to_distro,repos_multi_distro,unique_packages_after_exclusion,repos_with_multiple_packages,pct_repos_with_multiple_packages,packages_in_multi_pkg_repos,pct_packages_in_multi_pkg_repos
+humble,2330,2330,2075,255,89.1%,779,384,67,,,,,,
+jazzy,2111,2111,1895,216,89.8%,716,373,10,,,,,,
+kilted,1812,1812,1637,175,90.3%,621,326,4,,,,,,
+TOTAL,6253,2664,5607,646,89.7%,876,461,81,380,1615,203,46.3%,1382,85.6%

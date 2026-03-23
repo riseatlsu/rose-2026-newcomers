@@ -32,16 +32,20 @@ def main():
     
     # Load unique repos per distribution
     repos_by_distro = defaultdict(int)
-    total_repos = 0
-    
+    all_unique_repo_names = set()
+
     if os.path.exists("out/repos/github_repos_unique_by_distro.csv"):
         with open("out/repos/github_repos_unique_by_distro.csv", encoding='utf-8') as f:
             reader = csv.DictReader(f)
             for row in reader:
-                distro = row.get('ros_distro', '').strip()
+                distro    = row.get('ros_distro', '').strip()
+                full_name = row.get('full_name', '').strip().lower()
                 if distro:
                     repos_by_distro[distro] += 1
-                    total_repos += 1
+                if full_name:
+                    all_unique_repo_names.add(full_name)
+
+    total_repos = len(all_unique_repo_names)  # truly unique repos across all distros
     
     # Load filtered repos by distribution
     filtered_repos_by_distro = defaultdict(int)
@@ -69,6 +73,17 @@ def main():
                 full_name = row.get('full_name', '').strip()
                 if distro and full_name in filtered_repo_names:
                     filtered_repos_by_distro[distro] += 1
+
+    # Unique packages per distro (before exclusion)
+    unique_pkgs_by_distro = defaultdict(set)
+    all_unique_pkg_names = set()
+    with open("out/mapping_packages_to_github.csv", encoding='utf-8') as f:
+        for row in csv.DictReader(f):
+            distro = row.get('ros_distro', '').strip()
+            pkg    = row.get('package', '').strip()
+            if distro and pkg:
+                unique_pkgs_by_distro[distro].add(pkg)
+                all_unique_pkg_names.add(pkg)
 
     # Count repos exclusive to each distro vs multi-distro (after exclusion)
     repos_exclusive_by_distro = defaultdict(int)
@@ -121,6 +136,7 @@ def main():
         rows_data.append({
             'distribution': distro,
             'total_packages': total,
+            'unique_packages': len(unique_pkgs_by_distro[distro]),
             'packages_on_github': github,
             'not_on_github': total - github,
             'github_percentage': f"{pct:.1f}%",
@@ -142,6 +158,7 @@ def main():
     rows_data.append({
         'distribution': 'TOTAL',
         'total_packages': total_all_packages,
+        'unique_packages': len(all_unique_pkg_names),
         'packages_on_github': total_github_packages,
         'not_on_github': total_not_github,
         'github_percentage': f"{total_pct:.1f}%",
@@ -167,7 +184,7 @@ def main():
     
     with open("out/ros_package_statistics.csv", 'w', newline='', encoding='utf-8') as f:
         fieldnames = [
-            'distribution', 'total_packages', 'packages_on_github', 'not_on_github',
+            'distribution', 'total_packages', 'unique_packages', 'packages_on_github', 'not_on_github',
             'github_percentage', 'unique_repositories', 'repos_after_exclusion',
             'repos_exclusive_to_distro', 'repos_multi_distro',
             'unique_packages_after_exclusion',
